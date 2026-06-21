@@ -1,0 +1,36 @@
+---
+title: skill-usage-protocol
+description: skill-usage-protocol — 概念說明頁面
+summary: skill-usage-protocol
+type: concept
+status: published
+priority: P2
+tags: [hermes]
+aliases: []
+created: 2026-06-10
+updated: 2026-06-10
+date: 2026-06-10
+publish: true
+draft: false
+related:
+source:
+due:
+review:
+---
+
+## Skill 使用規範 (Skill Usage Protocol)
+* 核心原則： 新建技能前必須先檢視 Obsidian Vault 中的技能清單，優先使用現有技能進行調整與修改。
+* 檢視流程： 執行任務前先調用 skills-list 技能檢查現有技能，確定無適用技能時才考慮新建。
+* 新增程序： 新建技能前必須明確詢問使用者確認，並說明新建的必要性與現有技能的不足之處。
+* 替代方案： 優先考慮修改現有技能而非新建，可提供多種調整策略供使用者選擇。
+* 記錄要求： 所有技能操作都必須在 Obsidian Vault 中留下記錄，包括技能修改原因與效果評估。
+
+## Agent 表達範例 (Agent Expression Examples)
+* 技能檢視表達：在執行任務前，我會先檢視 Obsidian Vault 中的現有技能清單，尋找最適用的技能進行調整。
+* 新建詢問表達：經檢視現有技能後，若無適用技能，我會向您說明：「我已檢視現有技能，發現 [具體不足]，建議新建技能 [名稱] 來處理此任務，請問您是否同意？」
+* 替代方案表達：「除了新建技能外，我也可以修改現有的 [技能名稱] 來滿足需求，您偏好哪種方式？」
+* 記錄更新表達：「技能操作已完成，我已在 Obsidian Vault 中記錄了修改原因：[具體原因] 和效果評估：[具體評估]。」
+
+
+## 相關節點
+- [[index]]

@@ -1,0 +1,75 @@
+---
+title: Folder Structure Rules
+summary: Folder Structure Rules：**Folder Structure Rules**
+description: 目錄結構、讀寫權限與資料夾操作規範
+type: concept
+tags: [folder, structure, rules, permissions]
+created: 2026-06-21
+updated: 2026-06-21
+---
+
+**Folder Structure Rules**
+
+新增資料夾、刪除資料夾、調整目錄結構時必須遵守。
+
+**目錄結構**
+
+```
+/ (Root)
+├── SCHEMA.md          # 規範憲法（禁止覆蓋）
+├── POLICY.md          # 規則路由器（禁止覆蓋）
+├── index.md           # 全站 MOC（禁止覆蓋）
+├── log.md             # 變更日誌
+├── wiki.md            # 圖譜導航核心
+├── raw.md             # RAG 素材快照索引
+├── .gitignore
+│
+├── _archive/          # 封存區（過時頁面）
+├── raw/               # [唯讀] Layer 1 RAG 原始素材
+│   ├── articles/
+│   ├── papers/
+│   ├── transcripts/
+│   └── assets/
+├── concepts/          # Layer 2 概念知識
+│   ├── frameworks/
+│   ├── notes/
+│   └── projects/
+├── entities/          # Layer 2 實體資料
+├── resources/         # Layer 2 資源鏈結
+├── reports/           # Layer 2 報告產出
+├── queries/           # Layer 2 查詢報告
+│   └── reports/
+├── skills/            # Agent 技能定義
+├── system/            # 系統架構文件
+├── database/          # [Git-ignored] SQLite + CSV
+├── scripts/           # Python 自動化腳本
+├── util/              # TypeScript 工具（Quartz 框架）
+├── publish/           # 草稿 → 發佈工作流
+│   └── drafts/
+├── ivan-notes/        # [Git-ignored] 唯讀，禁止任何 move/edit/delete/create
+└── temp/              # 暫存區
+```
+
+**讀寫權限**
+
+| 目錄 | 權限 | 備註 |
+|:--|:--|:--|
+| raw/ | 唯讀 | Agent 禁止修改或移動 |
+| database/ ivan-notes/ scripts/ util/ temp/ | Git-ignored | 禁止推送 |
+| Layer 2 目錄 | 讀寫 | 須取得使用者核准 |
+| SCHEMA.md POLICY.md index.md | 禁止覆蓋 | 核心憲法 |
+
+**安全規範**
+
+禁止：
+
+- 修改 raw/
+- 覆蓋 SCHEMA.md、POLICY.md、index.md
+- 刪除 database/、skills/、scripts/
+
+重大變更需取得使用者核准。
+
+**相關連結**
+
+- [[SCHEMA]]：核心憲法
+- [[POLICY]]：規則路由器

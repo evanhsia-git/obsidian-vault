@@ -1,0 +1,24 @@
+graph TD
+    %% 任務觸發階段
+    A[使用者任務輸入] --> B(SQLite 事務檢索 <br/> session_search);
+    B --> C(Memory/User 注入事實與偏好);
+    C --> D(Obsidian Wiki 導航 <br/> SCHEMA → index → log);
+    
+    %% 任務執行階段
+    D --> E{任務執行與處理};
+    
+    %% 知識沉澱與記憶寫入
+    E -->|產生對話紀錄/工具輸出| F[寫入 SQLite 事務庫];
+    E -->|歸納新知識/研究發現| G[寫入 Obsidian Wiki];
+    E -->|調整執行規範/事實修正| H[更新 Memory/Cron 狀態];
+    
+    %% 循環閉環
+    F --> I[任務沉澱完成];
+    G --> I;
+    H --> I;
+    
+    %% 樣式設定
+    style F fill:#f9f,stroke:#333,stroke-width:2px;
+    style G fill:#ccf,stroke:#333,stroke-width:2px;
+    style H fill:#ff9,stroke:#333,stroke-width:2px;
+    style D fill:#dfd,stroke:#333,stroke-width:2px;

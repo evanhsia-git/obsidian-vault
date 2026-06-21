@@ -1,0 +1,78 @@
+---
+title: 實體索引 | Entities Index
+description: 實體索引 | Entities Index — 索引頁面
+summary: 實體索引 | Entities Index
+type: index
+status: published
+priority: P2
+tags: ["entity", "index"]
+aliases: []
+created: 2026-06-08
+updated: 2026-06-16
+date: 2026-06-16
+publish: true
+draft: false
+related:
+source:
+due:
+review:
+---
+
+# 🏢 實體索引 | Entities Index
+
+> 實體工具、平台與應用程式
+
+## 💼 金融實體
+
+- [[finlab|FinLab]] — 量化研究框架
+- [[trading-agents|TradingAgents]] — 多智能體金融交易框架
+- [[blave-quant-skill|Blave Quant Skill]] — 量化技能集
+- [[etf-basic-info|ETF 基本資料]] — ETF 指標定義
+- [[financial-preferences|金融偏好設定]] — 個人化投資偏好
+- [[otc-company-profile-2026-06-02|上櫃公司概況]] — 上櫃公司基本資料
+- [[all-market-listing-profile-2026-06-02|全市場上市概況]] — 上市公司總覽
+
+## 🌐 個人部落格
+
+- [[most-blog|MOST]] — 個人化 AI 與科技趨勢資訊來源
+- [[icdyct-blog|ICDYCT (我能, 你也行)]] — 技術分享、AI 工具應用與個人學習心得
+- [[awesome-github-resources|Awesome GitHub 列表]] — 精選 Skills 與 MCP 資源彙整
+
+## 📊 分析工具
+
+- [[nav-toor-financial-analysis|Financial Analysis Prompts]] — 財務分析提示詞
+- [[wall-street-portfolio-manager|華爾街投資組合經理]] — 投資組合管理工具
+
+## 📰 新聞來源
+
+- [[daily-news-sources-rss|每日AI及科技新聞來源管理]] — AI與科技新聞來源管理
+- [[tech-sources-monitoring|科技媒體監測導航]] — 科技媒體監測策略與效果評估
+- [[daily-news-technology-example|每日AI及科技新聞輸出範例]] — 新聞輸出格式範例
+- [[daily-news-stock-market-example|每日台股新聞輸出範例]] — 台股新聞輸出格式範例
+- [[daily-news-twstock-example|台股新聞範例]] — 台股新聞範例
+- [[daily-news-usstock-example|美股新聞範例]] — 美股新聞範例
+- [[daily-news-usstock-creation|美股新聞建立紀錄]] — 美股新聞建立過程
+- [[daily-news-usstock-fix|美股新聞修復紀錄]] — 美股新聞修復過程
+
+## 📊 分析報告
+
+- [[cnn-fear-and-greed-analysis|CNN 恐懼與貪婪指數分析]] — CNN 市場情緒指標分析報告
+- [[fed-effr-analysis|Fed EFFR 分析]] — 美國聯準會聯邦基金利率分析
+- [[us-cpi-analysis|美國 CPI 分析]] — 美國消費者物價指數分析報告
+- [[us-gdp-analysis|美國 GDP 分析]] — 美國國內生產毛額分析報告
+
+## 🔧 系統工具
+
+- [[obsidian-webdav-sync-summary|Obsidian WebDAV 同步摘要]] — Obsidian 遠端同步方案整理
+
+---
+
+## 📋 快速統計
+
+| 項目 | 數值 |
+|------|------|
+| 實體總數 | 15 個 |
+| 新聞來源 | 7 個 |
+| 最後更新 | 2026-06-16 |
+
+> 查看 [[index|主索引]] 返回主頁
