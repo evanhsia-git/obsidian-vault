@@ -4,7 +4,7 @@ description: 美國消費者物價指數 (CPI) 分析報告 — 實體資料頁�
 summary: 美國消費者物價指數 (CPI) 分析報告
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -43,3 +43,8 @@ review:
 ---
 **來源**：U.S. Bureau of Labor Statistics (BLS) / Trading Economics
 **分析日期**：2026-06-14
+
+---
+## 相關節點
+- [[cnn-fear-and-greed-analysis]]
+- [[us-gdp-analysis]]

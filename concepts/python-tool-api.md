@@ -3,7 +3,7 @@ title: python-tool-api
 description: python-tool-api — 概念說明頁面
 summary: python-tool-api
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -39,6 +39,7 @@ review:
 5. 產生代碼前先驗證：
    `import xxx` 是否可成功執行。
 6. 優先使用標準 Python、`requests`、`sqlite3`、`pathlib` 等已知套件。
+- [[openrouter-free-models]]
 7. 對 Hermes Agent 相關功能，不得虛構 Python SDK。
 8. 不確定時先搜尋官方文件，再產生程式碼。
 

@@ -27,9 +27,9 @@ skills: daily-stock-news
 
 
 相關頁面：
-- [[concepts/index|概念索引]]
-- [[skills/index|技能索引]]
-- [[queries/index|查詢索引]]
+- [[concepts/concepts-index|概念索引]]
+- [[skills/skills-index|技能索引]]
+- [[queries/queries-index|查詢索引]]
 
 
 ## 相關節點

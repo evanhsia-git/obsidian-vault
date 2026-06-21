@@ -4,7 +4,7 @@ description: 美國實質 GDP 成長率分析報告 — 實體資料頁面
 summary: 美國實質 GDP 成長率分析報告
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -33,6 +33,10 @@ review:
 
 ### 2. 主要貢獻與拖累項目
 * **主要貢獻項目**：
+
+- [[us-cpi-analysis]]
+- [[fed-effr-analysis]]
+
     * **政府支出 (Government Spending)**：根據相關報導，政府活動在 2026 年初有所復甦，對 GDP 成長提供了支撐。
 * **潛在拖累因素**：
     * **消費與投資趨勢**：雖然整體成長，但若成長速度低於預期，通常反映了高利率環境對個人消費與企業投資的壓抑作用。

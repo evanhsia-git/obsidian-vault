@@ -37,16 +37,24 @@ updated: 2026-06-21
 
 **技能說明**
 
-- [[skills/daily-news-stock-market/README]]：每日股市指標技能
-- [[skills/evolution/architecture-workflow]]：架構工作流程
-- [[skills/evolution/evolution-log]]：技能演化日誌
-- [[skills/architecture-references/superpowers]]：Superpowers 架構參考
-- [[skills/blogwatcher/README]]：Blogwatcher 說明
-- [[skills/blogwatcher/news-sources]]：新聞來源清單
-- [[skills/troubleshooting/news-format-update]]：新聞推送規範修正
-- [[skills/troubleshooting/skill-archiving-sop]]：Skill 歸檔 SOP
-- [[skills/troubleshooting/hermes-evolution]]：Hermes 演化框架排錯
+- [[skills/daily-news-stock-market/readme|每日股市指標技能]]
+- [[skills/evolution/architecture-workflow|架構工作流程]]
+- [[skills/evolution/evolution-log|技能演化日誌]]
+- [[skills/architecture-references/superpowers|Superpowers 架構參考]]
+- [[skills/blogwatcher/readme|Blogwatcher 說明]]
+- [[skills/blogwatcher/news-sources|新聞來源清單]]
+- [[skills/troubleshooting/news-format-update|新聞推送規範修正]]
+- [[skills/troubleshooting/skill-archiving-sop|Skill 歸檔 SOP]]
+- [[skills/troubleshooting/hermes-evolution|Hermes 演化框架排錯]]
+- [[skills-schema|Skills Schema]] — 技能架構規範
 
 ---
 
-相關連結：[[SCHEMA]] | [[POLICY]]
+相關連結：[[schema]] | [[policy]]
+
+---
+
+## 孤立節點（自動補充）
+- [[superpowers|superpowers]] — superpowers
+- [[skill-archiving-sop|Skill 歸檔封存標準作業程序 (SOP)]] — Skill 歸檔封存標準作業程序 (SOP)：1. 備份階段 (存檔)
+- [[hermes-evolution|hermes-evolution]] — hermes-evolution

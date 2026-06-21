@@ -43,6 +43,10 @@ sources: [hermes-agent-advice]
 2. **自動化**：可透過 GitHub Actions 或腳本，自動化將 Vault 內容同步至 Quartz，再部署至選擇的平台。
 3. **安全考量**：即使是私人網站，也建議啟用 HTTPS，並定期更新憑證。
 
+
+- [[keystonejs]]
+- [[obsidian-cms]]
+
 ## 相關工具說明
 - [Quartz 官方文件](https://quartz.jzhao.xyz/)
 - [Cloudflare Zero Trust 設定指南](https://developers.cloudflare.com/zero-trust/)

@@ -3,7 +3,7 @@ title: Cloudflare Pages 運行 Decap CMS
 description: Cloudflare Pages 運行 Decap CMS — 概念說明頁面
 summary: Cloudflare Pages 運行 Decap CMS
 type: concept
-status: published
+status: active
 priority: P2
 tags: []
 aliases: []
@@ -146,3 +146,8 @@ collections:
 | GitHub API | Git Gateway | 直接 API 呼叫 |
 | 部署平台 | Netlify | Cloudflare Pages |
 | 成本 | 免費層有限制 | 免費層較寬鬆 |
+
+---
+## 相關節點
+- [[keystonejs]]
+- [[obsidian-cms]]

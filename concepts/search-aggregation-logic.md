@@ -36,3 +36,8 @@ tags: [automation, data-engineering, search, aggregation]
 2. **標準化轉換**：將結果轉換為統一的 JSON 格式。
 3. **智慧選擇規則**：例如價格取中位數，基本面數據若偏差 < 5% 則取平均值。
 4. **可靠度標註**：為每筆聚合數據標記信賴分數。
+
+---
+## 相關節點
+- [[stock-data-sources]]
+- [[unified-stock-schema]]

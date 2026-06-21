@@ -64,3 +64,8 @@ tags: [otc, company, basic-data]
 - [CSV 下載檔案 (直接連結)](https://mopsfin.twse.com.tw/opendata/t187ap03_R.csv)
 - [政府資料開放平台 – 資料集頁面](https://data.gov.tw/dataset/28568)
 - [櫃買中心 OpenAPI 文件](https://www.tpex.org.tw/openapi/)
+
+---
+## 相關節點
+- [[all-market-listing-profile-2026-06-02]]
+- [[finlab]]

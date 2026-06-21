@@ -45,3 +45,8 @@ tags: [data-source, stock-analysis, maintenance]
 
 ## 4. 維護記錄
 - 2026-06-04 | 建立統一 Schema 定義檔。
+
+---
+## 相關節點
+- [[stock-data-sources]]
+- [[quant-python-ai-agent]]

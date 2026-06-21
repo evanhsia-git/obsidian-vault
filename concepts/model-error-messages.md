@@ -27,3 +27,8 @@ sources: [Hermes Agent System]
 
 ## 維護建議
 當出現上述訊息時，系統會嘗試自我修復（如：切換 Fallback Provider）。若頻繁出現，應檢查任務執行隊列是否過於集中。
+
+---
+## 相關節點
+- [[hermes-workflow]]
+- [[agent-driven-cronjobs]]

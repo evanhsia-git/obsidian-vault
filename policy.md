@@ -1,5 +1,5 @@
 ---
-title: POLICY
+title: policy
 description: Hermes Agent 規則路由器
 summary: 根據任務類型載入對應規範
 version: "1.0"
@@ -48,24 +48,11 @@ read("system/folder-structure.md")
 
 ---
 
-# Wiki Health Check
-
-檢查圖譜健康度時：
-
-```python
-read("system/lint-rules.md")
-```
-
-適用：
-
-* 孤立節點
-* 壞連結
-* 缺少 Frontmatter
-* Index 檢查
-
----
-
 # Database Operations
+
+
+- [[schema]]
+- [[system/system-index]]
 
 資料庫相關操作前：
 

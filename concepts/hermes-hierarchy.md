@@ -3,7 +3,7 @@ title: hermes-hierarchy
 description: hermes-hierarchy — 概念說明頁面
 summary: hermes-hierarchy
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []

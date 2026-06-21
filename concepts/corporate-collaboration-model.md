@@ -3,7 +3,7 @@ title: 公司化協作模型：董事長與首席分析師
 description: 公司化協作模型：董事長與首席分析師 — 概念說明頁面
 summary: 公司化協作模型：董事長與首席分析師
 type: concept
-status: published
+status: active
 priority: P2
 tags: ["concept", "hermes"]
 aliases: []
@@ -42,5 +42,6 @@ review:
 ## 核心價值
 **「您定義戰略方向，我負責執行並將所有過程與智慧沉澱進公司的圖書館，確保每份資產皆可被重複檢索與進化。」**
 
+- [[openrouter-free-models]]
 相關頁面：相關頁面：## 相關節點
 - [[index]]

@@ -3,7 +3,7 @@ title: hermes-evolution
 description: hermes-evolution — 技能說明頁面
 summary: hermes-evolution
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -93,5 +93,6 @@ hermes-evolve --target="blogwatcher" --goal="improve_token_efficiency"
 ### 重要說明
 此功能是 **自實驗階段**，尚未正式納入每日自動化流程。如需啟用，請與主管確認並設定適當的觸發條件。
 
+- [[news-format-update]]
 ## 相關節點
 - [[index]]

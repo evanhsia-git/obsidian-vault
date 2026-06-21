@@ -3,6 +3,7 @@ name: financial-preferences
 description: 用戶針對金融分析的特定偏好與品質標準。
 category: preferences
 title: Financial-Preferences
+- [[openrouter-free-models]]
 summary: Financial-Preferences：相關頁面
 created: 2026-05-31
 updated: 2026-05-31

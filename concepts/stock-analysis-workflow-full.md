@@ -72,3 +72,8 @@ def execute_full_analysis(ticker):
 - [ ] - [ ] 確認資料來源間的 Ticker 代號格式一致（已建立 `ticker_map.json` 進行正規化）。
 - [ ] 確認最終產出文件已使用 `telegram-message-file-sender` 交付。
 - [ ] 審核報告前，確認已進行「數據品質標註」檢查。
+
+---
+## 相關節點
+- [[quant-python-ai-agent]]
+- [[stock-data-sources]]

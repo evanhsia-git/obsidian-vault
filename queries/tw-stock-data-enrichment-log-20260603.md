@@ -24,6 +24,6 @@ tags: [taiwan-stock, maintenance, data-enrichment]
 ## 優化記錄 (Skills)
 - 強化了 `tw-stock-data-enrichment` 的 script 容錯度，增加 CSV BOM 處理。
 
+- [[stock-portfolio-backtest]]
 ## 相關知識連結
 - [[concepts/twse-api-mapping|Twse Api Mapping]]
-

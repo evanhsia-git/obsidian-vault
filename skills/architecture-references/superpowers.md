@@ -3,7 +3,7 @@ title: superpowers
 description: superpowers — 技能說明頁面
 summary: superpowers
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -45,5 +45,6 @@ Superpowers 是一個代理人 (Agentic) 技能與軟體架構框架，專注於
 *參考來源: [obra/superpowers](https://github.com/obra/superpowers)*
 
 
+- [[skills/skills-index]]
 ## 相關節點
 - [[index]]

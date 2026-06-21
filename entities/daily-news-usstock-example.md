@@ -3,7 +3,7 @@ title: 每日美股新聞輸出範例
 description: 每日美股新聞輸出範例 — 實體資料頁面
 summary: 每日美股新聞輸出範例
 type: entity
-status: published
+status: active
 priority: P2
 tags: []
 aliases: []

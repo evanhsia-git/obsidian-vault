@@ -3,6 +3,7 @@ title: TELEGRAM-OUTPUT-RULES
 type: schema
 status: permanent
 summary: Telegram Bot 輸出格式規範
+tags: [telegram, output, rules, formatting]
 version: "1.0"
 created: 2026-06-21
 updated: 2026-06-21
@@ -243,3 +244,7 @@ PB：4.2
 - HTML Table
 - CSS
 - 自訂格式
+
+---
+## 相關節點
+- [[schema]]

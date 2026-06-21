@@ -42,6 +42,7 @@ Quartz 是目前 Obsidian 社群中最成熟的數位花園工具，完美支援
    - 若傾向「極致隱私」：選擇方案 B。
 3. **自動化**：透過 GitHub Actions 或自動化腳本，確保 Vault 更新後網站隨之同步。
 
+- [[openrouter-free-models]]
 ## 相關工具連結
 - [Quartz Official Site](https://quartz.jzhao.xyz/)
 - [GitHub Pages](https://pages.github.com/)

@@ -3,7 +3,7 @@ title: blogwatcher-index
 description: blogwatcher-index — 技能說明頁面
 summary: blogwatcher-index
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -44,5 +44,6 @@ Blogwatcher 是一套內建於 Hermes Agent 的終端機監控工具 (`blogwatch
 - **一致性**: 確保所有 RSS 來源統一加入 `blogwatcher-cli` 的訂閱清單，方便統一管理推送。
 
 
+- [[wall-street-portfolio-manager]]
 ## 相關節點
 - [[index]]

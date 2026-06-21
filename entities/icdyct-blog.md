@@ -3,7 +3,7 @@ title: icdyct-blog
 description: icdyct-blog — 實體資料頁面
 summary: icdyct-blog
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []

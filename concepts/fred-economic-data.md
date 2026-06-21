@@ -7,6 +7,7 @@ tools:
   - memory
   - execute_code
 title: Fred-Economic-Data
+- [[openrouter-free-models]]
 summary: Fred-Economic-Data：相關頁面
 created: 2026-05-31
 updated: 2026-05-31

@@ -167,6 +167,6 @@ sha256: <hex digest>
 ---
 
 ## 相關頁面
-- [[SCHEMA]] — 本 Wiki 的規範定義
+- [[schema]] — 本 Wiki 的規範定義
 - [[index]] — 頁面目錄
 - [[log]] — 維護日誌

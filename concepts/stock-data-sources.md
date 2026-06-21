@@ -65,6 +65,10 @@ summary: 台灣股市資料 API 來源與取得方式整理
 > > [https://mopsfin.twse.com.tw/opendata/t187ap03\_L.csv](https://mopsfin.twse.com.tw/opendata/t187ap03_L.csv)
 > > 
 > > 公開資訊觀測站 ETF  
+
+- [[quant-python-ai-agent]]
+- [[stock-analysis-workflow-full]]
+
 > > 出表日期,基金代號,基金簡稱,基金類型,基金中文名稱,基金英文名稱,標的指數/追蹤指數名稱,標的指數是否為客製化或需揭露相關資訊之指數,股票及債券投資比例說明,是否設有績效指標,績效指標中文名稱,績效指標英文名稱,是否包含國外成分股,基金統一編號,成立日期,上市日期,基金經理人,經理公司總機,經理公司地址,經理公司董事長,經理公司發言人,經理公司總經理,經理公司代理發言人,總代理人,發行單位數/轉換數,保管機構,保管機構電話,保管機構地址,備註  
 > > [https://mopsfin.twse.com.tw/opendata/t187ap47\_L.csv](https://mopsfin.twse.com.tw/opendata/t187ap47_L.csv)
 > > 

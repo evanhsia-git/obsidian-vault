@@ -39,5 +39,5 @@ updated: 2026-06-21
 
 **相關頁面**
 
-- [[SCHEMA]]：核心憲法
+- [[schema]]：核心憲法
 - [[system/folder-structure]]：目錄結構與權限

@@ -4,7 +4,7 @@ description: 美聯儲有效聯邦基金利率 (EFFR) 分析報告 — 實體資
 summary: 美聯儲有效聯邦基金利率 (EFFR) 分析報告
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -45,3 +45,8 @@ review:
 ---
 **來源**：Federal Reserve / FRED (via Web Search)
 **分析日期**：2026-06-14
+
+---
+## 相關節點
+- [[us-cpi-analysis]]
+- [[us-gdp-analysis]]

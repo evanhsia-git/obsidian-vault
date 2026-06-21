@@ -39,3 +39,8 @@ tags: [maintenance, telegram, troubleshooting]
 
 ## 3. 系統維護日誌
 - 2026-06-03：正式建立此問題排除頁面，並同步更新至 `daily-stock-news` 與所有 Cron Jobs 執行邏輯中。
+
+---
+## 相關節點
+- [[telegram-output-rules]]
+- [[hermes-workflow]]

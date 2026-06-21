@@ -2,8 +2,8 @@
 title: Quartz v5 GitHub Pages 部署
 description: Quartz v5 GitHub Pages 部署 — 系統配置頁面
 summary: Quartz v5 GitHub Pages 部署
-type: system
-status: published
+type: schema
+status: active
 priority: P2
 tags: [maintenance, setup, hermes, obsidian]
 aliases: []

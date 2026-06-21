@@ -46,4 +46,5 @@ sources: [hermes-agent-advice]
 - **後續實作**：可透過 `docker-compose` 部署 CollabMD，並設定密碼保護或零信任網路 (Zero Trust) 存取。
 
 ---
+- [[openrouter-free-models]]
 相關頁面：[[concepts/private-website-access|私人網站訪問]]

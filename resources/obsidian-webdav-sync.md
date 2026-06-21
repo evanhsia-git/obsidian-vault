@@ -82,3 +82,7 @@ Obsidian WebDAV Sync 是雙向同步插件，將 Vault 與 WebDAV 伺服器同�
 - **認證**：HTTP Basic Auth
 - **密碼檔**：`/etc/nginx/.webdavpasswd`
 - **CORS**：已啟用，支援瀏覽器客戶端
+
+---
+## 相關節點
+- [[schema]]

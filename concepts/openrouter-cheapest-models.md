@@ -26,3 +26,8 @@ tags: [ai, openrouter, pricing, llm]
 
 ---
 *註：成本計算為 $1M tokens 的平均輸入/輸出組合成本。*
+
+---
+## 相關節點
+- [[keystonejs]]
+- [[private-website-access]]

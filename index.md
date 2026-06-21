@@ -12,14 +12,16 @@ updated: 2026-06-21
 # Obsidian Vault 知識庫
 
 ## 導航
-- [[SCHEMA|核心憲法]]
-- [[POLICY|規則路由器]]
 
-## 目录
-- [[concepts/index|概念筆記]] (48 篇)
-- [[entities/index|實體資料]] (20 篇)
-- [[resources/index|資源鏈結]]
-- [[reports/index|報告]]
-- [[queries/index|查詢記錄]] (4 篇)
-- [[skills/index|技能管理]] (13 篇)
-- [[system/index|系統架構]] (4 篇)
+- [[schema|核心憲法]]
+- [[policy|規則路由器]]
+
+## 目錄
+
+- [[concepts/concepts-index|概念筆記]]
+- [[entities/entities-index|實體資料]]
+- [[resources/resources-index|資源鏈結]]
+- [[reports/reports-index|報告]]
+- [[queries/queries-index|查詢記錄]]
+- [[skills/skills-index|技能管理]]
+- [[system/system-index|系統架構]]

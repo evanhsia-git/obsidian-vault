@@ -13,6 +13,7 @@ tags: [hermes]
 
 **【聯準會維持利率不變】**：美聯儲於6月18日維持利率不變，市場持樂觀，預期將支持股市持續上漲。: https://example.com/fed-rate
 
+- [[openrouter-free-models]]
 **【科技股表現強勁】**：納斯達克指數連續五日上漲，人工智慧相關股票領漲，英偉達漲幅超過5%，成為市場領先股。: https://example.com/tech-stock
 
 **【蘋果營收創歷史新高】**：蘋果第一季營收創歷史新高，雲端業務顯著成長，股價盤後上漲。: https://example.com/apple-earnings

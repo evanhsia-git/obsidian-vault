@@ -8,7 +8,7 @@ tags: [obsidian, rules, wiki, conventions]
 ---
 
 ## 相關頁面
-- [[SCHEMA|Wiki 規範]]
+- [[schema|Wiki 規範]]
 - [[index|Wiki 索引]]
 
 

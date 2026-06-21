@@ -3,7 +3,7 @@ title: 每日新聞來源管理清單 (RSS)
 description: 每日新聞來源管理清單 (RSS) — 實體資料頁面
 summary: 每日新聞來源管理清單 (RSS)
 type: entity
-status: published
+status: active
 priority: P2
 tags: [data-source, obsidian, maintenance]
 aliases: []

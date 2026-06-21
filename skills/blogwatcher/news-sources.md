@@ -3,7 +3,7 @@ title: NEWS_SOURCES
 description: NEWS_SOURCES — 技能說明頁面
 summary: NEWS_SOURCES
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -41,5 +41,6 @@ review:
 所有監控來源請依照此清單進行 `blogwatcher` 設定。若需新增來源，請同步更新此文件，並執行 `blogwatcher-cli update` 以生效。
 
 
+- [[readme]]
 ## 相關節點
 - [[index]]

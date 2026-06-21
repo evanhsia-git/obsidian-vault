@@ -3,7 +3,7 @@ title: Skill 歸檔封存標準作業程序 (SOP)
 summary: Skill 歸檔封存標準作業程序 (SOP)：1. 備份階段 (存檔)
 created: 2026-06-03
 updated: 2026-06-03
-type: procedure
+type: task
 tags: [maintenance, skill-management, hermes-agent]
 ---
 
@@ -54,3 +54,7 @@ cronjob(action='list')
 
 ---
 *註：本流程嚴格遵守「導航 → 執行 → 沉澱」規範。執行前請確認已取得 Ivan 的結構性變更審核許可。*
+
+---
+## 相關節點
+- [[schema]]

@@ -4,7 +4,7 @@ description: FRED (Federal Reserve Economic Data) 指南 — 概念說明頁面
 summary: FRED (Federal Reserve Economic Data) 指南
 
 type: concept
-status: published
+status: active
 priority: P2
 
 tags: ["concept"]
@@ -136,3 +136,8 @@ print("\n報告已成功儲存為 fred_stock_report.csv")
 ## 四、 報告總結與下一步建議
 
 透過 FRED API，您可以輕鬆架構出一個「總經 + 股市行情」的自動化監控儀表板。這份資料最核心的價值不在於短線當沖，而在於「風控」。當您看到 STLFSI4（金融壓力）突然轉為正數，或者 T10Y2Y（利差）從倒掛開始劇烈「陡峭化」回升時，這份數據就能提早為您的股票部位發出撤退或減碼的警訊。
+
+---
+## 相關節點
+- [[us-cpi-analysis]]
+- [[us-gdp-analysis]]

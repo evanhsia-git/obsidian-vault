@@ -3,7 +3,7 @@ title: KeystoneJS
 description: KeystoneJS — 概念說明頁面
 summary: KeystoneJS
 type: concept
-status: published
+status: active
 priority: P2
 tags: []
 aliases: []
@@ -38,6 +38,10 @@ KeystoneJS 是一個功能強大的 Headless CMS 與應用程式框架，專為 
 
 * **Keystone 6**：目前的主流版本。
 * **Keystone 5**：已進入維護模式 (Maintenance Mode)，原始碼位於 [keystonejs/keystone-5](https://github.com/keystonejs/keystone-5)。
+
+
+- [[obsidian-cms]]
+- [[private-website-access]]
 
 ## 相關連結
 

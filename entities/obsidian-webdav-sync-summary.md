@@ -4,7 +4,7 @@ description: Obsidian WebDAV Sync 插件指南 — 實體資料頁面
 summary: Obsidian WebDAV Sync 插件指南
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -66,3 +66,8 @@ review:
     * **特定檔案同步**：若需同步特定設定（如 `app.json`），需在 `Filter Rules` $\rightarrow$ `Include Rules` 中手動加入路徑。
     * **完整同步**：若需同步整個設定資料夾，需從 `Exclude Rules` 中移除對 `.obsidian` 的排除規則。
 * **速率限制 (Rate Limiting)**：若遇到頻率限制錯誤，請調整插件設定中的速率控制策略 (Rate Control Strategies)。
+
+---
+## 相關節點
+- [[obsidian-webdav-sync]]
+- [[vps-config]]

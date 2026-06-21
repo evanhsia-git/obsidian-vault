@@ -106,3 +106,8 @@ Karpathy 架構的實踐者指出：每篇筆記的 summary 單行描述與一�
 1. 補 10–12 個精準缺口標籤
 2. `summary` 升格必填
 3. 系統維護類標籤（index、log、maintenance）考慮移出 tags，改為純 type 欄位控制
+
+---
+## 相關節點
+- [[llm-wiki-comparison]]
+- [[hermes-workflow]]

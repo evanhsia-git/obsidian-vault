@@ -3,7 +3,7 @@ title: Hermes Agent 核心規範與記憶
 description: Hermes Agent 核心規範與記憶 — 概念說明頁面
 summary: Hermes Agent 核心規範與記憶
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes, rules, memory, schema]
 aliases: []
@@ -48,3 +48,8 @@ review:
 
 ---
 *本頁內容依據系統當前配置自動化同步，最後更新時間：2026-06-10*
+
+---
+## 相關節點
+- [[hermes-workflow]]
+- [[agent-driven-cronjobs]]

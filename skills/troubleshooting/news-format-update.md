@@ -3,7 +3,7 @@ title: 新聞推送規範修正
 summary: 新聞推送規範修正：[2026-06-03] maintenance | 新聞推送標準格式修正
 created: 2026-06-03
 updated: 2026-06-03
-type: maintenance
+type: task
 tags: [maintenance, cronjob, news]
 ---
 
@@ -17,3 +17,7 @@ tags: [maintenance, cronjob, news]
      - 更新禁止項目清單，確保輸出極簡化。
   2. 修正 `log.md` 格式問題（補全 Frontmatter 與移除 LaTeX）。
 - **結果**：新聞推送標準化已完成，所有 Cron 定時任務將遵循此新規範。
+
+---
+## 相關節點
+- [[schema]]

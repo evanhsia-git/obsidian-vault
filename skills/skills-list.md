@@ -1,8 +1,12 @@
 ---
 name: skills-list
 title: Skills List Display
-summary: Skills List Display：相關節點
+summary: 顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。
 description: 顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。
+type: concept
+tags: [skills, list, reference]
+created: 2026-06-08
+updated: 2026-06-21
 ---
 
 # 目的

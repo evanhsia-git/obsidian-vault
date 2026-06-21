@@ -3,7 +3,7 @@ title: README
 description: README — 技能說明頁面
 summary: README
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -21,6 +21,7 @@ review:
 # Daily News Stock Market Skill 知識庫
 
 ## 概述
+- [[skills/skills-index]]
 本頁面記錄 `daily-news-stock-market` 技能的相關規格、知識與維護紀錄。
 
 ## 執行規範 (SCHEMA → index → log)

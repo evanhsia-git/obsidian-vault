@@ -3,7 +3,7 @@ title: ByteRover 記憶系統技術摘要
 description: ByteRover 記憶系統技術摘要 — 概念說明頁面
 summary: ByteRover 記憶系統技術摘要
 type: concept
-status: published
+status: active
 priority: P2
 tags: ["memory", "concept", "comparison"]
 aliases: []

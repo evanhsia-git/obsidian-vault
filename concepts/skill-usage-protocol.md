@@ -3,7 +3,7 @@ title: skill-usage-protocol
 description: skill-usage-protocol — 概念說明頁面
 summary: skill-usage-protocol
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -32,5 +32,6 @@ review:
 * 記錄更新表達：「技能操作已完成，我已在 Obsidian Vault 中記錄了修改原因：[具體原因] 和效果評估：[具體評估]。」
 
 
+- [[openrouter-free-models]]
 ## 相關節點
 - [[index]]

@@ -3,7 +3,7 @@ title: Hermes-Agent 備份系統
 description: Hermes-Agent 備份系統 — 概念說明頁面
 summary: Hermes-Agent 備份系統
 type: concept
-status: published
+status: active
 priority: P2
 tags: ["hermes", "maintenance", "concept"]
 aliases: []

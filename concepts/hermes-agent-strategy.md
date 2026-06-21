@@ -3,7 +3,7 @@ title: Hermes Agent 執行策略
 description: Hermes Agent 執行策略 — 概念說明頁面
 summary: Hermes Agent 執行策略
 type: concept
-status: published
+status: active
 priority: P2
 tags: [maintenance]
 aliases: []

@@ -3,7 +3,7 @@ title: ai-hallucination-suppression
 description: ai-hallucination-suppression — 概念說明頁面
 summary: ai-hallucination-suppression
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -29,6 +29,7 @@ review:
 * 作為專業分析師，超出專業領域問題直接說明，勿提供預測。
 
 ### 否定性約束 (Negative Constraints)
+- [[openrouter-free-models]]
 * 無相關資料時回覆『無法從給定文字中找到答案』，不得填入預測值。
 
 ### 置信度標記 (Uncertainty Labeling)

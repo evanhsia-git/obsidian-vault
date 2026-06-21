@@ -3,7 +3,7 @@ title: Agent 驅動任務 (LLM-driven Cronjob)
 description: Agent 驅動任務 (LLM-driven Cronjob) — 概念說明頁面
 summary: Agent 驅動任務 (LLM-driven Cronjob)
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes, concept, agents, cronjob]
 aliases: []
@@ -89,3 +89,8 @@ review:
 * **成本意識**：若任務可以透過單純的 Python 腳本完成，**絕對不要**使用 Agent 驅動模式。
 * **防範「假裝完成」**：對於高成本任務，建議在 Prompt 中加入「驗證步驟」（例如：要求 Agent 在完成後執行 `ls` 或 `wc -l` 來確認檔案已寫入）。
 * **防範資訊爆炸**：確保 Agent 知道何時該「保持沉默 (Silent)」，避免在無事可做時噴出大量的冗餘資訊。
+
+---
+## 相關節點
+- [[hermes-workflow]]
+- [[cron-jobs]]

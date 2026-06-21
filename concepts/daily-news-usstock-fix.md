@@ -3,7 +3,7 @@ title: daily-news-usstock-fix
 description: daily-news-usstock-fix — 概念說明頁面
 summary: daily-news-usstock-fix
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -89,6 +89,7 @@ skills: daily-news-usstock
 
 **[美聯儲政策決議]**：美聯儲維持利率不變，暗示可能在2025年降息，市場反應積極，道瓊指數創下新高：[連結](https://finance.yahoo.com/news/...)
 
+- [[openrouter-free-models]]
 **[科技股表現]**：納斯達克指數連續五日上漲，AI相關股票表現突出，英偉達漲幅超過5%，成為市場領先股：[連結](https://www.cnbc.com/...)
 
 **[美股整體結論]**：美股市場目前呈現多頭走勢，科技股表現強勁，經濟基本面支持市場上漲，投資者情緒積極。

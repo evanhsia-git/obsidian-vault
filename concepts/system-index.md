@@ -14,4 +14,4 @@ updated: 2026-06-21
 
 ---
 
-相關連結：[[concepts/index]] | [[SCHEMA]] | [[POLICY]]
+相關連結：[[concepts/concepts-index]] | [[schema]] | [[policy]]

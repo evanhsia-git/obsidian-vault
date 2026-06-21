@@ -3,7 +3,7 @@ title: Next AI Draw.io
 description: Next AI Draw.io — 概念說明頁面
 summary: Next AI Draw.io
 type: concept
-status: published
+status: active
 priority: P2
 tags: ["ai", "concept"]
 aliases: []
@@ -31,6 +31,7 @@ review:
 - **自動化教學/知識傳遞**：將複雜概念自動轉換為視覺化圖表。
 - **團隊協作與優化**：透過 AI 意見快速改善現有設計。
 
+- [[schema]]
 ## 相關連結
 - [GitHub Repository](https://github.com/DayuanJiang/next-ai-draw-io)
 

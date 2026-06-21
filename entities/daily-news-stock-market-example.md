@@ -4,7 +4,7 @@ description: 每日股市指標輸出範例 — 實體資料頁面
 summary: 每日股市指標輸出範例
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -121,3 +121,8 @@ USD/TWD 匯率: 31.51
         - USD/TWD：主行不含漲跌幅，漲跌資訊放入下方括號 `(日: 漲跌%,月: N/A)`。
         - FRED 數據：主行 `名稱: 數值`，下方附帶固定說明文字。
 - **超時**: 硬超時 120 秒
+
+---
+## 相關節點
+- [[daily-news-technology-example]]
+- [[daily-news-twstock-example]]

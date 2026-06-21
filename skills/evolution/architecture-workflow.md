@@ -3,7 +3,7 @@ title: architecture_workflow
 description: architecture_workflow — 技能說明頁面
 summary: architecture_workflow
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -67,5 +67,6 @@ hermes-evolve
 框架**沒有「自動回滾」**機制。實際行為是：演化版**通過約束才輸出供審查**（存 `output/<skill>/<timestamp>/`），未通過則存 `evolved_FAILED.md`；**無論如何都不會自動覆蓋現役 SKILL.md**。採納改進需人工 review diff 後手動合併。
 
 
+- [[evolution-log]]
 ## 相關節點
 - [[index]]

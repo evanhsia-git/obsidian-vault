@@ -3,7 +3,7 @@ title: evolution_log
 description: evolution_log — 技能說明頁面
 summary: evolution_log
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -67,6 +67,7 @@ review:
 已修正：支援 `.jsonl` 逐行解析、`.json` 分支加 `JSONDecodeError`/`isinstance` 容錯、`read_text(errors="ignore")`。修正後從 244 個 session 挖到 842 則訊息。
 
 **daily-news-twstock 演化結果**（sessiondb，5 iters, gpt-4o-mini）：
+- [[architecture-workflow]]
 - 挖掘：842 訊息 → 篩 148 候選 → LLM 評分留 17 相關範例（train 8 / val 4 / holdout 5）
 - 優化：MIPROv2 最佳分數 30.56 → 31.14
 - **Holdout: 0.312 → 0.319（+0.007, +2.2%）— 首次正向提升**

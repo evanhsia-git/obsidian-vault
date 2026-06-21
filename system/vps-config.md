@@ -2,8 +2,8 @@
 title: VPS 主機環境配置
 description: VPS 主機環境配置 — 系統配置頁面
 summary: VPS 主機環境配置
-type: system
-status: published
+type: schema
+status: active
 priority: P2
 tags: ["concept", "hermes"]
 aliases: []
@@ -45,5 +45,6 @@ review:
 ## 備註
 此主機目前負責運行 Hermes Agent 的核心邏輯、Quartz 靜態網站生成與 CollabMD 協作介面。
 
+- [[backup-rules]]
 相關頁面：相關頁面：## 相關節點
 - [[index]]

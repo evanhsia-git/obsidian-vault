@@ -3,7 +3,7 @@ title: Python in Skill Implementation
 description: Python in Skill Implementation — 概念說明頁面
 summary: Python in Skill Implementation
 type: concept
-status: published
+status: active
 priority: P2
 tags: ["hermes", "skill", "concept", "cronjob"]
 aliases: []

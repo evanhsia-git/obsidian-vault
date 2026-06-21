@@ -3,7 +3,7 @@ title: daily-news-usstock-creation
 description: daily-news-usstock-creation — 概念說明頁面
 summary: daily-news-usstock-creation
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -36,6 +36,7 @@ review:
 - **來源整合**: ✅ 完整的來源配置
 - **支援系統**: ✅ 完整的驗證腳本和模板
 
+- [[openrouter-free-models]]
 ### 相關檔案
 - **技能文件**: `/root/.hermes/skills/devops/daily-news-usstock/SKILL.md`
 - **參考資料**: `/root/.hermes/skills/devops/daily-news-usstock/references/news-sources-management.md`

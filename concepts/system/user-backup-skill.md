@@ -18,3 +18,7 @@ updated: 2026-06-21
 ## 🚀 執行流程（Workflow）
 
 ### 階段零：Obsidian Lint 檢查
+
+---
+## 相關節點
+- [[schema]]

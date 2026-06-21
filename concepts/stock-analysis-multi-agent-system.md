@@ -43,3 +43,8 @@ graph TD
 - **語言**：全繁體中文介面與代碼註解。
 - **錯誤處理**：若 Skill 1 資料抓取失敗，必須在 Skill 2 中加入重試 (Retry) 邏輯。
 - **檔案處理**：所有數據傳遞嚴禁使用 Telegram API `MEDIA` 參數，一律透過 `telegram-message-file-sender`。
+
+---
+## 相關節點
+- [[stock-analysis-system-guide]]
+- [[stock-analysis-workflow-full]]

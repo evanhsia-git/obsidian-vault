@@ -3,7 +3,7 @@ title: index
 description: index — 索引頁面
 summary: index
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []

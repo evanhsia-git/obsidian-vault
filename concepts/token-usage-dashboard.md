@@ -3,7 +3,7 @@ title: token-usage-dashboard
 description: token-usage-dashboard — 概念說明頁面
 summary: token-usage-dashboard
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -46,6 +46,7 @@ review:
 - **安全性**：內建 Secret code 密碼驗證。
 - **部署方式**：須於 VPS 自行部署，並非現成的第三方託管服務。
 
+- [[openrouter-free-models]]
 ## 相關操作
 - **每日 Token 成本報告檢查** (Job ID: `9c6ea63c1e5d`)：於每日 08:00 自動執行，若當日累計 Token 成本超過 $5.00 USD 閾值，系統將自動發送警戒通知。
 

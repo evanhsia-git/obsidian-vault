@@ -3,7 +3,7 @@ title: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0
 description: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0 — 概念說明頁面
 summary: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0
 type: concept
-status: published
+status: active
 priority: P2
 tags: []
 aliases: []
@@ -173,3 +173,8 @@ domains:
 5. 是否可建立新技能？
 
 **若符合條件，應更新 `MEMORY.md` 或 `SELF_EVOLUTION.md`。**
+
+---
+## 相關節點
+- [[agent-driven-cronjobs]]
+- [[cron-jobs]]

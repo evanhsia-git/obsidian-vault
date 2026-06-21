@@ -3,7 +3,7 @@ title: hermes-system-backup-optimization
 description: hermes-system-backup-optimization — 概念說明頁面
 summary: hermes-system-backup-optimization
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -41,5 +41,6 @@ review:
 - 狀態: 已啟動，下次執行 2026-06-09T08:00:00+08:00
 
 
+- [[openrouter-free-models]]
 ## 相關節點
 - [[index]]

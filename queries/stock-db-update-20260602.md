@@ -22,3 +22,7 @@ tags: [taiwan-stock, sqlite, maintenance]
 
 ## 後續優化建議
 - 針對 PE 缺失標的，將啟動 YFinance Patch 補齊。
+
+---
+## 相關節點
+- [[schema]]

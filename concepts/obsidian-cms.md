@@ -2,8 +2,8 @@
 title: Obsidian 雲端托管與發布平台比較
 description: Obsidian 雲端托管與發布平台比較 — 比較分析頁面
 summary: Obsidian 雲端托管與發布平台比較
-type: comparison
-status: published
+type: concept
+status: active
 priority: P2
 tags: [obsidian, comparison]
 aliases: []
@@ -47,3 +47,8 @@ review:
 | **── 部落格 ／ CMS 型 ──** | | | | | | | | | | | | | | |
 | [Ghost](https://ghost.org) | 部落格 CMS | MIT | 自架免費 (Ghost Pro 起 $36/月) | $36/月起 | ✅ | ❌ | ❌ | ❌ | ⚠️ | ✅ | ✅ | ⚠️ | ✅ | 低中 |
 | [Wiki.js](https://js.wiki) | Wiki 平台 | AGPL-3.0 | 完全免費 (需自架) | N/A | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | ✅ | ✅ | ✅ | ✅ | 中 |
+
+---
+## 相關節點
+- [[keystonejs]]
+- [[private-website-access]]

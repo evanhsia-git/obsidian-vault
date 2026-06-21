@@ -4,7 +4,7 @@ description: CNN Fear and Greed Index 分析報告 — 實體資料頁面
 summary: CNN Fear and Greed Index 分析報告
 
 type: entity
-status: published
+status: active
 priority: P2
 
 tags: ["entity"]
@@ -48,3 +48,8 @@ review:
 ---
 **來源**：CNN Fear & Greed Index (via Web Search)
 **分析日期**：2026-06-14
+
+---
+## 相關節點
+- [[us-cpi-analysis]]
+- [[fed-effr-analysis]]

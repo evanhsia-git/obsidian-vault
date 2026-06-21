@@ -3,7 +3,7 @@ title: 每日台股新聞輸出範例
 description: 每日台股新聞輸出範例 — 實體資料頁面
 summary: 每日台股新聞輸出範例
 type: entity
-status: published
+status: active
 priority: P2
 tags: ["taiwan-stock"]
 aliases: []
@@ -81,6 +81,7 @@ skills: daily-news-twstock
 - **RSS 來源**: 純台股（Yahoo 台股、鉅亨網），無 blogwatcher-cli、無美股
 - **超時**: 硬超時 180 秒、軟超時 120 秒
 
+- [[cnn-fear-and-greed-analysis]]
 ## 相關連結
 - [[daily-news-sources-rss|每日新聞來源管理清單]]
 - [[daily-news-twstock-example|每日台股新聞推送規範（技能）]]

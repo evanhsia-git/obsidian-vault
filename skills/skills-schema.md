@@ -1,9 +1,9 @@
 ---
-title: SCHEMA
+title: schema
 description: SCHEMA — 知識庫頁面
 summary: SCHEMA
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -21,6 +21,7 @@ review:
 # Skill 管理與知識沉澱 SCHEMA
 
 ## 1. 核心規範
+- [[schema]]
 所有與 Hermes 技能（Skills）相關的報告、知識庫、作業過程、修正紀錄與執行結果，必須統一沉澱至：
 `/root/Documents/Obsidian Vault/skills/`
 

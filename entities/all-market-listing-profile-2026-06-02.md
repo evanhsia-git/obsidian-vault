@@ -27,6 +27,10 @@ tags: [stock-market, listing, twse, data-source]
 | 狀態 | 交易中、已脫市 |
 
 ## 資料下載方式
+
+- [[otc-company-profile-2026-06-02]]
+- [[finlab]]
+
 - **TWSE Open Data 專區**：請參考 [TWSE Open Data](https://openapi.twse.com.tw/) 瀏覽相關 API 端點。
 - **MOPS 網站**：登入 MOPS 會員後，可於「資料下載」處下載相關彙總表。
 - **自動化下載**：可使用 `twse-stock-data` 技能中的 OpenBB 或 TWSE OpenAPI 端點獲取數據。

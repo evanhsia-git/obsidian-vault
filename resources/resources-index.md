@@ -14,4 +14,4 @@ updated: 2026-06-21
 
 ---
 
-相關連結：[[SCHEMA]] | [[POLICY]]
+相關連結：[[schema]] | [[policy]]

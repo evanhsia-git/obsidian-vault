@@ -3,7 +3,7 @@ title: README
 description: README — 技能說明頁面
 summary: README
 type: concept
-status: published
+status: active
 priority: P2
 tags: [hermes]
 aliases: []
@@ -35,6 +35,7 @@ Blogwatcher 是一款 Hermes Agent 內建的終端機監控工具 (blogwatcher-c
 1. **導航**: 定期檢查 `skills/blogwatcher/` 下的監控清單與執行日誌。
 2. **提取**: 使用 `blogwatcher-cli` 監控指定 Feed，自動抓取變更內容。
 3. **執行**: 處理變更內容並依照新聞格式轉譯 (標準化輸出)。
+- [[news-sources]]
 4. **沉澱**: 將整理後的新聞更新至 Obsidian Vault 的 `log/market-reports/` 或相關目錄。
 
 

@@ -64,3 +64,8 @@ def run_analysis(ticker):
 - **狀態傳遞**：由於每個 Agent 環境隔離，數據均透過 `context` 參數傳遞，務必確保數據字典格式統一 (建議使用 JSON)。
 - **交付規範**：最終產出文件（PDF/HTML）一律透過 `telegram-message-file-sender` 技能發送，嚴禁使用 `MEDIA` 參數。
 - **維護規範**：每次架構層級變更或邏輯更新，須同步更新本頁面的 Mermaid 流程圖。
+
+---
+## 相關節點
+- [[stock-analysis-workflow-full]]
+- [[quant-python-ai-agent]]

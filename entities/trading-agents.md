@@ -25,6 +25,7 @@ TradingAgents 是一個多智能體 (Multi-agent) LLM 金融交易框架，模�
 ## 資源連結
 - [TradingAgents 文件](https://www.zdoc.app/zh/TauricResearch/TradingAgents)
 
+- [[cnn-fear-and-greed-analysis]]
 ## 相關概念
 - [[concepts/manus-use-cases|Manus 精選案例與實際應用]]
 - 

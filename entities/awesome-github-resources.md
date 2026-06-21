@@ -3,7 +3,7 @@ title: Awesome GitHub 列表
 description: Awesome GitHub 列表 — 實體資料頁面
 summary: Awesome GitHub 列表
 type: entity
-status: published
+status: active
 priority: P2
 tags: ["hermes", "concept"]
 aliases: []

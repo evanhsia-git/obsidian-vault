@@ -11,6 +11,10 @@ tags: [quant-trading, ai-agent, financial-research]
 
 ## 概述
 
+
+- [[stock-data-sources]]
+- [[stock-analysis-workflow-full]]
+
 「量化投資研究 AI Agent」是一個專為量化投資領域設計的 AI Agent，其核心功能在於自動化地執行多項與金融市場分析相關的任務。
 
 ## 核心功能

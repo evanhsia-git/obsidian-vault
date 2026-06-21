@@ -1,5 +1,5 @@
 ---
-title: SCHEMA
+title: schema
 description: Hermes Agent 核心憲法
 summary: Obsidian Wiki、Wiki-LLM、Hermes Agent 核心規範
 version: "3.2"
@@ -22,7 +22,7 @@ updated: 2026-06-21
 - 安全規則
 - Agent 行為
 
-詳細規範由 POLICY.md 路由管理。
+詳細規範由 policy.md 路由管理。
 
 ---
 
@@ -45,8 +45,8 @@ updated: 2026-06-21
 首次任務：
 
 ```python
-read("SCHEMA.md")
-read("POLICY.md")
+read("schema.md")
+read("policy.md")
 read("index.md")
 read("log.md", last=30)
 ```
@@ -54,8 +54,8 @@ read("log.md", last=30)
 完成後：
 
 ```text
-[1/4] SCHEMA ✓
-[2/4] POLICY ✓
+[1/4] schema ✓
+[2/4] policy ✓
 [3/4] INDEX ✓
 [4/4] LOG ✓
 ```
@@ -66,14 +66,17 @@ read("log.md", last=30)
 
 # Cache Strategy
 
-後續任務：
+後續任務使用快取。
 
-使用快取。
+快取內容：
+- schema.md（結構定義）
+- policy.md（規則路由）
+- index.md（頁面索引）
+- 各目錄 index.md（局部索引）
 
 重新載入條件：
-
-- SCHEMA 更新
-- POLICY 更新
+- schema.md 更新
+- policy.md 更新
 - 結構變更
 - 使用者要求
 
@@ -180,22 +183,22 @@ raw/
 
 ## Layer 2
 
-```text
+```
 concepts/
 entities/
-resources/
-reports/
 queries/
+reports/
+resources/
+skills/
+system/
 ```
 
 用途：
 - 結構化知識
 - 知識圖譜
 - Agent 工作區
-
 權限：
-```text
-可讀可寫
+
 ```
 可讀可寫
 ```
@@ -216,7 +219,7 @@ queries/
 
 # Rule Loading
 
-詳細規範由 POLICY.md 管理。
+詳細規範由 policy.md 管理。
 
 禁止：
 
@@ -227,9 +230,9 @@ queries/
 
 規則唯一來源：
 
-```text
-SCHEMA.md
-POLICY.md
+```
+schema.md
+policy.md
 system/*
 ```
 
@@ -242,8 +245,8 @@ system/*
 - 新增資料夾
 - 刪除資料夾
 - 重新命名資料夾
-- 修改 SCHEMA
-- 修改 POLICY
+- 修改 schema
+- 修改 policy
 - 修改 index
 
 流程：
@@ -275,18 +278,17 @@ rm -rf
 
 禁止修改：
 
-```text
+```
 raw/
-SCHEMA.md
-POLICY.md
+schema.md
+policy.md
 ```
 
 禁止刪除：
 
-```text
+```
 database/
 skills/
-scripts/
 system/
 ```
 
@@ -320,13 +322,27 @@ Awaiting user decision.
 
 ---
 
-# Priority
+# Page Size Limits
 
-```text
-P0 錯誤修復
-P1 使用者任務
-P2 補全連結
-P3 維護建議
+**query**：> 200 行建議拆分（需使用者同意）
+
+**task**：> 100 行建議升格為 project（需使用者同意）
+
+**concept / entity / resource**：> 200 行建議拆分（需使用者同意）
+
+**report / project**：> 300 行建議拆分（需使用者同意）
+
+**index / schema**：不設上限，Agent 使用 offset 讀取
+
+**log**：不設硬上限，Agent 使用 offset=-30 讀尾部，頁面總長度對 Agent 無影響
+
+拆分原則：提交方案供使用者核准後執行，不得自行拆分。
+
+## Log Rotation
+
+log.md 每 300 條輪轉封存為 log-YYYY.md。
+
+封存後 log.md 只保留最新 300 條，舊資料移至 log-YYYY.md（按年份）。
 ```
 
 ---
@@ -340,6 +356,6 @@ P3 維護建議
 5. 不產生孤立節點
 6. 不修改 Layer 1 原始資料
 7. 重大變更必須取得使用者核准
-8. 遵循 POLICY 路由規範
-9. 遵循 system/* 詳細規範
+8. 遵循 policy 路由規範
+9. 遵循 skill 詳細規範
 10. 保持知識庫一致性與可維護性

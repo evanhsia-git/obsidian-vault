@@ -58,5 +58,6 @@ updated: 2026-06-21
 ## 教訓
 2026-06-21：未導航直接執行任務 → 安全規範未載入 → 操作失控 → 檔案遺失。
 
+- [[openrouter-free-models]]
 ## 相關頁面
 - [[safe-file-operations|安全檔案操作規範]]
