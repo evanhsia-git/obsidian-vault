@@ -22,6 +22,7 @@ updated: 2026-06-21
 - [[entities/entities-index|實體資料]]
 - [[resources/resources-index|資源鏈結]]
 - [[reports/reports-index|報告]]
+- [[reports/quartz-migration-20260622|Quartz 遷移記錄]]
 - [[queries/queries-index|查詢記錄]]
 - [[skills/skills-index|技能管理]]
 - [[system/system-index|系統架構]]

@@ -171,6 +171,25 @@ updated: 2026-06-21
 ## [2026-06-21 15:55:24] lint | 孤立頁2
 ## [2026-06-21 16:21:22] lint | via
 ## [2026-06-21 16:23:21] lint | 全部通過
+## [2026-06-22 06:17] fix | Quartz YAML frontmatter 修復
+- **原因**：GitHub Actions build 失敗，4 個檔案 frontmatter 含 wikilink、1 個檔案 summary 含特殊字元未加 quote
+- **動作**：
+  - financial-preferences.md、fred-economic-data.md、nvidia-build-safety-models.md、sp500-components.md：將 `- [[openrouter-free-models]]` 從 frontmatter 移至 body
+  - 2026-06-01-daily-task-summary.md：用 double quote 包裹 summary 值
+  - karpathy-llm-wiki-gist.md：補上缺少的 summary
+- **結果**：GitHub Actions 重新觸發中
+
+## [2026-06-22 04:14] migrate | Quartz content symlink → 實體資料夾
+- **原因**：Quartz/content 為 symlink 指向 Vault，git 不追蹤內建檔案，Vault 變更無法觸發 GitHub Pages 更新
+- **動作**：
+  - 備份 symlink → content_symlink_20260622
+  - 建立實體 content/ 資料夾
+  - rsync Vault → Quartz/content（排除 .git/.obsidian/publish/ivan-notes）
+  - 驗證 141 個 markdown 檔案數量一致
+  - .gitignore 加入 content_symlink_*
+- **結果**：147 files changed, 10458 insertions → push 成功（00f0dc8）
+
 ## [2026-06-21 16:31:18] lint | via
 ## [2026-06-21 21:00:16] lint | via
 ## [2026-06-22 00:33:06] lint | via
+## [2026-06-22 21:00:42] lint | via

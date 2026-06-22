@@ -359,6 +359,37 @@ category:
 
 ---
 
+# Wikilink Placement
+
+[[Wikilinks]] 必須放在正文區域。
+
+禁止：
+
+```yaml
+related:
+  - [[page-name]]
+  - [[another-page]]
+```
+
+原因：
+
+```text
+1. YAML 解析錯誤：[[ ]] 在 YAML 中可能導致 parse failure
+2. 維護一致性：Frontmatter 僅存放結構化資料
+3. 工具相容性：部分 SSG/Static Site Generator 不支援 frontmatter wikilinks
+```
+
+規則：
+
+```text
+Frontmatter 允許型別：string, number, boolean, array, object
+Frontmatter 禁止型別：wikilink, markdown syntax, HTML tag
+```
+
+所有 [[wikilinks]] 必須放在 --- 之後的正文區域。
+
+---
+
 # Naming Rules
 
 Frontmatter 不允許：

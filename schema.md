@@ -347,6 +347,67 @@ log.md 每 300 條輪轉封存為 log-YYYY.md。
 
 ---
 
+# Frontmatter Safety
+
+## 問題類型
+
+### 1. Wikilink 在 frontmatter 內
+
+**錯誤**：
+```yaml
+title: My-Page
+- [[openrouter-free-models]]
+```
+
+**原因**：`- [[...]]` 無 key，且 `[[` 在 YAML 中可能導致 parse failure。
+
+**規則**：
+- frontmatter 內禁止 `[[wikilink]]`
+- frontmatter 內禁止 markdown 語法（`**bold**`、`` `code` ``、`[link](url)`）
+- frontmatter 僅允許：string、number、boolean、array、object
+- 所有 wikilink 必須放在 `---` 之後的正文區域
+
+**修正**：將 wikilink 移至 body，補上合法的 key 或刪除。
+
+---
+
+### 2. Summary 值含特殊字元未加 quote
+
+**錯誤**：
+```yaml
+summary: 2026-06-01 Summary：- Executed `skill-name`: completed task
+```
+
+**原因**：`：`（full-width colon）後接空格被 YAML parser 解讀為 key-value separator；`` ` `` 和 `:` 也會導致解析失敗。
+
+**規則**：
+- `summary` 值含以下字元時必須用 double quote 包裹：`:`、`#`、`[`、`]`、`{`、`}`、`` ` ``、`|`、`>`、`!`、`%`、`@`、`&`、`*`
+- 最佳實踐：**所有 summary 值一律用 double quote 包裹**
+
+**修正**：
+```yaml
+summary: "2026-06-01 Summary - Executed skill-name, completed task"
+```
+
+---
+
+### 3. Frontmatter 缺少 key 的 list item
+
+**錯誤**：
+```yaml
+title: My-Page
+- [[page-a]]
+- [[page-b]]
+```
+
+**原因**：YAML list item 必須有 key（`related: - page-a`），不能直接在頂層。
+
+**規則**：
+- frontmatter 所有項目必須有 key
+- 關聯頁面使用 `related` key，放在 body 而非 frontmatter
+
+---
+
 # Constitution
 
 1. 保護資料優先於完成任務

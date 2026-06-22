@@ -7,8 +7,7 @@ tools:
   - memory
   - execute_code
 title: Sp500-Components
-- [[openrouter-free-models]]
-summary: Sp500-Components：相關頁面
+summary: S&P 500 成分股列表與資料取得方式
 created: 2026-05-31
 updated: 2026-05-31
 type: concept

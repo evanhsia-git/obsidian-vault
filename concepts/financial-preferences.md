@@ -3,8 +3,7 @@ name: financial-preferences
 description: 用戶針對金融分析的特定偏好與品質標準。
 category: preferences
 title: Financial-Preferences
-- [[openrouter-free-models]]
-summary: Financial-Preferences：相關頁面
+summary: 用戶金融分析偏好與品質標準規範
 created: 2026-05-31
 updated: 2026-05-31
 type: concept
@@ -12,7 +11,8 @@ tags: []
 ---
 
 ## 相關頁面
-- - [[concepts/stock-automation-config|股票自動化配置]]
+- [[openrouter-free-models]]
+- [[concepts/stock-automation-config|股票自動化配置]]
 
 # 金融分析偏好規範 (Financial Preferences)
 

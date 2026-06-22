@@ -1,7 +1,6 @@
 ---
 title: NVIDIA Build 內容安全模型
-- [[openrouter-free-models]]
-summary: NVIDIA Build 內容安全模型：相關頁面
+summary: NVIDIA Build API 內容安全與過濾模型使用指南
 created: 2026-06-01
 updated: 2026-06-01
 type: concept

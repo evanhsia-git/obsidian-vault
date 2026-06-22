@@ -1,6 +1,6 @@
 ---
 title: 2026-06-01 Daily Task Summary
-summary: 2026-06-01 Daily Task Summary：- Executed `hermes-system-backup` skill: completed backup of Hermes configuratio
+summary: "2026-06-01 Daily Task Summary - Executed hermes-system-backup skill, completed backup of Hermes configuration and reports to GitHub (12 files updated)"
 created: 2026-06-01
 updated: 2026-06-01
 type: log
