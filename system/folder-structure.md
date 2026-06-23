@@ -1,6 +1,6 @@
 ---
 title: Folder Structure Rules
-summary: Folder Structure Rules：**Folder Structure Rules**
+summary: "Folder Structure Rules - 目錄結構與讀寫權限規範"
 description: 目錄結構、讀寫權限與資料夾操作規範
 type: concept
 tags: [folder, structure, rules, permissions]

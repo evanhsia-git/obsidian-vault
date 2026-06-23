@@ -1,6 +1,6 @@
 ---
 title: Backup Rules
-summary: Backup Rules：**Backup Rules**
+summary: "Backup Rules - 備份、同步與還原規範"
 description: 備份、同步與還原規範
 type: concept
 tags: [backup, sync, rules, git]

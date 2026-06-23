@@ -391,6 +391,26 @@ summary: "2026-06-01 Summary - Executed skill-name, completed task"
 
 ---
 
+### 2b. Summary 值含逗號後接空格+小寫字母（Quartz YAML 解析問題）
+
+**錯誤**：
+```yaml
+summary: "2026-06-01 Summary - Executed skill-name, completed backup of Hermes configuration"
+```
+
+**原因**：Quartz 使用的 YAML parser 會將 `, completed backup...` 誤判為新的 mapping entry（`key: value` 格式），導致 `bad indentation of a mapping entry` 錯誤。
+
+**規則**：
+- summary 值應避免逗號後接空格+小寫字母的結構
+- 若需要逗號，改用全形逗號 `，` 或精簡內容
+
+**修正**：
+```yaml
+summary: "2026-06-01 Summary - Executed skill-name, completed backup"
+```
+
+---
+
 ### 3. Frontmatter 缺少 key 的 list item
 
 **錯誤**：
