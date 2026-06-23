@@ -30,12 +30,3 @@ updated: 2026-06-21
 ---
 
 相關連結：[[schema]] | [[policy]]
-
----
-
-## 孤立節點（自動補充）
-- [[folder-structure|Folder Structure Rules]] — Folder Structure Rules：**Folder Structure Rules**
-- [[database-rules|Database Rules]] — Database Rules：**Database Rules**
-- [[quartz-v5-deployment|Quartz v5 GitHub Pages 部署]] — Quartz v5 GitHub Pages 部署
-- [[quartz-rules|Quartz Rules]] — Quartz Rules：**Quartz Rules**
-- [[frontmatter-rules|FRONTMATTER-RULES]] — Obsidian Frontmatter 規範

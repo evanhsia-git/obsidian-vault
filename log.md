@@ -6,35 +6,101 @@ type: log
 status: active
 tags: [system, log]
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-23
 ---
 
 # Obsidian Vault 維護日誌
 
-## [2026-06-21] fix | Lint 全面修復
-- **原因**：SCHEMA v3.1 升級後，大量舊格式 frontmatter、壞連結、孤立節點需要修復
-- **動作**：
-  - index.md 更新：移除 comparisons、修正 queries/reports、補上 POLICY
-  - 建立 resources/index.md、reports/index.md
-  - log.md 壞連結修復（移除 [[wiki]]）
-  - system/ 子檔案 frontmatter 修正（補 tags/summary）
-  - 3 個無 frontmatter 檔案補齊（hermes-agent-rules, user-backup-skill, rss-test-report）
-  - 66 個缺 summary 檔案自動批次補齊
-  - system/index.md 更新（6 子檔案入站）
-  - skills/index.md 更新（10 子檔案入站）
-  - 110 個壞連結批次修復（55 個檔案）
-  - concepts/index.md 全面更新（48 概念重新分類）
-  - 孤立節點從 29 降至 0（補上 concepts/system/index、reports/index、system/index、skills/index）
-- **結果**：index 完整、壞連結從 146 降至 0、孤立節點歸零
+## [2026-06-23 14:28:29] lint | 全部通過
+- **原因**：定期巡檢
+- **結果**：孤立節點 0/144、大型頁面 0、壞連結 0、Frontmatter 缺失 0
 
-## [2026-06-21] fix | 壞連結清零
-- **原因**：log.md 和 index.md 中仍有殘留壞連結
-- **動作**：
-  - index.md 移除 [[raw]]（raw.md 不存在）
-  - concepts/safe-file-operations.md 移除 [[skills/safe-file-operations]]（skills 下無此檔案）
-- **結果**：壞連結從 3 降至 0
+## [2026-06-23 14:22:02] lint | 全部通過
+- **原因**：定期巡檢
+- **結果**：孤立節點 0/144、大型頁面 0、壞連結 0、Frontmatter 缺失 0
 
-## [2026-06-21] create | system/ 子檔案建立（6 個）
+## [2026-06-23 14:03:38] lint | 3 large_pages
+- **原因**：定期巡檢
+- **結果**：發現 3 個大型頁面（manus-use-cases、stock-data-sources、hermes-agent-backup），已拆分處理
+
+## [2026-06-23 02:38:48] lint | 3 large_pages
+- **原因**：定期巡檢
+- **結果**：同上，待處理
+
+## [2026-06-23 02:37:36] lint | 3 large_pages | 1 unsafe_summary
+- **原因**：定期巡檢
+- **結果**：發現大型頁面和 unsafe summary
+
+## [2026-06-23 01:18:11] lint | 3 large_pages
+## [2026-06-23 01:17:05] lint | 3 large_pages | 1 unsafe_summary
+## [2026-06-23 01:16:07] lint | 6 missing_fields | 3 large_pages | 6 unsafe_summary
+## [2026-06-23 01:01:36] lint | 6 missing_fields | 3 invalid_type | 3 invalid_status | 3 large_pages | 2 weak_hubs | 9 unsafe_summary
+## [2026-06-23 01:00:35] lint | 6 missing_fields | 3 invalid_type | 3 invalid_status | 3 large_pages | 2 weak_hubs | 9 unsafe_summary
+
+## [2026-06-22 04:14] migrate | Quartz content symlink → 實體資料夾
+- **原因**：Quartz/content 為 symlink 指向 Vault，git 不追蹤內建檔案，Vault 變更無法觸發 GitHub Pages 更新
+- **動作**：
+  - 備份 symlink → content_symlink_20260622
+  - 建立實體 content/ 資料夾
+  - rsync Vault → Quartz/content（排除 .git/.obsidian/publish/ivan-notes）
+  - 驗證 141 個 markdown 檔案數量一致
+  - .gitignore 加入 content_symlink_*
+- **結果**：147 files changed, 10458 insertions → push 成功（00f0dc8）
+
+## [2026-06-22 06:17] fix | Quartz YAML frontmatter 修復
+- **原因**：GitHub Actions build 失敗，4 個檔案 frontmatter 含 wikilink、1 個檔案 summary 含特殊字元未加 quote
+- **動作**：
+  - financial-preferences.md、fred-economic-data.md、nvidia-build-safety-models.md、sp500-components.md：將 `- [[openrouter-free-models]]` 從 frontmatter 移至 body
+  - 2026-06-01-daily-task-summary.md：用 double quote 包裹 summary 值
+  - karpathy-llm-wiki-gist.md：補上缺少的 summary
+- **結果**：GitHub Actions 重新觸發成功
+
+## [2026-06-21 16:23:21] lint | 全部通過
+## [2026-06-21 15:55:24] lint | 孤立頁2
+## [2026-06-21 15:41:54] lint | 孤立頁2
+## [2026-06-21 15:32:06] lint | 缺失欄位8, 孤立頁2
+## [2026-06-21 15:30:53] lint | 缺失欄位8, 孤立頁8
+## [2026-06-21 15:23:50] lint | 缺失欄位8, 無效type6, 無效status57, 孤立頁26
+
+## [2026-06-21 11:30] create | WebDAV Sync 資源頁面
+- **原因**：整理 Obsidian WebDAV Sync 插件設定資訊
+- **動作**：
+  - 建立 `resources/obsidian-webdav-sync.md`
+  - 更新 `resources/index.md`
+- **結果**：資源索引 1 篇，WebDAV 設定資訊已記錄
+
+## [2026-06-21 11:01:43] lint | 缺失欄位4, 無效type47, 標籤違規354, 孤立頁4
+
+## [2026-06-21] fix | 恢復 SCHEMA.md version 2.1
+- **原因**：merge conflict 導致 SCHEMA.md 內容錯誤
+- **動作**：從 git commit `6c76e61`（schema 2.1 alignment）回復正確版本
+- **結果**：SCHEMA.md 恢復為 version 2.1，336 行完整規範
+
+## [2026-06-21] fix | 修復 user-backup.sh backup_repo 函數
+- **原因**：push 失敗時 pull rebase 會卡住，導致後續操作全部失敗
+- **動作**：修改 backup_repo 函數，pull rebase 失敗時自動 abort，然後 force push 以本機覆蓋遠端
+- **結果**：備份流程不再因 rebase 衝突而卡住
+- **原則**：GitHub 是備份區，VPS 本機是主資料，任何同步都以本機為準
+
+## [2026-06-21] fix | 修復損壞連結與孤立頁面
+- **原因**：Lint 報告 66 處損壞連結、14 個孤立頁面
+- **動作**：
+  1. 移除 43 個檔案中的無效連結
+  2. 修正 9 處斷裂連結
+  3. 移除不存在頁面連結
+  4. 將 14 個孤立頁面加入對應 index.md
+  5. 修復 index.md 和 log.md 的 Git merge conflict
+- **結果**：損壞連結從 66 降至 ~10，孤立頁面從 14 降至 0
+
+## [2026-06-21] fix | 修復 concepts/index.md 重複標題與殘留行號
+- **原因**：💼 金融分析標題重複 3 次，第三次區塊歸類錯誤
+- **動作**：刪除重複標題、將錯誤歸類項目移入系統架構區、清除殘留行號、補回 agent-driven-cronjobs
+- **結果**：金融分析僅保留正確 6 項，統計表修正並跨年級統計
+
+## [2026-06-21] create | 新增 Cron 架構角色分工概念頁
+- **原因**：釐清 Skills、Python 腳本、no_agent 三者在每日台股 cron 中的角色
+- **動作**：建立 `concepts/cron-architecture-roles.md`，更新 `concepts/index.md` 與主 `index.md`
+- **結果**：新增 1 概念頁
 
 ## [2026-06-21] create | system/ 子檔案建立（6 個）
 - **原因**：POLICY.md 規則路由器需要對應的 system/ 規範檔案
@@ -103,109 +169,26 @@ updated: 2026-06-21
 - **動作**：Type Pool 更新為 10 個 type（entity, concept, project, resource, report, query, index, log, schema, task），移除 comparison 與 navigation，加入 project/resource/report/task，設定上限 10 個禁止再新增
 - **結果**：Type Pool 定稿 10 個，Page Types 規範同步更新
 
-## [2026-06-21] create | 新增 Cron 架構角色分工概念頁
-- **原因**：釐清 Skills、Python 腳本、no_agent 三者在每日台股 cron 中的角色
-- **動作**：建立 `concepts/cron-architecture-roles.md`，更新 `concepts/index.md` 與主 `index.md`
-- **結果**：新增 1 概念頁
-
-## [2026-06-21] fix | 修復 concepts/index.md 重複標題與殘留行號
-- **原因**：💼 金融分析標題重複 3 次，第三次區塊歸類錯誤
-- **動作**：刪除重複標題、將錯誤歸類項目移入系統架構區、清除殘留行號、補回 agent-driven-cronjobs
-- **結果**：金融分析僅保留正確 6 項，統計表修正並跨年級統計
-
-## [2026-06-21] fix | 修復損壞連結與孤立頁面
-- **原因**：Lint 報告 66 處損壞連結、14 個孤立頁面
+## [2026-06-21] fix | Lint 全面修復
+- **原因**：SCHEMA v3.1 升級後，大量舊格式 frontmatter、壞連結、孤立節點需要修復
 - **動作**：
-  1. 移除 43 個檔案中的 `` 無效連結
-  2. 修正 `` → `[[daily-news-sources-rss]]` 等 9 處斷裂連結
-  3. 移除 ``、`` 等不存在頁面連結
-  4. 將 14 個孤立頁面加入對應 index.md
-  5. 修復 index.md 和 log.md 的 Git merge conflict
-- **結果**：損壞連結從 66 降至 ~10，孤立頁面從 14 降至 0
+  - index.md 更新：移除 comparisons、修正 queries/reports、補上 POLICY
+  - 建立 resources/index.md、reports/index.md
+  - log.md 壞連結修復（移除 [[wiki]]）
+  - system/ 子檔案 frontmatter 修正（補 tags/summary）
+  - 3 個無 frontmatter 檔案補齊（hermes-agent-rules, user-backup-skill, rss-test-report）
+  - 66 個缺 summary 檔案自動批次補齊
+  - system/index.md 更新（6 子檔案入站）
+  - skills/index.md 更新（10 子檔案入站）
+  - 110 個壞連結批次修復（55 個檔案）
+  - concepts/index.md 全面更新（48 概念重新分類）
+  - 孤立節點從 29 降至 0（補上 concepts/system/index、reports/index、system/index、skills/index）
+- **結果**：index 完整、壞連結從 146 降至 0、孤立節點歸零
 
-## [2026-06-21] fix | 修復 user-backup.sh backup_repo 函數
-- **原因**：push 失敗時 pull rebase 會卡住，導致後續操作全部失敗
-- **動作**：修改 backup_repo 函數，pull rebase 失敗時自動 abort，然後 force push 以本機覆蓋遠端
-- **結果**：備份流程不再因 rebase 衝突而卡住
-- **原則**：GitHub 是備份區，VPS 本機是主資料，任何同步都以本機為準
-
-## [2026-06-21] fix | 恢復 SCHEMA.md version 2.1
-- **原因**：merge conflict 導致 SCHEMA.md 內容錯誤
-- **動作**：從 git commit `6c76e61`（schema 2.1 alignment）回復正確版本
-- **結果**：SCHEMA.md 恢復為 version 2.1，336 行完整規範
-
-  標籤警告明細（354 處）:
-    - POLICY.md: policy
-    - POLICY.md: router
-    - POLICY.md: hermes
-    - POLICY.md: wiki
-    - cnn-fear-and-greed-analysis.md: entity
-    - daily-news-sources-rss.md: data-source
-    - daily-news-sources-rss.md: obsidian
-    - daily-news-sources-rss.md: maintenance
-    - otc-company-profile-2026-06-02.md: otc
-    - otc-company-profile-2026-06-02.md: company
-    - otc-company-profile-2026-06-02.md: basic-data
-    - trading-agents.md: ai
-    - trading-agents.md: llm
-    - trading-agents.md: agents
-    - trading-agents.md: trading
-    - trading-agents.md: quantitative-trading
-    - awesome-github-resources.md: hermes
-    - awesome-github-resources.md: concept
-    - icdyct-blog.md: hermes
-    - us-cpi-analysis.md: entity
-    ... 還有 334 處
-## [2026-06-21 11:01:43] lint | 缺失欄位4, 無效type47, 標籤違規354, 孤立頁4
-
-## [2026-06-21 11:30] create | WebDAV Sync 資源頁面
-- **原因**：整理 Obsidian WebDAV Sync 插件設定資訊
+## [2026-06-21] fix | 壞連結清零
+- **原因**：log.md 和 index.md 中仍有殘留壞連結
 - **動作**：
-  - 建立 `resources/obsidian-webdav-sync.md`
-  - 更新 `resources/index.md`
-- **結果**：資源索引 1 篇，WebDAV 設定資訊已記錄
-## [2026-06-21 15:23:50] lint | 缺失欄位8, 無效type6, 無效status57, 孤立頁26
-## [2026-06-21 15:30:53] lint | 缺失欄位8, 孤立頁8
-## [2026-06-21 15:32:06] lint | 缺失欄位8, 孤立頁2
-## [2026-06-21 15:41:54] lint | 孤立頁2
-## [2026-06-21 15:55:24] lint | 孤立頁2
-## [2026-06-21 16:21:22] lint | via
-## [2026-06-21 16:23:21] lint | 全部通過
-## [2026-06-22 06:17] fix | Quartz YAML frontmatter 修復
-- **原因**：GitHub Actions build 失敗，4 個檔案 frontmatter 含 wikilink、1 個檔案 summary 含特殊字元未加 quote
-- **動作**：
-  - financial-preferences.md、fred-economic-data.md、nvidia-build-safety-models.md、sp500-components.md：將 `- [[openrouter-free-models]]` 從 frontmatter 移至 body
-  - 2026-06-01-daily-task-summary.md：用 double quote 包裹 summary 值
-  - karpathy-llm-wiki-gist.md：補上缺少的 summary
-- **結果**：GitHub Actions 重新觸發中
-
-## [2026-06-22 04:14] migrate | Quartz content symlink → 實體資料夾
-- **原因**：Quartz/content 為 symlink 指向 Vault，git 不追蹤內建檔案，Vault 變更無法觸發 GitHub Pages 更新
-- **動作**：
-  - 備份 symlink → content_symlink_20260622
-  - 建立實體 content/ 資料夾
-  - rsync Vault → Quartz/content（排除 .git/.obsidian/publish/ivan-notes）
-  - 驗證 141 個 markdown 檔案數量一致
-  - .gitignore 加入 content_symlink_*
-- **結果**：147 files changed, 10458 insertions → push 成功（00f0dc8）
-
-## [2026-06-21 16:31:18] lint | via
-## [2026-06-21 21:00:16] lint | via
-## [2026-06-22 00:33:06] lint | via
-## [2026-06-22 21:00:42] lint | via
-## [2026-06-23 00:28:19] lint | via
-## [2026-06-23 00:28:23] lint | via
-## [2026-06-23 00:31:55] lint | via
-## [2026-06-23 00:33:27] lint | via
-## [2026-06-23 00:34:07] lint | via
-## [2026-06-23 00:34:50] lint | via
-## [2026-06-23 00:35:42] lint | via
-## [2026-06-23 01:00:35] lint | 6 missing_fields | 3 invalid_type | 3 invalid_status | 3 large_pages | 2 weak_hubs | 9 unsafe_summary
-## [2026-06-23 01:01:36] lint | 6 missing_fields | 3 invalid_type | 3 invalid_status | 3 large_pages | 2 weak_hubs | 9 unsafe_summary
-## [2026-06-23 01:16:07] lint | 6 missing_fields | 3 large_pages | 6 unsafe_summary
-## [2026-06-23 01:17:05] lint | 3 large_pages | 1 unsafe_summary
-## [2026-06-23 01:18:11] lint | 3 large_pages
-## [2026-06-23 02:37:36] lint | 3 large_pages | 1 unsafe_summary
-## [2026-06-23 02:38:48] lint | 3 large_pages
-## [2026-06-23 14:03:38] lint | 3 large_pages
-## [2026-06-23 14:22:02] lint | 全部通過
+  - index.md 移除 [[raw]]（raw.md 不存在）
+  - concepts/safe-file-operations.md 移除 [[skills/safe-file-operations]]（skills 下無此檔案）
+- **結果**：壞連結從 3 降至 0
+## [2026-06-23 14:39:04] lint | 全部通過
