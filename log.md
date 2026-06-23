@@ -192,3 +192,8 @@ updated: 2026-06-23
   - concepts/safe-file-operations.md 移除 [[skills/safe-file-operations]]（skills 下無此檔案）
 - **結果**：壞連結從 3 降至 0
 ## [2026-06-23 14:39:04] lint | 全部通過
+## [2026-06-23 14:48:41] lint | 1 large_pages
+## [2026-06-23 14:49:46] lint | 2 missing_fields | 1 large_pages
+## [2026-06-23 14:50:38] lint | 1 large_pages
+## [2026-06-23 14:52:02] lint | 1 weak_hubs
+## [2026-06-23 14:52:58] lint | 全部通過

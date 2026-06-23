@@ -20,10 +20,11 @@ updated: 2026-06-23
 ## 安裝與部署
 
 - [[superpowers-install|Superpowers 安裝說明]] — obra/superpowers 14 skills 匯入流程
+- [[superpowers-reference|Superpowers 功能說明]] — 14 個 skills 完整功能說明與工作流程
 
 ## 架構參考
 
-- [[architecture-references/superpowers|Superpowers]] — 架構參考資源
+- [[architecture-references/superpowers|Superpowers]] — 架構參考資源（較早建立）
 
 ## 故障排除
 
