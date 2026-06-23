@@ -21,6 +21,7 @@ updated: 2026-06-23
 
 - [[superpowers-install|Superpowers 安裝說明]] — obra/superpowers 14 skills 匯入流程
 - [[superpowers-reference|Superpowers 功能說明]] — 14 個 skills 完整功能說明與工作流程
+- [[code-quality-analysis|程式碼品質分析]] — 效能瓶頸、重複程式碼、過長函式、不必要檔案存取分析與優化方案
 
 ## 架構參考
 
