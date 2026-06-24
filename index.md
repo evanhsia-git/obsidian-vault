@@ -18,7 +18,7 @@ updated: 2026-06-21
 
 ## 目錄
 
-- [[concepts/concepts-index|概念筆記]]
+- [[concepts/concepts-index|概念筆記]] — 1 篇
 - [[entities/entities-index|實體資料]]
 - [[resources/resources-index|資源鏈結]]
 - [[reports/reports-index|報告]]

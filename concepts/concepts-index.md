@@ -25,6 +25,7 @@ updated: 2026-06-23
 - [[next-ai-draw-io|Next AI Draw.io]]
 - [[manus-use-cases|Manus 精選案例與實際應用]] — 平台概覽 + 6 類精選案例
 - [[manus-finance-cases|Manus 金融案例與應用]] — Finance 案例 + 行動方案
+- [[awesome-design-md|Awesome DESIGN.md]] — DESIGN.md 設計系統檔案集合
 
 ## 新聞與內容
 
