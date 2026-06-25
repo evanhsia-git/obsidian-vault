@@ -1,10 +1,11 @@
 ---
-title: Obsidian Wiki 使用規範
-summary: Obsidian Wiki 使用規範：相關頁面
+status: active
+title: "Obsidian Wiki 使用規範"
+summary: "Obsidian Wiki 使用規範：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [obsidian, rules, wiki, conventions]
+tags: [obsidian, flow]
 ---
 
 ## 相關頁面

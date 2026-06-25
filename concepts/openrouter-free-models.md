@@ -1,11 +1,11 @@
 ---
-title: OpenRouter 免費模型完整列表（Free Models）
-summary: OpenRouter 免費模型完整列表（Free Models）：相關頁面
+status: active
+title: "OpenRouter 免費模型完整列表（Free Models）"
+summary: "OpenRouter 免費模型完整列表（Free Models）：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [openrouter, free-models, llm, ai, multimodal]
-sources: [https://openrouter.ai/openrouter/free/activity]
+tags: [ai]
 ---
 
 ## 相關頁面

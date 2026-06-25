@@ -1,10 +1,11 @@
 ---
-title: 全體市場公開發行公司彙總表
-summary: 全體市場公開發行公司彙總表：資料來源
+status: active
+title: "全體市場公開發行公司彙總表"
+summary: "全體市場公開發行公司彙總表：資料來源"
 created: 2026-06-02
 updated: 2026-06-02
 type: entity
-tags: [stock-market, listing, twse, data-source]
+tags: [tw-stock, obsidian, source]
 ---
 
 # 全體市場公開發行公司彙總表

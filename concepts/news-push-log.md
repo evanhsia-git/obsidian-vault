@@ -1,10 +1,11 @@
 ---
-title: news-push-log
-summary: news-push-log：格式規範
+status: active
+title: "news-push-log"
+summary: "news-push-log：格式規範"
 created: 2026-06-08
 updated: 2026-06-08
 type: concept
-tags: [maintenance]
+tags: [deploy]
 ---
 # 新聞推送紀錄 (News Push Log)
 

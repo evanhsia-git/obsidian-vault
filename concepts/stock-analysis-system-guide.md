@@ -1,10 +1,11 @@
 ---
-title: 股市分析三層 Agent 協作系統使用說明
-summary: 股市分析三層 Agent 協作系統使用說明：1. 系統運行流程
+status: active
+title: "股市分析三層 Agent 協作系統使用說明"
+summary: "股市分析三層 Agent 協作系統使用說明：1. 系統運行流程"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [automation, multi-agent, finance, guide]
+tags: [auto, agent, tw-stock, deploy]
 ---
 
 # 股市分析三層 Agent 協作系統使用說明

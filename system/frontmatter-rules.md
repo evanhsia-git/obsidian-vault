@@ -1,9 +1,9 @@
 ---
-title: FRONTMATTER-RULES
+title: "FRONTMATTER-RULES"
 type: schema
 status: permanent
-summary: Obsidian Frontmatter 規範
-tags: [frontmatter, rules, page-operations]
+summary: "Obsidian Frontmatter 規範"
+tags: [obsidian, flow]
 created: 2026-06-21
 updated: 2026-06-21
 ---
@@ -129,7 +129,46 @@ schema
 規則：
 
 ```text
-1~10 個
+1. 整個 Vault 只能使用以下 50 個核心 tag，禁止新增
+2. 單一頁面最多 10 個 tag
+3. 必須從下方列表中選取，不得自創
+```
+
+### 核心 Tag 列表（32 個，禁止新增）
+
+```yaml
+- ai
+- rag
+- agent
+- auto
+- hermes
+- flow
+- integration
+- telegram
+- obsidian
+- knowledge
+- quartz
+- flowershow
+- tw-stock
+- valuation
+- finance
+- source
+- linux
+- docker
+- vps
+- backup
+- sync
+- storage
+- lint
+- architecture
+- config
+- deploy
+- test
+- troubleshoot
+- performance
+- security
+- network
+- monitor
 ```
 
 建議：
@@ -137,8 +176,8 @@ schema
 ```yaml
 tags:
   - ai
-  - llm
   - rag
+  - agent
 ```
 
 避免：
@@ -153,7 +192,7 @@ tags:
   - software
 ```
 
-過度標記。
+過度標記、使用非核心列表的 tag、或超過 10 個。
 
 ---
 

@@ -1,10 +1,11 @@
 ---
-title: 台股資料補齊執行記錄 (2026-06-03)
-summary: 台股資料補齊執行記錄 (2026-06-03)：執行概況
+status: active
+title: "台股資料補齊執行記錄 (2026-06-03)"
+summary: "台股資料補齊執行記錄 (2026-06-03)：執行概況"
 created: 2026-06-03
 updated: 2026-06-03
 type: query
-tags: [taiwan-stock, maintenance, data-enrichment]
+tags: [tw-stock, deploy, source]
 ---
 
 # 台股資料補齊執行記錄 (2026-06-03)

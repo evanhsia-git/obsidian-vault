@@ -1,10 +1,11 @@
 ---
-title: 安全檔案操作規範
-description: LLM 執行破壞性檔案操作的安全規則
-summary: 四條核心規則：失敗停止、操作需批准、無法判斷先問、安全優於完成
+status: active
+title: "安全檔案操作規範"
+description: "LLM 執行破壞性檔案操作的安全規則"
+summary: "四條核心規則：失敗停止、操作需批准、無法判斷先問、安全優於完成"
 version: "1.1.0"
 type: concept
-tags: [safety, file-operations, rules, workflow]
+tags: [security, linux, flow]
 created: 2026-06-21
 updated: 2026-06-21
 ---

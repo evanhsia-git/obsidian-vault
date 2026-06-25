@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build LLM 模型
-summary: NVIDIA Build LLM 模型：NVIDIA Nemotron 系列
+status: active
+title: "NVIDIA Build LLM 模型"
+summary: "NVIDIA Build LLM 模型：NVIDIA Nemotron 系列"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, llm, free-models, ai]
-sources: [https://build.nvidia.com/models]
+tags: [ai]
 ---
 
 # NVIDIA Build LLM 模型

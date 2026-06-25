@@ -1,10 +1,11 @@
 ---
-title: 搜尋引擎聚合邏輯說明
-summary: 搜尋引擎聚合邏輯說明：1. 定義
+status: active
+title: "搜尋引擎聚合邏輯說明"
+summary: "搜尋引擎聚合邏輯說明：1. 定義"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [automation, data-engineering, search, aggregation]
+tags: [auto, source, rag]
 ---
 
 # 搜尋引擎聚合邏輯 (Search Engine Aggregation Logic)

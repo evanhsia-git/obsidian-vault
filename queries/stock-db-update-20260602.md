@@ -1,10 +1,11 @@
 ---
-title: 台股資料庫更新報告 (20260602)
-summary: 台股資料庫更新報告 (20260602)：執行摘要
+status: active
+title: "台股資料庫更新報告 (20260602)"
+summary: "台股資料庫更新報告 (20260602)：執行摘要"
 created: 2026-06-03
 updated: 2026-06-03
 type: query
-tags: [taiwan-stock, sqlite, maintenance]
+tags: [tw-stock, linux, deploy]
 ---
 
 # 台股資料庫更新報告 (20260602)

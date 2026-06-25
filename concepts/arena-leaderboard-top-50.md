@@ -1,10 +1,11 @@
 ---
-title: Arena AI 開源模型排行榜 (Top 50)
-summary: Arena AI 開源模型排行榜 (Top 50)：頂尖開源模型 (前 10 名)
+status: active
+title: "Arena AI 開源模型排行榜 (Top 50)"
+summary: "Arena AI 開源模型排行榜 (Top 50)：頂尖開源模型 (前 10 名)"
 created: 2026-06-02
 updated: 2026-06-02
 type: concept
-tags: [ai, leaderboard, benchmark, open-source]
+tags: [ai, performance, linux]
 ---
 
 # Arena AI 開源模型排行榜 (前 50 名摘要)

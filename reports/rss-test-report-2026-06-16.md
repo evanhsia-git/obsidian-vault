@@ -1,9 +1,10 @@
 ---
-title: RSS Test Report 2026-06-16
-summary: RSS Test Report 2026-06-16：一、台股新聞 RSS
-description: 新聞 RSS 來源測試報告
+status: active
+title: "RSS Test Report 2026-06-16"
+summary: "RSS Test Report 2026-06-16：一、台股新聞 RSS"
+description: "新聞 RSS 來源測試報告"
 type: report
-tags: [rss, test, news]
+tags: [source, test]
 created: 2026-06-16
 updated: 2026-06-21
 ---

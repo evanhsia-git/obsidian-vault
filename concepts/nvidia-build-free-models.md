@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build 免費模型列表（NIM API）
-summary: NVIDIA Build 免費模型列表（NIM API）：平台概述
+status: active
+title: "NVIDIA Build 免費模型列表（NIM API）"
+summary: "NVIDIA Build 免費模型列表（NIM API）：平台概述"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, free-models, llm, ai, api]
-sources: [https://build.nvidia.com/models]
+tags: [ai, integration]
 ---
 
 # NVIDIA Build 免費模型列表（NIM API）

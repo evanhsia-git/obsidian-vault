@@ -1,9 +1,9 @@
 ---
-title: TELEGRAM-OUTPUT-RULES
+title: "TELEGRAM-OUTPUT-RULES"
 type: schema
 status: permanent
-summary: Telegram Bot 輸出格式規範
-tags: [telegram, output, rules, formatting]
+summary: "Telegram Bot 輸出格式規範"
+tags: [telegram, agent, flow, obsidian]
 version: "1.0"
 created: 2026-06-21
 updated: 2026-06-21

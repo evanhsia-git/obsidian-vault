@@ -1,13 +1,13 @@
 ---
-title: 美國消費者物價指數 (CPI) 分析報告
-description: 美國消費者物價指數 (CPI) 分析報告 — 實體資料頁面
-summary: 美國消費者物價指數 (CPI) 分析報告
+title: "美國消費者物價指數 (CPI) 分析報告"
+description: "美國消費者物價指數 (CPI) 分析報告 — 實體資料頁面"
+summary: "美國消費者物價指數 (CPI) 分析報告"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

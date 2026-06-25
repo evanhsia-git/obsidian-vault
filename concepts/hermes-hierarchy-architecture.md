@@ -1,11 +1,11 @@
 ---
-title: Hermes Agent 記憶架構與階層圖
-description: Hermes Agent 記憶架構與階層圖 — 概念說明頁面
-summary: Hermes Agent 記憶架構與階層圖
+title: "Hermes Agent 記憶架構與階層圖"
+description: "Hermes Agent 記憶架構與階層圖 — 概念說明頁面"
+summary: "Hermes Agent 記憶架構與階層圖"
 type: concept
 status: active
 priority: P2
-tags: ["hermes", "memory", "concept"]
+tags: [hermes, agent]
 aliases: []
 created: 2026-06-05
 updated: 2026-06-05

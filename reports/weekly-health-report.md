@@ -1,9 +1,9 @@
 ---
-title: Weekly Health Report
+title: "Weekly Health Report"
 type: report
 status: active
-summary: Obsidian Vault 健康檢查報告 2026-06-21（最終）
-tags: [lint, audit, health-check, weekly]
+summary: "Obsidian Vault 健康檢查報告 2026-06-21（最終）"
+tags: [lint, deploy]
 created: 2026-06-21
 updated: 2026-06-21
 ---

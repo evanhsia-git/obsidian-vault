@@ -1,10 +1,10 @@
 ---
-title: 概念筆記索引
-description: 概念筆記索引 — 索引頁面
-summary: 概念筆記索引
+title: "概念筆記索引"
+description: "概念筆記索引 — 索引頁面"
+summary: "概念筆記索引"
 type: index
 status: active
-tags: [concept, index]
+tags: []
 created: 2026-06-23
 updated: 2026-06-23
 ---
@@ -32,6 +32,10 @@ updated: 2026-06-23
 - [[daily-news-technology|每日 AI 及科技新聞]] — 推送標準格式
 - [[karpathy-llm-wiki-tag-analysis|Karpathy LLM Wiki 標籤系統分析]]
 
+## Hermes 核心機制
+
+- [[hermes-curator|Curator 技能管理員]] — skill 生命週期自動管理（active → stale → archived）
+
 ## 部署與系統
 
 - [[vps-obsidian-blog-deployment-v2|VPS Obsidian 與部落格部署方案]]
@@ -49,7 +53,7 @@ updated: 2026-06-23
 
 ## 技能與知識管理
 
-- [[obsidian-wiki-skill|Obsidian Wiki 技能]] — v3.0
+- [[skills/user-backup-skill|User Backup Skill]] — 每日系統維護編排器
 - [[telegram-truncation-troubleshooting|Telegram 訊息截斷問題排除指南]]
 
 ---

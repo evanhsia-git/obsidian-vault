@@ -1,15 +1,13 @@
 ---
-title: 技能腳本架構管理（Skill Script Architecture）
-description: 探討 Python 腳本應放在 /scripts/ 還是 skills/ 目錄下的優缺點分析
-summary: 技能腳本放置位置的架構決策指南
+title: "技能腳本架構管理"
+description: "探討 Python 腳本應放在 /scripts/ 還是 skills/ 目錄下的優缺點分析"
+summary: "技能腳本放置位置的架構決策指南"
 type: concept
 status: active
-priority: P2
-tags: [system, skill, setup, maintenance]
-aliases: [腳本位置, 技能架構]
+tags: [agent, deploy]
+related: "[[skills/skills-index]]"
 created: 2026-06-16
-updated: 2026-06-16
-date: 2026-06-16
+updated: 2026-06-25
 ---
 
 # 技能腳本架構管理

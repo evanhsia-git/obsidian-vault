@@ -1,13 +1,13 @@
 ---
-title: CNN Fear and Greed Index 分析報告
-description: CNN Fear and Greed Index 分析報告 — 實體資料頁面
-summary: CNN Fear and Greed Index 分析報告
+title: "CNN Fear and Greed Index 分析報告"
+description: "CNN Fear and Greed Index 分析報告 — 實體資料頁面"
+summary: "CNN Fear and Greed Index 分析報告"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

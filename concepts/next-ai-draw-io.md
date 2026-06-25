@@ -1,11 +1,11 @@
 ---
-title: Next AI Draw.io
-description: Next AI Draw.io — 概念說明頁面
-summary: Next AI Draw.io
+title: "Next AI Draw.io"
+description: "Next AI Draw.io — 概念說明頁面"
+summary: "Next AI Draw.io"
 type: concept
 status: active
 priority: P2
-tags: ["ai", "concept"]
+tags: [ai]
 aliases: []
 created: 2026-06-03
 updated: 2026-06-03

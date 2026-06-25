@@ -1,9 +1,8 @@
 ---
-name: stock-database-state
-description: 股票量化資料庫之現況、結構與覆蓋率紀錄。
-category: database
-title: Stock-Database-State
-summary: Stock-Database-State：相關頁面
+status: active
+description: "股票量化資料庫之現況、結構與覆蓋率紀錄。"
+title: "Stock-Database-State"
+summary: "Stock-Database-State：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept

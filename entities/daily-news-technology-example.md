@@ -1,7 +1,7 @@
 ---
-title: 每日AI及科技新聞輸出範例
-description: 每日AI及科技新聞輸出範例 — 實體資料頁面
-summary: 每日AI及科技新聞輸出範例
+title: "每日AI及科技新聞輸出範例"
+description: "每日AI及科技新聞輸出範例 — 實體資料頁面"
+summary: "每日AI及科技新聞輸出範例"
 type: entity
 status: active
 priority: P2

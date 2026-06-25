@@ -1,11 +1,11 @@
 ---
-title: LLM Wiki 架構與比較分析
-description: LLM Wiki 架構與比較分析 — 概念說明頁面
-summary: LLM Wiki 架構與比較分析
+title: "LLM Wiki 架構與比較分析"
+description: "LLM Wiki 架構與比較分析 — 概念說明頁面"
+summary: "LLM Wiki 架構與比較分析"
 type: concept
 status: active
 priority: P2
-tags: ["llm-wiki", "comparison", "hermes", "obsidian", "concept"]
+tags: [obsidian, flow, hermes]
 aliases: []
 created: 2026-06-05
 updated: 2026-06-05

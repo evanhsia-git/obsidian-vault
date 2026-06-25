@@ -1,12 +1,11 @@
 ---
-source_url: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
-ingested: 2026-05-28
-title: Karpathy-Llm-Wiki-Gist
-summary: Karpathy LLM Wiki 模式——以相互連結 Markdown 檔案構建 LLM 知識庫。
+status: active
+title: "Karpathy-Llm-Wiki-Gist"
+summary: "Karpathy LLM Wiki 模式——以相互連結 Markdown 檔案構建 LLM 知識庫。"
 created: 2026-05-31
 updated: 2026-06-03
 type: concept
-tags: [llm-wiki, karpathy, concept]
+tags: [obsidian, ai]
 ---
 
 ## 相關頁面

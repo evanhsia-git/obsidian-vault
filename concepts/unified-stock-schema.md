@@ -1,10 +1,11 @@
 ---
-title: 統一股票資料欄位 Schema
-summary: 統一股票資料欄位 Schema：1. 統一 Schema 對照表
+status: active
+title: "統一股票資料欄位 Schema"
+summary: "統一股票資料欄位 Schema：1. 統一 Schema 對照表"
 created: 2026-06-04
 updated: 2026-06-04
 type: concept
-tags: [data-source, stock-analysis, maintenance]
+tags: [source, tw-stock, deploy]
 ---
 
 # 統一股票資料欄位 Schema

@@ -1,9 +1,10 @@
 ---
-title: tech-sources-monitoring
-description: 科技媒體監測導航，整合所有科技新聞來源與自動化任務
-summary: 科技媒體監測導航
+status: active
+title: "tech-sources-monitoring"
+description: "科技媒體監測導航，整合所有科技新聞來源與自動化任務"
+summary: "科技媒體監測導航"
 type: concept
-tags: [maintenance, ai, data-source]
+tags: [deploy, ai, source]
 created: 2026-06-08
 updated: 2026-06-21
 ---

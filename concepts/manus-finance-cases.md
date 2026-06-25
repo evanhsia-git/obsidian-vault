@@ -1,10 +1,11 @@
 ---
-title: Manus 金融案例與應用
+status: active
+title: "Manus 金融案例與應用"
 summary: "Manus 金融/股市案例特輯：8 個 Finance 分類案例 + 三項行動方案 + 現有功能對照"
 created: 2026-06-23
 updated: 2026-06-23
 type: concept
-tags: [manus, finance, ai-agent, stock-analysis]
+tags: [agent, tw-stock]
 ---
 
 # Manus 金融案例與應用

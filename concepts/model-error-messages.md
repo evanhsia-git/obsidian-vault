@@ -1,11 +1,11 @@
 ---
-title: 模型回報常見訊息
-summary: 模型回報常見訊息：維護建議
+status: active
+title: "模型回報常見訊息"
+summary: "模型回報常見訊息：維護建議"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [ai, hermes, maintenance, troubleshooting, llm]
-sources: [Hermes Agent System]
+tags: [ai, hermes, deploy]
 ---
 
 # 模型回報常見訊息 (Troubleshooting)

@@ -1,9 +1,8 @@
 ---
-name: stock-automation-config
-description: 股市相關定時任務 (Cron Jobs) 配置與輸出規範。
-category: automation
-title: Stock-Automation-Config
-summary: Stock-Automation-Config：相關頁面
+status: active
+description: "股市相關定時任務 (Cron Jobs) 配置與輸出規範。"
+title: "Stock-Automation-Config"
+summary: "Stock-Automation-Config：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept

@@ -1,11 +1,11 @@
 ---
-title: OpenRouter 免費 Vision 模型列表
-summary: OpenRouter 免費 Vision 模型列表：相關頁面
+status: active
+title: "OpenRouter 免費 Vision 模型列表"
+summary: "OpenRouter 免費 Vision 模型列表：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [openrouter, vision, multimodal, llm, ai]
-sources: [https://openrouter.ai/api/v1/models]
+tags: [ai]
 ---
 
 ## 相關頁面

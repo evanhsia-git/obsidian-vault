@@ -1,7 +1,7 @@
 ---
-title: icdyct-blog
-description: icdyct-blog — 實體資料頁面
-summary: icdyct-blog
+title: "icdyct-blog"
+description: "icdyct-blog — 實體資料頁面"
+summary: "icdyct-blog"
 type: concept
 status: active
 priority: P2

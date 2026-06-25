@@ -1,10 +1,11 @@
 ---
-title: 興櫃公司基本資料 (2026-06-02)
-summary: 興櫃公司基本資料 (2026-06-02)：資料來源
+status: active
+title: "興櫃公司基本資料 (2026-06-02)"
+summary: "興櫃公司基本資料 (2026-06-02)：資料來源"
 created: 2026-06-02
 updated: 2026-06-02
 type: entity
-tags: [otc, company, basic-data]
+tags: [tw-stock]
 ---
 
 # 興櫃公司基本資料

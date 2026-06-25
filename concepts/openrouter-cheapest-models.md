@@ -1,10 +1,11 @@
 ---
-title: OpenRouter 最便宜付費模型排行榜 (Top 10)
-summary: OpenRouter 最便宜付費模型排行榜 (Top 10)：以下整理基於 OpenRouter API 的模型定價分析，列出每百萬 token (1M) 成本最低的前 10 名付費模型。
+status: active
+title: "OpenRouter 最便宜付費模型排行榜 (Top 10)"
+summary: "OpenRouter 最便宜付費模型排行榜 (Top 10)：以下整理基於 OpenRouter API 的模型定價分析，列出每百萬 token (1M) 成本最低的前 10 名付費模型。"
 created: 2026-06-02
 updated: 2026-06-02
 type: concept
-tags: [ai, openrouter, pricing, llm]
+tags: [ai, tw-stock]
 ---
 
 # OpenRouter 最便宜付費模型排行榜 (Top 10)

@@ -1,13 +1,13 @@
 ---
-title: 每日股市指標輸出範例
-description: 每日股市指標輸出範例 — 實體資料頁面
-summary: 每日股市指標輸出範例
+title: "每日股市指標輸出範例"
+description: "每日股市指標輸出範例 — 實體資料頁面"
+summary: "每日股市指標輸出範例"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

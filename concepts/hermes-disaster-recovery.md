@@ -1,10 +1,11 @@
 ---
-title: Hermes Agent 災難恢復策略
+status: active
+title: "Hermes Agent 災難恢復策略"
 summary: "Hermes Agent 災難恢復策略：多層備份 + VPS 環境整合 + 最佳實踐"
 created: 2026-06-23
 updated: 2026-06-23
 type: concept
-tags: [hermes, disaster-recovery, backup, vps]
+tags: [hermes, backup, vps]
 ---
 
 # Hermes Agent 災難恢復策略

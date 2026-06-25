@@ -1,11 +1,11 @@
 ---
-title: 在網路上編輯 Obsidian 筆記的方案
-summary: 在網路上編輯 Obsidian 筆記的方案：1. CollabMD (本地檔案即時協作)
+status: active
+title: "在網路上編輯 Obsidian 筆記的方案"
+summary: "在網路上編輯 Obsidian 筆記的方案：1. CollabMD (本地檔案即時協作)"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [obsidian, collaboration, web-editing, tools]
-sources: [hermes-agent-advice]
+tags: [obsidian, integration, deploy]
 ---
 
 # 在網路上編輯 Obsidian 筆記的方案

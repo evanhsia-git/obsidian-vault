@@ -1,10 +1,10 @@
 ---
-title: superpowers-install
-description: Superpowers skill pack 安裝說明
+title: "superpowers-install"
+description: "Superpowers skill pack 安裝說明"
 summary: "Superpowers 安裝說明 — obra/superpowers 14 個 skills 匯入 Hermes Agent 的完整流程"
 type: concept
 status: active
-tags: [hermes, skills, superpowers, installation]
+tags: [hermes, agent, deploy]
 created: 2026-06-23
 updated: 2026-06-23
 ---

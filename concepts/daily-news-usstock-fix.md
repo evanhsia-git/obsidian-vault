@@ -1,7 +1,7 @@
 ---
-title: daily-news-usstock-fix
-description: daily-news-usstock-fix — 概念說明頁面
-summary: daily-news-usstock-fix
+title: "daily-news-usstock-fix"
+description: "daily-news-usstock-fix — 概念說明頁面"
+summary: "daily-news-usstock-fix"
 type: concept
 status: active
 priority: P2

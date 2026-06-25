@@ -1,10 +1,11 @@
 ---
-title: Karpathy LLM Wiki 核心原則與標籤系統分析
+status: active
+title: "Karpathy LLM Wiki 核心原則與標籤系統分析"
 created: 2026-06-20
 updated: 2026-06-20
 type: concept
-tags: [llm-wiki, concept, rag, knowledge-management, wiki, optimization]
-summary: Karpathy LLM Wiki 核心原則分析，探討標籤系統角色定位與 RAG 查詢品質提升策略
+tags: [obsidian, rag, knowledge, performance]
+summary: "Karpathy LLM Wiki 核心原則分析，探討標籤系統角色定位與 RAG 查詢品質提升策略"
 ---
 
 # Karpathy LLM Wiki 核心原則與標籤系統分析

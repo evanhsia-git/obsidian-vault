@@ -1,12 +1,13 @@
 ---
-title: obsidian-wiki 技能 v3.0
-description: Obsidian Wiki 導航技能，強制前置導航 + 安全規則 + 三處同步寫入
-summary: 工作流程核心技能 v3.0，每次對話必執行
-version: "3.0.0"
+title: "Obsidian Wiki 技能 v3.0"
+description: "Obsidian Wiki 導航技能，強制前置導航 + 安全規則 + 三處同步寫入"
+summary: "工作流程核心技能 v3.0，每次對話必執行"
 type: concept
-tags: [skill, workflow, navigation, safety]
+status: active
+tags: [agent, flow, security]
+related: "[[skills/skills-index]]"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-25
 ---
 
 # obsidian-wiki 技能 v3.0
@@ -22,10 +23,11 @@ updated: 2026-06-21
 
 跳過條件：用戶明確說「跳過導航」
 
-三步導航：
+四步導航：
 1. `read_file("SCHEMA.md")` — 對齊規範
-2. `read_file("index.md")` — 定位目標
-3. `read_file("log.md", offset=-30)` — 理解近期變更
+2. `read_file("policy.md")` — 規則路由
+3. `read_file("index.md")` — 定位目標
+4. `read_file("log.md", offset=-30)` — 理解近期變更
 
 未完成導航前不處理任何請求。
 

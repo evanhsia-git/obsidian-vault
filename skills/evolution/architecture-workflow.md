@@ -1,7 +1,7 @@
 ---
-title: architecture_workflow
-description: architecture_workflow — 技能說明頁面
-summary: architecture_workflow
+title: "architecture_workflow"
+description: "architecture_workflow — 技能說明頁面"
+summary: "architecture_workflow"
 type: concept
 status: active
 priority: P2

@@ -1,10 +1,11 @@
 ---
-title: 股市資料來源
+status: active
+title: "股市資料來源"
 summary: "台灣股市資料 API 來源與取得方式整理"
 created: 2026-06-10
 updated: 2026-06-23
 type: concept
-tags: [taiwan-stock, data-source, twse, tpex, finmind]
+tags: [tw-stock, source]
 ---
 
 # 股市資料來源

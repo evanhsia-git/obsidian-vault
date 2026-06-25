@@ -1,7 +1,7 @@
 ---
-title: NEWS_SOURCES
-description: NEWS_SOURCES — 技能說明頁面
-summary: NEWS_SOURCES
+title: "NEWS_SOURCES"
+description: "NEWS_SOURCES — 技能說明頁面"
+summary: "NEWS_SOURCES"
 type: concept
 status: active
 priority: P2

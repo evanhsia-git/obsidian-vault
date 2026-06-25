@@ -1,10 +1,12 @@
 ---
-title: Manus 精選案例與實際應用
+title: "Manus 精選案例與實際應用"
+description: "Manus AI Agent 平台精選案例，涵蓋研究分析、數據視覺化、Skills 技能應用、房地產、社群媒體、工具整合等 6 類"
 summary: "Manus 精選案例與實際應用：平台概覽 + 6 類精選案例"
-created: 2026-06-02
-updated: 2026-06-23
 type: concept
-tags: [manus, ai-agent, use-cases, skills, automation]
+status: active
+tags: [agent, flow, auto]
+created: 2026-06-02
+updated: 2026-06-25
 ---
 
 # Manus AI Agent 精選案例與實際應用
@@ -100,4 +102,4 @@ Manus 是一個通用型 AI 智能代理（Agent）平台，能夠自主執行�
 
 ## 相關頁面
 - [[manus-finance-cases|Manus 金融案例與應用]] — 8 個 Finance 分類案例 + 三項行動方案 + 現有功能對照
-- [[concepts/concepts-index|概念筆記索引]]
+- [[skills/skills-index|Skills 目錄]]

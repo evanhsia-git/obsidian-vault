@@ -1,12 +1,11 @@
 ---
-title: API 流量限制應對策略
-summary: API 流量限制應對策略：核心原則
+status: active
+title: "API 流量限制應對策略"
+summary: "API 流量限制應對策略：核心原則"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [data-source, optimization, maintenance, rules]
-sources: [raw/articles/api-rate-limiting-best-practices.md]
-confidence: high
+tags: [source, performance, deploy, flow]
 ---
 
 # API 流量限制應對策略

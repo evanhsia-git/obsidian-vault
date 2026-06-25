@@ -1,14 +1,13 @@
 ---
-title: Cron 架構角色分工：Skills、Python、no_agent
-description: 說明每日台股 cron 中 Skills、Python 腳本、no_agent 三者各自的角色與關係
-summary: Cron 架構中 Skills、Python、no_agent 的角色釐清
+title: "Cron 架構角色分工：Skills、Python、no_agent"
+description: "說明每日台股 cron 中 Skills、Python 腳本、no_agent 三者各自的角色與關係"
+summary: "Cron 架構中 Skills、Python、no_agent 的角色釐清"
 type: concept
 status: active
-priority: P2
-tags: [cron, skill, python, automation, system]
-aliases: []
+tags: [auto, agent, linux]
+related: "[[skills/skills-index]]"
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-25
 ---
 
 # Cron 架構角色分工：Skills、Python、no_agent
@@ -65,3 +64,4 @@ Skills 只在以下情況被載入：
 
 - [[stock-automation-config|自動化配置設定]]
 - [[stock-analysis-system-guide|股市分析系統使用說明]]
+- [[skills/skills-index|Skills 目錄]]

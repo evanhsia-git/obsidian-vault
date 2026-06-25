@@ -1,13 +1,13 @@
 ---
-title: Obsidian WebDAV Sync 插件指南
-description: Obsidian WebDAV Sync 插件指南 — 實體資料頁面
-summary: Obsidian WebDAV Sync 插件指南
+title: "Obsidian WebDAV Sync 插件指南"
+description: "Obsidian WebDAV Sync 插件指南 — 實體資料頁面"
+summary: "Obsidian WebDAV Sync 插件指南"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

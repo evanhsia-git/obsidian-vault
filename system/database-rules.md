@@ -1,9 +1,10 @@
 ---
-title: Database Rules
+status: active
+title: "Database Rules"
 summary: "Database Rules - SQLite 資料庫操作與資料抓取規範"
-description: SQLite 資料庫操作與資料抓取規範
+description: "SQLite 資料庫操作與資料抓取規範"
 type: concept
-tags: [database, sqlite, rules, data]
+tags: [linux, flow, source]
 created: 2026-06-21
 updated: 2026-06-21
 ---

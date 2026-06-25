@@ -1,10 +1,10 @@
 ---
-name: skills-list
-title: Skills List Display
-summary: 顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。
-description: 顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。
+status: active
+title: "Skills List Display"
+summary: "顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。"
+description: "顯示所有已安裝 Skills，使用文字清單＋簡易資料夾位置的格式。"
 type: concept
-tags: [skills, list, reference]
+tags: [agent, obsidian, knowledge]
 created: 2026-06-08
 updated: 2026-06-21
 ---

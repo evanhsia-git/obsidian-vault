@@ -1,10 +1,11 @@
 ---
-title: Telegram 檔案傳送標準規範
-summary: Telegram 檔案傳送標準規範：相關頁面
+status: active
+title: "Telegram 檔案傳送標準規範"
+summary: "Telegram 檔案傳送標準規範：相關頁面"
 created: 2026-05-31
 updated: 2026-06-01
 type: concept
-tags: [telegram, file-sender, standard, rules]
+tags: [telegram, linux, obsidian, flow]
 ---
 
 ## 相關頁面

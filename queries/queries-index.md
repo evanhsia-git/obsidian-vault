@@ -1,10 +1,10 @@
 ---
-title: 查詢記錄索引
-description: 查詢記錄索引 — 索引頁面
-summary: 查詢記錄索引
+title: "查詢記錄索引"
+description: "查詢記錄索引 — 索引頁面"
+summary: "查詢記錄索引"
 type: index
 status: active
-tags: [query, index]
+tags: []
 created: 2026-06-23
 updated: 2026-06-23
 ---

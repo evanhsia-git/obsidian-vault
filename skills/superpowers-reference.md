@@ -1,12 +1,12 @@
 ---
-title: Superpowers 功能說明
-description: Superpowers 完整功能說明 — 14 個 Agentic Skills 框架
+title: "Superpowers 功能說明"
+description: "Superpowers 完整功能說明 — 14 個 Agentic Skills 框架"
 summary: "Superpowers (obra/superpowers) 完整功能說明：14 個 Agentic Skills 框架"
 created: 2026-06-23
 updated: 2026-06-23
 type: index
 status: active
-tags: [superpowers, ai-agent, skills, workflow, obra]
+tags: [agent, flow]
 ---
 
 # Superpowers 功能說明

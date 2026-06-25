@@ -1,11 +1,11 @@
 ---
-title: 公司化協作模型：董事長與首席分析師
-description: 公司化協作模型：董事長與首席分析師 — 概念說明頁面
-summary: 公司化協作模型：董事長與首席分析師
+title: "公司化協作模型：董事長與首席分析師"
+description: "公司化協作模型：董事長與首席分析師 — 概念說明頁面"
+summary: "公司化協作模型：董事長與首席分析師"
 type: concept
 status: active
 priority: P2
-tags: ["concept", "hermes"]
+tags: [hermes]
 aliases: []
 created: 2026-06-05
 updated: 2026-06-05

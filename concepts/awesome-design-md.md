@@ -1,10 +1,10 @@
 ---
-title:Awesome DESIGN.md
-description: VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式，供 AI Agent 生成高品質 UI
-summary: Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合，讓 AI 生成風格一致的 UI
+title: "Awesome DESIGN.md"
+description: "VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式，供 AI Agent 生成高品質 UI"
+summary: "Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合，讓 AI 生成風格一致的 UI"
 type: concept
 status: active
-tags: [web-design, ai-ui, design-system, prompt-engineering, google-stitch]
+tags: [ai]
 created: 2026-06-24
 updated: 2026-06-24
 ---

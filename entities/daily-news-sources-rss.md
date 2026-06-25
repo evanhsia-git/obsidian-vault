@@ -1,11 +1,11 @@
 ---
-title: 每日新聞來源管理清單 (RSS)
-description: 每日新聞來源管理清單 (RSS) — 實體資料頁面
-summary: 每日新聞來源管理清單 (RSS)
+title: "每日新聞來源管理清單 (RSS)"
+description: "每日新聞來源管理清單 (RSS) — 實體資料頁面"
+summary: "每日新聞來源管理清單 (RSS)"
 type: entity
 status: active
 priority: P2
-tags: [data-source, obsidian, maintenance]
+tags: [source, obsidian, deploy]
 aliases: []
 created: 2026-06-15
 updated: 2026-06-16

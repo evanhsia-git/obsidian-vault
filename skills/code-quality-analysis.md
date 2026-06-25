@@ -1,12 +1,12 @@
 ---
-title: 程式碼品質分析
-description: 程式碼品質分析 — 找出效能瓶頸、重複程式碼、過長函式、不必要檔案存取，並提出優化方案
+title: "程式碼品質分析"
+description: "程式碼品質分析 — 找出效能瓶頸、重複程式碼、過長函式、不必要檔案存取，並提出優化方案"
 summary: "程式碼品質分析 skill — 找出效能瓶頸、重複程式碼、過長函式、不必要檔案存取，並提出優化方案"
 created: 2026-06-24
 updated: 2026-06-24
 type: index
 status: active
-tags: [code-quality, analysis, optimization, refactoring, skill]
+tags: [lint, performance, agent]
 ---
 
 # 程式碼品質分析

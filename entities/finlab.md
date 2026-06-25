@@ -1,11 +1,11 @@
 ---
-title: FinLab
-summary: FinLab：概述
+status: active
+title: "FinLab"
+summary: "FinLab：概述"
 created: 2026-06-03
 updated: 2026-06-03
 type: entity
-tags: [taiwan-stock, data-source, finlab, quantitative-trading]
-sources: [https://ai.finlab.tw/about, https://www.finlab.finance/docs/en/getting-started/]
+tags: [tw-stock, source]
 ---
 
 # FinLab

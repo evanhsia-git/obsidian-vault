@@ -1,10 +1,11 @@
 ---
-title: 股市分析系統三層 Agent 協作架構
-summary: 股市分析系統三層 Agent 協作架構：1. 系統層級圖 (Mermaid)
+status: active
+title: "股市分析系統三層 Agent 協作架構"
+summary: "股市分析系統三層 Agent 協作架構：1. 系統層級圖 (Mermaid)"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [automation, multi-agent, finance, architecture]
+tags: [auto, agent, tw-stock, architecture]
 ---
 
 # 股市分析系統三層 Agent 協作架構

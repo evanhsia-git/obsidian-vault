@@ -1,7 +1,7 @@
 ---
-title: daily-news-usstock-creation
-description: daily-news-usstock-creation — 概念說明頁面
-summary: daily-news-usstock-creation
+title: "daily-news-usstock-creation"
+description: "daily-news-usstock-creation — 概念說明頁面"
+summary: "daily-news-usstock-creation"
 type: concept
 status: active
 priority: P2

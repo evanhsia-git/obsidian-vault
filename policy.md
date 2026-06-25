@@ -1,15 +1,15 @@
 ---
-title: policy
-description: Hermes Agent 規則路由器
-summary: 根據任務類型載入對應規範
+title: "policy"
+description: "Hermes Agent 規則路由器"
+summary: "根據任務類型載入對應規範"
 version: "1.0"
 type: schema
 status: permanent
-tags: [policy, router, hermes, wiki]
+tags: [flow, hermes, obsidian]
 created: 2026-06-21
 updated: 2026-06-21
 ---
-
+tags
 # Purpose
 
 本文件負責規則路由。

@@ -1,10 +1,10 @@
 ---
-title: Quartz 遷移與 YAML 修復記錄
-description: 2026-06-22 Quartz content symlink → 實體資料夾遷移、YAML frontmatter 修復、GitHub Actions 部署排查
-summary: Quartz 遷移過程中的問題、解決方案與備份記錄
+title: "Quartz 遷移與 YAML 修復記錄"
+description: "2026-06-22 Quartz content symlink → 實體資料夾遷移、YAML frontmatter 修復、GitHub Actions 部署排查"
+summary: "Quartz 遷移過程中的問題、解決方案與備份記錄"
 type: report
 status: active
-tags: [quartz, migration, yaml, troubleshooting, backup]
+tags: [quartz, deploy, obsidian, backup]
 created: 2026-06-22
 updated: 2026-06-22
 ---

@@ -1,11 +1,11 @@
 ---
-title: Obsidian 雲端托管與發布平台比較
-description: Obsidian 雲端托管與發布平台比較 — 比較分析頁面
-summary: Obsidian 雲端托管與發布平台比較
+title: "Obsidian 雲端托管與發布平台比較"
+description: "Obsidian 雲端托管與發布平台比較 — 比較分析頁面"
+summary: "Obsidian 雲端托管與發布平台比較"
 type: concept
 status: active
 priority: P2
-tags: [obsidian, comparison]
+tags: [obsidian, flow]
 aliases: []
 created: 2026-06-12
 updated: 2026-06-12

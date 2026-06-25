@@ -1,7 +1,7 @@
 ---
-title: python-tool-api
-description: python-tool-api — 概念說明頁面
-summary: python-tool-api
+title: "python-tool-api"
+description: "python-tool-api — 概念說明頁面"
+summary: "python-tool-api"
 type: concept
 status: active
 priority: P2

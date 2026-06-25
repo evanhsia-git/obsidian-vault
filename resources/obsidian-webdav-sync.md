@@ -1,10 +1,10 @@
 ---
-title: Obsidian WebDAV Sync 使用指南
-description: Obsidian WebDAV Sync 插件設定與同步機制摘要
-summary: WebDAV 雙向同步插件，支援加密、衝突處理、增量同步
+title: "Obsidian WebDAV Sync 使用指南"
+description: "Obsidian WebDAV Sync 插件設定與同步機制摘要"
+summary: "WebDAV 雙向同步插件，支援加密、衝突處理、增量同步"
 type: resource
 status: active
-tags: [obsidian, webdav, sync, plugin]
+tags: [obsidian, linux, sync, integration]
 created: 2026-06-21
 updated: 2026-06-21
 ---

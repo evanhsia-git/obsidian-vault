@@ -1,11 +1,11 @@
 ---
-title: schema
-description: Hermes Agent 核心憲法
-summary: Obsidian Wiki、Wiki-LLM、Hermes Agent 核心規範
+title: "schema"
+description: "Hermes Agent 核心憲法"
+summary: "Obsidian Wiki、Wiki-LLM、Hermes Agent 核心規範"
 version: "3.2"
 type: schema
 status: permanent
-tags: [schema, hermes, wiki, obsidian]
+tags: [hermes, obsidian]
 created: 2026-06-21
 updated: 2026-06-21
 ---
@@ -54,7 +54,7 @@ read("log.md", last=30)
 完成後：
 
 ```text
-[1/4] ✅ SCHEMA | [2/4] ✅ index | [3/4] ✅ log → 導航完成
+[1/4] ✅ SCHEMA | [2/4] ✅ policy | [3/4] ✅ index | [4/4] ✅ log → 導航完成
 ```
 
 同一工作階段僅執行一次。
@@ -113,6 +113,14 @@ summary:
 created:
 updated:
 ```
+
+**Tags 規範**：
+
+- 整個 Vault 只能使用 **32 個核心 tag**（由 frontmatter-rules 定義），禁止新增
+- 單一頁面最多 **10 個** tag
+- 必須從核心列表中選取，不得自創
+
+---
 
 ---
 
@@ -315,6 +323,34 @@ system/
 
 ---
 
+# WebDAV 寫入權限（Post-creation 強制）
+
+Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 WebDAV。若新檔案擁有者為 `root:root` 且權限為 644，`www-data` 無法寫入 → 403。
+
+**規則**：在 Obsidian Vault 下建立或修改任何檔案後，必須執行權限確保：
+
+```bash
+sudo chown root:www-data "<新檔案路徑>"
+sudo chmod g+rwx "<新檔案路徑>"
+```
+
+**適用範圍**：
+- `write_file` 建立的新檔案
+- `terminal` 中 `mkdir` 新建的目錄
+- `patch` 修改後需要存檔的檔案（權限通常已正確，但新建子目錄時需檢查）
+
+**常見陷阱**：
+- ❌ 只改目錄權限，忘記改目錄內新建檔案
+- ❌ `chmod 777` 不安全，用 `g+rwx` + `chown root:www-data` 即可
+- ❌ 在 `concepts/`、`skills/`、`entities/` 等子目錄建立新頁面後未執行權限修正
+
+**強制執行時機**：
+1. `write_file` 後 → 立即 `chown + chmod`
+2. `terminal` 中 `mkdir` 後 → 立即 `chown + chmod`
+3. `obsidian-lint` 掃描發現權限時 → 立即批次修正
+
+---
+
 # Failure Protection
 
 最大重試：
@@ -444,6 +480,36 @@ title: My-Page
 **規則**：
 - frontmatter 所有項目必須有 key
 - 關聯頁面使用 `related` key，放在 body 而非 frontmatter
+
+---
+
+### 2c. title 或 description 含冒號未加 quote（Quartz YAML 解析問題）
+
+**錯誤**：
+```yaml
+---
+title:Awesome DESIGN.md
+description: VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式
+summary: Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合
+---
+```
+
+**原因**：`title` 值含冒號 `Awesome DESIGN.md` 本身無冒號但 `description` 和 `summary` 中的 `：` 或 `:` 会被 YAML parser 解讀為 key-value separator，導致 `end of the stream or a document separator is expected`。
+
+**規則**：
+- `title`、**永遠用 double quote 包裹**
+- `description`：**永遠用 double quote 包裹**
+- `summary`：**永遠用 double quote 包裹**
+- 原因：這三個欄位常見包含冒號、全形逗號、括號等特殊字元，直接引用風險極高
+
+**修正**：
+```yaml
+---
+title: "Awesome DESIGN.md"
+description: "VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式"
+summary: "Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合"
+---
+```
 
 ---
 

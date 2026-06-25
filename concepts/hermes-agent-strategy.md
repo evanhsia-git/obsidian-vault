@@ -1,11 +1,11 @@
 ---
-title: Hermes Agent 執行策略
-description: Hermes Agent 執行策略 — 概念說明頁面
-summary: Hermes Agent 執行策略
+title: "Hermes Agent 執行策略"
+description: "Hermes Agent 執行策略 — 概念說明頁面"
+summary: "Hermes Agent 執行策略"
 type: concept
 status: active
 priority: P2
-tags: [maintenance]
+tags: [deploy]
 aliases: []
 created: 2026-05-31
 updated: 2026-05-31

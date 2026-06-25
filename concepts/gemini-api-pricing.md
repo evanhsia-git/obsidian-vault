@@ -1,11 +1,11 @@
 ---
-title: Gemini API 定價摘要（Google 官方）
-summary: Gemini API 定價摘要（Google 官方）：相關頁面
+status: active
+title: "Gemini API 定價摘要（Google 官方）"
+summary: "Gemini API 定價摘要（Google 官方）：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [gemini, google, api, pricing, llm, ai]
-sources: [https://ai.google.dev/gemini-api/docs/pricing]
+tags: [ai, integration, tw-stock]
 ---
 
 ## 相關頁面

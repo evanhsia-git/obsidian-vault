@@ -1,13 +1,11 @@
 ---
-name: fred-economic-data
-description: 美國聯準會總體經濟資料庫 (FRED) 數據源。
-category: data-source
-tools:
+status: active
+description: "美國聯準會總體經濟資料庫 (FRED) 數據源。"
   - terminal
   - memory
   - execute_code
-title: Fred-Economic-Data
-summary: FRED 美國聯準會經濟數據源與操作方法
+title: "Fred-Economic-Data"
+summary: "FRED 美國聯準會經濟數據源與操作方法"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept

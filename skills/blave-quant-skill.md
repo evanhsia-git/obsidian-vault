@@ -1,11 +1,13 @@
 ---
-title: Blave Quant Skill
-summary: Blave Quant Skill：核心功能 (8大能力)
-created: 2026-06-03
-updated: 2026-06-03
+title: "Blave Quant Skill"
+description: "Blave Quant Skill，賦予 AI Agent 加密貨幣交易與市場分析能力的技能包"
+summary: "Blave Quant Skill：核心功能 (8大能力)"
 type: entity
-tags: [crypto, quantitative-trading, api, blave, agent-skill]
-sources: [https://github.com/Blave-TW/blave-quant-skill, https://blave.org]
+status: active
+tags: [tw-stock, integration, agent]
+related: "[[skills/skills-index]]"
+created: 2026-06-03
+updated: 2026-06-25
 ---
 
 # Blave Quant Skill
@@ -29,4 +31,5 @@ Blave Quant Skill 是一個賦予 AI Agent 加密貨幣交易與市場分析能�
 
 ## 相關概念
 - [[entities/finlab|FinLab]]
-- [[concepts/stock-automation-config|Stock Automation Config]]
+- [[skills/cron-architecture-roles|Stock Automation Config]]
+- [[skills/skills-index|Skills 目錄]]

@@ -1,11 +1,11 @@
 ---
-title: 投資大師選股策略
-description: 投資大師選股策略 — 概念說明頁面
-summary: 投資大師選股策略
+title: "投資大師選股策略"
+description: "投資大師選股策略 — 概念說明頁面"
+summary: "投資大師選股策略"
 type: concept
 status: active
 priority: P2
-tags: [maintenance]
+tags: [deploy]
 aliases: []
 created: 2026-05-31
 updated: 2026-05-31

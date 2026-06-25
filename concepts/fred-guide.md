@@ -1,13 +1,13 @@
 ---
-title: FRED (Federal Reserve Economic Data) 指南
-description: FRED (Federal Reserve Economic Data) 指南 — 概念說明頁面
-summary: FRED (Federal Reserve Economic Data) 指南
+title: "FRED (Federal Reserve Economic Data) 指南"
+description: "FRED (Federal Reserve Economic Data) 指南 — 概念說明頁面"
+summary: "FRED (Federal Reserve Economic Data) 指南"
 
 type: concept
 status: active
 priority: P2
 
-tags: ["concept"]
+tags: []
 aliases: []
 
 created: 2026-06-16

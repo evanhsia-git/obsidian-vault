@@ -1,11 +1,11 @@
 ---
-title: Agent 驅動任務 (LLM-driven Cronjob)
-description: Agent 驅動任務 (LLM-driven Cronjob) — 概念說明頁面
-summary: Agent 驅動任務 (LLM-driven Cronjob)
+title: "Agent 驅動任務 (LLM-driven Cronjob)"
+description: "Agent 驅動任務 (LLM-driven Cronjob) — 概念說明頁面"
+summary: "Agent 驅動任務 (LLM-driven Cronjob)"
 type: concept
 status: active
 priority: P2
-tags: [hermes, concept, agents, cronjob]
+tags: [hermes, agent, auto]
 aliases: []
 created: 2026-06-12
 updated: 2026-06-12

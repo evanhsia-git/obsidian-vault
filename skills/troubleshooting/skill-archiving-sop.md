@@ -1,10 +1,11 @@
 ---
-title: Skill 歸檔封存標準作業程序 (SOP)
-summary: Skill 歸檔封存標準作業程序 (SOP)：1. 備份階段 (存檔)
+status: active
+title: "Skill 歸檔封存標準作業程序 (SOP)"
+summary: "Skill 歸檔封存標準作業程序 (SOP)：1. 備份階段 (存檔)"
 created: 2026-06-03
 updated: 2026-06-03
 type: task
-tags: [maintenance, skill-management, hermes-agent]
+tags: [deploy, agent, hermes]
 ---
 
 # Skill 歸檔封存 SOP

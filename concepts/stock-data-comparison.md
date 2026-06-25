@@ -1,10 +1,11 @@
 ---
-title: 股市資料比較與 Agent 架構
+status: active
+title: "股市資料比較與 Agent 架構"
 summary: "股市資料獲取比較表格 + Agent 使用架構 + 資料分工 + 注意事項"
 created: 2026-06-23
 updated: 2026-06-23
 type: concept
-tags: [taiwan-stock, data-source, agent-architecture, comparison]
+tags: [tw-stock, source, architecture, flow]
 ---
 
 # 股市資料比較與 Agent 架構

@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build 嵌入/檢索模型
-summary: NVIDIA Build 嵌入/檢索模型：相關頁面
+status: active
+title: "NVIDIA Build 嵌入/檢索模型"
+summary: "NVIDIA Build 嵌入/檢索模型：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, embedding, retrieval, free-models, ai]
-sources: [https://build.nvidia.com/models]
+tags: [ai, rag]
 ---
 
 # NVIDIA Build 嵌入/檢索模型

@@ -1,11 +1,11 @@
 ---
-title: VPS 主機環境配置
-description: VPS 主機環境配置 — 系統配置頁面
-summary: VPS 主機環境配置
+title: "VPS 主機環境配置"
+description: "VPS 主機環境配置 — 系統配置頁面"
+summary: "VPS 主機環境配置"
 type: schema
 status: active
 priority: P2
-tags: ["concept", "hermes"]
+tags: [hermes]
 aliases: []
 created: 2026-06-07
 updated: 2026-06-07

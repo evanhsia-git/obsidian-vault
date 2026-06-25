@@ -1,9 +1,10 @@
 ---
-title: System Index
-description: 系統架構索引
-summary: 系統架構與規則索引
+status: active
+title: "System Index"
+description: "系統架構索引"
+summary: "系統架構與規則索引"
 type: index
-tags: [system, index]
+tags: []
 created: 2026-06-08
 updated: 2026-06-21
 ---

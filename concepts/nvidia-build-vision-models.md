@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build 視覺/多模態模型
-summary: NVIDIA Build 視覺/多模態模型：相關頁面
+status: active
+title: "NVIDIA Build 視覺/多模態模型"
+summary: "NVIDIA Build 視覺/多模態模型：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, vision, multimodal, free-models, ai]
-sources: [https://build.nvidia.com/models]
+tags: [ai]
 ---
 
 # NVIDIA Build 視覺/多模態模型

@@ -1,7 +1,7 @@
 ---
-title: ai-hallucination-suppression
-description: ai-hallucination-suppression — 概念說明頁面
-summary: ai-hallucination-suppression
+title: "ai-hallucination-suppression"
+description: "ai-hallucination-suppression — 概念說明頁面"
+summary: "ai-hallucination-suppression"
 type: concept
 status: active
 priority: P2

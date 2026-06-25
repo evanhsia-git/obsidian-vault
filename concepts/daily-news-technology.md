@@ -1,6 +1,7 @@
 ---
-title: daily-news-technology
-summary: daily-news-technology：每日AI及科技新聞 (新格式)
+status: active
+title: "daily-news-technology"
+summary: "daily-news-technology：每日AI及科技新聞 (新格式)"
 created: 2026-06-10
 updated: 2026-06-10
 type: concept

@@ -1,11 +1,11 @@
 ---
-title: AI 科技部落格資訊來源 - MOST
-description: AI 科技部落格資訊來源 - MOST — 實體資料頁面
-summary: AI 科技部落格資訊來源 - MOST
+title: "AI 科技部落格資訊來源 - MOST"
+description: "AI 科技部落格資訊來源 - MOST — 實體資料頁面"
+summary: "AI 科技部落格資訊來源 - MOST"
 type: entity
 status: active
 priority: P2
-tags: ["ai", "concept", "data-source"]
+tags: [ai, source]
 aliases: []
 created: 2026-06-06
 updated: 2026-06-06

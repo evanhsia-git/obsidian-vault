@@ -1,9 +1,10 @@
 ---
-title: Quartz Rules
+status: active
+title: "Quartz Rules"
 summary: "Quartz Rules - 靜態網站部署與 GitHub Pages 發佈規範"
-description: Quartz 靜態網站部署與 GitHub Pages 發佈規範
+description: "Quartz 靜態網站部署與 GitHub Pages 發佈規範"
 type: concept
-tags: [quartz, github, deploy, rules]
+tags: [quartz, deploy, flow]
 created: 2026-06-21
 updated: 2026-06-21
 ---
@@ -67,8 +68,24 @@ updated: 2026-06-21
    # 修正：將 wikilink 移至 body
    ```
 
+4. **title / description 含冒號未加 quote**
+   ```yaml
+   # 錯誤
+   ---
+   title:Awesome DESIGN.md
+   description: VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式
+   summary: Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合
+   ---
+   # 修正
+   ---
+   title: "Awesome DESIGN.md"
+   description: "VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式"
+   summary: "Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合"
+   ---
+   ```
+
 **規則**：
-- 所有 summary 值一律用 double quote 包裹
+- title、description、summary 三個欄位**永遠用 double quote 包裹**
 - summary 避免逗號後接空格+小寫字母的結構
 - frontmatter 內禁止 wikilink、markdown 語法
 

@@ -1,13 +1,13 @@
 ---
-title: 美聯儲有效聯邦基金利率 (EFFR) 分析報告
-description: 美聯儲有效聯邦基金利率 (EFFR) 分析報告 — 實體資料頁面
-summary: 美聯儲有效聯邦基金利率 (EFFR) 分析報告
+title: "美聯儲有效聯邦基金利率 (EFFR) 分析報告"
+description: "美聯儲有效聯邦基金利率 (EFFR) 分析報告 — 實體資料頁面"
+summary: "美聯儲有效聯邦基金利率 (EFFR) 分析報告"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

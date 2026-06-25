@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build 文件智慧/OCR 模型
-summary: NVIDIA Build 文件智慧/OCR 模型：相關頁面
+status: active
+title: "NVIDIA Build 文件智慧/OCR 模型"
+summary: "NVIDIA Build 文件智慧/OCR 模型：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, ocr, document-intelligence, free-models, ai]
-sources: [https://build.nvidia.com/models]
+tags: [ai]
 ---
 
 # NVIDIA Build 文件智慧/OCR 模型

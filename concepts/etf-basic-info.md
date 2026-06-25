@@ -1,10 +1,11 @@
 ---
-title: ETF 基本資料彙總表
-summary: ETF 基本資料彙總表：相關頁面
+status: active
+title: "ETF 基本資料彙總表"
+summary: "ETF 基本資料彙總表：相關頁面"
 created: 2026-05-28
 updated: 2026-05-28
 type: resource
-tags: [etf, twse, data-gov-tw, 基本資料]
+tags: [tw-stock, source]
 aliases: [ETF基本資料, etf_basic_info]
 ---
 

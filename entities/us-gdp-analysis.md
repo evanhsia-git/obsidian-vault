@@ -1,13 +1,13 @@
 ---
-title: 美國實質 GDP 成長率分析報告
-description: 美國實質 GDP 成長率分析報告 — 實體資料頁面
-summary: 美國實質 GDP 成長率分析報告
+title: "美國實質 GDP 成長率分析報告"
+description: "美國實質 GDP 成長率分析報告 — 實體資料頁面"
+summary: "美國實質 GDP 成長率分析報告"
 
 type: entity
 status: active
 priority: P2
 
-tags: ["entity"]
+tags: []
 aliases: []
 
 created: 2026-06-16

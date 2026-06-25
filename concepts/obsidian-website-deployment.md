@@ -1,11 +1,11 @@
 ---
-title: 如何將 Obsidian 發佈為私人入口網站
-summary: 如何將 Obsidian 發佈為私人入口網站：推薦方案：Quartz + Cloudflare Zero Trust
+status: active
+title: "如何將 Obsidian 發佈為私人入口網站"
+summary: "如何將 Obsidian 發佈為私人入口網站：推薦方案：Quartz + Cloudflare Zero Trust"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [obsidian, publishing, quartz, github, maintenance]
-sources: [hermes-agent-advice]
+tags: [obsidian, quartz, deploy]
 ---
 
 # 如何將 Obsidian 發佈為私人入口網站

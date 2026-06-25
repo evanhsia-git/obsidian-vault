@@ -1,7 +1,7 @@
 ---
-title: README
-description: README — 技能說明頁面
-summary: README
+title: "README"
+description: "README — 技能說明頁面"
+summary: "README"
 type: concept
 status: active
 priority: P2

@@ -1,10 +1,11 @@
 ---
-title: 股市分析三層 Agent 系統：執行流程與協作規範
-summary: 股市分析三層 Agent 系統：執行流程與協作規範：1. 系統協作架構流程圖
+status: active
+title: "股市分析三層 Agent 系統：執行流程與協作規範"
+summary: "股市分析三層 Agent 系統：執行流程與協作規範：1. 系統協作架構流程圖"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [automation, multi-agent, finance, guide]
+tags: [auto, agent, tw-stock, deploy]
 ---
 
 # 股市分析系統：執行流程與操作規範

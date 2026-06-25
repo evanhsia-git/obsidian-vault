@@ -1,11 +1,11 @@
 ---
-title: VPS Obsidian 與部落格部署方案
-description: VPS Obsidian 與部落格部署方案 — 概念說明頁面
-summary: VPS Obsidian 與部落格部署方案
+title: "VPS Obsidian 與部落格部署方案"
+description: "VPS Obsidian 與部落格部署方案 — 概念說明頁面"
+summary: "VPS Obsidian 與部落格部署方案"
 type: concept
 status: active
 priority: P2
-tags: ["concept", "obsidian"]
+tags: [obsidian]
 aliases: []
 created: 2026-06-06
 updated: 2026-06-06

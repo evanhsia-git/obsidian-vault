@@ -1,7 +1,7 @@
 ---
-title: Cloudflare Pages 運行 Decap CMS
-description: Cloudflare Pages 運行 Decap CMS — 概念說明頁面
-summary: Cloudflare Pages 運行 Decap CMS
+title: "Cloudflare Pages 運行 Decap CMS"
+description: "Cloudflare Pages 運行 Decap CMS — 概念說明頁面"
+summary: "Cloudflare Pages 運行 Decap CMS"
 type: concept
 status: active
 priority: P2

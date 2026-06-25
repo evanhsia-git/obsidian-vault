@@ -1,7 +1,7 @@
 ---
-title: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0
-description: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0 — 概念說明頁面
-summary: Hermes Agent + Obsidian Wiki 工作流程規範 v2.0
+title: "Hermes Agent + Obsidian Wiki 工作流程規範 v2.0"
+description: "Hermes Agent + Obsidian Wiki 工作流程規範 v2.0 — 概念說明頁面"
+summary: "Hermes Agent + Obsidian Wiki 工作流程規範 v2.0"
 type: concept
 status: active
 priority: P2

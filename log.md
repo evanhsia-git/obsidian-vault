@@ -1,15 +1,51 @@
 ---
-title: Log
-description: Obsidian Vault 維護日誌
-summary: 所有維護、修復、新增、刪除操作的記錄
+title: "Log"
+description: "Obsidian Vault 維護日誌"
+summary: "所有維護、修復、新增、刪除操作的記錄"
 type: log
 status: active
-tags: [system, log]
+tags: []
 created: 2026-06-21
 updated: 2026-06-23
 ---
 
 # Obsidian Vault 維護日誌
+
+## [2026-06-25 10:00] 新增文章 + skill 整併 + 頁面搬移 + lint 修正 + WebDAV 權限修正 + Tags 規範
+- **原因**：閱讀 Hermes Agent Curator 官方文件後用戶要求摘要並寫入 wiki；執行 daily-news 系列整併；skill 相關頁面搬移至 skills/；修正 lint 腳本缺陷；WebDAV 403 權限修正；Tags 規範更新
+- **Tags 規範**：
+  - 整個 Vault 核心 tag 上限從 35 個精簡至 **32 個**，禁止新增
+  - 單一頁面最多 10 個 tag
+  - 已更新 schema.md + frontmatter-rules.md + obsidian-lint skill 三處
+  - 批次替換 132 個頁面的非核心 tag → 35 個核心列表
+- **新增**: [[hermes-curator]]（concepts/）
+- **整併**:
+  - `daily-news-stock-market` → 合併至 `daily-stock-news`
+  - `daily-news-unified` 更新為頂層聚合器
+- **搬移**（7 個頁面從 concepts/entities → skills/）:
+  - `concepts/skill-usage-protocol.md` → `skills/skill-usage-protocol.md`
+  - `concepts/skill-script-architecture.md` → `skills/skill-script-architecture.md`
+  - `concepts/obsidian-wiki-skill.md` → `skills/obsidian-wiki-skill.md`
+  - `concepts/python-in-skill-implementation.md` → `skills/python-in-skill-implementation.md`
+  - `concepts/cron-architecture-roles.md` → `skills/cron-architecture-roles.md`
+  - `concepts/manus-use-cases.md` → `skills/manus-use-cases.md`
+  - `entities/blave-quant-skill.md` → `skills/blave-quant-skill.md`
+- **lint 腳本修正**:
+  - 加入 `status:` 必填檢查
+  - 加入 frontmatter key 白名單檢查
+  - 加入 title/description/summary double quote 檢查
+  - v3.2.8：完整 frontmatter 自動修正
+- **WebDAV 權限修正**:
+  - `skills/` 目錄 403 問題：Agent 以 root 建檔，Nginx 以 www-data 運行 WebDAV
+  - 已修正 `skills/` 全部子目錄權限為 `root:www-data` + `g+rwx`
+  - **規範化**：schema.md 新增「WebDAV 寫入權限」章節、obsidian skill Post-creation checklist 加入步驟 0（chown + chmod）
+  - 版本升至 v3.2.8
+- **自動修復**: status 75 個、frontmatter 格式 149 個
+- **結果**: 6 → 5 個新聞 skill；skill 相關頁面集中管理
+
+## [2026-06-24 10:00] 新增文章
+- **原因**：閱讀 Awesome DESIGN.md GitHub repo 後用戶要求摘要並寫入 wiki
+- **新增**: [[awesome-design-md]]（concepts/）
 
 ## [2026-06-24 10:00] 新增文章
 - **原因**：閱讀 Awesome DESIGN.md GitHub repo 後用戶要求摘要並寫入 wiki
@@ -205,3 +241,10 @@ updated: 2026-06-23
 ## [2026-06-23 15:35:53] lint | 全部通過
 ## [2026-06-23 21:00:48] lint | 全部通過
 ## [2026-06-24 21:00:54] lint | 全部通過
+## [2026-06-25 09:22:27] lint | 全部通過
+## [2026-06-25 09:50:06] lint | 75 missing_fields | 39 invalid_type | 1 weak_hubs
+## [2026-06-25 09:51:37] lint | 75 missing_fields | 39 invalid_type | 1 weak_hubs
+## [2026-06-25 09:56:22] lint | 1 missing_fields | 1 weak_hubs
+## [2026-06-25 09:57:11] lint | 全部通過
+## [2026-06-25 12:31:14] lint | 全部通過
+## [2026-06-25 21:00:05] lint | 全部通過

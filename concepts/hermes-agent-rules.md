@@ -1,9 +1,10 @@
 ---
-title: Hermes Agent Rules
-summary: Hermes Agent Rules：知識誠實與回答準則
-description: 知識誠實與回答準則
+status: active
+title: "Hermes Agent Rules"
+summary: "Hermes Agent Rules：知識誠實與回答準則"
+description: "知識誠實與回答準則"
 type: concept
-tags: [hermes, rules, agent]
+tags: [hermes, flow, agent]
 created: 2026-06-21
 updated: 2026-06-21
 ---

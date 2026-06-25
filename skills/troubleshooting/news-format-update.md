@@ -1,10 +1,11 @@
 ---
-title: 新聞推送規範修正
+status: active
+title: "新聞推送規範修正"
 summary: "新聞推送規範修正 - 2026-06-03 新聞推送標準格式修正"
 created: 2026-06-03
 updated: 2026-06-03
 type: task
-tags: [maintenance, cronjob, news]
+tags: [deploy, auto, source]
 ---
 
 ## [2026-06-03] maintenance | 新聞推送標準格式修正

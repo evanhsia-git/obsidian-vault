@@ -1,10 +1,11 @@
 ---
-title: Nav Toor   Financial Analysis Prompts
-summary: Nav Toor   Financial Analysis Prompts：相關頁面
+status: active
+title: "Nav Toor   Financial Analysis Prompts"
+summary: "Nav Toor   Financial Analysis Prompts：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept
-tags: [maintenance]
+tags: [deploy]
 ---
 
 ## 相關頁面

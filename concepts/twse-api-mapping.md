@@ -1,9 +1,8 @@
 ---
-name: twse-api-mapping
-description: 台灣證券交易所 (TWSE) OpenAPI 端點映射與抓取規範。
-category: data-source
-title: Twse-Api-Mapping
-summary: Twse-Api-Mapping：相關頁面
+status: active
+description: "台灣證券交易所 (TWSE) OpenAPI 端點映射與抓取規範。"
+title: "Twse-Api-Mapping"
+summary: "Twse-Api-Mapping：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept

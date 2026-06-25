@@ -1,21 +1,13 @@
 ---
-title: Python in Skill Implementation
-description: Python in Skill Implementation — 概念說明頁面
-summary: Python in Skill Implementation
+title: "Python in Skill Implementation"
+description: "Python 在 Skill 實作中的優勢分析，比較 BASH/CRL 等非 Python 替代方案"
+summary: "Python 在 Skill 實作中的優勢分析"
 type: concept
 status: active
-priority: P2
-tags: ["hermes", "skill", "concept", "cronjob"]
-aliases: []
+tags: [hermes, agent, linux, auto]
+related: "[[skills/skills-index]]"
 created: 2026-06-08
-updated: 2026-06-08
-date: 2026-06-08
-publish: true
-draft: false
-related:
-source:
-due:
-review:
+updated: 2026-06-25
 ---
 
 # Why Python for Skill Implementation
@@ -73,6 +65,5 @@ Python provides a balanced approach for Skill implementation in Hermes with bett
 
 相關頁面：[[model-error-messages]]
 
-
 ## 相關節點
-- [[index]]
+- [[skills/skills-index|Skills 目錄]]

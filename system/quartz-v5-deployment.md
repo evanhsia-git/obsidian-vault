@@ -1,11 +1,11 @@
 ---
-title: Quartz v5 GitHub Pages 部署
-description: Quartz v5 GitHub Pages 部署 — 系統配置頁面
-summary: Quartz v5 GitHub Pages 部署
+title: "Quartz v5 GitHub Pages 部署"
+description: "Quartz v5 GitHub Pages 部署 — 系統配置頁面"
+summary: "Quartz v5 GitHub Pages 部署"
 type: schema
 status: active
 priority: P2
-tags: [maintenance, setup, hermes, obsidian]
+tags: [deploy, hermes, obsidian]
 aliases: []
 created: 2026-06-11
 updated: 2026-06-11

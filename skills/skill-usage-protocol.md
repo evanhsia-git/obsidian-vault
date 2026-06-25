@@ -1,21 +1,13 @@
 ---
-title: skill-usage-protocol
-description: skill-usage-protocol — 概念說明頁面
-summary: skill-usage-protocol
+title: "Skill 使用規範"
+description: "新建技能前必須先檢視 Obsidian Vault 中的技能清單，優先使用現有技能進行調整與修改"
+summary: "skill-usage-protocol"
 type: concept
 status: active
-priority: P2
-tags: [hermes]
-aliases: []
+tags: [hermes, agent, flow]
+related: "[[skills/skills-index]]"
 created: 2026-06-10
-updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
+updated: 2026-06-25
 ---
 
 ## Skill 使用規範 (Skill Usage Protocol)

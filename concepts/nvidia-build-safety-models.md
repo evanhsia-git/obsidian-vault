@@ -1,11 +1,11 @@
 ---
-title: NVIDIA Build 內容安全模型
-summary: NVIDIA Build API 內容安全與過濾模型使用指南
+status: active
+title: "NVIDIA Build 內容安全模型"
+summary: "NVIDIA Build API 內容安全與過濾模型使用指南"
 created: 2026-06-01
 updated: 2026-06-01
 type: concept
-tags: [nvidia, nim, safety, moderation, free-models, ai]
-sources: [https://build.nvidia.com/models]
+tags: [ai, security]
 ---
 
 # NVIDIA Build 內容安全模型

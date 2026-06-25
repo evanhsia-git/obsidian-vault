@@ -1,7 +1,7 @@
 ---
-title: schema
-description: SCHEMA — 知識庫頁面
-summary: SCHEMA
+title: "schema"
+description: "SCHEMA — 知識庫頁面"
+summary: "SCHEMA"
 type: concept
 status: active
 priority: P2

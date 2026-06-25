@@ -1,11 +1,11 @@
 ---
-title: TradingAgents
-summary: TradingAgents：核心功能
+status: active
+title: "TradingAgents"
+summary: "TradingAgents：核心功能"
 created: 2026-06-03
 updated: 2026-06-03
 type: entity
-tags: [ai, llm, agents, trading, quantitative-trading]
-sources: [https://www.zdoc.app/zh/TauricResearch/TradingAgents]
+tags: [ai, agent, tw-stock]
 ---
 
 # TradingAgents

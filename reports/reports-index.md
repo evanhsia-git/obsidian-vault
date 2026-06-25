@@ -1,10 +1,10 @@
 ---
-title: Reports Index
-description: 報告索引
-summary: 報告索引頁面
+title: "Reports Index"
+description: "報告索引"
+summary: "報告索引頁面"
 type: index
 status: active
-tags: [report, index]
+tags: []
 created: 2026-06-21
 updated: 2026-06-21
 ---

@@ -1,11 +1,11 @@
 ---
-title: 股票組合回測分析 (AAPL, MSFT, AMZN, NVDA)
-summary: 股票組合回測分析 (AAPL, MSFT, AMZN, NVDA)：策略說明
+status: active
+title: "股票組合回測分析 (AAPL, MSFT, AMZN, NVDA)"
+summary: "股票組合回測分析 (AAPL, MSFT, AMZN, NVDA)：策略說明"
 created: 2026-06-03
 updated: 2026-06-03
 type: query
-tags: [quantitative-trading, backtest, stock-analysis, aapl, msft, amzn, nvda]
-sources: [https://www.kimi.com/replay/19b46548-f4d2-80ad-8000-0000db1d5f50]
+tags: [tw-stock]
 ---
 
 # 股票組合回測分析

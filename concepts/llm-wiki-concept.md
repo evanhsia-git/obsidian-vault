@@ -1,11 +1,11 @@
 ---
-title: LLM Wiki 核心概念
-summary: LLM Wiki 核心概念：核心思想：從 RAG 到 Wiki
+status: active
+title: "LLM Wiki 核心概念"
+summary: "LLM Wiki 核心概念：核心思想：從 RAG 到 Wiki"
 created: 2026-05-28
 updated: 2026-05-28
 type: concept
-tags: [llm-wiki, karpathy, knowledge-base, wiki]
-sources: [raw/articles/karpathy-llm-wiki-gist.md]
+tags: [obsidian, ai, knowledge]
 ---
 
 # LLM Wiki 核心概念

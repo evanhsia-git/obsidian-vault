@@ -1,11 +1,11 @@
 ---
-title: 私人網站訪問
-summary: 私人網站訪問：1. GitHub Pages 私人權限 (適用於企業/團隊帳號)
+status: active
+title: "私人網站訪問"
+summary: "私人網站訪問：1. GitHub Pages 私人權限 (適用於企業/團隊帳號)"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [obsidian, publishing, quartz, github, maintenance]
-sources: [hermes-agent-advice]
+tags: [obsidian, quartz, deploy]
 ---
 
 # 私人網站訪問

@@ -1,10 +1,11 @@
 ---
-title: Telegram 訊息截斷問題排除指南
-summary: Telegram 訊息截斷問題排除指南：1. 成因分析
+status: active
+title: "Telegram 訊息截斷問題排除指南"
+summary: "Telegram 訊息截斷問題排除指南：1. 成因分析"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [maintenance, telegram, troubleshooting]
+tags: [deploy, telegram]
 ---
 
 # Telegram 訊息截斷問題排除指南

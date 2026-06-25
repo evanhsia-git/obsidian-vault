@@ -1,10 +1,11 @@
 ---
-title: Hermes Agent 擴充與工具開發指南
-summary: Hermes Agent 擴充與工具開發指南：1. 核心搜尋策略
+status: active
+title: "Hermes Agent 擴充與工具開發指南"
+summary: "Hermes Agent 擴充與工具開發指南：1. 核心搜尋策略"
 created: 2026-06-04
 updated: 2026-06-21
 type: concept
-tags: [hermes, agent, development, mcp, github]
+tags: [hermes, agent, deploy, integration]
 ---
 
 # Hermes Agent 擴充與工具開發指南

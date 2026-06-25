@@ -1,11 +1,11 @@
 ---
-title: Awesome GitHub 列表
-description: Awesome GitHub 列表 — 實體資料頁面
-summary: Awesome GitHub 列表
+title: "Awesome GitHub 列表"
+description: "Awesome GitHub 列表 — 實體資料頁面"
+summary: "Awesome GitHub 列表"
 type: entity
 status: active
 priority: P2
-tags: ["hermes", "concept"]
+tags: [hermes]
 aliases: []
 created: 2026-06-06
 updated: 2026-06-06

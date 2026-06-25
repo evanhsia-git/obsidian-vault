@@ -1,12 +1,10 @@
 ---
-name: sp500-components
-description: S&P 500 成分股資料來源（來自 SlickCharts）。
-category: data-source
-tools:
+status: active
+description: "S&P 500 成分股資料來源（來自 SlickCharts）。"
   - terminal
   - memory
   - execute_code
-title: Sp500-Components
+title: "Sp500-Components"
 summary: "S&P 500 成分股列表與資料取得方式"
 created: 2026-05-31
 updated: 2026-05-31
