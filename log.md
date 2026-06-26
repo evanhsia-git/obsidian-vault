@@ -336,3 +336,4 @@ updated: 2026-06-23
 - 遷移 20 篇筆記（concepts 11 + entities 6 + queries 3 + skills 1）
 - 更新 `schema.md`、`index.md`、4 個原目錄 index、`log.md`
 ## [2026-06-26 15:06:32] lint | 2 invalid_type | 3 weak_hubs
+## [2026-06-26 21:00:12] lint | 1 invalid_type | 3 weak_hubs
