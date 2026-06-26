@@ -2,7 +2,7 @@
 title: "schema"
 description: "Hermes Agent 核心憲法"
 summary: "Obsidian Wiki、Wiki-LLM、Hermes Agent 核心規範"
-version: "3.2"
+version: "3.4"
 type: schema
 status: permanent
 tags: [hermes, obsidian]
@@ -480,6 +480,45 @@ title: My-Page
 **規則**：
 - frontmatter 所有項目必須有 key
 - 關聯頁面使用 `related` key，放在 body 而非 frontmatter
+
+---
+
+### 3b. YAML 縮排結構錯誤 — key 缺失（Quartz note-properties 插件失敗）
+
+**錯誤**：
+```yaml
+status: active
+description: "S&P 500 成分股資料來源"
+  - terminal        ← YAML 解析器將 `-` 視為上一個 key 的 sequence
+  - memory
+  - execute_code
+title: "Sp500-Components"
+```
+
+**原因**：`tags:` 鍵被誤删或未建立，導致下層 `- item` 列表縮排在 `description` 下方。YAML parser 嘗試將 `- terminal` 解析為 `description` 值的延續（block mapping 內嵌 block sequence），報 `expected <block end>, but found '<block sequence start>'`。
+
+**影響**：Quartz `note-properties` 插件 (`transformer.ts:169`) 使用 `gray-matter` + `yaml.load()` 解析 frontmatter，此类結構錯誤會拋出 `YAMLException` 導致整個 `build` 步驟失敗（GitHub Actions exit code 1）。與單純的 quote 缺失不同，**此類錯誤無法透過 quote 修復**，必須補回遺失的 key。
+
+**觸發場景**：
+- 手動編輯 frontmatter 時誤删 `tags:` 或 `aliases:` 一行
+- Agent 批次修改 frontmatter 時，replace 操作誤將 key 行一起替換為空
+-  Frankie/Copilot 等 AI 工具在重組 frontmatter 時遺漏 key
+
+**規則**：
+- frontmatter 中所有 list 型欄位（`tags`、`aliases`、`platforms`、`metadata`）必須有明確的 key
+- 建立/修改 frontmatter 後，必須用 `yaml.safe_load()` 驗證結構完整性
+- lint 腳本必須在步驟 3b 執行全域 YAML 語法驗證
+
+**修正**：
+```yaml
+status: active
+description: "S&P 500 成分股資料來源"
+tags:
+  - terminal
+  - memory
+  - execute_code
+title: "Sp500-Components"
+```
 
 ---
 

@@ -35,6 +35,29 @@ updated: 2026-06-23
   - 加入 frontmatter key 白名單檢查
   - 加入 title/description/summary double quote 檢查
   - v3.2.8：完整 frontmatter 自動修正
+
+---
+
+## [2026-06-26 17:30] system-fix | obsidian-lint v3.4.0 + schema v3.4
+
+**觸發**：Quartz GitHub Actions 部署失敗，`note-properties` 插件 `transformer.ts:169` 報 YAML 語法錯誤
+
+**根本原因**：2 個 Vault 檔案（fred-economic-data.md, sp500-components.md）的 `tags:` 鍵缺失，列表項縮排在 `description` 下方，yaml.load() 拋出 `YAMLException` 導致 build 完全失敗
+
+**修正項目**（三處同步）：
+1. **obsidian-lint.py**：新增步驟 3b — `yaml.safe_load()` 全域結構驗證（遍所有 .md 檔案）
+2. **schema.md**：
+   - 版本 3.2 → 3.4
+   - 新增 §3b「YAML 縮排結構錯誤 — key 缺失」完整規範
+   - Frontmatter Safety 加入 key 缺失錯誤模式
+3. **frontmatter-rules.md**：
+   - 新增「YAML 結構完整性（必驗證）」章節
+   - Success Criteria 加入「所有頁面皆是合法 YAML（通過 yaml.safe_load 驗證）」
+4. **obsidian-lint skill**：更新到 v3.4.1，Pitfall 20 補充觸發場景，新增 Pitfall 21
+
+**自動修復**：2 個檔案補回 `tags:` 鍵
+
+**教訓**：`if 'tags:' in txt` 只能確認 key 字串存在，不能驗證結構合法性。必須用 `yaml.safe_load()` 做實際解析測試。
 - **WebDAV 權限修正**:
   - `skills/` 目錄 403 問題：Agent 以 root 建檔，Nginx 以 www-data 運行 WebDAV
   - 已修正 `skills/` 全部子目錄權限為 `root:www-data` + `g+rwx`
@@ -248,3 +271,6 @@ updated: 2026-06-23
 ## [2026-06-25 09:57:11] lint | 全部通過
 ## [2026-06-25 12:31:14] lint | 全部通過
 ## [2026-06-25 21:00:05] lint | 全部通過
+## [2026-06-26 00:34:17] lint | 全部通過
+## [2026-06-26 00:55:35] lint | 全部通過
+## [2026-06-26 00:56:42] lint | 全部通過

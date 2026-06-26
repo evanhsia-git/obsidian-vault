@@ -1,6 +1,7 @@
 ---
 status: active
 description: "S&P 500 成分股資料來源（來自 SlickCharts）。"
+tags:
   - terminal
   - memory
   - execute_code

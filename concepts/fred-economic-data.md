@@ -1,6 +1,7 @@
 ---
 status: active
 description: "美國聯準會總體經濟資料庫 (FRED) 數據源。"
+tags:
   - terminal
   - memory
   - execute_code

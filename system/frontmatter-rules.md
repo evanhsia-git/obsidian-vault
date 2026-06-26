@@ -67,6 +67,39 @@ Lint = P0
 
 ---
 
+# YAML 結構完整性（必驗證）
+
+**說明**：即使所有必填欄位都存在，YAML frontmatter 仍可能有結構錯誤（縮排錯誤、key 缺失），導致 Quartz note-properties 插件 build 失敗。
+
+規則：
+
+```text
+1. 所有 list 型欄位（tags、aliases、platforms、metadata）必須有明確 key，下方縮排列表項
+2. 建立/修改 frontmatter 後，必須用 Python yaml.safe_load() 做一次語法驗證
+3. lint 腳本必須執行全域 YAML 語法驗證（遍所有 .md 檔案），發現錯誤立即回報
+```
+
+錯誤範例（最常見 — `tags:` 鍵缺失）：
+
+```yaml
+status: active
+description: "..."
+  - terminal        ← 報錯：expected <block end>, but found '<block sequence start>'
+  - memory
+```
+
+正確：
+
+```yaml
+status: active
+description: "..."
+tags:
+  - terminal
+  - memory
+```
+
+---
+
 # Optional Fields
 
 選填：
@@ -457,6 +490,7 @@ created:
 
 ```text
 所有頁面皆有 Frontmatter
+所有頁面皆是合法 YAML（通過 yaml.safe_load 驗證）
 所有頁面皆有 Summary
 所有頁面皆有 Type
 所有頁面皆有 Updated
