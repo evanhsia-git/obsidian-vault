@@ -4,18 +4,9 @@ description: "ai-hallucination-suppression — 概念說明頁面"
 summary: "ai-hallucination-suppression"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 ## AI 幻覺抑制規範 (六大關鍵)

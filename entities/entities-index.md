@@ -15,14 +15,6 @@ updated: 2026-06-21
 
 ## 金融實體
 
-- [[finlab|FinLab]] — 量化研究框架
-- [[trading-agents|TradingAgents]] — 多智能體金融交易框架
-- [[blave-quant-skill|Blave Quant Skill]] — 量化技能集
-- [[etf-basic-info|ETF 基本資料]] — ETF 指標定義
-- [[financial-preferences|金融偏好設定]] — 個人化投資偏好
-- [[otc-company-profile-2026-06-02|上櫃公司概況]] — 上櫃公司基本資料
-- [[all-market-listing-profile-2026-06-02|全市場上市概況]] — 上市公司總覽
-
 ## 個人部落格
 
 - [[most-blog|MOST]] — 個人化 AI 與科技趨勢資訊來源
@@ -35,8 +27,6 @@ updated: 2026-06-21
 - [[wall-street-portfolio-manager|華爾街投資組合經理]] — 投資組合管理工具
 
 ## 新聞來源
-
-- [[daily-news-sources-rss|每日AI及科技新聞來源管理]] — AI與科技新聞來源管理
 - [[tech-sources-monitoring|科技媒體監測導航]] — 科技媒體監測策略
 - [[daily-news-technology-example|每日AI及科技新聞輸出範例]] — 新聞輸出格式範例
 - [[daily-news-stock-market-example|每日台股新聞輸出範例]] — 台股新聞輸出格式範例

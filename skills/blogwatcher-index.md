@@ -4,18 +4,9 @@ description: "blogwatcher-index — 技能說明頁面"
 summary: "blogwatcher-index"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Blogwatcher 工具與 RSS 監控機制

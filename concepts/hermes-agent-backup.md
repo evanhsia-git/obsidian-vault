@@ -4,13 +4,9 @@ description: "Hermes-Agent 備份系統 — 概念說明頁面"
 summary: "Hermes-Agent 備份系統：核心功能 + 特性 + 錯誤處理"
 type: concept
 status: active
-priority: P2
 tags: [hermes, deploy]
-aliases: []
 created: 2026-06-08
 updated: 2026-06-23
-publish: true
-draft: false
 ---
 
 # Hermes-Agent 備份系統

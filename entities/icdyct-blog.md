@@ -4,18 +4,9 @@ description: "icdyct-blog — 實體資料頁面"
 summary: "icdyct-blog"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # 轉址：AI 科技部落格資訊來源 - ICDYCT

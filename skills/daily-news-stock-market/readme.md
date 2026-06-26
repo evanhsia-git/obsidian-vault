@@ -4,18 +4,9 @@ description: "README — 技能說明頁面"
 summary: "README"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Daily News Stock Market Skill 知識庫

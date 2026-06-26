@@ -4,18 +4,9 @@ description: "ByteRover 記憶系統技術摘要 — 概念說明頁面"
 summary: "ByteRover 記憶系統技術摘要"
 type: concept
 status: active
-priority: P2
 tags: [agent, flow]
-aliases: []
 created: 2026-06-05
 updated: 2026-06-05
-date: 2026-06-05
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # ByteRover 記憶系統技術摘要

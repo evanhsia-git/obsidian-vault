@@ -4,18 +4,9 @@ description: "Hermes-Agent 記憶與知識系統架構 — 概念說明頁面"
 summary: "Hermes-Agent 記憶與知識系統架構"
 type: concept
 status: active
-priority: P2
 tags: [hermes, agent, obsidian]
-aliases: []
 created: 2026-06-05
 updated: 2026-06-05
-date: 2026-06-05
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Hermes-Agent 記憶與知識系統架構

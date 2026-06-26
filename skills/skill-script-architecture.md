@@ -5,7 +5,6 @@ summary: "技能腳本放置位置的架構決策指南"
 type: concept
 status: active
 tags: [agent, deploy]
-related: "[[skills/skills-index]]"
 created: 2026-06-16
 updated: 2026-06-25
 ---

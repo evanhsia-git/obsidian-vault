@@ -4,18 +4,9 @@ description: "投資大師選股策略 — 概念說明頁面"
 summary: "投資大師選股策略"
 type: concept
 status: active
-priority: P2
 tags: [deploy]
-aliases: []
 created: 2026-05-31
 updated: 2026-05-31
-date: 2026-05-31
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 ## 相關頁面

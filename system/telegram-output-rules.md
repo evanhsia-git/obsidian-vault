@@ -4,7 +4,6 @@ type: schema
 status: permanent
 summary: "Telegram Bot 輸出格式規範"
 tags: [telegram, agent, flow, obsidian]
-version: "1.0"
 created: 2026-06-21
 updated: 2026-06-21
 ---

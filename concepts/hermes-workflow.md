@@ -4,18 +4,9 @@ description: "Hermes Agent + Obsidian Wiki 工作流程規範 v2.0 — 概念說
 summary: "Hermes Agent + Obsidian Wiki 工作流程規範 v2.0"
 type: concept
 status: active
-priority: P2
 tags: []
-aliases: []
 created: 2026-06-13
 updated: 2026-06-13
-date: 2026-06-13
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Hermes Agent + Obsidian Wiki 工作流程規範 v2.0

@@ -5,7 +5,6 @@ summary: "Python 在 Skill 實作中的優勢分析"
 type: concept
 status: active
 tags: [hermes, agent, linux, auto]
-related: "[[skills/skills-index]]"
 created: 2026-06-08
 updated: 2026-06-25
 ---

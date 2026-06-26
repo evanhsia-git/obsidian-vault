@@ -5,7 +5,6 @@ summary: "Cron 架構中 Skills、Python、no_agent 的角色釐清"
 type: concept
 status: active
 tags: [auto, agent, linux]
-related: "[[skills/skills-index]]"
 created: 2026-06-21
 updated: 2026-06-25
 ---

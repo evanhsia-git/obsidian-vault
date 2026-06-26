@@ -2,7 +2,6 @@
 title: "policy"
 description: "Hermes Agent 規則路由器"
 summary: "根據任務類型載入對應規範"
-version: "1.0"
 type: schema
 status: permanent
 tags: [flow, hermes, obsidian]

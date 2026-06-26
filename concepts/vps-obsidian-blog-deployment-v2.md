@@ -4,18 +4,9 @@ description: "VPS Obsidian 與部落格部署方案 — 概念說明頁面"
 summary: "VPS Obsidian 與部落格部署方案"
 type: concept
 status: active
-priority: P2
 tags: [deploy, obsidian]
-aliases: []
 created: 2026-06-11
 updated: 2026-06-11
-date: 2026-06-11
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # 🏗️ VPS Obsidian 與部落格部署方案

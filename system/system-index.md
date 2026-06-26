@@ -17,12 +17,12 @@ updated: 2026-06-21
 - [[system/folder-structure]]：目錄結構與權限
 - [[system/database-rules]]：資料庫操作
 - [[system/backup-rules]]：備份與還原
-- [[system/quartz-rules]]：Quartz 部署
+- [[system/quartz-rules]]：Quartz 部署與 YAML 規範
+- [[system/skills-rules]]：Skills 建立/修改/整併/封存規則
 
 **設定**
 
 - [[system/vps-config]]：VPS 主機配置
-- [[system/quartz-v5-deployment]]：Quartz v5 部署架構
 
 **舊規範（參考）**
 

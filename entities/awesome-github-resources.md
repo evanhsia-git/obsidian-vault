@@ -4,18 +4,9 @@ description: "Awesome GitHub 列表 — 實體資料頁面"
 summary: "Awesome GitHub 列表"
 type: entity
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-06
 updated: 2026-06-06
-date: 2026-06-06
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Awesome GitHub 列表

@@ -1,7 +1,7 @@
 ---
 title: "Log"
 description: "Obsidian Vault 維護日誌"
-summary: "所有維護、修復、新增、刪除操作的記錄"
+summary: "所有維護、修復、新增、刪除操作的記錄，含 database 結構重整"
 type: log
 status: active
 tags: []
@@ -10,6 +10,52 @@ updated: 2026-06-23
 ---
 
 # Obsidian Vault 維護日誌
+
+## [2026-06-27 12:00] database 結構重整 + wiki 新增 cron-list 頁面
+
+**觸發**：用戶要求將 stock_fundamentals 合併至 stock_overview，daily_prices 只保留最新日期
+
+**資料庫結構變更**：
+- 刪除 `stock_fundamentals` 表格（1,054 筆資料已合併至 `stock_overview`）
+- `stock_overview` 新增欄位：gross_margin, net_margin, debt_ratio, eps
+- `daily_prices` 只保留最新日期（2026-06-25，1,368 rows）
+- 新增日期表格：daily_prices_20260618、daily_prices_20260622、daily_prices_20260623、daily_prices_20260624（最多 5 個交易日）
+- 資料庫路徑確認：`/root/Documents/database/tw_stock_all.db`
+
+**Skill/腳本同步更新**：
+- `init_db.py`：移除 stock_fundamentals 表格，stock_overview 新增 4 個基本面欄位
+- `update_batch_2.py`：從寫入 stock_fundamentals 改為 UPDATE stock_overview
+- `update_batch_3.py`：完整性檢查改為查 stock_overview 新欄位
+- `update_batch_1.py`：移除 stock_fundamentals 表格建立
+- `SKILL.md`：表格結構、自動化更新目標、Pitfall 等 8 處更新
+- `references/batch_update_scripts.md`：batch_2 說明更新
+
+**obsidian-lint 修正**：
+- 白名單從 22 個 key 縮減至 8 個（只保留 schema 規範的 key）
+- 修正後正確檢出 468 處違規（之前白名單太寬全部放過）
+- 已批次清理所有違規 key（priority/aliases/date/publish/draft/related/source/due/review/version）
+
+**新增 wiki 頁面**：
+- `skills/cron-list.md`：Cron Job 列表，記錄 8 個排程任務的狀態、類型、執行時間與備註
+- 已更新 skills-index.md 加入 cron-list 連結
+
+## [2026-06-27 12:30] finance 目錄建立 + 20 篇筆記遷移
+
+**觸發**：用戶要求在 Obsidian Vault 根目錄新增 finance/ 資料夾，將所有 tags 含 finance/tw-stock/stock 的筆記遷入
+
+**執行動作**：
+- 新增 `finance/` 目錄（Layer 2）
+- 遷移 20 篇筆記：concepts/（11 篇）、entities/（6 篇）、queries/（3 篇）、skills/（1 篇）
+- 新增 `finance/finance-index.md` 索引頁面
+- 更新 `schema.md` Layer 2 目錄列表加入 `finance/`
+- 更新 `index.md` 加入 finance 節點（20 篇）
+- 更新原目錄 index：concepts-index（移除 11 篇）、entities-index（移除 6 篇）、queries-index（移除 3 篇）、skills-index（移除 1 篇）
+
+**教訓**：大量搬移筆記時，必須同步更新所有相關 index 檔案，否則會產生孤立節點
+
+**教訓**：
+- lint 腳本白名單必須與 schema 規範完全一致，否則違規不會被抓到
+- 資料庫結構變更時，所有 skill、腳本、references 必須同步更新
 
 ## [2026-06-25 10:00] 新增文章 + skill 整併 + 頁面搬移 + lint 修正 + WebDAV 權限修正 + Tags 規範
 - **原因**：閱讀 Hermes Agent Curator 官方文件後用戶要求摘要並寫入 wiki；執行 daily-news 系列整併；skill 相關頁面搬移至 skills/；修正 lint 腳本缺陷；WebDAV 403 權限修正；Tags 規範更新
@@ -276,3 +322,17 @@ updated: 2026-06-23
 ## [2026-06-26 00:56:42] lint | 全部通過
 ## [2026-06-26 05:06:22] lint | 全部通過
 ## [2026-06-26 05:34:55] lint | 全部通過
+## [2026-06-26 11:26:14] lint | 全部通過
+## [2026-06-26 11:34:41] lint | 468 invalid_type
+## [2026-06-26 11:43:07] lint | 全部通過
+
+## [2026-06-26 13:50] 整理
+- `skill-usage-protocol` 更名為 `skills-rules`，移動至 `system/` 資料夾，type 改為 `system`
+- `quartz-v5-deployment` 合併至 `quartz-rules`（部署經驗保留，重複的刪除）
+- 更新 `system/system-index.md`、`skills/skills-index.md` 索引
+
+## [2026-06-26 12:00] finance 目錄新增
+- wiki 新增 `finance/` 目錄（Layer 2）
+- 遷移 20 篇筆記（concepts 11 + entities 6 + queries 3 + skills 1）
+- 更新 `schema.md`、`index.md`、4 個原目錄 index、`log.md`
+## [2026-06-26 15:06:32] lint | 2 invalid_type | 3 weak_hubs

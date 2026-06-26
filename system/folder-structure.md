@@ -6,7 +6,7 @@ description: "目錄結構、讀寫權限與資料夾操作規範"
 type: concept
 tags: [architecture, flow, security]
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-26
 ---
 
 **Folder Structure Rules**
@@ -34,14 +34,24 @@ updated: 2026-06-21
 ├── concepts/          # Layer 2 概念知識
 │   ├── frameworks/
 │   ├── notes/
-│   └── projects/
+│   ├── projects/
+│   └── system/
 ├── entities/          # Layer 2 實體資料
+│   └── cms/
+├── finance/           # Layer 2 股市/金融知識
 ├── resources/         # Layer 2 資源鏈結
 ├── reports/           # Layer 2 報告產出
+│   └── drafts/
 ├── queries/           # Layer 2 查詢報告
+│   ├── market-reports/
 │   └── reports/
 ├── skills/            # Agent 技能定義
-├── system/            # 系統架構文件
+│   ├── architecture-references/
+│   ├── blogwatcher/
+│   ├── daily-news-stock-market/
+│   ├── evolution/
+│   └── troubleshooting/
+├── system/            # 系統架構、規則、部署
 ├── database/          # [Git-ignored] SQLite + CSV
 ├── scripts/           # Python 自動化腳本
 ├── util/              # TypeScript 工具（Quartz 框架）
@@ -58,15 +68,16 @@ updated: 2026-06-21
 | raw/ | 唯讀 | Agent 禁止修改或移動 |
 | database/ ivan-notes/ scripts/ util/ temp/ | Git-ignored | 禁止推送 |
 | Layer 2 目錄 | 讀寫 | 須取得使用者核准 |
-| SCHEMA.md POLICY.md index.md | 禁止覆蓋 | 核心憲法 |
+| SCHEMA.md / POLICY.md / index.md / log.md | 禁止覆蓋 | 核心憲法 |
 
 **安全規範**
 
 禁止：
 
 - 修改 raw/
-- 覆蓋 SCHEMA.md、POLICY.md、index.md
-- 刪除 database/、skills/、scripts/
+- 覆蓋 SCHEMA.md、POLICY.md、index.md、log.md
+- 刪除 raw/ 以外任何目錄（database/、skills/、system/ 等）
+- 未經核准移動 Layer 2 筆記
 
 重大變更需取得使用者核准。
 

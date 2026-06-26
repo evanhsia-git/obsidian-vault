@@ -6,7 +6,6 @@ created: 2026-05-28
 updated: 2026-05-28
 type: resource
 tags: [tw-stock, source]
-aliases: [ETF基本資料, etf_basic_info]
 ---
 
 ## 相關頁面

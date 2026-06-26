@@ -30,8 +30,8 @@ updated: 2026-06-23
 - [[obsidian-wiki-skill|Obsidian Wiki 技能 v3.0]] — 導航 + 安全規則
 - [[python-in-skill-implementation|Python in Skill Implementation]] — Python 在 skill 中的優勢
 - [[cron-architecture-roles|Cron 架構角色分工]] — Skills、Python、no_agent 角色
+- [[cron-list|Cron Job 列表]] — 8 個排程任務狀態與類型
 - [[manus-use-cases|Manus 精選案例與實際應用]] — 6 類 Manus 案例
-- [[blave-quant-skill|Blave Quant Skill]] — 加密貨幣交易技能包
 
 ## 故障排除
 

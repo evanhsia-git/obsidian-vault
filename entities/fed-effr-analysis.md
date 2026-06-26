@@ -5,23 +5,14 @@ summary: "美聯儲有效聯邦基金利率 (EFFR) 分析報告"
 
 type: entity
 status: active
-priority: P2
 
 tags: []
-aliases: []
 
 created: 2026-06-16
 updated: 2026-06-16
-date: 2026-06-16
 
-publish: true
-draft: false
 
-related:
-source:
 
-due:
-review:
 ---
 # 🏦 美聯儲有效聯邦基金利率 (EFFR) 分析報告
 

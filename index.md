@@ -18,8 +18,9 @@ updated: 2026-06-21
 
 ## 目錄
 
-- [[concepts/concepts-index|概念筆記]] — 2 篇
-- [[entities/entities-index|實體資料]]
+- [[concepts/concepts-index|概念筆記]] — 69 篇
+- [[entities/entities-index|實體資料]] — 13 篇
+- [[finance/finance-index|金融與投資]] — 20 篇
 - [[resources/resources-index|資源鏈結]]
 - [[reports/reports-index|報告]]
 - [[reports/quartz-migration-20260622|Quartz 遷移記錄]]

@@ -5,7 +5,6 @@ summary: "Blave Quant Skill：核心功能 (8大能力)"
 type: entity
 status: active
 tags: [tw-stock, integration, agent]
-related: "[[skills/skills-index]]"
 created: 2026-06-03
 updated: 2026-06-25
 ---

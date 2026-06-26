@@ -4,18 +4,9 @@ description: "Obsidian 雲端托管與發布平台比較 — 比較分析頁面"
 summary: "Obsidian 雲端托管與發布平台比較"
 type: concept
 status: active
-priority: P2
 tags: [obsidian, flow]
-aliases: []
 created: 2026-06-12
 updated: 2026-06-12
-date: 2026-06-12
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Obsidian 雲端托管與發布平台比較

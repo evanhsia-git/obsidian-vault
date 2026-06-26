@@ -2,7 +2,7 @@
 status: active
 title: "Quartz Rules"
 summary: "Quartz Rules - 靜態網站部署與 GitHub Pages 發佈規範"
-description: "Quartz 靜態網站部署與 GitHub Pages 發佈規範"
+description: "Quartz 5 靜態網站部署規範、YAML Frontmatter 踩雷記錄與部署經驗"
 type: concept
 tags: [quartz, deploy, flow]
 created: 2026-06-21
@@ -88,6 +88,30 @@ updated: 2026-06-21
 - title、description、summary 三個欄位**永遠用 double quote 包裹**
 - summary 避免逗號後接空格+小寫字母的結構
 - frontmatter 內禁止 wikilink、markdown 語法
+
+## 部署經驗（2026-06-11）
+
+### 系統配置
+
+- 線上網址：https://evanhsia-git.github.io/quartz-site/
+- Repo：https://github.com/evanhsia-git/quartz-site
+- 本機原始碼：`/root/quartz`（v5.0.0）
+- 部署觸發：push 到 `main` → GitHub Actions 自動 `npx quartz build` → GitHub Pages
+
+### 部署 workflow
+
+官方標準流程：`actions/checkout` → `setup-node@22` → `npm ci` → `npx quartz build` → `upload-pages-artifact` → `deploy-pages@v4`。權限需 `pages: write` 與 `id-token: write`。
+
+### 踩雷記錄
+
+1. **舊 repo 用 `npm add quartz@0.0.1` 是錯的**：那是 npm 上不相干的廢棄套件，正確方式是 git clone 整個 repo。
+2. **PAT 需 `workflow` scope**：push 含 `.github/workflows/` 的變更會被拒。以 `gh auth refresh -s workflow` 補上。
+3. **敏感檔處理**：`database/`、`scripts/` 等需排除在 repo 外。
+
+### ✅ 驗證
+
+- `gh auth status` Token scopes：`repo`, `workflow`, `read:org`, `admin:public_key` ✓
+- 終端機直接 push workflow 成功 → GitHub Actions 自動部署 success ✓
 
 **相關連結**
 

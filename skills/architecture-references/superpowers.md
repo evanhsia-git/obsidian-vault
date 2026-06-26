@@ -4,18 +4,9 @@ description: "superpowers — 技能說明頁面"
 summary: "superpowers"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # 外部框架參考：Superpowers

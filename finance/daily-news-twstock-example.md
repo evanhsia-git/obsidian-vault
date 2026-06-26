@@ -4,18 +4,9 @@ description: "每日台股新聞輸出範例 — 實體資料頁面"
 summary: "每日台股新聞輸出範例"
 type: entity
 status: active
-priority: P2
 tags: ["tw-stock"]
-aliases: []
 created: 2026-06-11
 updated: 2026-06-11
-date: 2026-06-11
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # 📋 每日台股新聞輸出範例

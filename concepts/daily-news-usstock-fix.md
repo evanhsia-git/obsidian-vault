@@ -4,18 +4,9 @@ description: "daily-news-usstock-fix — 概念說明頁面"
 summary: "daily-news-usstock-fix"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 ## daily-news-usstock 技能修正記錄

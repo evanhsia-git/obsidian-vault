@@ -5,7 +5,6 @@ summary: "工作流程核心技能 v3.0，每次對話必執行"
 type: concept
 status: active
 tags: [agent, flow, security]
-related: "[[skills/skills-index]]"
 created: 2026-06-21
 updated: 2026-06-25
 ---

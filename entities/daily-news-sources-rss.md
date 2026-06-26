@@ -4,18 +4,9 @@ description: "每日新聞來源管理清單 (RSS) — 實體資料頁面"
 summary: "每日新聞來源管理清單 (RSS)"
 type: entity
 status: active
-priority: P2
 tags: [source, obsidian, deploy]
-aliases: []
 created: 2026-06-15
 updated: 2026-06-16
-date: 2026-06-16
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # 📋 每日新聞來源管理清單 (RSS)

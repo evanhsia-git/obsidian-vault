@@ -4,18 +4,9 @@ description: "VPS 主機環境配置 — 系統配置頁面"
 summary: "VPS 主機環境配置"
 type: schema
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-07
 updated: 2026-06-07
-date: 2026-06-07
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # VPS 主機環境配置 (Linode Tokyo)

@@ -5,23 +5,14 @@ summary: "美國消費者物價指數 (CPI) 分析報告"
 
 type: entity
 status: active
-priority: P2
 
 tags: []
-aliases: []
 
 created: 2026-06-16
 updated: 2026-06-16
-date: 2026-06-16
 
-publish: true
-draft: false
 
-related:
-source:
 
-due:
-review:
 ---
 # 📈 美國消費者物價指數 (CPI) 分析報告
 

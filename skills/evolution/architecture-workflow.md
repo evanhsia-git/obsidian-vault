@@ -4,18 +4,9 @@ description: "architecture_workflow — 技能說明頁面"
 summary: "architecture_workflow"
 type: concept
 status: active
-priority: P2
 tags: [hermes]
-aliases: []
 created: 2026-06-10
 updated: 2026-06-10
-date: 2026-06-10
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Hermes Agent 進化系統架構與工作流

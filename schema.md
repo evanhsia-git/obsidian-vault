@@ -2,7 +2,6 @@
 title: "schema"
 description: "Hermes Agent 核心憲法"
 summary: "Obsidian Wiki、Wiki-LLM、Hermes Agent 核心規範"
-version: "3.4"
 type: schema
 status: permanent
 tags: [hermes, obsidian]
@@ -73,7 +72,7 @@ Agent 必須在首次任務開始前完成導航序列，並在對話中明確�
 
 **驗證方式**：Agent 必須在對話中輸出導航完成標記，格式為：
 ```
-[1/3] ✅ SCHEMA | [2/3] ✅ index | [3/3] ✅ log → 導航完成
+[1/4] ✅ SCHEMA | [2/4] ✅ policy | [3/4] ✅ index | [4/4] ✅ log → 導航完成
 ```
 
 未輸出此標記 = 未完成導航 = 不得執行任何任務。
@@ -213,6 +212,7 @@ raw/
 ```
 concepts/
 entities/
+finance/
 queries/
 reports/
 resources/
@@ -305,15 +305,17 @@ rm -rf
 
 禁止修改：
 
-```
+```text
 raw/
-schema.md
-policy.md
+SCHEMA.md
+POLICY.md
+index.md
+log.md
 ```
 
 禁止刪除：
 
-```
+```text
 database/
 skills/
 system/

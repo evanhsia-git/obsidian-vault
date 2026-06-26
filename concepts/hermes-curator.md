@@ -7,7 +7,6 @@ status: active
 tags: [hermes, agent, deploy]
 created: 2026-06-25
 updated: 2026-06-25
-source: https://hermes-agent.nousresearch.com/docs/user-guide/features/curator
 ---
 
 # Curator 技能管理員

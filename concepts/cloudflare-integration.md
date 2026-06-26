@@ -4,18 +4,9 @@ description: "Cloudflare 與 Hermes Agent 整合 — 概念說明頁面"
 summary: "Cloudflare 與 Hermes Agent 整合"
 type: concept
 status: active
-priority: P2
 tags: []
-aliases: []
 created: 2026-06-07
 updated: 2026-06-07
-date: 2026-06-07
-publish: true
-draft: false
-related:
-source:
-due:
-review:
 ---
 
 # Cloudflare 在本系統中的角色與價值

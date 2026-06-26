@@ -5,7 +5,6 @@ summary: "user-backup 系統級自動化維護 Orchestrator"
 type: index
 status: active
 tags: [hermes, backup, deploy]
-related: "[[skills/skills-index]]"
 created: 2026-06-21
 updated: 2026-06-25
 ---

@@ -48,10 +48,6 @@ updated: 2026-06-23
 
 - [[investment-master-strategy|投資大師選股策略]]
 - [[fred-guide|FRED 指南]] — Federal Reserve Economic Data
-- [[stock-data-sources|股市資料來源]] — API 來源 + 手動獲取來源
-- [[stock-data-comparison|股市資料比較與 Agent 架構]] — 比較表格 + Agent 架構 + 資料分工
-
-## 技能與知識管理
 
 - [[skills/user-backup-skill|User Backup Skill]] — 每日系統維護編排器
 - [[telegram-truncation-troubleshooting|Telegram 訊息截斷問題排除指南]]
