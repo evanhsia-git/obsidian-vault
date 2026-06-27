@@ -31,6 +31,7 @@ updated: 2026-06-26
 │   ├── papers/
 │   ├── transcripts/
 │   └── assets/
+├── clippings/          # Layer 2 剪報/書摘/外部素材筆記
 ├── concepts/          # Layer 2 概念知識
 │   ├── frameworks/
 │   ├── notes/

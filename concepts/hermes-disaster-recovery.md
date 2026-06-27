@@ -1,145 +1,73 @@
 ---
-status: active
-title: "Hermes Agent 災難恢復策略"
-summary: "Hermes Agent 災難恢復策略：多層備份 + VPS 環境整合 + 最佳實踐"
-created: 2026-06-23
-updated: 2026-06-23
+title: "Hermes Agent 災難恢復與備份系統"
+description: "多層備份 + VPS + 記憶架構 + 錯誤處理"
+summary: "Hermes 災難恢復策略 + 備份系統 + 三層記憶模型"
 type: concept
+status: active
 tags: [hermes, backup, vps]
+created: 2026-06-23
+updated: 2026-06-27
 ---
 
-# Hermes Agent 災難恢復策略
+# Hermes Agent 災難恢復與備份系統
 
-> 本頁面為 [[hermes-agent-backup|Hermes-Agent 備份系統]] 的分支，專注於災難恢復策略、VPS 環境整合與最佳實踐。
+## 更新驗證步驟
 
----
-
-## 推薦的更新驗證步驟
-
-### 1. 代碼庫狀態檢查
 ```bash
-git status --short
+git status --short           # 1. 代碼庫狀態
+hermes doctor                # 2. 系統健康
+hermes --version             # 3. 版本確認
+hermes gateway status        # 4. 網關狀態
+npm audit fix                # 5. 安全修復
 ```
-- 目的：檢查代碼庫是否意外變更
-- 預期：乾淨狀態或預期的變更
 
-### 2. 系統健康檢查
-```bash
-hermes doctor
-```
-- 目的：檢查配置、依賴和服務健康
-- 覆蓋：配置完整性、依賴狀態、服務可用性
+## 安裝方式備份支援
 
-### 3. 版本確認
-```bash
-hermes --version
-```
-- 目的：確認版本更新成功
-- 對比：與 GitHub releases 版本比對
-
-### 4. 網關狀態檢查
-```bash
-hermes gateway status
-```
-- 目的：檢查網關運行狀態
-- 適用：使用 gateway 的環境
-
-### 5. 安全問題修復
-```bash
-npm audit fix
-```
-- 目的：修復 npm 安全問題
-- 適用：使用 npm 套件的環境
-
----
-
-## 不同安裝方式的備份支援
-
-### Git 安裝
-- 備份支援：完整的備份和回滾支援
-- 回滾方式：`git checkout <commit-hash>`
-- 優勢：完整的版本歷史追蹤
-
-### pip 安裝
-- 備份支援：版本檢查和更新支援
-- 回滾方式：`pip install --upgrade hermes-agent`
-- 限制：無法回滾到特定版本
-
-### Nix 安裝
-- 備份支援：flake 和 profile 級別備份
-- 更新方式：`nix flake update hermes-agent`
-- 回滾方式：`nix profile rollback`
-
----
-
-## VPS 環境整合
-
-- 主機：Linode 2GB (Tokyo 2)
-- IP：172.104.105.71
-- 特色：透過 Cloudflare Tunnel 安全訪問
-- 備份策略：自動化備份 + 手動驗證
-
----
-
-## Obsidian Vault 整合
-
-- 路徑：`/root/Documents/Obsidian Vault`
-- 內容：包含 Wiki 結構和技能文件
-- 備份重點：知識記憶層的完整性
-
----
+| 安裝方式 | 備份支援 | 回滾方式 |
+|:---|:---|:---|
+| Git | 完整備份 | `git checkout <commit>` |
+| pip | 版本檢查 | `pip install --upgrade` |
+| Nix | flake + profile | `nix profile rollback` |
 
 ## 災難恢復策略
 
-### 1. 自動備份
-- 觸發：更新前自動狀態快照
-- 內容：配置、狀態、日誌
-- 位置：`~/.hermes/backups/`
+| 策略 | 觸發 | 機制 |
+|:---|:---|:---|
+| 自動備份 | 更新前 | 狀態快照 → `~/.hermes/backups/` |
+| 快速回滾 | 失敗時 | Git 回滾 + 配置恢復（分鐘級） |
+| 日誌分析 | 故障後 | `~/.hermes/logs/` 問題診斷 |
+| 版本對比 | 定期 | GitHub releases + `hermes update --check` |
 
-### 2. 快速回滾
-- 觸發：失敗時自動恢復
-- 機制：Git 回滾 + 配置恢復
-- 時間：分鐘級別恢復
+## 備份系統核心功能
 
-### 3. 日誌分析
-- 位置：`~/.hermes/logs/`
-- 內容：詳細的問題診斷
-- 用途：故障排除和優化
+- **Full Pre-Update Backup**：`hermes update --backup` 或 config `pre_update_backup: true`
+- **自動化流程**：Pairing-data snapshot → Git pull → 語法驗證 → 依賴安裝 → Config migration → Gateway restart
+- **安全性**：解析失敗自動回滾、輕量快照、日誌記錄
+- **連續性**：忽略 SIGHUP、進度鏡像到日誌
 
-### 4. 版本對比
-- 來源：GitHub releases
-- 工具：`hermes version` 和 `hermes update --check`
-- 目的：確保使用最新穩定版本
+## 多層備份
 
----
+1. **Pairing-data snapshot** — 輕量預更新狀態
+2. **Git 歷史** — 完整版本追蹤
+3. **Config migration** — 配置變更記錄
+4. **Gateway 狀態** — 服務連續性
 
-## 最佳實踐建議
+## 三層記憶模型
 
-### 定期備份
-- 頻率：重大更新前執行完整備份
-- 驗證：更新後進行完整性檢查
-- 記錄：備份時間和版本記錄到 Wiki
+| 層級 | 載體 | 職責 |
+|:---|:---|:---|
+| 事務記憶 | SQLite (state.db) | 對話歷史、任務狀態 |
+| 事實記憶 | Memory + SOUL.md | 偏好、身份、核心定義 |
+| 知識記憶 | Obsidian Wiki | 研究成果、方法論 |
 
-### 監控與警報
-- 日誌監控：定期檢查更新日誌
-- 異常檢測：識別失敗模式
-- 自動化：設定定期健康檢查
+## VPS 環境
 
-### 文件維護
-- 更新記錄：記錄每次更新和變更
-- 故障排除：建立常見問題解決方案
-- 團隊協作：共享備份和恢復流程
+- 主機：Linode 2GB (Tokyo 2) / Cloudflare Tunnel
+- 備份策略：自動化 + 手動驗證
 
----
+## 最佳實踐
 
-## 相關連結
-- [[hermes-agent-backup|Hermes-Agent 備份系統]] — 核心功能 + 特性 + 錯誤處理
-- [[hermes-memory-system|記憶與知識系統架構]]
-- [[hermes-hierarchy-architecture|Hermes Agent 記憶架構與階層圖]]
-- [[hermes-configuration|Hermes Agent 配置說明]]
-- [[skill-usage-protocol|Skill 使用規範]]
-
----
-
-## 相關節點
-- [[concepts/concepts-index|概念筆記索引]]
+- 重大更新前完整備份
+- 定期檢查日誌異常
+- 更新後完整性驗證
+- 備份時間/版本記錄到 Wiki

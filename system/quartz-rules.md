@@ -4,7 +4,7 @@ title: "Quartz Rules"
 summary: "Quartz Rules - 靜態網站部署與 GitHub Pages 發佈規範"
 description: "Quartz 5 靜態網站部署規範、YAML Frontmatter 踩雷記錄與部署經驗"
 type: concept
-tags: [quartz, deploy, flow]
+tags: [quartz, deploy, workflow]
 created: 2026-06-21
 updated: 2026-06-21
 ---

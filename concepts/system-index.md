@@ -11,7 +11,7 @@ updated: 2026-06-23
 
 **系統類概念**
 
-- [[folder-structure|資料夾結構]] — Vault 目錄規範
+- [[folder-rules|資料夾結構]] — Vault 目錄規範
 - [[database-rules|資料庫規則]] — SQLite 資料庫管理
 - [[quartz-rules|Quartz 規則]] — 靜態網站生成規範
 - [[backup-rules|備份規則]] — 備份策略與流程

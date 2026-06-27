@@ -21,3 +21,7 @@ updated: 2026-06-27
 | 62e2c14bfa17 | twstock-daily-update-split-batch3 | 2026-06-29 15:00 | Skill | twse-stock-data | 成功 | Batch 3 — 收盤價+產業別+完整性檢查 |
 | e2532c7ccbda | 每日AI及科技新聞 | 2026-06-27 09:00 | Script (Python) | daily-news-tech.py | 成功 | 09:00、17:00 |
 | ca7b49e89df2 | 每日股市指標 | 2026-06-27 08:30 | Script (Python) | daily-news-stock.py | 成功 | 亞洲指數、美國核心指標、CNN、匯率 |
+
+---
+
+相關連結：[[index|主索引]] | [[system/system-index|System Index]] | [[skills/skills-index|Skills List]] | [[skills/troubleshooting|Skills Troubleshooting]] | [[hermes-agent|Hermes Agent Skill]]

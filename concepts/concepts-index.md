@@ -24,12 +24,14 @@ updated: 2026-06-23
 - [[python-tool-api|Python Tool API]]
 - [[next-ai-draw-io|Next AI Draw.io]]
 - [[manus-use-cases|Manus 精選案例與實際應用]] — 平台概覽 + 6 類精選案例
-- [[manus-finance-cases|Manus 金融案例與應用]] — Finance 案例 + 行動方案
+- [[manus-finance-cases|Manus 金融案例分析]] — Finance 案例 + 行動方案
 - [[awesome-design-md|Awesome DESIGN.md]] — DESIGN.md 設計系統檔案集合
+- [[search-aggregation-logic|搜尋聚合邏輯]]
 
 ## 新聞與內容
 
 - [[daily-news-technology|每日 AI 及科技新聞]] — 推送標準格式
+- [[llm-wiki-comparison|LLM Wiki 比較分析]]
 - [[karpathy-llm-wiki-tag-analysis|Karpathy LLM Wiki 標籤系統分析]]
 
 ## Hermes 核心機制
@@ -38,11 +40,11 @@ updated: 2026-06-23
 
 ## 部署與系統
 
-- [[vps-obsidian-blog-deployment-v2|VPS Obsidian 與部落格部署方案]]
 - [[cloudflare-pages-decap-cms|Cloudflare Pages 運行 Decap CMS]]
 - [[hermes-system-backup-optimization|Hermes 系統備份優化]]
 - [[hermes-agent-backup|Hermes-Agent 備份系統]] — 核心功能 + 特性 + 錯誤處理
 - [[hermes-disaster-recovery|Hermes Agent 災難恢復策略]] — 災難恢復 + VPS 環境 + 最佳實踐
+- [[cloudflare-integration|Cloudflare 整合方案]] — VPS 安全與加速
 
 ## 投資與金融
 
@@ -51,6 +53,7 @@ updated: 2026-06-23
 
 - [[skills/user-backup-skill|User Backup Skill]] — 每日系統維護編排器
 - [[telegram-truncation-troubleshooting|Telegram 訊息截斷問題排除指南]]
+- [[telegram-interactive-ui|Telegram 互動式 UI]]
 
 ---
 

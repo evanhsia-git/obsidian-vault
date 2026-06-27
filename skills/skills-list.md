@@ -219,6 +219,8 @@ updated: 2026-06-27
 - cron-list — Cron Job 列表格式
   - 位置: `user/cron-list/SKILL.md`
 - daily-news-stock-market — [DEPRECATED] 已合併至 daily-stock-news
+- blogwatcher — Blogwatcher 新聞監控
+  - 位置: `skills/blogwatcher/readme.md`
   - 位置: `user/daily-news-stock-market/SKILL.md`
 - daily-news-technology — AI/科技新聞
   - 位置: `user/daily-news-technology/SKILL.md`
@@ -306,3 +308,7 @@ updated: 2026-06-27
   - 位置: `user/ws-decision-maker/SKILL.md`
 - yuanbao — 元寶群
   - 位置: `user/yuanbao/SKILL.md`
+
+---
+
+相關連結：[[index|主索引]] | [[system/system-index|System Index]] | [[skills/cron-list|Cron List]] | [[skills/daily-news-stock-market|Daily News Stock]] | [[finance/finance-index|Finance Index]]

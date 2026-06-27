@@ -1,50 +1,38 @@
 ---
 title: "LLM Wiki 架構與比較分析"
-description: "LLM Wiki 架構與比較分析 — 概念說明頁面"
-summary: "LLM Wiki 架構與比較分析"
+description: "LLM Wiki 與 Karpathy 概念、domleca/nvak 的比較"
+summary: "LLM Wiki 比較表 + Karpathy 標籤池分析結論"
 type: concept
 status: active
-tags: [obsidian, flow, hermes]
+tags: [ai, pkm, hermes]
 created: 2026-06-05
-updated: 2026-06-05
+updated: 2026-06-27
 ---
 
 # LLM Wiki 架構與比較分析
 
-本頁面記錄 Hermes-Agent 所採用的 LLM Wiki 模式與市面上主流 GitHub 專案的差異與優勢分析。
+## 比較таблиця
 
-## 核心定位
+| 特性 | Hermes 原生 | domleca/llm-wiki | nvk/llm-wiki |
+|:---|:---|:---|:---|
+| 定位 | Agent-Centric | 個人筆記 | 純文字框架 |
+| 自動化 | 極高（Lint + 自動沉澱） | 中（手動） | 低 |
+| 導航 | SCHEMA→index→log 強制 | 無 | 無 |
+| 顯示 | Unicode only， Telegram 相容 | 不設限 | 不設限 |
+| 知識累積 | 持久複利（ Wiki = 程式碼庫） | 單向組織 | 靜態 |
 
-Hermes-Agent 的 Wiki 實現並非單一開源軟體，而是基於 [Andrej Karpathy LLM Wiki 概念](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 進行高度客製化的 **Agent-Centric 知識架構**。
+## Karpathy 核心概念
 
-## 比較分析
+- **關鍵句**：「Wiki 是一个持久、複利的產物。」
+- **三層架構**：Raw（不可變）→ Wiki（Agent 維護）→ Schema（規範）
+- **核心流程**：Ingest（攝取→入 raw/ + frontmatter）→ Query（讀 index→綜合→存 queries/）→ Lint（孤立頁/斷鏈/過期/矛盾）
+- **Self-Contained 原則**：每個知識單元自給自足
 
-| 特性 | Hermes 原生版 (本系統) | domleca/llm-wiki | nvk/llm-wiki |
-| :--- | :--- | :--- | :--- |
-| **定位** | **Agent-Centric** (為代理設計) | 個人筆記管理工具 | 純文字知識庫框架 |
-| **核心優勢** | 強制前置導航 (SCHEMA→index→log)、與 Agent 工具鏈深度整合 | 介面美觀，適合人類閱讀 | 簡單輕量，易於部署 |
-| **自動化程度** | 極高 (Agent 自動維護與 Lint) | 中等 (需手動維護) | 低 (靜態導向) |
-| **顯示限制** | 強制 Unicode 符號，Telegram 相容 | 不設限制 | 不設限制 |
-| **執行流程** | 嚴格遵守「導航→提取→執行→沉澱」 | 無 | 無 |
+## 標籤池分析結論
 
-## 本系統 (Hermes 原生版) 之關鍵技術特色
+**問題**：標籤同時扮演「分類導航」（人類）和「RAG 過濾」（Agent）兩種衝突角色
 
-### 1. 強制導航協議 (Navigation Protocol)
-不同於一般筆記系統，本架構要求 Agent 在每次對話前必須執行 `SCHEMA` → `index` → `log` 導航，確保 Agent 在處理請求前已讀取正確的上下文脈絡。
-
-### 2. 閉環自動化 (Self-Maintenance)
-- **Lint Procedure**：具備自動健康檢查機制，可檢測孤立頁面、斷鏈、LaTeX 符號洩漏與 Frontmatter 格式。
-- **知識沉澱 (Ingest & Compound)**：任務結束後，自動將價值結論更新至 Wiki 並同步 `log.md`。
-
-### 3. Telegram 生態優化
-針對即時通訊平台顯示限制進行極端優化：
-- **LaTeX 禁用**：全面改用 Unicode 符號（如 →, ⇒, ±, ×），確保在 Telegram 的顯示準確度。
-- **交付規範**：明確區分 Markdown 連結與純文字路徑引用。
-
-## 結論
-我們的 LLM Wiki 不僅是筆記，更是 **「代理人的外部大腦」**。我們追求的是與 Hermes Agent 工具鏈的極致整合，而非單純的知識儲存。此架構具備自動化能力，能隨 Agent 的執行過程自我成長，是 Agent 高效運作的基石。
-
-相關頁面：[[llm-wiki-concept]]
-
-相關頁面：## 相關節點
-- [[index]]
+**建議（不擴張池子）**：
+1. 補 10–12 個精準缺口標籤
+2. `summary` 升格必填
+3. 系統維護類標籤（index/log/maintenance）改為 type 欄位控制

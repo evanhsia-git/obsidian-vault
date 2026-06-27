@@ -2,28 +2,13 @@
 title: "FRONTMATTER-RULES"
 type: schema
 status: permanent
-summary: "Obsidian Frontmatter 規範"
-tags: [obsidian, flow]
+summary: "Obsidian Frontmatter 規範 — Hermes Agent 執行版"
+tags: [knowledge, workflow, config]
 created: 2026-06-21
-updated: 2026-06-21
----
-
-# Purpose
-
-統一 Metadata 格式。
-
-目標：
-
-* 提升 RAG 命中率
-* 維持知識庫一致性
-* 降低 Agent 維護成本
-* 避免 Metadata 過度膨脹
-
+updated: 2026-06-27
 ---
 
 # Standard Template
-
-所有 Layer 2 頁面使用：
 
 ```yaml
 ---
@@ -31,12 +16,9 @@ title:
 type:
 tags:
 summary:
-
 created:
 updated:
-
 status: active
-
 sources: []
 related: []
 ---
@@ -46,53 +28,197 @@ related: []
 
 # Required Fields
 
-必填：
-
-```yaml
-title
-type
-tags
-summary
-created
-updated
-```
-
-缺少任一欄位：
-
 ```text
-Lint = P0
+title / type / tags / summary / created / updated
 ```
 
-必須修復。
+缺少任一 → `Lint P0`，必須修復。
 
 ---
 
-# YAML 結構完整性（必驗證）
+# Field Rules
 
-**說明**：即使所有必填欄位都存在，YAML frontmatter 仍可能有結構錯誤（縮排錯誤、key 缺失），導致 Quartz note-properties 插件 build 失敗。
-
-規則：
+## type
 
 ```text
-1. 所有 list 型欄位（tags、aliases、platforms、metadata）必須有明確 key，下方縮排列表項
-2. 建立/修改 frontmatter 後，必須用 Python yaml.safe_load() 做一次語法驗證
-3. lint 腳本必須執行全域 YAML 語法驗證（遍所有 .md 檔案），發現錯誤立即回報
+entity | concept | project | resource | report | query | task | index | log | schema
 ```
 
-錯誤範例（最常見 — `tags:` 鍵缺失）：
+禁止新增。
+
+---
+
+## tags
+
+規則：
+- 全 Vault 限 48 個核心 tag（上限 50，禁止新增）
+- 單頁最多 10 個
+
+### AI（10）
+
+| tag | 用途 |
+|---|---|
+| ai | LLM、Generative AI、AI 應用 |
+| agent | Multi-Agent、Agent Framework、Tool Calling |
+| prompt | System Prompt、Few-shot、Prompt Pattern |
+| model | Claude、GPT、Gemini、Qwen、DeepSeek |
+| memory | Session Memory、Long-term Memory、Context |
+| workflow | Pipeline、Workflow、Automation Flow |
+| hermes | SOUL、Skills、Hermes Workflow |
+| mcp | Model Context Protocol、MCP Server |
+| rag | Retrieval、Embedding、Knowledge Base |
+| vector | Embedding、Vector Database、Semantic Search |
+
+### PKM（6）
+
+| tag | 用途 |
+|---|---|
+| pkm | Second Brain、Zettelkasten、PARA、Wiki |
+| obsidian | Vault、Markdown、Plugin、WebDAV |
+| quartz | Publish、Static Site、Deploy |
+| schema | Metadata、Schema、Frontmatter、Vault Rules |
+| plugin | Community Plugin、Extension |
+| template | Template、Snippet、Boilerplate |
+
+### 投資（2）
+
+| tag | 用途 |
+|---|---|
+| stock | 台股、美股、ETF、個股 |
+| finance | 財報、PE、PB、EPS、殖利率、估值、CPI、GDP、Fed、央行、利率、匯率 |
+
+### 開發（9）
+
+| tag | 用途 |
+|---|---|
+| python | Script、venv、Library、Automation |
+| api | REST、GraphQL、Webhook、OAuth、SDK |
+| automation | Cron、Scheduler、Batch、Task |
+| deploy | CI/CD、GitHub Actions、Release |
+| architecture | Design Pattern、Module、Architecture |
+| config | YAML、JSON、ENV、設定檔 |
+| test | Unit Test、Integration Test、E2E |
+| database | SQLite、PostgreSQL、DuckDB、MySQL |
+| github | Repository、Commit、Branch、PR、Release |
+
+### 維運（6）
+
+| tag | 用途 |
+|---|---|
+| linux | Ubuntu、Shell、systemd |
+| docker | Container、Compose、Image |
+| vps | Cloud Server、Virtual Machine |
+| network | DNS、Nginx、SSL、Reverse Proxy |
+| backup | rsync、Git Backup、Snapshot、Recovery |
+| sync | WebDAV、SSHFS、Cloud Sync |
+
+### 管理（6）
+
+| tag | 用途 |
+|---|---|
+| dashboard | Dashboard、Kanban、Overview |
+| telegram | Bot、推播、Notification |
+| web | Website、HTTP、Frontend、Browser |
+| report | PDF、Daily Report、Summary |
+| news | Tech News、Market News、Daily News |
+| data | JSON、CSV、DataFrame、Data Processing |
+
+### 維護（4）
+
+| tag | 用途 |
+|---|---|
+| performance | Benchmark、Optimization、Cache |
+| security | Authentication、Authorization、API Key、Encryption |
+| cost | Token、API 費用、成本最佳化 |
+| troubleshoot | Debug、Error、Fix、Exception |
+
+### 其他（3）
+
+| tag | 用途 |
+|---|---|
+| shopping | 購物商品記錄 |
+| compare | 表格比較 |
+| ivan | 使用者保留 tag，自用 |
+
+### 已淘汰並合併（供參考）
+
+| 舊 tag | 合併到 |
+|---|---|
+| auto → | automation |
+| tw-stock → | stock |
+| valuation → | finance |
+| source → | data |
+| flowershow → | quartz |
+| knowledge → | pkm |
+| lint → | troubleshoot |
+| monitor → | dashboard |
+| storage → | database |
+| webdav → | sync |
+| sshfs → | sync |
+| nginx → | network |
+| integration → | api |
+| clippings → | （保留，不合併） |
+
+---
+
+## summary
+
+```text
+1~2 句 | 用於 RAG 檢索 / Agent 理解
+```
+
+---
+
+## status
+
+```text
+draft | active | permanent | archived | deprecated
+預設：active
+```
+
+---
+
+## created / updated
 
 ```yaml
+created: 2026-06-21   # 建立後不改
+updated: 2026-06-21   # 內容修改時同步更新
+```
+
+---
+
+## sources / related（選填）
+
+```yaml
+sources:
+  - raw/articles/example.md
+
+related:
+  - page-name
+```
+
+> ⚠️ `related` 禁止使用 `[[wikilinks]]`，改放正文。
+
+---
+
+# YAML 完整性規則
+
+```text
+1. list 型欄位（tags/sources/related）必須有明確 key + 縮排列表
+2. 建立/修改後用 yaml.safe_load() 驗證語法
+3. lint 腳本須全域掃描所有 .md，發現錯誤立即回報
+```
+
+**最常見錯誤（tags key 缺失）：**
+
+```yaml
+# ❌ 錯誤
 status: active
-description: "..."
-  - terminal        ← 報錯：expected <block end>, but found '<block sequence start>'
+  - terminal
   - memory
-```
 
-正確：
-
-```yaml
+# ✅ 正確
 status: active
-description: "..."
 tags:
   - terminal
   - memory
@@ -100,408 +226,80 @@ tags:
 
 ---
 
-# Optional Fields
-
-選填：
-
-```yaml
-status
-sources
-related
-```
-
-未使用可省略。
-
----
-
-# Field Rules
-
-## title
-
-頁面名稱。
-
-範例：
-
-```yaml
-title: Price Earnings Ratio
-```
-
----
-
-## type
-
-只能使用：
+# Field Format Rules
 
 ```text
-entity
-concept
-project
-resource
-report
-query
-task
-index
-log
-schema
-```
-
-禁止新增類型。
-
----
-
-## tags
-
-用途：
-
-```text
-搜尋
-分類
-過濾
-```
-
-規則：
-
-```text
-1. 整個 Vault 只能使用以下 50 個核心 tag，禁止新增
-2. 單一頁面最多 10 個 tag
-3. 必須從下方列表中選取，不得自創
-```
-
-## 核心 Tag 列表
-
-```yaml
-- ai
-- rag
-- agent
-- auto
-- hermes
-- flow
-- integration
-- telegram
-- obsidian
-- knowledge
-- quartz
-- flowershow
-- tw-stock
-- valuation
-- finance
-- source
-- linux
-- docker
-- vps
-- backup
-- sync
-- storage
-- lint
-- architecture
-- config
-- deploy
-- test
-- troubleshoot
-- performance
-- security
-- network
-- monitor
-```
-
-建議：
-
-```yaml
-tags:
-  - ai
-  - rag
-  - agent
-```
-
-避免：
-
-```yaml
-tags:
-  - ai
-  - artificial-intelligence
-  - machine-learning
-  - deep-learning
-  - technology
-  - software
-```
-
-過度標記、使用非核心列表的 tag、或超過 10 個。
-
----
-
-## summary
-
-最重要欄位。
-
-用途：
-
-```text
-RAG 檢索
-搜尋結果
-Agent 理解
-```
-
-規則：
-
-```text
-1~2 句
-```
-
-範例：
-
-```yaml
-summary: PE Ratio 用於衡量股票估值的核心財務指標。
+- 所有 key 必須小寫（title / tags / created，禁止 Title / Tags）
+- Frontmatter 禁止 wikilink / markdown syntax / HTML tag
+- 所有 [[wikilinks]] 放在 --- 之後正文區域
 ```
 
 ---
 
-## created
-
-建立日期。
-
-格式：
+# Anti-Patterns
 
 ```yaml
-created: 2026-06-21
+# 禁止以下欄位：
+draft / publish / subtype / confidence / priority
+importance / owner / reviewer / version / category
 ```
-
-建立後不再修改。
-
----
-
-## updated
-
-最後更新日期。
-
-格式：
-
-```yaml
-updated: 2026-06-21
-```
-
-內容修改時同步更新。
-
----
-
-## status
-
-允許：
-
-```text
-draft
-active
-permanent
-archived
-deprecated
-```
-
-預設：
-
-```yaml
-status: active
-```
-
----
-
-## sources
-
-來源追蹤。
-
-範例：
-
-```yaml
-sources:
-  - raw/articles/pe-ratio.md
-```
-
-規則：
-
-* 可省略
-* 建議研究型內容使用
-
----
-
-## related
-
-關聯頁面。
-
-範例：
-
-```yaml
-related:
-  - earnings-per-share
-  - valuation
-```
-
-規則：
-
-* 可省略
-* 不取代 Wikilinks
 
 ---
 
 # Page Examples
 
-## Concept
-
 ```yaml
+# concept
 ---
 title: Price Earnings Ratio
 type: concept
 tags:
   - valuation
-  - taiwan-stock
-
+  - tw-stock
 summary: PE Ratio 用於衡量股票估值的重要財務指標。
-
 created: 2026-06-21
 updated: 2026-06-21
-
 status: active
 ---
-```
 
----
-
-## Entity
-
-```yaml
+# entity
 ---
 title: Taiwan Semiconductor
 type: entity
 tags:
-  - taiwan-stock
-
+  - tw-stock
 summary: 台積電為全球領先晶圓代工企業。
-
 created: 2026-06-21
 updated: 2026-06-21
-
 status: active
 ---
-```
 
----
-
-## Report
-
-```yaml
+# report
 ---
 title: Weekly Market Report
 type: report
 tags:
-  - taiwan-stock
-  - market
-
+  - tw-stock
+  - finance
 summary: 本週市場重點與投資觀察。
-
 created: 2026-06-21
 updated: 2026-06-21
-
 status: active
 ---
 ```
-
----
-
-# Anti Patterns
-
-禁止：
-
-```yaml
-draft: false
-publish: true
-subtype:
-confidence:
-priority:
-importance:
-owner:
-reviewer:
-version:
-category:
-```
-
-原因：
-
-```text
-增加維護成本
-降低一致性
-對 RAG 幫助有限
-```
-
----
-
-# Wikilink Placement
-
-[[Wikilinks]] 必須放在正文區域。
-
-禁止：
-
-```yaml
-related:
-  - [[page-name]]
-  - [[another-page]]
-```
-
-原因：
-
-```text
-1. YAML 解析錯誤：[[ ]] 在 YAML 中可能導致 parse failure
-2. 維護一致性：Frontmatter 僅存放結構化資料
-3. 工具相容性：部分 SSG/Static Site Generator 不支援 frontmatter wikilinks
-```
-
-規則：
-
-```text
-Frontmatter 允許型別：string, number, boolean, array, object
-Frontmatter 禁止型別：wikilink, markdown syntax, HTML tag
-```
-
-所有 [[wikilinks]] 必須放在 --- 之後的正文區域。
-
----
-
-# Naming Rules
-
-Frontmatter 不允許：
-
-```yaml
-Title:
-Tags:
-Created:
-```
-
-必須：
-
-```yaml
-title:
-tags:
-created:
-```
-
-全部小寫。
 
 ---
 
 # Success Criteria
 
-符合以下條件：
-
 ```text
-所有頁面皆有 Frontmatter
-所有頁面皆是合法 YAML（通過 yaml.safe_load 驗證）
-所有頁面皆有 Summary
-所有頁面皆有 Type
-所有頁面皆有 Updated
-```
-
-則：
-
-```text
-Frontmatter Status: HEALTHY
+✓ 所有頁面皆有 Frontmatter
+✓ 所有頁面通過 yaml.safe_load 驗證
+✓ 所有頁面皆有 summary / type / updated
+→ Frontmatter Status: HEALTHY
 ```
 
 ---
+
 ## 相關節點
 - [[schema]]

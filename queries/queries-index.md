@@ -15,4 +15,4 @@ updated: 2026-06-23
 
 ---
 
-相關連結：[[index|主索引]] | [[schema]] | [[policy]]
+相關連結：[[index|主索引]] | [[schema]] | [[policy]] | [[finance/finance-index|Finance]]

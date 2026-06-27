@@ -44,3 +44,5 @@ P2 問題
 - 更新 concepts/index.md、entities/index.md、skills/index.md、reports/index.md、queries/index.md
 
 Vault Status：HEALTHY
+## Quartz Migration
+

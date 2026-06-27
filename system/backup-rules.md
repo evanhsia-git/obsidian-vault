@@ -4,7 +4,7 @@ title: "Backup Rules"
 summary: "Backup Rules - 備份、同步與還原規範"
 description: "備份、同步與還原規範"
 type: concept
-tags: [backup, sync, flow, deploy]
+tags: [backup, sync, workflow, deploy]
 created: 2026-06-21
 updated: 2026-06-21
 ---

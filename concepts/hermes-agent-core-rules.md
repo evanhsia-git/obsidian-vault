@@ -4,7 +4,7 @@ description: "Hermes Agent 核心規範與記憶 — 概念說明頁面"
 summary: "Hermes Agent 核心規範與記憶"
 type: concept
 status: active
-tags: [hermes, flow, agent]
+tags: [hermes, workflow, agent]
 created: 2026-06-10
 updated: 2026-06-10
 ---

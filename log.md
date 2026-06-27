@@ -11,6 +11,22 @@ updated: 2026-06-23
 
 # Obsidian Vault 維護日誌
 
+## [2026-06-27] update | 新增 obsidian/ 資料夾 + tags 重整
+- **原因**：Obsidian 主題頁面散落各處，需統一分類管理
+- **動作**：
+  - 建立 `obsidian/` 資料夾
+  - 搬動 7 個 Obsidian 主題頁面至 `obsidian/`（obsidian-cms, obsidian-web-editing-solutions, obsidian-website-deployment, obsidian-wiki-conventions, obsidian-webdav-sync, vps-obsidian-blog-deployment, vps-obsidian-blog-deployment-v2）
+  - 已搬動頁面移除 `obsidian` tag（路徑已表達分類）
+  - 留在原地的非 Obsidian 主題頁面移除 `obsidian` tag（13 個檔案）
+  - 更新 schema.md Layer 2 列表、folder-structure.md、index.md、obsidian-lint skill
+  - 建立 `obsidian/obsidian-index.md`
+- **結果**：obsidian/ 資料夾建立，7 頁搬動完成，tags 統一
+
+## [2026-06-27] update | flow tag 重新命名為 workflow
+- **原因**：統一 tag 命名，log.md 中 35 個核心標籤已使用 `workflow`，但 frontmatter-rules 和所有頁面 frontmatter 仍用 `flow`
+- **動作**：將所有頁面 frontmatter 中的 `flow` tag 替換為 `workflow`（共 21 個檔案）
+- **結果**：`flow` → `workflow` 全站統一
+
 ## [2026-06-27 12:00] database 結構重整 + wiki 新增 cron-list 頁面
 
 **觸發**：用戶要求將 stock_fundamentals 合併至 stock_overview，daily_prices 只保留最新日期
@@ -337,3 +353,18 @@ updated: 2026-06-23
 - 更新 `schema.md`、`index.md`、4 個原目錄 index、`log.md`
 ## [2026-06-26 15:06:32] lint | 2 invalid_type | 3 weak_hubs
 ## [2026-06-26 21:00:12] lint | 1 invalid_type | 3 weak_hubs
+## [2026-06-27 07:07:07] lint | 2 invalid_type | 4 orphans | 3 weak_hubs
+## [2026-06-27 07:32:36] lint | 1 invalid_names | 4 missing_fields | 3 invalid_type | 1 orphans | 3 weak_hubs
+## [2026-06-27 07:43:18] lint | 1 large_pages | 1 orphans | 3 weak_hubs
+## [2026-06-27 07:55:35] lint | 1 large_pages | 1 orphans | 3 weak_hubs
+## [2026-06-27 08:16:47] lint | 3 weak_hubs
+## [2026-06-27 08:26:19] lint | 1 large_pages | 2 weak_hubs
+## [2026-06-27 08:38:48] lint | 1 large_pages | 2 weak_hubs
+## [2026-06-27 08:42:32] lint | 1 large_pages | 2 weak_hubs
+## [2026-06-27 08:46:48] lint | 1 large_pages
+## [2026-06-27 10:56:13] lint | 1 large_pages
+## [2026-06-27 12:01:56] lint | 8 large_pages | 2 orphans | 1 weak_hubs
+## [2026-06-27 13:13:23] lint | 1 orphans | 9 weak_hubs
+## [2026-06-27 13:19:53] lint | 全部通過
+## [2026-06-27 13:19:57] lint | 全部通過
+## [2026-06-27 21:00:53] lint | 全部通過

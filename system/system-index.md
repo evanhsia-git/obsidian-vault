@@ -14,7 +14,7 @@ updated: 2026-06-21
 **規則（POLICY 路由）**
 
 - [[system/frontmatter-rules]]：Frontmatter 規範
-- [[system/folder-structure]]：目錄結構與權限
+- [[folder-rules]]：目錄結構與權限
 - [[system/database-rules]]：資料庫操作
 - [[system/backup-rules]]：備份與還原
 - [[system/quartz-rules]]：Quartz 部署與 YAML 規範

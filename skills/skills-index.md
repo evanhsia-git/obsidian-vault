@@ -14,7 +14,7 @@ updated: 2026-06-23
 ## 索引與架構
 
 - [[skills-list|Skills List Display]] — 技能清單顯示
-- [[skills-schema|Schema]] — Skills 架構
+- [[skills-rules|Schema]] — Skills 架構
 - [[blogwatcher-index|Blogwatcher Index]] — 部落格監測索引
 
 ## 安裝與部署

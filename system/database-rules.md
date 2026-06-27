@@ -4,7 +4,7 @@ title: "Database Rules"
 summary: "Database Rules - SQLite 資料庫操作與資料抓取規範"
 description: "SQLite 資料庫操作與資料抓取規範"
 type: concept
-tags: [linux, flow, source]
+tags: [linux, workflow, source]
 created: 2026-06-21
 updated: 2026-06-21
 ---
@@ -15,7 +15,7 @@ updated: 2026-06-21
 
 **資料庫位置**
 
-- 路徑：`database/`（Git-ignored）
+- 路徑：`/root/Documents/database/`（Git-ignored）
 - 格式：SQLite + CSV
 
 **適用範圍**

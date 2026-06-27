@@ -4,7 +4,7 @@ description: "Hermes Agent 規則路由器"
 summary: "根據任務類型載入對應規範"
 type: schema
 status: permanent
-tags: [flow, hermes, obsidian]
+tags: [workflow, hermes]
 created: 2026-06-21
 updated: 2026-06-21
 ---

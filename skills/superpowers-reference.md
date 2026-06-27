@@ -6,7 +6,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: index
 status: active
-tags: [agent, flow]
+tags: [agent, workflow]
 ---
 
 # Superpowers 功能說明

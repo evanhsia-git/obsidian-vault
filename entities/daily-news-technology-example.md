@@ -1,73 +1,81 @@
 ---
-title: "每日AI及科技新聞輸出範例"
-description: "每日AI及科技新聞輸出範例 — 實體資料頁面"
-summary: "每日AI及科技新聞輸出範例"
+title: "每日新聞來源管理清單 (RSS)"
+description: "自動化新聞蒐集腳本的 RSS 來源總表"
+summary: "RSS 來源：台股/美股/科技/一般新聞 + 驗證狀態 + 維護指南"
 type: entity
 status: active
-tags: ["ai"]
-created: 2026-06-11
-updated: 2026-06-11
+tags: [news, source]
+created: 2026-06-15
+updated: 2026-06-27
 ---
 
-# 📋 每日 AI 及科技新聞輸出範例
+# 每日新聞來源管理清單 (RSS)
 
-## 單筆新聞格式（標準範本）
-```
-**標題（粗體）**
-摘要內容（一句核心描述）
-[連結](完整網址)
-```
-- 第一行：標題，使用 `**粗體**`
-- 第二行：摘要，一句核心描述新聞重點
-- 第三行：連結，Markdown 格式 `[連結](網址)`，隱藏網址
-- 每筆之間以空行分隔
+## 🇹🇼 台股新聞來源
 
-## 完整輸出範例
+| 來源 | RSS URL |
+|:---|:---|
+| 臺灣證券交易所 | `https://www.twse.com.tw/rwd/zh/news/feed?type=rss` |
+| 奇摩-最新新聞 | `https://tw.stock.yahoo.com/rss?category=news` |
+| 奇摩-台股動態 | `https://tw.stock.yahoo.com/rss?category=tw-market` |
+| 奇摩-國際財經 | `https://tw.stock.yahoo.com/rss?category=intl-markets` |
+| 奇摩-基金動態 | `https://tw.stock.yahoo.com/rss?category=funds-news` |
+| 奇摩-研究報導 | `https://tw.stock.yahoo.com/rss?category=research` |
+| 自由時報-財經 | `https://news.ltn.com.tw/rss/business.xml` |
+| 中央社-產經 | `https://feeds.feedburner.com/rsscna/finance` |
+| 商周 | `https://www.businessweekly.com.tw/Event/feedsec.aspx?feedid=12&channelid=10` |
+| 投資臺灣 | `https://investtaiwan.nat.gov.tw/showRSS?lang=cht` |
 
-**諂媚率增 25 倍？AI 記憶系統反讓模型寧可附和、不講真話**
-最新研究指出，AI 的記憶與個人化功能會引發「諂媚」傾向，為迎合使用者偏誤而犧牲準確性，在高風險領域構成潛在威脅
-[連結](https://www.inside.com.tw/article/41526-ai-memory-systems-amplify-sycophancy-writer-research)
+## 🇺🇸 美股與宏觀財經
 
-**美超微 390 億美元 AI 訂單在手卻墊不起零件款，70 億美元增資引爆稀釋疑慮**
-為支應 390 億美元 AI 伺服器訂單，美超微宣布 70 億美元股權融資計畫，引發市場對股本稀釋及訂單不確定性疑慮，股價重挫
-[連結](https://www.inside.com.tw/article/41525-supermicro-7-billion-equity-raise-39-billion-ai-orders)
+### Bloomberg（✅ 驗證可用，30 則即時）
 
-**Neura Robotics 完成 14 億美元 C 輪募資，NVIDIA、亞馬遜、Tether 齊押注歐洲人形機器人**
-德國人形機器人新創 Neura Robotics 完成 C 輪募資上看 14 億美元，資金將用於全球部署與擴大產能
-[連結](https://www.inside.com.tw/article/41524-neura-robotics-1-4b-series-c-tether-nvidia-humanoid)
+| 來源 | RSS URL | 狀態 |
+|:---|:---|:---|
+| Markets | `https://feeds.bloomberg.com/markets/news.rss` | ✅ |
+| Business | `https://feeds.bloomberg.com/business/news.rss` | ✅ |
+| Technology | `https://feeds.bloomberg.com/technology/news.rss` | ✅ |
+| Bview | `https://feeds.bloomberg.com/bview/news.rss` | ✅ |
+| Wealth | `https://feeds.bloomberg.com/wealth/news.rss` | ❌ 0則 |
+| Gadfly | `https://feeds.bloomberg.com/gadfly/news.rss` | ❌ 0則 |
 
-科技整體觀察:
-今日 AI 與科技領域動態聚焦於晶片、生成式 AI、人形機器人與供應鏈發展，產業競爭與技術疊代持續加速。
+### 中文/備用
+- Yahoo 美股：`https://tw.stock.yahoo.com/rss?category=us-market`
+- 鉅亨網：`https://news.cnyes.com/rss/v1/news/category/wd_stock`
+- 英文備用：CNBC, WSJ, FT, Yahoo Finance EN, Investing.com, Seeking Alpha
 
----
+## 🤖 科技新聞來源
 
-## 格式規範摘要
+### 國際
+- Bloomberg Technology/Markets/Business/Bview（同上方）
+- TechCrunch, The Verge, Ars Technica, Wired, MIT Tech Review
 
-| 項目 | 規範 |
-|------|------|
-| Header | 已移除 |
-| 標題 | 粗體 `**標題**`（第一行） |
-| 摘要 | 一句核心描述（第二行） |
-| 連結 | Markdown 超連結 `[連結](網址)`，隱藏網址（第三行） |
-| 分隔 | 每筆新聞之間以空行分隔 |
-| 筆數 | 固定 10 條 |
-| 結論 | 末尾附「科技整體觀察」段落 |
-| 語言 | 100% 繁體中文，無英文說明 |
-| 禁止 | 半形冒號、編號、`來源：`、Markdown 表格 |
+### 台灣
+- 科技新報：`https://technews.tw/feed/`
+- INSIDE：`https://www.inside.com.tw/feed/rss`
+- iThome：`https://www.ithome.com.tw/rss`
+- 科技報橘：`https://techorange.com/feed/`
 
-## 技術細節
-- **腳本路徑**: `/root/.hermes/scripts/daily_tech_news.py`
-- **輸出語法**: `f"**{title}**\n{summary}\n[連結]({link})"`
-- **純中文 RSS 來源**（無 blogwatcher-cli、無 web_search）：
-  - 科技新報：`https://technews.tw/feed/`
-  - INSIDE：`https://www.inside.com.tw/feed/rss`
-- **AI/科技關鍵字過濾**: 腳本內建 KEYWORDS 篩選（AI、半導體、晶片、量子、模型、機器人、雲端等）
-- **已排除來源**: iThome RSS（回傳 2022 舊資料）、鉅亨網 tech RSS（回傳 0 則）
-- **超時**: 硬超時 180 秒、軟超時 120 秒
+## 📰 一般新聞來源（中央社 + 國際中文）
 
-## 相關連結
-- [[daily-news-sources-rss|每日新聞來源管理清單]]
-- [[daily-news-twstock-example|每日台股新聞輸出範例]]
-- [[daily-news-usstock-example|每日美股新聞輸出範例]]
-- [[daily-news-stock-market-example|每日股市指標輸出範例]]
-- [[daily-news-technology-example|每日AI及科技新聞推送規範（技能）]]
+- 中央社 9 個分類：politics/intworld/mainland/lifehealth/social/local/culture/sport/stars
+- 自由時報國際：`https://news.ltn.com.tw/rss/world.xml`
+- 公視：`https://news.pts.org.tw/xml/newsfeed.xml`
+- 國際中文：NYTimes/BBC/RFI/DW/Sputnik/Chosun/共同網/日經 (feedx.net)
+
+## ❌ 已排除來源
+
+| 來源 | 原因 |
+|:---|:---|
+| MarketWatch | 擋爬蟲，0 則 |
+| Thomson Reuters | 只有 IR 公告 |
+| CNN Top Stories | 2023 舊新聞 |
+| 鉅亨網 m.cnyes.com | XML 解析錯誤 |
+| iThome RSS | 回傳 2022 舊資料 |
+
+## 📚 維護指南
+
+1. **新增來源**：同時更新 Python 腳本 `RSS_SOURCES` 陣列
+2. **格式檢查**：RSS 需正確回傳 XML，標題/摘要無過多 HTML
+3. **禁止**：未經驗證的英文來源（100% 繁體中文原則）
+4. **驗證日期**：2026-06-16

@@ -6,320 +6,134 @@ type: schema
 status: permanent
 tags: [hermes, obsidian]
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-06-27
 ---
 
-# Purpose
+# Purpose 目的
 
-本文件為知識庫最高規範。
-
-定義：
-
-- 核心原則
-- 知識架構
-- Metadata 標準
-- 安全規則
-- Agent 行為
-
+知識庫最高規範。定義核心原則、知識架構、Metadata 標準、安全規則、Agent 行為。
 詳細規範由 policy.md 路由管理。
 
 ---
 
-# Core Domains
+# Core Domains 核心領域
 
-僅允許處理：
-
-- 台灣股市
-- 美國股市
-- Hermes Agent
-- Obsidian
-- AI / LLM
-
+僅允許處理：台灣股市 / 美國股市 / Hermes Agent / Obsidian / AI·LLM
 超出範圍需取得使用者確認。
 
 ---
 
-# Required Navigation
+# Required Navigation 強制導航
 
-首次任務：
+首次任務強制執行（同一工作階段僅一次）：
 
 ```python
-read("schema.md")
-read("policy.md")
-read("index.md")
-read("log.md", last=30)
+read("schema.md") → read("policy.md") → read("index.md") → read("log.md", last=30)
 ```
 
-完成後：
-
-```text
-[1/4] ✅ SCHEMA | [2/4] ✅ policy | [3/4] ✅ index | [4/4] ✅ log → 導航完成
+完成後輸出：
+```
+[1/4] ✅ SCHEMA | [2/4] ✅ POLICY | [3/4] ✅ INDEX | [4/4] ✅ LOG → 導航完成
 ```
 
-同一工作階段僅執行一次。
-
-## Navigation Enforcement（強制機制）
-
-**禁止跳過導航**，除非用戶明確說「跳過導航」。
-
-Agent 必須在首次任務開始前完成導航序列，並在對話中明確回報導航完成標記。
-
-**繞過防護**：
-- Agent 不得因「記憶中已有導航內容」而跳過
-- Agent 不得因「任務簡單」而跳過
-- Agent 不得因「時間緊迫」而跳過
-- 唯一例外：用戶明確說「跳過導航」
-
-**驗證方式**：Agent 必須在對話中輸出導航完成標記，格式為：
-```
-[1/4] ✅ SCHEMA | [2/4] ✅ policy | [3/4] ✅ index | [4/4] ✅ log → 導航完成
-```
-
-未輸出此標記 = 未完成導航 = 不得執行任何任務。
-```
-
-同一工作階段僅執行一次。
+**禁止跳過**，除非用戶明確說「跳過導航」。任何理由（記憶中已有 / 任務簡單 / 時間緊迫）均不得作為跳過藉口。未輸出完成標記 = 未完成導航 = 禁止執行任務。
 
 ---
 
-# Cache Strategy
+# Cache Strategy 快取策略
 
-後續任務使用快取。
+後續任務使用快取：schema.md / policy.md / index.md / 各目錄 index.md
 
-快取內容：
-- schema.md（結構定義）
-- policy.md（規則路由）
-- index.md（頁面索引）
-- 各目錄 index.md（局部索引）
-
-重新載入條件：
-- schema.md 更新
-- policy.md 更新
-- 結構變更
-- 使用者要求
+重新載入條件：schema 或 policy 更新 / 結構變更 / 使用者要求
 
 ---
 
-# Metadata Standards
+# Metadata Standards 資料標準
 
-所有 Layer 2 頁面必須包含：
+所有 Layer 2 頁面必填：
 
 ```yaml
-title:
+title: ""        # 永遠用 double quote
+description: ""  # 永遠用 double quote
+summary: ""      # 永遠用 double quote
 type:
-tags:
-summary:
+tags: []         # 最多 10 個，僅從核心 48 tag 選取，禁止新增（列表見 system/frontmatter-rules.md）
+status:
 created:
 updated:
 ```
 
-**Tags 規範**：
+---
 
-- 整個 Vault 只能使用 **32 個核心 tag**（由 frontmatter-rules 定義），禁止新增
-- 單一頁面最多 **10 個** tag
-- 必須從核心列表中選取，不得自創
+# Type Pool 類型池
+
+```
+entity | concept | project | resource | report | query | task | index | log | schema
+```
+
+禁止自行新增。
 
 ---
 
----
+# Status Pool 狀態池
 
-# Type Pool
-
-僅允許：
-
-```text
-entity
-concept
-project
-resource
-report
-query
-task
-index
-log
-schema
+```
+draft | active | permanent | archived | deprecated
 ```
 
-禁止自行新增 Type。
+預設：`status: active`
 
 ---
 
-# Status Pool
+# Wiki-LLM Architecture 架構
 
-僅允許：
+## Layer 1 — `raw/`
 
-```text
-draft
-active
-permanent
-archived
-deprecated
-```
-
-定義：
-
-```text
-draft       草稿
-active      使用中
-permanent   長期知識
-archived    已封存
-deprecated  已淘汰
-```
-
-預設：
-
-```yaml
-status: active
-```
-
----
-
-# Wiki-LLM Architecture
-
-## Layer 1
-
-```text
-raw/
-```
-
-用途：
-
-- 原始資料
-- 新聞
-- PDF
-- 財報
-- 網頁內容
-
-權限：
-
-```text
-唯讀
-```
-
-禁止：
-
-```text
-修改
-刪除
-搬移
-重新命名
-```
-
----
+用途：原始資料（新聞 / PDF / 財報 / 網頁）
+權限：**唯讀** — 禁止修改 / 刪除 / 搬移 / 重新命名
 
 ## Layer 2
 
 ```
-concepts/
-entities/
-finance/
-queries/
-reports/
-resources/
-skills/
-system/
+clippings/ concepts/ entities/ finance/ queries/ reports/ resources/ skills/ system/
 ```
 
-用途：
-- 結構化知識
-- 知識圖譜
-- Agent 工作區
-權限：
-
-```
-可讀可寫
-```
+用途：結構化知識 / 知識圖譜 / Agent 工作區
+權限：可讀可寫
 
 ---
 
-# Knowledge Principles
+# Knowledge Principles 知識原則
 
 1. 更新優先於建立
-2. 避免重複頁面
-3. 避免重複知識
-4. 維護圖譜完整性
-5. 禁止孤立節點
-6. 建立頁面後更新 Index
-7. 建立頁面後更新 Log
+2. 避免重複頁面與重複知識
+3. 維護圖譜完整性，禁止孤立節點
+4. 建立頁面後更新 Index 與 Log
 
 ---
 
-# Rule Loading
+# Rule Loading 規範讀取
 
-詳細規範由 policy.md 管理。
-
-禁止：
-
-```text
-在 Skill 中重複定義規則
-在多個檔案維護不同版本規則
-```
-
-規則唯一來源：
-
-```
-schema.md
-policy.md
-system/*
-```
+規則唯一來源：`schema.md` / `policy.md` / `system/*`
+禁止在 Skill 中重複定義規則，禁止多檔維護不同版本規則。
 
 ---
 
-# Structural Changes
+# Structural Changes 結構性變更
 
-以下操作需取得使用者核准：
+以下操作需使用者核准：新增 / 刪除 / 重命名資料夾 / 修改 schema·policy·index
 
-- 新增資料夾
-- 刪除資料夾
-- 重新命名資料夾
-- 修改 schema
-- 修改 policy
-- 修改 index
-
-流程：
-
-```text
-方案
-↓
-影響評估
-↓
-使用者核准
-↓
-執行
-↓
-記錄 Log
-```
+流程：`方案 → 影響評估 → 使用者核准 → 執行 → 記錄 Log`
 
 ---
 
-# Safety Rules
+# Safety Rules 安全規則
 
-禁止：
+**禁止執行**：`rm -rf` / 批次刪除 / 批次搬移 / 批次重命名
 
-```text
-rm -rf
-批次刪除
-批次搬移
-批次重新命名
-```
+**禁止修改**：`raw/` / `SCHEMA.md` / `POLICY.md` / `index.md` / `log.md`
 
-禁止修改：
-
-```text
-raw/
-SCHEMA.md
-POLICY.md
-index.md
-log.md
-```
-
-禁止刪除：
-
-```text
-database/
-skills/
-system/
-```
+**禁止刪除**：`database/` / `skills/` / `system/`
 
 未取得核准不得執行。
 
@@ -327,242 +141,79 @@ system/
 
 # WebDAV 寫入權限（Post-creation 強制）
 
-Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 WebDAV。若新檔案擁有者為 `root:root` 且權限為 644，`www-data` 無法寫入 → 403。
+Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 → 未修正權限會 403。
 
-**規則**：在 Obsidian Vault 下建立或修改任何檔案後，必須執行權限確保：
+**每次建立或修改檔案後立即執行**：
 
 ```bash
-sudo chown root:www-data "<新檔案路徑>"
-sudo chmod g+rwx "<新檔案路徑>"
+sudo chown root:www-data "<檔案路徑>"
+sudo chmod g+rwx "<檔案路徑>"
 ```
 
-**適用範圍**：
-- `write_file` 建立的新檔案
-- `terminal` 中 `mkdir` 新建的目錄
-- `patch` 修改後需要存檔的檔案（權限通常已正確，但新建子目錄時需檢查）
+適用範圍：`write_file` 新建 / `mkdir` 新建目錄 / `patch` 後新建子目錄
 
-**常見陷阱**：
-- ❌ 只改目錄權限，忘記改目錄內新建檔案
-- ❌ `chmod 777` 不安全，用 `g+rwx` + `chown root:www-data` 即可
-- ❌ 在 `concepts/`、`skills/`、`entities/` 等子目錄建立新頁面後未執行權限修正
-
-**強制執行時機**：
-1. `write_file` 後 → 立即 `chown + chmod`
-2. `terminal` 中 `mkdir` 後 → 立即 `chown + chmod`
-3. `obsidian-lint` 掃描發現權限時 → 立即批次修正
+常見陷阱：只改目錄忘改目錄內檔案 / 使用 `chmod 777`（禁止）
 
 ---
 
-# Failure Protection
-
-最大重試：
+# Failure Protection 故障防護
 
 ```yaml
 max_retry: 3
 ```
 
-連續失敗三次：
-
-```text
-[STOP]
-Task failed 3 times.
-Awaiting user decision.
+連續失敗三次輸出：
+```
+[STOP] Task failed 3 times. Awaiting user decision.
 ```
 
-禁止：
-
-- 無限重試
-- 無限建立檔案
-- 無限搬移檔案
-- 無限刪除檔案
-- 無限修改同一頁
+禁止：無限重試 / 無限建立·搬移·刪除·修改同一頁
 
 ---
 
-# Page Size Limits
+# Page Size Limits 頁面上限
 
-**query**：> 200 行建議拆分（需使用者同意）
+| Type                                | 建議上限                  |
+| ----------------------------------- | --------------------- |
+| query / concept / entity / resource | 200 行                 |
+| task                                | 100 行（超過建議升格 project） |
+| report / project                    | 300 行                 |
+| index / schema                      | 無上限（offset 讀取）        |
+| log                                 | 無硬上限（offset=-30 讀尾部）  |
 
-**task**：> 100 行建議升格為 project（需使用者同意）
+超限建議拆分，提交方案後需使用者核准，禁止自行拆分。
 
-**concept / entity / resource**：> 200 行建議拆分（需使用者同意）
-
-**report / project**：> 300 行建議拆分（需使用者同意）
-
-**index / schema**：不設上限，Agent 使用 offset 讀取
-
-**log**：不設硬上限，Agent 使用 offset=-30 讀尾部，頁面總長度對 Agent 無影響
-
-拆分原則：提交方案供使用者核准後執行，不得自行拆分。
-
-## Log Rotation
-
-log.md 每 300 條輪轉封存為 log-YYYY.md。
-
-封存後 log.md 只保留最新 300 條，舊資料移至 log-YYYY.md（按年份）。
-```
+**Log Rotation**：每 300 條封存為 `log-YYYY.md`，log.md 保留最新 300 條。
 
 ---
 
-# Frontmatter Safety
+# Frontmatter Safety 前言安全
 
-## 問題類型
+## 通用規則
 
-### 1. Wikilink 在 frontmatter 內
+- `title` / `description` / `summary` 永遠用 double quote 包裹
+- frontmatter 內禁止 `[[wikilink]]` 及任何 Markdown 語法
+- frontmatter 僅允許：string / number / boolean / array / object
+- 所有 list 型欄位（`tags` / `aliases`）必須有明確 key
+- 建立或修改 frontmatter 後必須執行 `yaml.safe_load()` 驗證
 
-**錯誤**：
-```yaml
-title: My-Page
-- [[openrouter-free-models]]
-```
+## 常見錯誤速查
 
-**原因**：`- [[...]]` 無 key，且 `[[` 在 YAML 中可能導致 parse failure。
-
-**規則**：
-- frontmatter 內禁止 `[[wikilink]]`
-- frontmatter 內禁止 markdown 語法（`**bold**`、`` `code` ``、`[link](url)`）
-- frontmatter 僅允許：string、number、boolean、array、object
-- 所有 wikilink 必須放在 `---` 之後的正文區域
-
-**修正**：將 wikilink 移至 body，補上合法的 key 或刪除。
+| 錯誤類型 | 症狀 | 修正方式 |
+|---|---|---|
+| wikilink 在 frontmatter | `[[page]]` 在 `---` 內 | 移至 body |
+| summary 含特殊字元未加 quote | `:` `#` `` ` `` 等導致 parse 失敗 | 用 double quote 包裹，逗號改全形 `，` |
+| list item 缺少 key | `- item` 直接在頂層或縮排在錯誤 key 下 | 補回 `tags:` 等 key 行 |
+| title/description 含冒號未加 quote | YAML 誤判為 key-value | 用 double quote 包裹 |
 
 ---
 
-### 2. Summary 值含特殊字元未加 quote
-
-**錯誤**：
-```yaml
-summary: 2026-06-01 Summary：- Executed `skill-name`: completed task
-```
-
-**原因**：`：`（full-width colon）後接空格被 YAML parser 解讀為 key-value separator；`` ` `` 和 `:` 也會導致解析失敗。
-
-**規則**：
-- `summary` 值含以下字元時必須用 double quote 包裹：`:`、`#`、`[`、`]`、`{`、`}`、`` ` ``、`|`、`>`、`!`、`%`、`@`、`&`、`*`
-- 最佳實踐：**所有 summary 值一律用 double quote 包裹**
-
-**修正**：
-```yaml
-summary: "2026-06-01 Summary - Executed skill-name, completed task"
-```
-
----
-
-### 2b. Summary 值含逗號後接空格+小寫字母（Quartz YAML 解析問題）
-
-**錯誤**：
-```yaml
-summary: "2026-06-01 Summary - Executed skill-name, completed backup of Hermes configuration"
-```
-
-**原因**：Quartz 使用的 YAML parser 會將 `, completed backup...` 誤判為新的 mapping entry（`key: value` 格式），導致 `bad indentation of a mapping entry` 錯誤。
-
-**規則**：
-- summary 值應避免逗號後接空格+小寫字母的結構
-- 若需要逗號，改用全形逗號 `，` 或精簡內容
-
-**修正**：
-```yaml
-summary: "2026-06-01 Summary - Executed skill-name, completed backup"
-```
-
----
-
-### 3. Frontmatter 缺少 key 的 list item
-
-**錯誤**：
-```yaml
-title: My-Page
-- [[page-a]]
-- [[page-b]]
-```
-
-**原因**：YAML list item 必須有 key（`related: - page-a`），不能直接在頂層。
-
-**規則**：
-- frontmatter 所有項目必須有 key
-- 關聯頁面使用 `related` key，放在 body 而非 frontmatter
-
----
-
-### 3b. YAML 縮排結構錯誤 — key 缺失（Quartz note-properties 插件失敗）
-
-**錯誤**：
-```yaml
-status: active
-description: "S&P 500 成分股資料來源"
-  - terminal        ← YAML 解析器將 `-` 視為上一個 key 的 sequence
-  - memory
-  - execute_code
-title: "Sp500-Components"
-```
-
-**原因**：`tags:` 鍵被誤删或未建立，導致下層 `- item` 列表縮排在 `description` 下方。YAML parser 嘗試將 `- terminal` 解析為 `description` 值的延續（block mapping 內嵌 block sequence），報 `expected <block end>, but found '<block sequence start>'`。
-
-**影響**：Quartz `note-properties` 插件 (`transformer.ts:169`) 使用 `gray-matter` + `yaml.load()` 解析 frontmatter，此类結構錯誤會拋出 `YAMLException` 導致整個 `build` 步驟失敗（GitHub Actions exit code 1）。與單純的 quote 缺失不同，**此類錯誤無法透過 quote 修復**，必須補回遺失的 key。
-
-**觸發場景**：
-- 手動編輯 frontmatter 時誤删 `tags:` 或 `aliases:` 一行
-- Agent 批次修改 frontmatter 時，replace 操作誤將 key 行一起替換為空
--  Frankie/Copilot 等 AI 工具在重組 frontmatter 時遺漏 key
-
-**規則**：
-- frontmatter 中所有 list 型欄位（`tags`、`aliases`、`platforms`、`metadata`）必須有明確的 key
-- 建立/修改 frontmatter 後，必須用 `yaml.safe_load()` 驗證結構完整性
-- lint 腳本必須在步驟 3b 執行全域 YAML 語法驗證
-
-**修正**：
-```yaml
-status: active
-description: "S&P 500 成分股資料來源"
-tags:
-  - terminal
-  - memory
-  - execute_code
-title: "Sp500-Components"
-```
-
----
-
-### 2c. title 或 description 含冒號未加 quote（Quartz YAML 解析問題）
-
-**錯誤**：
-```yaml
----
-title:Awesome DESIGN.md
-description: VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式
-summary: Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合
----
-```
-
-**原因**：`title` 值含冒號 `Awesome DESIGN.md` 本身無冒號但 `description` 和 `summary` 中的 `：` 或 `:` 会被 YAML parser 解讀為 key-value separator，導致 `end of the stream or a document separator is expected`。
-
-**規則**：
-- `title`、**永遠用 double quote 包裹**
-- `description`：**永遠用 double quote 包裹**
-- `summary`：**永遠用 double quote 包裹**
-- 原因：這三個欄位常見包含冒號、全形逗號、括號等特殊字元，直接引用風險極高
-
-**修正**：
-```yaml
----
-title: "Awesome DESIGN.md"
-description: "VoltAgent 的 DESIGN.md 檔案集合，從真實網站萃取設計系統格式"
-summary: "Awesome DESIGN.md 是 Google Stitch 設計系統格式的公司集合"
----
-```
-
----
-
-# Constitution
+# Constitution 憲法
 
 1. 保護資料優先於完成任務
 2. 三次失敗立即停止
-3. 更新頁面優先於建立頁面
-4. 不建立重複知識
-5. 不產生孤立節點
-6. 不修改 Layer 1 原始資料
-7. 重大變更必須取得使用者核准
-8. 遵循 policy 路由規範
-9. 遵循 skill 詳細規範
-10. 保持知識庫一致性與可維護性
+3. 更新優先於建立，不建立重複知識
+4. 不產生孤立節點，不修改 Layer 1 原始資料
+5. 重大變更必須取得使用者核准
+6. 遵循 policy 路由 / skill 詳細規範
+7. 保持知識庫一致性與可維護性

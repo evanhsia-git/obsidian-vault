@@ -4,7 +4,7 @@ title: "Hermes Agent Rules"
 summary: "Hermes Agent Rules：知識誠實與回答準則"
 description: "知識誠實與回答準則"
 type: concept
-tags: [hermes, flow, agent]
+tags: [hermes, workflow, agent]
 created: 2026-06-21
 updated: 2026-06-21
 ---

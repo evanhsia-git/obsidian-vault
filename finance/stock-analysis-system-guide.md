@@ -1,72 +1,70 @@
 ---
+title: "股市分析三層 Agent 系統"
+description: "資料擷取→分析→決策的自動化流程"
+summary: "三層 Agent：Gatherer→Analyzer→Decider，完整流程圖+規範+檢查表"
+type: resource
 status: active
-title: "股市分析三層 Agent 協作系統使用說明"
-summary: "股市分析三層 Agent 協作系統使用說明：1. 系統運行流程"
+tags: [agent, stock, workflow]
 created: 2026-06-03
-updated: 2026-06-03
-type: concept
-tags: [auto, agent, tw-stock, deploy]
+updated: 2026-06-27
 ---
 
-# 股市分析三層 Agent 協作系統使用說明
+# 股市分析三層 Agent 系統
 
-本系統透過 Orchestrator 調度三個專業 Skill，實現從數據擷取、分析到決策的全自動化流程。
-
-## 1. 系統運行流程
+## 系統流程圖
 
 ```mermaid
 graph TD
-    User((使用者指令)) --> Orchestrator[股市分析 Orchestrator]
-    
-    subgraph "三層協作架構"
-        Orchestrator -->|1. 請求數據| Gatherer[Skill 1: Data Gatherer]
-        Gatherer -->|回傳標準化 JSON| Orchestrator
-        
-        Orchestrator -->|2. 發送數據審核| Analyzer[Skill 2: Data Analyzer]
-        Analyzer -->|回傳過濾後分析因子| Orchestrator
-        
-        Orchestrator -->|3. 綜合評估建議| Decider[Skill 3: Decision Maker]
-        Decider -->|產出 PDF/HTML 報告| User
-    end
-
-    style Orchestrator fill:#4A90E2,stroke:#fff,stroke-width:2px,color:#fff
-    style Gatherer fill:#50E3C2,stroke:#333,stroke-width:1px
-    style Analyzer fill:#F5A623,stroke:#333,stroke-width:1px
-    style Decider fill:#D0021B,stroke:#333,stroke-width:1px,color:#fff
+    User((使用者)) --> Orchestrator[Orchestrator]
+    Orchestrator -->|1.請求數據| Gatherer[Data Gatherer]
+    Gatherer -->|JSON| Orchestrator
+    Orchestrator -->|2.數據審核| Analyzer[Data Analyzer]
+    Analyzer -->|因子矩陣| Orchestrator
+    Orchestrator -->|3.投資決策| Decider[Decision Maker]
+    Decider -->|PDF/HTML| User
 ```
 
-## 2. 使用方法
+## 技能職責
 
-### 步驟 A：環境初始化
-1. 確保已建立三個專屬 Skill 目錄 (`ws-data-gatherer`, `ws-data-analyzer`, `ws-decision-maker`)。
-2. 配置各個 Skill 的 `SKILL.md` 定義其專屬工具集 (Toolsets)。
+| Skill | 職責 | 輸入/輸出 |
+|:---|:---|:---|
+| ws-data-gatherer | 數據採集（TWSE/FinMind/yfinance/News） | ticker → JSON |
+| ws-data-analyzer | 因子計算（PE/PB/ROE/動能）+ 異常過濾 | JSON → 因子矩陣 |
+| ws-decision-maker | 綜合評分(0-100) + 風險評估 + 報告產出 | 因子 → PDF/HTML |
 
-### 步驟 B：調用方式
-透過 `hermes-wallstreet-orchestrator` 呼叫主流程。在 Python 環境中執行：
+## 資料مصادر
 
-```python
-from hermes_tools import delegate_task
+### API
+- [TWSE OpenAPI](https://openapi.twse.com.tw/)：上市股日價/財報
+- [TPEX OpenAPI](https://www.tpex.org.tw/openapi/)：上櫃/興櫃
+- [FinMind](https://finmindtrade.com/)：法人/融資/月營收
+- [OpenBB](https://openbb.co/)：統一介面
+- [yfinance](https://github.com/ranaroussi/yfinance)：美股 ETF
 
-# Orchestrator 核心調度邏輯
-def run_analysis(ticker):
-    # 1. 擷取 (Gatherer)
-    data = delegate_task(goal=f"擷取 {ticker} 財務/新聞數據")
-    
-    # 2. 分析 (Analyzer)
-    factors = delegate_task(goal=f"計算 {ticker} 價值因子與動能", context=data[0])
-    
-    # 3. 決策 (Decider)
-    report = delegate_task(goal=f"產出 {ticker} 投資報告", context=factors[0])
-    
-    return report[0]
-```
+| 資料 | 來源 |
+|:---|:---|
+| 台股/OTC 股價 | TWSE/TPEX OpenAPI |
+| 月營收/財報/法人 | FinMind |
+| 美股 ETF | yfinance |
+| 美國財報 | FMP |
+| 新聞 | Finnhub |
 
-## 3. 重要注意事項
-- **狀態傳遞**：由於每個 Agent 環境隔離，數據均透過 `context` 參數傳遞，務必確保數據字典格式統一 (建議使用 JSON)。
-- **交付規範**：最終產出文件（PDF/HTML）一律透過 `telegram-message-file-sender` 技能發送，嚴禁使用 `MEDIA` 參數。
-- **維護規範**：每次架構層級變更或邏輯更新，須同步更新本頁面的 Mermaid 流程圖。
+### 手動 CSV
+- TWSE bwibbu-day : 收盤/殖利率/PE → `data.gov.tw/dataset/11547`
+- TPEX 上櫃 Pe Pb 行情 : `data.gov.tw/dataset/11373/11370`
+- ETF 基本資料 : `data.gov.tw/dataset/157399`（256檔）
 
----
-## 相關節點
-- [[stock-analysis-workflow-full]]
-- [[quant-python-ai-agent]]
+## 關鍵規範
+
+- 全繁體中文 + Unicode 符號（禁用 LaTeX）
+- 交付：`telegram-message-file-sender` + 絕對路徑
+- 禁止 `send_message` 的 `MEDIA` 參數
+- Circuit Breaker：`validity=false` 立即中斷
+- Ticker 格式通過 `ticker_map.json` 正規化
+
+## 維護檢查表
+
+- [ ] `network_utils.py` 速率控制啟動
+- [ ] Ticker 代號格式一致
+- [ ] 最終產出使用 `telegram-message-file-sender`
+- [ ] 報告經「數據品質標註」檢查

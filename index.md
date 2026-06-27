@@ -13,17 +13,19 @@ updated: 2026-06-21
 
 ## 導航
 
-- [[schema|核心憲法]]
-- [[policy|規則路由器]]
+- [[schema|SCHEMA 核心憲法]]
+- [[policy|POLICY 規則路由器]]
 
 ## 目錄
 
-- [[concepts/concepts-index|概念筆記]] — 69 篇
-- [[entities/entities-index|實體資料]] — 13 篇
-- [[finance/finance-index|金融與投資]] — 20 篇
-- [[resources/resources-index|資源鏈結]]
-- [[reports/reports-index|報告]]
-- [[reports/quartz-migration-20260622|Quartz 遷移記錄]]
-- [[queries/queries-index|查詢記錄]]
-- [[skills/skills-index|技能管理]]
-- [[skills/user-backup-skill|User Backup Skill]]
+- [[obsidian/obsidian-index|obsidian 主題知識]] — 7 篇
+- [[concepts/concepts-index|concepts 概念筆記]] — 2 篇
+- [[entities/entities-index|entities 實體資料]]
+- [[resources/resources-index|resources 資源鏈結]]
+- [[reports/reports-index|reports 報告]]
+- [[reports/quartz-migration-20260622|quartz 遷移記錄]]
+- [[queries/queries-index|queries 查詢記錄]]
+- [[skills/skills-index|skills 技能管理]]
+- [[skills/user-backup-skill|User Backup Skill| 使用者備份]]
+- [[finance/finance-index|Finance 知識庫]]
+- [[clippings/hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]
