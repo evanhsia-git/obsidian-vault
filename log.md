@@ -368,3 +368,91 @@ updated: 2026-06-23
 ## [2026-06-27 13:19:53] lint | 全部通過
 ## [2026-06-27 13:19:57] lint | 全部通過
 ## [2026-06-27 21:00:53] lint | 全部通過
+## [2026-06-28 09:19:25] lint | 全部通過
+
+## [2026-06-28 10:00] schema 更新 — 新增 Page Creation Pre-check 規範
+- **原因**：避免重複頁面，確保新增前先檢查 vault 是否有相似內容
+- **動作**：schema.md 新增「Page Creation Pre-check」章節（3 步驟：掃描→回報→依決定執行），obsidian-lint skill pitfalls 同步更新
+- **結果**：新增頁面強制查重流程確立
+
+## [2026-06-28 10:30] Telegram 表格限制解除
+- **原因**：新版 Telegram 已解決表格顯示問題
+- **動作**：
+  - `telegram-output-rules.md`：移除 Markdown Table / HTML Table 禁令，標註表格已確認相容
+  - `SOUL.md`：Telegram 輸出規範允許 pipe table，移除 25 行/5 項限制
+  - `User Profile` memory：移除 "no pipe tables" 限制
+- **結果**：Telegram 輸出可自由使用表格
+
+## [2026-06-28 11:10] WebDAV 權限修復 + Schema 更新
+- **根因**：write_file 新建檔案預設 root:root 644/600，www-data 無寫入權限 → 403
+- **修復**：
+  - 修復 25 個問題檔案（chown root:www-data + chmod 664）
+  - schema.md 更新 WebDAV 章節（修正 chmod g+rwx → 664、加批次修復指令、標註 umask 002 預防）
+  - ~/.bashrc 設定 `umask 002`（新檔案預設 664，根治問題）
+- **結果**：69 個 md 檔案全部 root:www-data 664，WebDAV 應可正常同步
+
+## [2026-06-28 11:20] Schema 新增 copilot/.claude/.claudian 保護區
+- **原因**：外部工具（Copilot、Claude）管理的資料夾，Agent 不應修改
+- **動作**：schema.md Safety Rules 新增「禁止編輯、移動、刪除 copilot/ .claude/ .claudian/」
+- **結果**：外部工具區受保護
+
+## [2026-06-28 16:00] 新增 Telegram Dashboard 架構分析報告
+- **原因**：分析現有 Telegram Bot 架構，為 Dashboard v1 設計做準備
+- **動作**：`reports/telegram-dashboard-architecture.md` — 完整分析 10 個關鍵檔案、5 類 Handler、6 種 callback 協議
+- **結論**：建議新增 3 個檔案（telegram_dashboard.py、telegram_states.py、telegram_menu.py），adapter.py 只加前綴判斷
+- **參考**：分析基於 `python-telegram-bot` library，不修改任何程式
+
+## [2026-06-28 15:40] folder-rules 新增 assets/ 目錄
+- **動作**：`folder-rules.md` 目錄樹與讀寫權限表新增 `assets/`（全站靜態資源）
+- **結果**：assets/ 正式納入目錄結構
+
+## [2026-06-28 15:30] tags 對照表升級為 4 欄格式
+- **原因**：原 1 欄「適用場景」資訊不足，參考 `obsidian/Obsidian-tags-Optimization-Recommendations.md` 升級為 4 欄（Tag、類別、用途、關鍵詞/涵蓋內容）
+- **動作**：
+  - `frontmatter-rules.md` tags 章節全面重寫為 4 欄表格
+  - `obsidian-lint` skill pitfalls 第 22 條同步
+- **結果**：48 個核心 tag 都有完整 4 欄定義
+
+## [2026-06-28 15:00] 新增 ivan-notes 資料夾全面保護
+- **原因**：ivan-notes 資料夾應唯讀保護
+- **動作**：`schema.md` Safety Rules 將 `ivan-notes/` 從「禁止修改」提升為「禁止編輯、移動、刪除」等級
+- **結果**：ivan-notes/ 需經使用者同意才能變動
+
+## [2026-06-28 15:00] 新增 ivan 檔案保護規則
+- **原因**：使用者名稱相關檔案應受保護，避免誤修改
+- **動作**：
+  - `schema.md` Safety Rules 新增「ivan 檔案保護」：檔名含 `ivan` 或 `tags` 含 `ivan` 的頁面，Agent 禁止編輯/移動/刪除，變動需經使用者同意
+  - `obsidian-lint` skill pitfalls 第 21 條同步
+- **結果**：ivan 相關檔案受保護
+
+## [2026-06-28 11:00] Telegram 所有限制解除
+- **原因**：Telegram 新版已全面支援標準 Markdown
+- **動作**：
+  - `telegram-output-rules.md`：整頁重寫為 639 字，僅保留「可使用 telegram-message-file-sender」和「可用 send_message MEDIA」
+  - `SOUL.md`：Telegram 規範簡化為「已全面支援標準 Markdown，無格式限制」
+  - `User Profile` memory：更新為「無格式限制」
+- **結果**：所有格式限制（巢狀列表、標題行數、代碼塊、MathJax 等）全部解除
+
+## [2026-06-28 10:00] 小頁面合併 — 11 頁 → 4 頁
+- **原因**：11 個 <100 行小型頁面分散，知識密度低，合併後提升可讀性
+- **動作**：
+  - 合併 `next-ai-draw-io` + `llm-wiki-comparison` + `superpowers` → `concepts/ai-toolkit`
+  - 合併 `cloudflare-integration` + `telegram-interactive-ui` + `tech-sources-monitoring` → `concepts/external-services-integration`
+  - 合併 `daily-news-technology-example` + `daily-news-twstock-example` → `entities/news-and-market-examples`
+  - 合併 `etf-basic-info` + `stock-analysis-system-guide` + `investment-master-strategy` → `finance/investment-resources`
+  - 修復 12 處 broken links（most-blog, daily-news-usstock-fix, agent-driven-cronjobs, daily-news-technology, hermes-agent-strategy, manus-use-cases, blogwatcher/index, code-quality-analysis, superpowers-reference）
+  - 更新 `concepts/concepts-index`、`entities/entities-index`、`finance/finance-index`、`skills/skills-index`
+- **結果**：11 頁減至 4 頁，總頁面數從 83 降至 76（含唯讀）/ 77 降至 70（不含唯讀）
+## [2026-06-28 10:11:23] lint | 1 orphans
+## [2026-06-28 10:11:41] lint | 全部通過
+## [2026-06-28 10:30:35] lint | 全部通過
+## [2026-06-28 10:32:21] lint | 全部通過
+## [2026-06-28 10:33:20] lint | 全部通過
+## [2026-06-28 10:45:12] lint | 16 invalid_names | 106 missing_fields | 78 invalid_type | 16 orphans
+## [2026-06-28 14:58:35] lint | 16 invalid_names | 79 missing_fields | 75 invalid_type | 1 invalid_status | 21 orphans | 1 weak_hubs
+## [2026-06-28 15:10:34] lint | 16 invalid_names | 3 missing_fields | 15 orphans
+## [2026-06-28 15:13:46] lint | 16 invalid_names | 78 missing_fields | 15 orphans
+## [2026-06-28 15:15:41] lint | 1 invalid_names | 3 missing_fields
+## [2026-06-28 15:23:59] lint | 1 invalid_names | 3 missing_fields
+## [2026-06-28 15:26:24] lint | 全部通過
+## [2026-06-28 21:00:29] lint | 1 invalid_type

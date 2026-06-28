@@ -1,6 +1,7 @@
 ---
 status: active
 title: "OpenRouter 免費模型完整列表（Free Models）"
+description: "OpenRouter 免費模型列表與使用指南"
 summary: "OpenRouter 免費模型完整列表（Free Models）：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01

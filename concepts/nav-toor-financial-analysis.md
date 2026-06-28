@@ -1,6 +1,7 @@
 ---
 status: active
 title: "Nav Toor   Financial Analysis Prompts"
+description: "NavToor 金融分析工具"
 summary: "Nav Toor   Financial Analysis Prompts：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31

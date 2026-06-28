@@ -25,7 +25,7 @@ updated: 2026-06-06
 - **ICDYCT (我能, 你也行)**：專注於分享技術實作、AI 工具應用與個人學習路徑的部落格，適合作為追蹤個人化技術實作與 AI 應用趨勢的資訊來源。
 
 ## 相關連結
-- [[tech-sources-monitoring|科技媒體監測導航]] — 科技媒體監測導航
+- [[external-services-integration|External Services Integration]] — Cloudflare + Telegram UI + 科技監測
 
 相關頁面：[[2026-06-01-daily-task-summary|2026-06-01 daily task summary]]
 
@@ -73,7 +73,7 @@ updated: 2026-06-10
 
 相關頁面：[[hermes-agent-rules]]
 
-相關連結：[[tech-sources-monitoring|科技媒體監測導航]] — 科技媒體監測導航
+相關連結：[[external-services-integration|External Services Integration]] — Cloudflare + Telegram UI + 科技監測
 
 ## 相關節點
 - [[index]]
@@ -102,7 +102,7 @@ updated: 2026-06-10
 
 相關頁面：[[hermes-agent-rules]]
 
-相關連結：[[tech-sources-monitoring|科技媒體監測導航]] — 科技媒體監測導航
+相關連結：[[external-services-integration|External Services Integration]] — Cloudflare + Telegram UI + 科技監測
 
 
 ## 相關節點

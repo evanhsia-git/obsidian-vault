@@ -1,28 +1,31 @@
 ---
 title: "Finance Index"
 description: "finance/ 目錄索引 — 所有金融、股票、投資相關筆記的導航中心"
-summary: "finance/ 索引 — 20 篇金融與投資筆記"
+summary: "finance/ 索引 — 投資知識與市場數據資源"
 type: index
 status: active
 tags: [tw-stock, finance, agent]
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-06-28
 ---
 
 # Finance 知識庫索引
 
+## 投資資源整合
+- [[investment-resources|Investment Resources]] — 投資策略 + ETF + Agent 分析 + API 定價
+
 ## 個股與市場分析
 - [[all-market-listing-profile-2026-06-02]] — 全市場上市股票清單（2026-06-02）
 - [[stock-analysis-multi-agent-system]] — 股票分析多 Agent 系統架構
-- [[stock-analysis-system-guide]] — 股票分析系統指南
 - [[stock-analysis-workflow-full]] — 完整股票分析工作流
 - [[stock-data-comparison]] — 股票數據來源比較
 - [[stock-data-sources]] — 股票數據來源總覽
 - [[otc-company-profile-2026-06-02]] — 上櫃公司股票清單（2026-06-02）
 - [[unified-stock-schema]] — 統一股票資料庫 Schema
+- [[dynamic-web-based-financial-analysis-system|Dynamic Web-Based Financial Analysis System]] — 動態網頁金融分析系統
+- [[taiwan-stock-index-futures-trend-forecasts-and-ai-tool-applications|台指期貨走勢預測與AI工具應用]]
 
 ## 新聞與行情
-- [[daily-news-twstock-example]] — 台股新聞格式範例
 - [[trading-agents]] — 交易 Agent 系統
 
 ## 投資策略
@@ -30,7 +33,6 @@ updated: 2026-06-27
 - [[finlab]] — FinLab 平台
 
 ## 估值與數據更新
-- [[etf-basic-info]] — ETF 基本資訊
 - [[stock-db-update-20260602]] — 股票資料庫更新紀錄（2026-06-02）
 - [[stock-portfolio-backtest]] — 投資組合回測
 - [[tw-stock-data-enrichment-log-20260603]] — 台股資料補齊紀錄（2026-06-03）

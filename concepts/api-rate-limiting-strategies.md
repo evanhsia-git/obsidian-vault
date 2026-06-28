@@ -1,6 +1,7 @@
 ---
 status: active
 title: "API 流量限制應對策略"
+description: "API Rate Limiting 策略實作"
 summary: "API 流量限制應對策略：核心原則"
 created: 2026-06-03
 updated: 2026-06-03

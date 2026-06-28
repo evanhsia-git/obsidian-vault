@@ -1,6 +1,7 @@
 ---
 status: active
 title: "TradingAgents"
+description: "交易 Agent 系統設計"
 summary: "TradingAgents：核心功能"
 created: 2026-06-03
 updated: 2026-06-03

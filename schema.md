@@ -112,6 +112,51 @@ clippings/ concepts/ entities/ finance/ queries/ reports/ resources/ skills/ sys
 
 ---
 
+# Page Creation Pre-check — 新增頁面查重規範
+
+建立任何新頁面 **之前**，必須執行以下步驟：
+
+## 步驟 1：掃描現有內容
+
+搜尋 vault 中是否有相同或相近主題的頁面：
+
+```bash
+# 用關鍵詞搜尋 title / description / tags / 檔案名
+grep -ri "<關鍵詞>" --include="*.md" . | grep -v "raw/" | grep -v "ivan-notes/"
+```
+
+同時檢查各目錄 index 頁面確認無重複。
+
+## 步驟 2：回報使用者
+
+若找到相同或相近內容，必須回報：
+
+```
+⚠️ 發現相似頁面：
+- existing-page-1（行數、簡述重疊處）
+- existing-page-2（行數、簡述重疊處）
+
+建議方案：
+A) 合併至現有頁（推薦）
+B) 編輯現有頁補充新內容
+C）獨立建立新頁（說明理由）
+
+請選擇？
+```
+
+## 步驟 3：依使用者決定執行
+
+- 使用者選 A / B → **不建立新頁**
+- 使用者選 C → 建立新頁，並在 frontmatter `description` 註明與相似頁面的差異
+
+## 適用範圍
+
+- 所有 Layer 2 新_page（concepts/ entities/ finance/ queries/ reports/ resources/ skills/ system/）
+- obsidian/ 與 clippings/ 資料夾同樣適用
+- update 現有頁面不在此限
+
+---
+
 # Rule Loading 規範讀取
 
 規則唯一來源：`schema.md` / `policy.md` / `system/*`
@@ -133,7 +178,11 @@ clippings/ concepts/ entities/ finance/ queries/ reports/ resources/ skills/ sys
 
 **禁止修改**：`raw/` / `SCHEMA.md` / `POLICY.md` / `index.md` / `log.md`
 
+**禁止編輯、移動、刪除**：`ivan-notes/`（唯讀，Agent 不得修改，需經使用者同意）
+
 **禁止刪除**：`database/` / `skills/` / `system/`
+
+**禁止編輯、移動、刪除**：`copilot/` / `.claude/` / `.claudian/`（外部工具管理區，Agent 不得修改）
 
 未取得核准不得執行。
 
@@ -147,12 +196,35 @@ Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 → 未修正權限�
 
 ```bash
 sudo chown root:www-data "<檔案路徑>"
-sudo chmod g+rwx "<檔案路徑>"
+sudo chmod 664 "<檔案路徑>"
 ```
 
 適用範圍：`write_file` 新建 / `mkdir` 新建目錄 / `patch` 後新建子目錄
 
 常見陷阱：只改目錄忘改目錄內檔案 / 使用 `chmod 777`（禁止）
+
+**批次修復指令**（同步失敗時執行）：
+
+```bash
+cd "/root/Documents/Obsidian Vault/"
+# 修復擁有者
+find . -name "*.md" -not -path "./raw/*" -not -path "./ivan-notes/*" -not -path "./.git/*" | while read f; do
+  owner=$(stat -c '%U:%G' "$f")
+  perm=$(stat -c '%a' "$f")
+  if [ "$owner" != "root:www-data" ] && [ "$owner" != "www-data:www-data" ]; then
+    sudo chown root:www-data "$f"
+  fi
+  if [ "$perm" != "664" ]; then
+    sudo chmod 664 "$f"
+  fi
+done
+```
+
+**根因**：`write_file` 新建檔案預設為 `root:root 644` 或 `600`，www-data 無寫入權限 → WebDAV 同步失敗。
+
+**預防**：在 `~/.bashrc` 或 agent 環境中設定 `umask 002`，確保新檔案預設為 664。
+
+---
 
 ---
 
@@ -196,6 +268,30 @@ max_retry: 3
 - frontmatter 僅允許：string / number / boolean / array / object
 - 所有 list 型欄位（`tags` / `aliases`）必須有明確 key
 - 建立或修改 frontmatter 後必須執行 `yaml.safe_load()` 驗證
+
+## copilot/ 資料夾專用規則
+
+copilot/` 為外部工具管理區（Level 3 保護，禁止編輯/移動/刪除）。其 frontmatter 欄位與標準不同：
+
+**必填欄位**：
+- `copilot-command-context-menu-enabled`: true
+- `copilot-command-slash-enabled`: true
+- `copilot-command-context-menu-order`: 0
+- `copilot-command-model-key`: ""
+- `copilot-command-last-used`: 0
+
+**允許的額外 key**：以上 5 個 copilot 專用 key 只在 `copilot/` 資料夾內合法。
+
+```yaml
+# copilot/ 檔案 frontmatter 範例
+---
+copilot-command-context-menu-enabled: true
+copilot-command-slash-enabled: true
+copilot-command-context-menu-order: 0
+copilot-command-model-key: ""
+copilot-command-last-used: 0
+---
+```
 
 ## 常見錯誤速查
 

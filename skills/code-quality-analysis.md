@@ -259,7 +259,7 @@ def find_performance_issues(path):
 ---
 ## 相關頁面
 
-- [[superpowers-reference|Superpowers 功能說明]]
+- [[concepts/ai-toolkit|Superpowers 功能說明]] — AI 工具框架章節
 - [[skills/skills-index|Skills 目錄索引]]
 - [[superpowers-install|Superpowers 安裝說明]]
 - [[schema|SCHEMA]] — 核心憲法

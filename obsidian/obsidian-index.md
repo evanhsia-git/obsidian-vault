@@ -32,4 +32,6 @@ updated: 2026-06-27
 
 ---
 
+- [[obsidian/obsidian-tags-optimization-recommendations|Obsidian Tags 優化與推薦]]
+
 相關連結：[[index|主索引]] | [[schema]] | [[policy]]

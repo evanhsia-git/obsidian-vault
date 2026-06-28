@@ -1,6 +1,7 @@
 ---
 status: active
 title: "daily-news-technology"
+description: "每日 AI/科技新聞推送技能"
 summary: "daily-news-technology：每日AI及科技新聞 (新格式)"
 created: 2026-06-10
 updated: 2026-06-10
@@ -161,4 +162,4 @@ skills: daily-news-twstock
 - [[cnn-fear-and-greed-analysis]]
 ## 相關連結
 - [[daily-news-sources-rss|每日新聞來源管理清單]]
-- [[daily-news-twstock-example|每日台股新聞推送規範（技能）]]
+- [[news-and-market-examples|每日台股新聞推送規範]]

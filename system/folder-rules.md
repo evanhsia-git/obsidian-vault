@@ -6,7 +6,7 @@ description: "目錄結構、讀寫權限與資料夾操作規範"
 type: concept
 tags: [architecture, flow, security]
 created: 2026-06-21
-updated: 2026-06-26
+updated: 2026-06-28
 ---
 
 **Folder Structure Rules**
@@ -59,6 +59,8 @@ updated: 2026-06-26
 ├── publish/           # 草稿 → 發佈工作流
 │   └── drafts/
 ├── ivan-notes/        # [Git-ignored] 唯讀，禁止任何 move/edit/delete/create
+├── assets/             # 全站靜態資源（圖片、附件等）
+│   └── <subfolder>/    # 依需求建立子分類
 └── temp/              # 暫存區
 ```
 
@@ -67,7 +69,9 @@ updated: 2026-06-26
 | 目錄 | 權限 | 備註 |
 |:--|:--|:--|
 | raw/ | 唯讀 | Agent 禁止修改或移動 |
-| database/ ivan-notes/ scripts/ util/ temp/ | Git-ignored | 禁止推送 |
+| ivan-notes/ | 唯讀 | Agent 禁止任何 move/edit/delete/create |
+| assets/ | 讀.write | 靜態資源存放區 |
+| database/ scripts/ util/ temp/ | Git-ignored | 禁止推送 |
 | Layer 2 目錄 | 讀寫 | 須取得使用者核准 |
 | SCHEMA.md / POLICY.md / index.md / log.md | 禁止覆蓋 | 核心憲法 |
 

@@ -10,3 +10,4 @@ worker.ts
 *.log
 database/
 ivan-notes/
+copilot/

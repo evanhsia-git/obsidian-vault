@@ -1,6 +1,7 @@
 ---
 status: active
 title: "NVIDIA Build 免費模型列表（NIM API）"
+description: "NVIDIA Build 免費模型資源"
 summary: "NVIDIA Build 100+ 免費 AI 模型：LLM、視覺、嵌入、語音、安全、OCR、物理 AI 完整模型清單與 API 設定"
 created: 2026-06-01
 updated: 2026-06-27

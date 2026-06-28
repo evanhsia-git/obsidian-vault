@@ -19,7 +19,7 @@ updated: 2026-06-21
 ## 目錄
 
 - [[obsidian/obsidian-index|obsidian 主題知識]] — 7 篇
-- [[concepts/concepts-index|concepts 概念筆記]] — 2 篇
+- [[concepts/concepts-index|concepts 概念筆記]] — 26 篇
 - [[entities/entities-index|entities 實體資料]]
 - [[resources/resources-index|resources 資源鏈結]]
 - [[reports/reports-index|reports 報告]]
@@ -28,4 +28,4 @@ updated: 2026-06-21
 - [[skills/skills-index|skills 技能管理]]
 - [[skills/user-backup-skill|User Backup Skill| 使用者備份]]
 - [[finance/finance-index|Finance 知識庫]]
-- [[clippings/hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]
+- [[hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]

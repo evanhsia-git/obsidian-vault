@@ -1,6 +1,7 @@
 ---
 status: active
 title: "Daily-Token-Usage-2026-06-08"
+description: "2026-06-08 Token 用量報告"
 summary: "Daily-Token-Usage-2026-06-08：監控指標"
 created: 2026-06-10
 updated: 2026-06-10

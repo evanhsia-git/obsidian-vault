@@ -486,6 +486,6 @@ Superpowers 安裝於 `~/.hermes/skills/superpowers/`，可與 Hermes 既有 ski
 - [[superpowers-install|Superpowers 安裝說明]] — 安裝流程
 - [[skills/skills-index|Skills 目錄索引]]
 - [[concepts/concepts-index|概念筆記索引]]
-- [[architecture-references/superpowers|Superpowers 架構參考]] — 較早建立的架構分析頁面
+- [[concepts/ai-toolkit|Superpowers 架構參考]] — AI 工具框架章節
 - [[schema|SCHEMA]] — 核心憲法
 - [[policy|POLICY]] — 規則路由器

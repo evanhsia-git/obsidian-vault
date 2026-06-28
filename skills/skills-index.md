@@ -6,7 +6,7 @@ type: index
 status: active
 tags: [agent]
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-28
 ---
 
 # Skills 目錄
@@ -16,10 +16,11 @@ updated: 2026-06-23
 - [[skills-list|Skills List Display]] — 技能清單顯示
 - [[skills-rules|Schema]] — Skills 架構
 - [[blogwatcher-index|Blogwatcher Index]] — 部落格監測索引
+- [[equity-research-text|Equity Research Text 2.0]] — Telegram 優化個股分析報告
+- [[h-memory-optimizer|H-Memory Optimizer]] — Hermes 記憶體優化工具
 
 ## 安裝與部署
 
-- [[superpowers-install|Superpowers 安裝說明]] — obra/superpowers 14 skills 匯入流程
 - [[superpowers-reference|Superpowers 功能說明]] — 14 個 skills 完整功能說明與工作流程
 - [[code-quality-analysis|程式碼品質分析]] — 效能瓶頸、重複程式碼、過長函式、不必要檔案存取分析與優化方案
 

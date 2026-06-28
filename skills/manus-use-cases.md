@@ -201,5 +201,5 @@ Hermes Agent 已部分重疊的技能（如 `test-driven-development`、`systema
 
 ## 相關節點
 
-- [[skills/architecture-references/superpowers]] — Superpowers 架構參考（較早建立的架構分析頁面）
+- [[concepts/ai-toolkit|Superpowers 架構參考]] — AI 工具框架章節
 - [[skills/skills-index]] — Skills 目錄索引

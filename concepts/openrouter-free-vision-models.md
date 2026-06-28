@@ -1,6 +1,7 @@
 ---
 status: active
 title: "OpenRouter 免費 Vision 模型列表"
+description: "OpenRouter 免費視覺模型"
 summary: "OpenRouter 免費 Vision 模型列表：相關頁面"
 created: 2026-06-01
 updated: 2026-06-01

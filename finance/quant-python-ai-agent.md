@@ -1,6 +1,7 @@
 ---
 status: active
 title: "量化投資研究 AI Agent (Quant Python AI Agent)"
+description: "量化 Python AI Agent 實作"
 summary: "量化投資研究 AI Agent (Quant Python AI Agent)：概述"
 created: 2026-06-02
 updated: 2026-06-02
