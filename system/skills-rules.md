@@ -21,6 +21,23 @@ updated: 2026-06-27
 
 **記錄要求**：所有技能操作都必須在 Obsidian Vault 中留下記錄，包括技能修改原因與效果評估。
 
+## ⚡ Superpowers 流程（寫新 Skill 強制遵循）
+
+**順序不可逆，禁止跳步，每階段結束必須停止等用戶確認：**
+
+| 階段 | Skill | 必須做到 | 🔴 絕對禁止 |
+|------|-------|----------|------------|
+| 1 | brainstorming | 探索需求→提問→2-3方案→用戶批准設計 | 未批准前寫任何 code |
+| 2 | writing-plans | bite-sized TDD 任務，完整程式碼+驗證指令+預期結果 | TBD / placeholder / 「稍後實作」 |
+| 3 | executing-plans | 逐 task RED→GREEN→REFACTOR | 跳步、跳過驗證 |
+| 4 | writing-skills | TDD for docs + SDO（description 只寫觸發條件） | 沒測試就部署 skill |
+| 5 | verification | 跑指令→看輸出→才宣稱完成 | 「應該可以」「看起來沒問題」 |
+| 6 | finishing | 測試全過→commit/PR | 沒驗證就 commit |
+
+**HARD GATE**：brainstorming 用戶批准前，禁止任何實作行為（包含 scaffold、寫檔案、建目錄）。
+
+**SDO 標準**：Skill description 只描述「何時使用」（觸發條件），不描述「做什麼」（流程摘要）。
+
 ## Agent 表達範例 (Agent Expression Examples)
 
 **技能檢視表達**：在執行任務前，我會先檢視 Obsidian Vault 中的現有技能清單，尋找最適用的技能進行調整。

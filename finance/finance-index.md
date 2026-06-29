@@ -6,7 +6,7 @@ type: index
 status: active
 tags: [tw-stock, finance, agent]
 created: 2026-06-27
-updated: 2026-06-28
+updated: 2026-06-29
 ---
 
 # Finance 知識庫索引
@@ -29,6 +29,9 @@ updated: 2026-06-28
 - [[trading-agents]] — 交易 Agent 系統
 
 ## 投資策略
+- [[quant/quant-trading-strategies-guide|Quantitative Trading Strategies]] — 15 種常見策略完整指南 + 前 300 大選股方案
+- [[quant/daily-stock-picker-spec|Daily Stock Picker Spec]] — 每日 15 檔選股系統設計規格（評分模型 + 路線圖）
+- [[finance/ta-lib-technical-indicators|ta-lib 技術指標完整指南]] — 200+ 技術指標分類、用途與 Python 範例
 - [[manus-finance-cases]] — Manus 金融案例分析
 - [[finlab]] — FinLab 平台
 

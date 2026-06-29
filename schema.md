@@ -6,7 +6,7 @@ type: schema
 status: permanent
 tags: [hermes, obsidian]
 created: 2026-06-21
-updated: 2026-06-27
+updated: 2026-06-29
 ---
 
 # Purpose 目的
@@ -161,6 +161,21 @@ C）獨立建立新頁（說明理由）
 
 規則唯一來源：`schema.md` / `policy.md` / `system/*`
 禁止在 Skill 中重複定義規則，禁止多檔維護不同版本規則。
+
+---
+
+# Superpowers 流程（寫新 Skill 強制遵循）
+
+**順序不可逆，禁止跳步，每階段結束必須停止等用戶確認：**
+
+1. **brainstorming** → 探索需求→提問→2-3方案→用戶批准設計（HARD GATE：未批准前禁止任何實作）
+2. **writing-plans** → bite-sized TDD 任務（每步含完整程式碼+驗證指令+預期結果，禁止 TBD/placeholder）
+3. **executing-plans** → 逐 task RED→GREEN→REFACTOR
+4. **writing-skills** → TDD for documentation + SDO（description 只寫觸發條件不寫流程）
+5. **verification-before-completion** → 跑驗證指令→看輸出→才宣稱完成（證據先於宣稱）
+6. **finishing-a-development-branch** → 測試全過→commit/PR
+
+**紅線**：直接寫 code = 違規。「應該可以」/「看起來沒問題」= 違規。跳過階段 = 違規。
 
 ---
 

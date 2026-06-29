@@ -27,5 +27,5 @@ updated: 2026-06-21
 - [[queries/queries-index|queries 查詢記錄]]
 - [[skills/skills-index|skills 技能管理]]
 - [[skills/user-backup-skill|User Backup Skill| 使用者備份]]
-- [[finance/finance-index|Finance 知識庫]]
+- [[finance/finance-index|Finance 量化與投資知識庫]]
 - [[hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]

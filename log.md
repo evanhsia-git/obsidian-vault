@@ -455,4 +455,32 @@ updated: 2026-06-23
 ## [2026-06-28 15:15:41] lint | 1 invalid_names | 3 missing_fields
 ## [2026-06-28 15:23:59] lint | 1 invalid_names | 3 missing_fields
 ## [2026-06-28 15:26:24] lint | 全部通過
+## [2026-06-29 20:00] 新增 wiki 頁面 — 15 種量化策略完整指南
+- **原因**：用戶詢問常見量化策略種類，需建立知識基礎供後續選股系統開發
+- **動作**：
+  - 建立 `finance/quant/quant-trading-strategies-guide.md` — 15 種策略分類（趨勢動量 4 + 均值回歸 3 + 因子投資 4 + 事件驅動 2 + 多因子複合 2）
+  - 推薦方案：多因子選股（價值 0.4 + 動量 0.3 + 品質 0.3），從前 300 大每日選 10 檔
+  - 更新 `finance/finance-index.md` + `index.md`
+- **結果**：7.7 KB 知識頁面，含完整評分公式、所需欄位、輸出格式範例
+
+## [2026-06-29 20:30] 新增 spec 文件 — Daily Stock Picker 設計規格
+- **原因**：用戶要建立「每日 15 檔選股推薦」skill，使用 superpowers brainstorming 流程
+- **動作**：
+  - 建立 `finance/quant/daily-stock-picker-spec.md` — 完整設計規格
+  - 評分模型：1-10 分 + S/A/B/C 等級，多因子百分位排名加權
+  - 三期程：短期（低PB+高量+ROE）/ 中期（高ROE+高毛利+低負債）/ 長期（高殖利率+低PE+EPS穩定）
+  - 路線圖：Phase 1 Skill+CLI → Phase 2 60天歷史+動量 → Phase 3 FastAPI 動態網頁
+  - DB 擴充：歷史從 5 天延長至 60 天
+- **結果**：6.3 KB spec 文件，待用戶確認後實作
+
 ## [2026-06-28 21:00:29] lint | 1 invalid_type
+
+## [2026-06-29 23:30] Superpowers 流程規範寫入四處
+- **原因**：用戶確認 quant-trading skill 建立時未使用 Superpowers 7 階段流程，要求未來寫新 Skill 時強制遵循
+- **動作**：
+  - 更新 `SOUL.md`：新增「⚡ Superpowers 流程」區塊，6 階段 + 紅線
+  - 更新 `system/skills-rules.md`：新增 Superpowers 表格 + HARD GATE + SDO 標準
+  - 更新 `schema.md`：新增「# Superpowers 流程」區塊（schema 是最高規範）
+  - 更新 `MEMORY.md`：新增 Superpowers 流程速查卡 + quant-trading 歷史資料完成紀錄
+- **結果**：三處同步（SOUL + schema + skills-rules）+ memory，未來寫 Skill 時自動遵循
+## [2026-06-29 21:00:40] lint | 全部通過
