@@ -213,5 +213,4 @@ response = client.chat.completions.create(
 
 ## 相關頁面
 - [[concepts/openrouter-free-models|OpenRouter 免費模型]]
-- [[concepts/openrouter-free-vision-models|OpenRouter 免費 Vision 模型]]
 - [[concepts/gemini-api-pricing|Gemini API 定價]]

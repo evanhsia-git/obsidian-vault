@@ -69,7 +69,7 @@ Python 腳本目前放在 `/root/.hermes/scripts/` 底下，但 Hermes 技能目
 
 ## 相關頁面
 
-- [[daily-news-sources-rss|每日新聞來源管理清單]]
+- [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[stock-automation-config|Cron Job 管理]]
 
 ---

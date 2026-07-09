@@ -161,5 +161,5 @@ skills: daily-news-twstock
 
 - [[cnn-fear-and-greed-analysis]]
 ## 相關連結
-- [[daily-news-sources-rss|每日新聞來源管理清單]]
+- [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞推送規範]]

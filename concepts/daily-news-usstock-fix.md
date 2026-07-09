@@ -206,7 +206,7 @@ skills: daily-news-usstock
 - **超時**: 硬超時 180 秒、軟超時 120 秒
 
 ## 相關連結
-- [[daily-news-sources-rss|每日新聞來源管理清單]]
+- [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞輸出範例]]
 - [[daily-news-usstock-example|每日美股新聞推送規範（技能）]]
 
@@ -274,6 +274,6 @@ skills: daily-news-usstock
 - **超時**: 硬超時 180 秒、軟超時 120 秒
 
 ## 相關連結
-- [[daily-news-sources-rss|每日新聞來源管理清單]]
+- [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞輸出範例]]
 - [[daily-news-usstock-example|每日美股新聞推送規範（技能）]]

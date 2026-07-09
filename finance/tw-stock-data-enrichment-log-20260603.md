@@ -29,6 +29,7 @@ tags: [tw-stock, deploy, source]
 - [[stock-portfolio-backtest]]
 ## 相關知識連結
 - [[concepts/twse-api-mapping|Twse Api Mapping]]
+- [[stock-analysis-3037-ewint|欣興電子 (3037) 快評]]
 
 ## Stock Portfolio Backtest
 

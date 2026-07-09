@@ -1,25 +1,24 @@
 ---
 status: active
 title: "OpenRouter 免費模型完整列表（Free Models）"
-description: "OpenRouter 免費模型列表與使用指南"
-summary: "OpenRouter 免費模型完整列表（Free Models）：相關頁面"
+description: "OpenRouter 免費模型列表與使用指南（含 Vision 多模態模型詳細卡片）"
+summary: "OpenRouter 免費模型完整列表（Free Models）：純文字 + Vision 多模態模型一覽"
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-07-09
 type: concept
 tags: [ai]
 ---
 
 ## 相關頁面
-- [[concepts/openrouter-free-vision-models|OpenRouter 免費 Vision 模型]]
 - [[concepts/nvidia-build-free-models|NVIDIA Build 免費模型]]
-
+- [[concepts/gemini-api-pricing|Gemini API 定價]]
 
 # OpenRouter 免費模型完整列表（Free Models）
 
->**來源**：https://openrouter.ai/openrouter/free/activity
->**API 查詢**：`GET /v1/models`（篩選 pricing.prompt=0 AND pricing.completion=0）
->**更新時間**：2026-06-01
->**總數**：25 個免費模型（含 8 個多模態 Vision 模型）
+> **來源**：https://openrouter.ai/openrouter/free/activity
+> **API 查詢**：`GET /v1/models`（篩選 pricing.prompt=0 AND pricing.completion=0）
+> **更新時間**：2026-06-01
+> **總數**：25 個免費模型（含 8 個多模態 Vision 模型）
 
 ---
 
@@ -35,16 +34,88 @@ tags: [ai]
 
 ## Vision 模型（📷 支援圖片輸入）
 
-| # | 模型 ID | 上下文 | 模態 | 特點 |
-|---|---------|--------|------|------|
-| 1 | `google/gemma-4-31b-it:free` | 262K | text+image+video→text | Google DeepMind 原生 dense 模型，可配置思考模式 |
-| 2 | `google/gemma-4-26b-a4b-it:free` | 262K | text+image+video→text | MoE 架構，僅啟用 3.8B 參數，高效能 |
-| 3 | `moonshotai/kimi-k2.6:free` | 262K | text+image→text | 擅長長週期編碼、UI/UX 生成、多 Agent 協調 |
-| 4 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | 256K | text+image+audio+video→text | 唯一支援音訊輸入的免費模型 |
-| 5 | `nvidia/nemotron-nano-12b-v2-vl:free` | 128K | text+image+video→text | Hybrid Transformer-Mamba，輕量高效 |
-| 6 | `openrouter/free` | 200K | text+image→text | 自動路由，無需指定模型 |
-| 7 | `google/lyria-3-pro-preview` | 1M | text+image→text+audio | 音樂生成（48kHz），**付費** $0.08/首 |
-| 8 | `google/lyria-3-clip-preview` | 1M | text+image→text+audio | 30秒音樂片段，**付費** $0.04/段 |
+> 以下為支援圖片/影片/音訊輸入的免費多模態模型詳細卡片。
+
+### 1. Google Gemma 4 31B Instruct
+- **ID**: `google/gemma-4-31b-it:free`
+- **參數量**: 30.7B（dense）
+- **上下文**: 262K tokens
+- **模態**: text + image + video → text
+- **用途**: 通用多模態推理、圖片理解、影片分析、長文檔處理
+- **特色**: 可配置思考/推理模式（thinking mode）；Google DeepMind 原生 dense 模型
+- **推薦用途**: Agent 視覺分析、圖表理解、截圖解讀
+
+### 2. Google Gemma 4 26B A4B Instruct
+- **ID**: `google/gemma-4-26b-a4b-it:free`
+- **參數量**: 25.2B（MoE，每次啟用 3.8B）
+- **上下文**: 262K tokens
+- **模態**: text + image + video → text
+- **用途**: 高效能多模態推理，接近 31B 品質但計算成本更低
+- **特色**: Mixture-of-Experts 架構，啟用參數僅 3.8B
+- **推薦用途**: 資源受限場景下的視覺分析
+
+### 3. Moonshot AI Kimi K2.6
+- **ID**: `moonshotai/kimi-k2.6:free`
+- **上下文**: 262K tokens
+- **模態**: text + image → text
+- **用途**: 長週期編碼、UI/UX 生成、多 Agent 協調
+- **特色**: 擅長端到端複雜編碼任務、多模態編排
+- **推薦用途**: 程式碼截圖分析、UI 設計審查、多 Agent 工作流程
+
+### 4. NVIDIA Nemotron 3 Nano Omni 30B
+- **ID**: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`
+- **參數量**: 30B-A3B（MoE）
+- **上下文**: 256K tokens
+- **模態**: text + image + audio + video → text
+- **用途**: 企業級感知子代理、多模態理解
+- **特色**: 支援音訊輸入，適合需要音影片綜合處理的場景
+- **推薦用途**: 會議錄影分析、多媒體內容理解
+
+### 5. NVIDIA Nemotron Nano 12B V2 VL
+- **ID**: `nvidia/nemotron-nano-12b-v2-vl:free`
+- **參數量**: 12B
+- **上下文**: 128K tokens
+- **模態**: text + image + video → text
+- **用途**: 影片理解、文件智慧
+- **特色**: Hybrid Transformer-Mamba 架構，輕量高效
+- **推薦用途**: 文件掃描識別、短影片分析
+
+### 6. OpenRouter Free（自動路由）
+- **ID**: `openrouter/free`
+- **上下文**: 200K tokens
+- **模態**: text + image → text
+- **用途**: 自動選擇當前可用的免費模型
+- **特色**: 無需指定模型，OpenRouter 自動路由到可用免費模型
+- **推薦用途**: 不挑模型時的 fallback 方案
+
+### 7. Google Lyria 3 Pro Preview
+- **ID**: `google/lyria-3-pro-preview`
+- **上下文**: 1M tokens
+- **模態**: text + image → text + audio（音樂生成）
+- **用途**: 高品質音樂生成（48kHz）
+- **特色**: 從圖片或文字描述生成完整歌曲
+- **注意**: 非免費（每首 $0.08），但因支援圖片輸入而列入
+
+### 8. Google Lyria 3 Clip Preview
+- **ID**: `google/lyria-3-clip-preview`
+- **上下文**: 1M tokens
+- **模態**: text + image → text + audio（音樂生成）
+- **用途**: 30 秒音樂片段生成
+- **特色**: 快速生成短音樂片段
+- **注意**: 非免費（每段 $0.04），但因支援圖片輸入而列入
+
+### 快速對照表
+
+| 模型 ID | 上下文 | 圖片 | 影片 | 音訊 | 推薦用途 |
+|---------|--------|:----:|:----:|:----:|----------|
+| gemma-4-31b-it:free | 262K | ✅ | ✅ | ❌ | 通用視覺分析 |
+| gemma-4-26b-a4b-it:free | 262K | ✅ | ✅ | ❌ | 高效視覺推理 |
+| kimi-k2.6:free | 262K | ✅ | ❌ | ❌ | 程式碼截圖分析 |
+| nemotron-3-nano-omni:free | 256K | ✅ | ✅ | ✅ | 多媒體理解 |
+| nemotron-nano-12b-v2-vl:free | 128K | ✅ | ✅ | ❌ | 文件/影片分析 |
+| openrouter/free | 200K | ✅ | ❌ | ❌ | 自動 fallback |
+| lyria-3-pro-preview | 1M | ✅ | ❌ | 🎵 | 音樂生成（付費） |
+| lyria-3-clip-preview | 1M | ✅ | ❌ | 🎵 | 短音樂生成（付費） |
 
 ---
 
@@ -106,62 +177,3 @@ auxiliary:
     model: google/gemma-4-31b-it:free  # Vision 模型
     timeout: 120
 ```
-
-## Cheapest Models
-
----
-status: active
-title: "OpenRouter 最便宜付費模型排行榜 (Top 10)"
-summary: "OpenRouter 最便宜付費模型排行榜 (Top 10)：以下整理基於 OpenRouter API 的模型定價分析，列出每百萬 token (1M) 成本最低的前 10 名付費模型。"
-created: 2026-06-02
-updated: 2026-06-02
-type: concept
-tags: [ai, tw-stock]
----
-
-# OpenRouter 最便宜付費模型排行榜 (Top 10)
-
-以下整理基於 OpenRouter API 的模型定價分析，列出每百萬 token (1M) 成本最低的前 10 名付費模型。
-
-| 排名 | 模型名稱 | 成本 ($/1M tokens) | 上下文窗口 | 關鍵特徵 |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | `gpt-4o-mini` | $0.0001405 | 128K | 高效能輕量化模型 |
-| 2 | `deepseek-v3` | $0.0001638 | 1M | 長文本支援、強大推理 |
-| 3 | `mistral-7b` | $0.000172 | 2K | 高效 base 模型 |
-| 4 | `phi-3-medium` | $0.000174 | 32K | Microsoft 私有化技術 |
-| 5 | `llama-3-8b` | $0.000189 | 8K | Meta 開源模型 |
-| 6 | `claude-2` | $0.000205 | 100K | 長上下文處理能力 |
-| 7 | `gemini-pro-vision` | $0.000210 | 1M | 多模態視覺支援 |
-| 8 | `internlm-2-chat` | $0.000215 | 4M | 極致長文本處理 |
-| 9 | `w&B/meta-llama` | $0.000220 | - | 高彈性調用 |
-| 10 | `x-ai/colossus` | $0.000230 | 200K | xAI 專有推理模型 |
-
----
-*註：成本計算為 $1M tokens 的平均輸入/輸出組合成本。*
-
----
-## 相關節點
-- [[keystonejs]]
-- [[private-website-access]]
-
-## Cheapest Models
-
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | `gpt-4o-mini` | $0.0001405 | 128K | 高效能輕量化模型 |
-| 2 | `deepseek-v3` | $0.0001638 | 1M | 長文本支援、強大推理 |
-| 3 | `mistral-7b` | $0.000172 | 2K | 高效 base 模型 |
-| 4 | `phi-3-medium` | $0.000174 | 32K | Microsoft 私有化技術 |
-| 5 | `llama-3-8b` | $0.000189 | 8K | Meta 開源模型 |
-| 6 | `claude-2` | $0.000205 | 100K | 長上下文處理能力 |
-| 7 | `gemini-pro-vision` | $0.000210 | 1M | 多模態視覺支援 |
-| 8 | `internlm-2-chat` | $0.000215 | 4M | 極致長文本處理 |
-| 9 | `w&B/meta-llama` | $0.000220 | - | 高彈性調用 |
-| 10 | `x-ai/colossus` | $0.000230 | 200K | xAI 專有推理模型 |
-
----
-*註：成本計算為 $1M tokens 的平均輸入/輸出組合成本。*
-
----
-## 相關節點
-- [[keystonejs]]
-- [[private-website-access]]
