@@ -6,7 +6,7 @@ type: index
 status: active
 tags: [tw-stock, finance, agent]
 created: 2026-06-27
-updated: 2026-06-29
+updated: 2026-07-09
 ---
 
 # Finance 知識庫索引
@@ -15,6 +15,7 @@ updated: 2026-06-29
 - [[investment-resources|Investment Resources]] — 投資策略 + ETF + Agent 分析 + API 定價
 
 ## 個股與市場分析
+- [[taiwan-stock-top10-market-cap-20260709|Taiwan Stock Top 10 by Market Cap 2026-07-09]] — 市值前 10 大排名 + 量化分析（含 DB market_cap 異常警示）
 - [[all-market-listing-profile-2026-06-02]] — 全市場上市股票清單（2026-06-02）
 - [[stock-analysis-multi-agent-system]] — 股票分析多 Agent 系統架構
 - [[stock-analysis-workflow-full]] — 完整股票分析工作流

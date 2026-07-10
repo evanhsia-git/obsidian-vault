@@ -511,3 +511,21 @@ updated: 2026-06-23
 ## [2026-07-09 14:04:22] lint | 全部通過
 ## [2026-07-09 15:36:11] lint | 全部通過
 ## [2026-07-09 21:00:43] lint | 全部通過
+## [2026-07-09 22:40] create | 台股市值前 10 大分析報告
+- **觸發**：用戶要求讀取台股 DB、分析市值前 10 大、上網二次確認 DB 正常性、寫入 Wiki
+- **資料源**：`/root/Documents/database/tw_stock_all.db`（TWSE 官方 + yfinance 回填）
+- **關鍵發現（DB 異常）**：`stock_overview.market_cap` 欄位為髒值
+  - 對所有股票 `market_cap / shares_outstanding ≈ 10.0`（如 2330 = 10.00 精確）
+  - 該欄位實際存入 `shares_outstanding × 10`，非真實市值
+  - 直接 `ORDER BY market_cap` 會把金融股（股數大）排前面，產生錯誤排名
+- **驗證（二次確認）**：
+  - `shares_outstanding` 與 yfinance `fast_info.shares` 完全吻合（2330 = 25,932,370,067 兩源一致）→ 股數可信
+  - 真實市值 = close(07-09) × shares：2330 ≈ 62.6 兆（市場共識之首）
+  - 上網確認：Wikipedia Largest Taiwan firms（台積電/鴻海/廣達/和碩/緯創入榜）+ Yahoo Finance 2454 Market Cap = 6.43T（與本庫計算 6.30T 吻合）
+  - **結論**：DB 除 `market_cap` 外，其餘欄位（shares / close / PE / PB / ROE / EPS）均準確
+- **真實市值前 10 大**：2330 台積電(62.63T) / 2454 聯發科(6.30T) / 2308 台達電(4.88T) / 2317 鴻海(3.33T) / 3711 日月光投控(3.02T) / 2303 聯電(1.96T) / 2383 台光電(1.90T) / 2327 國巨*(1.86T) / 2881 富邦金(1.74T) / 2408 南亞科(1.50T)
+- **新增 wiki 頁面**：`finance/taiwan-stock-top10-market-cap-20260709.md`（type: report，含排名表 + 量化分析 + DB 異常警示）
+- **更新索引**：`finance/finance-index.md` 加入新頁連結 + updated 日期
+- **WebDAV 權限**：待修正（新建頁面需 chown root:www-data + chmod 664）
+- **教訓**：市值排序必須用 `close × shares` 而非 `market_cap` 欄位；DB 單一欄位異常時需交叉驗證（yfinance / 官網）才可信
+## [2026-07-10 08:55:01] lint | 0 dir_perm_fixed, 21 file_perm_fixed | 9 invalid_type | 2 orphans

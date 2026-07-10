@@ -1,58 +1,61 @@
 ---
 title: "FRONTMATTER-RULES"
 description: "Frontfrontmatter 規範"
+summary: "Obsidian Frontmatter 規範 — Hermes Agent 執行版"
 type: schema
 status: permanent
-summary: "Obsidian Frontmatter 規範 — Hermes Agent 執行版"
 tags: [knowledge, workflow, config]
 created: 2026-06-21
 updated: 2026-06-27
 ---
-
 # Standard Template
 
 ```yaml
 ---
 title:
-type:
-tags:
+description:
 summary:
+type:
+status:
+tags:
 created:
 updated:
-status: active
 sources: []
 related: []
 ---
 ```
 
 ---
-
-# Required Fields
-
-```text
-title / type / tags / summary / created / updated
-```
-
-缺少任一 → `Lint P0`，必須修復。
-
----
-
-# Field Rules
+# Field Rules 欄位規則
 
 ## type
 
-```text
-entity | concept | project | resource | report | query | task | index | log | schema
+僅允許：
+
+```
+type: rentity | concept | project | resource | report | query | task | index | log |schema
 ```
 
 禁止新增。
 
----
+```text
+entity      實體 / 實際的人、事、物描述，例如賈伯斯、蘋果公司、IPHONE手機
+concept     概念 / 抽象的想法、理論、概念、名詞解釋、公式
+project     專案 / 一個有明確目標、由多個任務組成的大型計畫
+resource    資源 / 參考資源別人寫的文章、網頁、書籍摘要、法律條文或代碼範例。它是你拿來參考的「別人的東西」
+report      報告 / 自己整合、分析後的階段性正式輸出成果
+query       查詢 / 動態查詢或看板通常裡面沒有自己寫的內容，只有一堆 Dataview 語法，用來自動抓出符合條件的筆記
+task        任務 / 某個專案底下的具體執行步驟，通常是一件做完就可以勾掉的事
+index       首頁 / 索引/MOC/目錄，手動整理的骨幹目錄（Map of Content），把同主題的筆記手動串在一起
+log         日誌 / 發生過什麼事，帶有時間戳記的日常紀錄，如每日、每週、每月筆記
+schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣式
+```
 
+---
 ## tags
 
 規則：
-- 全 Vault 限 48 個核心 tag（上限 50，禁止新增）
+- 全 Vault 限 48 個核心 tag（**上限 50，禁止新增**）
 - 單頁最多 10 個
 - 每 tag 標註 4 項：**Tag、類別、用途、關鍵詞/涵蓋內容**
 
@@ -161,7 +164,6 @@ entity | concept | project | resource | report | query | task | index | log | sc
 | `integration` → | `api` |
 
 ---
-
 ## summary
 
 ```text
@@ -169,16 +171,6 @@ entity | concept | project | resource | report | query | task | index | log | sc
 ```
 
 ---
-
-## status
-
-```text
-draft | active | permanent | archived | deprecated
-預設：active
-```
-
----
-
 ## created / updated
 
 ```yaml
@@ -187,7 +179,22 @@ updated: 2026-06-21   # 內容修改時同步更新
 ```
 
 ---
+## status
 
+```text
+draft | active | permanent | archived | deprecated
+預設：active
+```
+
+```text
+draft       # 草稿，不發布筆記 / 剛建立、內容零碎、還在收集資料或構思階段的筆記，這屬於「半成品」
+active      # 使用中，正常發布筆記 / 目前正在進行、高頻率修改、具有時效性的筆記，像是進行中的工作、今年的計畫、最近在讀的書
+permanent   # 長期知識 / 經過消化吸收，提煉出來的核心觀念、本質原理或長期不變的個人原則
+archived    # 封存，不再維護 / 專案已經結束、事情已經做完，但未來可能需要「查閱當時紀錄」的筆記
+deprecated  # 已淘汰，保留歷史 / 裡面的內容已經過時、被新方法取代、或者觀念被自己推翻了
+```
+
+---
 ## sources / related（選填）
 
 ```yaml
@@ -201,7 +208,6 @@ related:
 > ⚠️ `related` 禁止使用 `[[wikilinks]]`，改放正文。
 
 ---
-
 # YAML 完整性規則
 
 ```text
@@ -226,8 +232,16 @@ tags:
 ```
 
 ---
+# Required Fields 必填項目
 
-# Field Format Rules
+```text
+title / type / tags / summary / created / updated
+```
+
+缺少任一 → `Lint P0`，必須修復。
+
+---
+# Field Format Rules 欄位格式規則
 
 ```text
 - 所有 key 必須小寫（title / tags / created，禁止 Title / Tags）
@@ -236,18 +250,16 @@ tags:
 ```
 
 ---
-
-# Anti-Patterns
+# Anti-Patterns 禁止欄位
 
 ```yaml
 # 禁止以下欄位：
-draft / publish / subtype / confidence / priority
+publish / subtype / confidence / priority
 importance / owner / reviewer / version / category
 ```
 
 ---
-
-# Page Examples
+# Page Examples 頁面範例
 
 ```yaml
 # concept
@@ -290,8 +302,7 @@ status: active
 ```
 
 ---
-
-# Success Criteria
+# Success Criteria 通過標準
 
 ```text
 ✓ 所有頁面皆有 Frontmatter

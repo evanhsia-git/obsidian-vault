@@ -7,6 +7,7 @@ status: active
 tags: [hermes]
 created: 2026-06-07
 updated: 2026-06-07
+related:
 ---
 
 # VPS 主機環境配置 (Linode Tokyo)
@@ -34,7 +35,7 @@ updated: 2026-06-07
 * **Quartz 發布目錄**: `/root/quartz`
 
 ## 備註
-此主機目前負責運行 Hermes Agent 的核心邏輯、Quartz 靜態網站生成與 CollabMD 協作介面。
+此主機目前負責運行 Hermes Agent 的核心邏輯、Quartz 靜態網站生成。
 
 - [[backup-rules]]
 相關頁面：相關頁面：## 相關節點
