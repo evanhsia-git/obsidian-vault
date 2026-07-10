@@ -6,7 +6,7 @@ type: schema
 status: permanent
 tags: [workflow, hermes]
 created: 2026-06-21
-updated: 2026-06-21
+updated: 2026-07-10
 ---
 tags
 # Purpose
@@ -42,7 +42,7 @@ read("system/frontmatter-rules.md")
 新增資料夾、刪除資料夾、調整目錄結構時：
 
 ```python
-read("system/folder-structure.md")
+read("system/folder-rules.md")
 ```
 
 ---
@@ -74,7 +74,7 @@ read("system/database-rules.md")
 備份、同步、還原前：
 
 ```python
-read("system/backup-rules.md")
+read("system/user-backup-rules.md")
 ```
 
 適用：
@@ -186,7 +186,7 @@ SCHEMA.md
 必須先讀取：
 
 ```python
-read("system/folder-structure.md")
+read("system/folder-rules.md")
 ```
 
 並取得使用者核准。

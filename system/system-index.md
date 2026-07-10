@@ -16,7 +16,7 @@ updated: 2026-06-21
 - [[system/frontmatter-rules]]：Frontmatter 規範
 - [[folder-rules]]：目錄結構與權限
 - [[system/database-rules]]：資料庫操作
-- [[system/backup-rules]]：備份與還原
+- [[system/user-backup-rules]]：備份與還原
 - [[system/quartz-rules]]：Quartz 部署與 YAML 規範
 - [[system/skills-rules]]：Skills 建立/修改/整併/封存規則
 

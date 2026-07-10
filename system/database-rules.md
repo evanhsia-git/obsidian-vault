@@ -42,7 +42,7 @@ updated: 2026-06-21
 **安全規範**
 
 - 資料庫檔案禁止手動修改
-- 備份由 [[system/backup-rules]] 處理
+- 備份由 [[system/user-backup-rules]] 處理
 - 敏感資料（API Key）禁止寫入資料庫
 
 **相關連結**

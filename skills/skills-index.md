@@ -41,7 +41,7 @@ updated: 2026-06-28
 
 ## 任務管理
 
-- [[user-backup-skill|User Backup Skill]] — 每日系統維護編排器
+- [[user-backup-rules|User Backup Rules]] — 每日系統維護編排器
 - [[daily-news-stock-market-index|每日市場指標報告]]
 
 ## 使用狀況

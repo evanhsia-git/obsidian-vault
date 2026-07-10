@@ -63,13 +63,17 @@ created:
 updated:
 ```
 
+欄位格式、必填項目、YAML 完整性與 48 核心 tag 完整清單，見 [[frontmatter-rules]]（唯一細節來源）。
+
 ---
 
 # Type Pool 類型池
 
-```
+```text
 entity | concept | project | resource | report | query | task | index | log | schema
 ```
+
+完整定義與語意說明見 [[frontmatter-rules]]（唯一細節來源）。
 
 禁止自行新增。
 
@@ -77,9 +81,11 @@ entity | concept | project | resource | report | query | task | index | log | sc
 
 # Status Pool 狀態池
 
-```
+```text
 draft | active | permanent | archived | deprecated
 ```
+
+完整定義見 [[frontmatter-rules]]（唯一細節來源）。
 
 預設：`status: active`
 
@@ -161,6 +167,22 @@ C）獨立建立新頁（說明理由）
 
 規則唯一來源：`schema.md` / `policy.md` / `system/*`
 禁止在 Skill 中重複定義規則，禁止多檔維護不同版本規則。
+
+## system/ 規則檔現狀（2026-07-10）
+
+| 檔案 | 職責 |
+|------|------|
+| `system/folder-rules.md` | 目錄結構與讀寫權限（原 folder-structure.md 更名） |
+| `system/frontmatter-rules.md` | Frontmatter 唯一細節來源（schema.md 僅保留原則+索引） |
+| `system/user-backup-rules.md` | 備份規範 + user-backup 編排器（合併原 backup-rules + user-backup-skill） |
+| `system/skills-rules.md` | Skills 架構規範 |
+| `system/database-rules.md` | 資料庫操作規範 |
+| `system/quartz-rules.md` | Quartz 發布規範 |
+| `system/telegram-output-rules.md` | Telegram 輸出規範 |
+| `system/vps-config.md` | VPS 配置 |
+| `system/system-index.md` | system 目錄索引 |
+
+> ⚠️ 舊名 `folder-structure.md` / `backup-rules.md` / `skills/user-backup-skill.md` 已於 2026-07-10 廢除，相關連結請改用上表新名。
 
 ---
 
@@ -276,17 +298,19 @@ max_retry: 3
 
 # Frontmatter Safety 前言安全
 
-## 通用規則
+## 通用原則
 
 - `title` / `description` / `summary` 永遠用 double quote 包裹
 - frontmatter 內禁止 `[[wikilink]]` 及任何 Markdown 語法
 - frontmatter 僅允許：string / number / boolean / array / object
-- 所有 list 型欄位（`tags` / `aliases`）必須有明確 key
+- 所有 list 型欄位（`tags` / `aliases` / `sources` / `related`）必須有明確 key
 - 建立或修改 frontmatter 後必須執行 `yaml.safe_load()` 驗證
+
+完整格式規則、必填項目、禁止欄位、頁面範例與常見錯誤速查，見 [[frontmatter-rules]]（唯一細節來源）。
 
 ## copilot/ 資料夾專用規則
 
-copilot/` 為外部工具管理區（Level 3 保護，禁止編輯/移動/刪除）。其 frontmatter 欄位與標準不同：
+`copilot/` 為外部工具管理區（Level 3 保護，禁止編輯/移動/刪除）。其 frontmatter 欄位與標準不同：
 
 **必填欄位**：
 - `copilot-command-context-menu-enabled`: true
@@ -307,15 +331,6 @@ copilot-command-model-key: ""
 copilot-command-last-used: 0
 ---
 ```
-
-## 常見錯誤速查
-
-| 錯誤類型 | 症狀 | 修正方式 |
-|---|---|---|
-| wikilink 在 frontmatter | `[[page]]` 在 `---` 內 | 移至 body |
-| summary 含特殊字元未加 quote | `:` `#` `` ` `` 等導致 parse 失敗 | 用 double quote 包裹，逗號改全形 `，` |
-| list item 缺少 key | `- item` 直接在頂層或縮排在錯誤 key 下 | 補回 `tags:` 等 key 行 |
-| title/description 含冒號未加 quote | YAML 誤判為 key-value | 用 double quote 包裹 |
 
 ---
 

@@ -1,15 +1,17 @@
 ---
 title: "FRONTMATTER-RULES"
-description: "Frontfrontmatter 規範"
+description: "Frontmatter 規範（schema.md 的唯一細節來源）"
 summary: "Obsidian Frontmatter 規範 — Hermes Agent 執行版"
 type: schema
 status: permanent
 tags: [knowledge, workflow, config]
 created: 2026-06-21
-updated: 2026-06-27
+updated: 2026-07-10
 ---
-# Standard Template
 
+> 本檔為 `schema.md` 中 Metadata / Type / Status / Frontmatter Safety 的**唯一細節來源（Single Source of Truth）**。schema.md 僅保留原則與索引，具體清單與格式規則以本檔為準。兩者衝突時，數值以本檔為準，原則以 schema.md 為準。
+
+# Standard Template
 ```yaml
 ---
 title:
@@ -32,8 +34,8 @@ related: []
 
 僅允許：
 
-```
-type: rentity | concept | project | resource | report | query | task | index | log |schema
+```text
+entity | concept | project | resource | report | query | task | index | log | schema
 ```
 
 禁止新增。
@@ -55,7 +57,7 @@ schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣
 ## tags
 
 規則：
-- 全 Vault 限 48 個核心 tag（**上限 50，禁止新增**）
+- 全 Vault 限 **48 個核心 tag**（禁止新增，與 schema.md 一致）
 - 單頁最多 10 個
 - 每 tag 標註 4 項：**Tag、類別、用途、關鍵詞/涵蓋內容**
 
@@ -267,8 +269,8 @@ importance / owner / reviewer / version / category
 title: Price Earnings Ratio
 type: concept
 tags:
-  - valuation
-  - tw-stock
+  - finance
+  - stock
 summary: PE Ratio 用於衡量股票估值的重要財務指標。
 created: 2026-06-21
 updated: 2026-06-21
@@ -280,7 +282,7 @@ status: active
 title: Taiwan Semiconductor
 type: entity
 tags:
-  - tw-stock
+  - stock
 summary: 台積電為全球領先晶圓代工企業。
 created: 2026-06-21
 updated: 2026-06-21
@@ -292,7 +294,7 @@ status: active
 title: Weekly Market Report
 type: report
 tags:
-  - tw-stock
+  - stock
   - finance
 summary: 本週市場重點與投資觀察。
 created: 2026-06-21

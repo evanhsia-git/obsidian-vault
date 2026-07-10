@@ -37,6 +37,6 @@ related:
 ## 備註
 此主機目前負責運行 Hermes Agent 的核心邏輯、Quartz 靜態網站生成。
 
-- [[backup-rules]]
+- [[user-backup-rules]]
 相關頁面：相關頁面：## 相關節點
 - [[index]]
