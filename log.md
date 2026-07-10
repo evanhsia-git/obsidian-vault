@@ -530,3 +530,6 @@ updated: 2026-06-23
 - **教訓**：市值排序必須用 `close × shares` 而非 `market_cap` 欄位；DB 單一欄位異常時需交叉驗證（yfinance / 官網）才可信
 ## [2026-07-10 08:55:01] lint | 0 dir_perm_fixed, 21 file_perm_fixed | 9 invalid_type | 2 orphans
 ## [2026-07-10 09:31:16] lint | 0 dir_perm_fixed, 17 file_perm_fixed | 1 orphans
+## [2026-07-10 09:37:51] lint | 0 dir_perm_fixed, 19 file_perm_fixed | 1 orphans
+## [2026-07-10 09:40:08] lint | 全部通過
+## [2026-07-10 09:41:17] lint | 全部通過

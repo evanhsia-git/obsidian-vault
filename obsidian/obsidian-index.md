@@ -29,6 +29,7 @@ updated: 2026-06-27
 ## Wiki 規範
 
 - [[obsidian/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
+- [[obsidian/SCHEMA 3.0|Obsidian SCHEMA 3.0（備份版憲法，現役為根 schema.md）]]
 
 ---
 
