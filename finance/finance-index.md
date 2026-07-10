@@ -12,7 +12,7 @@ updated: 2026-07-09
 # Finance 知識庫索引
 
 ## 投資資源整合
-- [[investment-resources|Investment Resources]] — 投資策略 + ETF + Agent 分析 + API 定價
+- [[投資大師選股策略-投資策略investment-strategy|Investment Resources]] — 投資策略 + ETF + Agent 分析 + API 定價
 
 ## 個股與市場分析
 - [[taiwan-stock-top10-market-cap-20260709|Taiwan Stock Top 10 by Market Cap 2026-07-09]] — 市值前 10 大排名 + 量化分析（含 DB market_cap 異常警示）
@@ -30,8 +30,8 @@ updated: 2026-07-09
 - [[trading-agents]] — 交易 Agent 系統
 
 ## 投資策略
-- [[quant/quant-trading-strategies-guide|Quantitative Trading Strategies]] — 15 種常見策略完整指南 + 前 300 大選股方案
-- [[quant/daily-stock-picker-spec|Daily Stock Picker Spec]] — 每日 15 檔選股系統設計規格（評分模型 + 路線圖）
+- [[15 種常見投資策略完整指南quant-trading-strategies-guide|Quantitative Trading Strategies]] — 15 種常見策略完整指南 + 前 300 大選股方案
+- [[每日 15 檔選股推薦系統設計規格daily-stock-picker-spec|Daily Stock Picker Spec]] — 每日 15 檔選股系統設計規格（評分模型 + 路線圖）
 - [[finance/ta-lib-technical-indicators|ta-lib 技術指標完整指南]] — 200+ 技術指標分類、用途與 Python 範例
 - [[manus-finance-cases]] — Manus 金融案例分析
 - [[finlab]] — FinLab 平台
@@ -39,6 +39,7 @@ updated: 2026-07-09
 ## 估值與數據更新
 - [[stock-db-update-20260602]] — 股票資料庫更新紀錄（2026-06-02）
 - [[stock-portfolio-backtest]] — 投資組合回測
+- [[finance/portfolio/portfolio-dashboard|投資組合儀表板]] — 8 支台股庫存 + Dataview 即時計算（hold-*.md 持倉頁）
 - [[tw-stock-data-enrichment-log-20260603]] — 台股資料補齊紀錄（2026-06-03）
 
 ## API 與定價

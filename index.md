@@ -34,6 +34,6 @@ updated: 2026-07-10
 
 ## 重點主題
 
-- [[finance/quant/hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]
-- [[finance/quant/daily-stock-picker-spec|每日選股推薦規格]]
+- [[量化交易完整建構方案hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]
+- [[每日 15 檔選股推薦系統設計規格daily-stock-picker-spec|每日選股推薦規格]]
 - [[system/user-backup-rules|User Backup（每日系統維護編排器）]]

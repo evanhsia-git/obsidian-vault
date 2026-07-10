@@ -227,39 +227,46 @@ C）獨立建立新頁（說明理由）
 
 # WebDAV 寫入權限（Post-creation 強制）
 
-Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 → 未修正權限會 403。
+Agent 以 `root` 建立檔案，Nginx 以 `www-data` 運行 → 未修正權限會 403 / 500。
 
-**每次建立或修改檔案後立即執行**：
+**每次建立或修改檔案「及其父目錄」後立即執行**：
 
 ```bash
+# 檔案
 sudo chown root:www-data "<檔案路徑>"
 sudo chmod 664 "<檔案路徑>"
+# 目錄（www-data 需可寫入才能 PUT/DELETE，否則 WebDAV 同步失敗）
+sudo chown root:www-data "<目錄路徑>"
+sudo chmod 775 "<目錄路徑>"
 ```
 
 適用範圍：`write_file` 新建 / `mkdir` 新建目錄 / `patch` 後新建子目錄
+**關鍵**：新建檔案時，其父目錄也必須為 `root:www-data 775`，否則 www-data 無法寫入該目錄 → WebDAV DELETE/PUT 報 Permission denied。
 
-常見陷阱：只改目錄忘改目錄內檔案 / 使用 `chmod 777`（禁止）
+常見陷阱：
+- 只改目錄忘改目錄內檔案
+- 只改檔案忘改父目錄權限（這次故障主因）
+- 使用 `chmod 777`（禁止）
+
+**建立後驗證**（必做）：
+
+```bash
+sudo -u www-data touch "<目錄路徑>/.webdav_test" && sudo -u www-data rm "<目錄路徑>/.webdav_test" && echo "OK" || echo "PERMISSION DENIED"
+```
 
 **批次修復指令**（同步失敗時執行）：
 
 ```bash
 cd "/root/Documents/Obsidian Vault/"
-# 修復擁有者
-find . -name "*.md" -not -path "./raw/*" -not -path "./ivan-notes/*" -not -path "./.git/*" | while read f; do
-  owner=$(stat -c '%U:%G' "$f")
-  perm=$(stat -c '%a' "$f")
-  if [ "$owner" != "root:www-data" ] && [ "$owner" != "www-data:www-data" ]; then
-    sudo chown root:www-data "$f"
-  fi
-  if [ "$perm" != "664" ]; then
-    sudo chmod 664 "$f"
-  fi
-done
+# 目錄：全部設 root:www-data 775
+find . -type d -not -path "./.git/*" -exec sudo chown root:www-data {} \; -exec sudo chmod 775 {} \;
+# 檔案：全部設 root:www-data 664
+find . -type f -not -path "./.git/*" -exec sudo chown root:www-data {} \; -exec sudo chmod 664 {} \;
 ```
 
-**根因**：`write_file` 新建檔案預設為 `root:root 644` 或 `600`，www-data 無寫入權限 → WebDAV 同步失敗。
+**根因**：`write_file` 新建檔案預設為 `root:root 644` 或 `600`，且父目錄若非 `www-data` 可寫，www-data 無寫入權限 → WebDAV 同步失敗（DELETE/PUT 報 403 / 500）。
 
-**預防**：在 `~/.bashrc` 或 agent 環境中設定 `umask 002`，確保新檔案預設為 664。
+**預防**：在 `~/.bashrc` 或 agent 環境中設定 `umask 002`，確保新檔案預設為 664；新建目錄後顯式 `chmod 775`。
 
 ---
 
@@ -282,7 +289,7 @@ max_retry: 3
 
 # Page Size Limits 頁面上限
 
-| Type                                | 建議上限                  |
+| Type                                | 建議上限行數                |
 | ----------------------------------- | --------------------- |
 | query / concept / entity / resource | 200 行                 |
 | task                                | 100 行（超過建議升格 project） |
@@ -307,6 +314,8 @@ max_retry: 3
 - 建立或修改 frontmatter 後必須執行 `yaml.safe_load()` 驗證
 
 完整格式規則、必填項目、禁止欄位、頁面範例與常見錯誤速查，見 [[frontmatter-rules]]（唯一細節來源）。
+
+**Portfolio 持倉頁專用欄位豁免**：`finance/portfolio/hold-*.md` 允許 `stock_id` / `stock_name` / `avg_cost` / `current_price` / `shares` 五個自訂欄位（不在通用白名單，但為投資組合計算所需）。完整定義與計算邏輯見 [[frontmatter-rules]] → Portfolio 專用欄位章節；obsidian-lint 的 `ALLOWED_FM_KEYS` 已同步納入，不會報 unknown key。
 
 ## copilot/ 資料夾專用規則
 

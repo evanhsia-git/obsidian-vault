@@ -90,7 +90,7 @@ Hermes Agent 基於 MCP 與自主代理架構，尋找資源時應優先關注�
 ---
 ## 相關資源
 - [[concepts/unified-stock-schema|統一股票資料欄位 Schema]]
-- [[investment-resources|股市分析系統建置指南]]
+- [[投資大師選股策略-投資策略investment-strategy|股市分析系統建置指南]]
 
 ## Expansion Guide
 
@@ -117,4 +117,4 @@ Hermes Agent 基於 MCP 與自主代理架構，尋找資源時應優先關注�
 ---
 ## 相關資源
 - [[concepts/unified-stock-schema|統一股票資料欄位 Schema]]
-- [[investment-resources|股市分析系統建置指南]]
+- [[投資大師選股策略-投資策略investment-strategy|股市分析系統建置指南]]

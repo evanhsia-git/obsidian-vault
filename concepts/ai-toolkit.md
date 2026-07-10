@@ -71,5 +71,5 @@ updated: 2026-06-28
 ## 相關頁面
 
 - [[concepts/hermes-hierarchy]]
-- [[finance/investment-resources]]
+- [[投資大師選股策略-投資策略investment-strategy]]
 - [[concepts/concepts-index]]

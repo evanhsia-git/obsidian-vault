@@ -165,6 +165,24 @@ schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣
 | `nginx` → | `network` |
 | `integration` → | `api` |
 
+### 分類統計（來源：Claude 對話建議 2026-06-27）
+
+| 類別 | 數量 |
+|------|------|
+| AI | 10 |
+| PKM | 6 |
+| 投資 | 2 |
+| 開發 | 9 |
+| 維運 | 6 |
+| 管理 | 6 |
+| 維護 | 4 |
+| 購物 | 1 |
+| 比較 | 1 |
+| 特殊 | 1 |
+| **總計** | **48 個** |
+
+> 本 tags 體系整合自 `obsidian/obsidian-tags-optimization-recommendations.md`（2026-07-10 併入本檔為單一來源）。
+
 ---
 ## summary
 
@@ -259,6 +277,23 @@ title / type / tags / summary / created / updated
 publish / subtype / confidence / priority
 importance / owner / reviewer / version / category
 ```
+
+---
+
+# Portfolio 專用欄位（豁免白名單）
+
+`finance/portfolio/hold-*.md` 持倉頁允許以下自訂欄位（不在通用白名單，但為投資組合計算所需，lint 不報錯）：
+
+```text
+stock_id      # 股票代號，字串，如 "2330"
+stock_name    # 股票名稱
+avg_cost      # 平均成本價格（對帳單）
+current_price # 參考市價 / 收盤價（Agent 每日更新）
+shares        # 庫存餘額 / 股數（Agent 買賣後更新）
+currency      # 計價幣別，如 "USD" / "TWD"（美股為 USD）
+```
+
+計算邏輯（Dataview）：市值 = current_price × shares；成本 = avg_cost × shares；損益 = (current_price − avg_cost) × shares；報酬率% = (current_price − avg_cost) / avg_cost × 100。
 
 ---
 # Page Examples 頁面範例

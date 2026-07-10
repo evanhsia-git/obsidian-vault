@@ -31,8 +31,13 @@ updated: 2026-06-27
 - [[obsidian/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
 - [[obsidian/SCHEMA 3.0|Obsidian SCHEMA 3.0（備份版憲法，現役為根 schema.md）]]
 
+## plugin
+
+- [[obsidian/obsidian-dataview-dql-vs-js|Dataview DQL vs JavaScript Queries 比較]]
+- [[obsidian-note-compre筆記文件重疊比較]]
+
 ---
 
-- [[obsidian/obsidian-tags-optimization-recommendations|Obsidian Tags 優化與推薦]]
+- [[system/frontmatter-rules|Frontmatter Rules（含 48 核心 tag 定義）]]
 
 相關連結：[[index|主索引]] | [[schema]] | [[policy]]
