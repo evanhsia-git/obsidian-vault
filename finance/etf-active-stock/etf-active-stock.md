@@ -1,7 +1,7 @@
 ---
-title: 台灣主動式 ETF 清單（2026-07）
-description: 截至 2026 年 6 月底台灣主動式 ETF 全市場共 31 檔（TWSE 30 + TPEX 1），依投資標的分類與配息頻率
-summary: 台灣主動式 ETF 31 檔清單：國內台股型 22（成長 17 + 高息 5）、海外型 5、債券型 4（末碼 D，含 TPEX 上櫃 00980D），含發行商與配息頻率
+title: "台灣主動式 ETF 清單（2026-07）"
+description: "截至 2026 年 6 月底台灣主動式 ETF 全市場共 31 檔（TWSE 30 + TPEX 1），依投資標的分類與配息頻率"
+summary: "台灣主動式 ETF 31 檔清單：國內台股型 22（成長 17 + 高息 5）、海外型 5、債券型 4（末碼 D，含 TPEX 上櫃 00980D），含發行商與配息頻率"
 type: resource
 status: active
 tags:
