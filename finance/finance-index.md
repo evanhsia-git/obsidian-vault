@@ -14,6 +14,12 @@ updated: 2026-07-09
 ## 投資資源整合
 - [[投資大師選股策略-投資策略investment-strategy|Investment Resources]] — 投資策略 + ETF + Agent 分析 + API 定價
 
+## ETF 專區
+- [[finance/etf-active-stock/etf-active-stock|台灣主動式 ETF 清單（2026-07）]] — 主動式/平衡型 ETF 列表（A/D/T 尾碼）+ 配息頻率 + 發行商
+- [[finance/etf-code-classification|ETF 代碼分類與第六碼意義]] — TWSE 官方編碼原則（第六碼 A/D/T/L/R/B/C/U/V/K/M/S/N）
+- 平衡型 ETF 持倉頁（尾碼 T）：[[finance/etf-active-stock/stock-t/00980T|00980T 平衡凱基美國TOP]]、[[finance/etf-active-stock/stock-t/00981T|00981T 平衡凱基雙核收息]]、[[finance/etf-active-stock/stock-t/00982T|00982T 平衡兆豐台美動能]]
+- 主動式 ETF 持倉頁（尾碼 A）：[[finance/etf-active-stock/stock-a/00980A|00980A 主動野村臺灣優選]]、[[finance/etf-active-stock/stock-a/00981A|00981A 主動統一台股增長]]、[[finance/etf-active-stock/stock-a/00982A|00982A 主動群益台灣強棒]]（共 28 檔，詳見 etf-active-stock 清單）
+
 ## 個股與市場分析
 - [[taiwan-stock-top10-market-cap-20260709|Taiwan Stock Top 10 by Market Cap 2026-07-09]] — 市值前 10 大排名 + 量化分析（含 DB market_cap 異常警示）
 - all-market-listing-profile-2026-06-02 — 全市場上市股票清單（2026-06-02）
