@@ -2,10 +2,10 @@
 title: "ETF 代碼分類與第六碼意義"
 description: "台灣 ETF 證券代號第六碼英文字母的意義與主要 ETF 類型比較（依據 TWSE 官方編碼原則 + StockFeel 股感整理）"
 summary: "ETF 第六碼 A/D/T/L/R/B/C/U/V/K/M/S/N 對應主動式/平衡/槓桿反向/債券/期貨/外幣交易；附被動/市值/高股息/債券/商品/平衡/主動式分類說明"
-type: reference
+type: resource
 status: active
 updated: 2026-07-11
-tags: [etf, twstock, finance, reference]
+tags: [etf, finance]
 ---
 
 # ETF 代碼分類與第六碼意義

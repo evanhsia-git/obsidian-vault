@@ -569,3 +569,5 @@ updated: 2026-06-23
 ## [2026-07-11 10:15:26] lint | 257 dir_perm_fixed, 0 file_perm_fixed | 2 weak_hubs
 ## [2026-07-11 10:16:53] lint | 1 weak_hubs
 ## [2026-07-11 10:17:19] lint | 全部通過
+## [2026-07-11 16:40:02] lint | 1 dir_perm_fixed, 152 file_perm_fixed | 218 missing_fields | 3 invalid_type | 33 orphans | 1 broken_links
+## [2026-07-11 16:40:58] lint | 218 missing_fields | 33 orphans | 1 broken_links
