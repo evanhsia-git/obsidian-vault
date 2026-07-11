@@ -6,7 +6,7 @@ type: concept
 status: active
 tags: [hermes, agent, workflow]
 created: 2026-06-10
-updated: 2026-06-27
+updated: 2026-07-11
 ---
 
 ## Skills 使用規範 (Skills Rules)
@@ -67,6 +67,39 @@ updated: 2026-06-27
 - **一致性**: 確保所有技能資訊皆歸檔於此處，不得散落在其他資料夾。
 - **透明度**: 修正內容必須明確記錄時間與變更目的。
 - **可讀性**: 嚴格執行 Traditional Chinese (繁體中文) 輸出，確保技術文件語意精準。
+
+## Skill 程式碼與檔案維運鐵律（Minimal Skill Architecture）
+
+> 適用對象：所有 Skill 內的 `scripts/`、`references/`、`templates/`。目標是保持 Skill 最小化、避免腳本/文件碎屑累積。本節與上方「知識沉澱架構」互補——沉澱架構管「放哪」，本節管「什麼該留、什麼該刪」。
+
+### 程式碼處理原則
+
+1. **優先修改現有程式**：接到需求先找現有腳本改，不預設新建。
+2. **不建立新的 Python（除非必要）**：一次性/臨時用途寫 `/tmp`，不進 Skill 目錄；能 patch 既有 `.py` 就不要新增檔。
+3. **若已有相同功能，直接修改**：發現重複實作先合併，不疊新檔。
+4. **若需要重構，合併原有程式**：重構 = 把舊邏輯併入 canonical，舊副本轉 redirect 薄包裝或直接刪除，不留孤本。
+
+### 目錄內容守則
+
+5. **`references/` 僅保存長期可重用的參考**：API 端點、欄位對照、ETF/覆蓋率算法、事故教訓等穩定知識。已合併/過時/與其他 Skill 逐字重複的 references 應刪除或遷併。
+6. **`scripts/` 僅保存正式執行腳本**：每日 cron 實際呼叫、診斷工具等。實驗性、一次性、未接管的腳本不放這裡。
+7. **禁止產生 temp / copy / draft / v2 / new / fix 等檔名**：任何 `*_temp.py`、`*_copy.md`、`*_draft*`、`*_v2*`、`*_new*`、`*_fix*` 視為違規碎屑，建立即清理。需要版本比較請走 git，不要複製檔案。
+
+### 自動清理與最小化
+
+8. **任務完成後，自動清理無用程式**：刪除過時 redirect 包裝、已廢棄舊腳本、stale 測試、死連結 references；同步修正引用它們的 SKILL.md / references。
+9. **保持 Skill 最小化（Minimal Skill Architecture）**：
+   - 一個功能只留一份 canonical 實作，其餘皆為引用或刪除。
+   - 無 cron、無主動 invoke 的 Skill 視為候選廢除對象；其獨特知識應遷移至 canonical Skill 後整併。
+   - 診斷/維運工具若長期無用，與其文檔一併清理，避免「無文檔孤兒腳本」。
+
+### 實務檢查清單（每次改完 Skill 跑一次）
+
+- [ ] 有無新增 `*_temp/_copy/_draft/_v2/_new/_fix` 檔？→ 有則刪
+- [ ] `scripts/` 每個 `.py` 是否都被 cron 或診斷流程實際使用？→ 否則清理
+- [ ] `references/` 每個檔是否指向現存內容？有無死連結或教已刪腳本？→ 修正
+- [ ] SKILL.md 的「需要」連結清單是否全部存在？→ 驗證
+- [ ] 重複邏輯是否合併到單一 canonical？→ 是則刪舊本
 
 ## 錯誤隔離與超時處理機制 (Evolutionary Error Handling & Resilience)
 
