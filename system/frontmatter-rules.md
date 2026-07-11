@@ -87,11 +87,12 @@ schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣
 | `plugin` | PKM | 外掛 | Community Plugin、Extension |
 | `template` | PKM | 範本 | Template、Snippet、Boilerplate |
 
-### 投資（2）
+### 投資（3）
 
 | Tag | 類別 | 用途 | 關鍵詞 / 涵蓋內容 |
 | --- | --- | --- | --- |
-| `stock` | 投資 | 股票 | 台股、美股、ETF、個股 |
+| `stock` | 投資 | 股票 | 台股、美股、個股 |
+| `etf` | 投資 | 指數股票型基金的證券代號與分類 | 主動式、被動式、槓桿反向、債券型、平衡型、第六碼、ETF 清單 |
 | `finance` | 投資 | 財務分析及宏觀經濟 | 財報、PE、PB、EPS、殖利率、估值、CPI、GDP、Fed、央行、利率、匯率 |
 
 ### 開發（9）
