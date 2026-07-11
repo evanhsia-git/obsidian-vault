@@ -93,6 +93,15 @@ updated: 2026-07-11
    - 無 cron、無主動 invoke 的 Skill 視為候選廢除對象；其獨特知識應遷移至 canonical Skill 後整併。
    - 診斷/維運工具若長期無用，與其文檔一併清理，避免「無文檔孤兒腳本」。
 
+### Obsidian Vault 寫入權限鐵律（WebDAV 同步相容）
+
+10. **寫入 Vault 後必須設 WebDAV 相容權限**：任何經 Agent `write_file` / `patch` 新建或修改的 Vault 檔案，`chmod` 後 group 仍可能是 `root`（Agent 預設 `root:root`），導致 nginx (www-data) 同步失敗（`Permission denied` / 403 / 500）。規範：
+    - 檔案：`chown root:www-data <path>` + `chmod 664 <path>`
+    - 父目錄：`chown root:www-data <dir>` + `chmod 775 <dir>`（目錄需 group 可寫才能 PUT/DELETE）
+    - 驗證：`sudo -u www-data touch <dir>/.t && sudo -u www-data rm <dir>/.t` 不報 Permission denied 才算完成
+    - 根因與完整診斷見 `obsidian-lint` 的 `references/webdav-sync-diagnosis.md` 與 Pitfall #37。
+    - **預防**：`obsidian-lint.py` 每次執行會自動 `chmod` 全庫為 664/775（見其「檔案權限修正」區塊），故寫入 Vault 後跑一次 `obsidian-lint.py` 即可消除權限地雷。本條補強的是 `chown`（lint 只做 `chmod` 不動 owner）——若新建檔是 `root:root`，需顯式 `chown :www-data` 才完整。
+
 ### 實務檢查清單（每次改完 Skill 跑一次）
 
 - [ ] 有無新增 `*_temp/_copy/_draft/_v2/_new/_fix` 檔？→ 有則刪
@@ -100,6 +109,7 @@ updated: 2026-07-11
 - [ ] `references/` 每個檔是否指向現存內容？有無死連結或教已刪腳本？→ 修正
 - [ ] SKILL.md 的「需要」連結清單是否全部存在？→ 驗證
 - [ ] 重複邏輯是否合併到單一 canonical？→ 是則刪舊本
+- [ ] 若有寫入 Obsidian Vault：新建/修改檔是否 `chown root:www-data` + `chmod 664`、父目錄 `775`？→ 或已跑 `obsidian-lint.py` 自動修正
 
 ## 錯誤隔離與超時處理機制 (Evolutionary Error Handling & Resilience)
 
