@@ -4,7 +4,7 @@ description: "Cloudflare Pages 運行 Decap CMS — 概念說明頁面"
 summary: "Cloudflare Pages 運行 Decap CMS"
 type: concept
 status: active
-tags: []
+tags: [deploy]
 created: 2026-06-12
 updated: 2026-06-12
 ---

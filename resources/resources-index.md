@@ -4,7 +4,7 @@ title: "Resources Index"
 description: "資源鏈結索引"
 summary: "資源鏈結索引頁面"
 type: index
-tags: []
+tags: [pkm]
 created: 2026-06-21
 updated: 2026-06-23
 ---

@@ -4,7 +4,7 @@ description: "KeystoneJS — 概念說明頁面"
 summary: "KeystoneJS"
 type: concept
 status: active
-tags: []
+tags: [architecture]
 created: 2026-06-13
 updated: 2026-06-13
 ---

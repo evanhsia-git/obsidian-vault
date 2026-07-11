@@ -6,6 +6,8 @@ type: resource
 status: active
 updated: 2026-07-11
 tags: [etf, finance]
+created: 2026-07-11
+
 ---
 
 # ETF 代碼分類與第六碼意義

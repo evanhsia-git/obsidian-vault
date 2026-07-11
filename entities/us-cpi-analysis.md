@@ -6,8 +6,7 @@ summary: "美國消費者物價指數 (CPI) 分析報告"
 type: entity
 status: active
 
-tags: []
-
+tags: [finance]
 created: 2026-06-16
 updated: 2026-06-16
 
@@ -49,8 +48,7 @@ summary: "美國實質 GDP 成長率分析報告"
 type: entity
 status: active
 
-tags: []
-
+tags: [finance]
 created: 2026-06-16
 updated: 2026-06-16
 
@@ -94,8 +92,7 @@ summary: "美聯儲有效聯邦基金利率 (EFFR) 分析報告"
 type: entity
 status: active
 
-tags: []
-
+tags: [finance]
 created: 2026-06-16
 updated: 2026-06-16
 

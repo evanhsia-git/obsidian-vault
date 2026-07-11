@@ -6,7 +6,7 @@ summary: "Stock-Database-State：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept
-tags: []
+tags: [database]
 ---
 
 ## 相關頁面
@@ -49,7 +49,7 @@ summary: "Stock-Automation-Config：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
 type: concept
-tags: []
+tags: [database]
 ---
 
 ## 相關頁面

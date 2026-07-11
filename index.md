@@ -4,7 +4,7 @@ description: "Obsidian Vault 知識庫首頁"
 summary: "知識庫索引（2026-07-10 依實際結構更新）"
 type: index
 status: active
-tags: []
+tags: [pkm]
 created: 2026-06-10
 updated: 2026-07-10
 ---

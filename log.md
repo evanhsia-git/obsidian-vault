@@ -4,7 +4,7 @@ description: "Obsidian Vault 維護日誌"
 summary: "所有維護、修復、新增、刪除操作的記錄，含 database 結構重整"
 type: log
 status: active
-tags: []
+tags: [pkm]
 created: 2026-06-21
 updated: 2026-06-23
 ---
@@ -572,3 +572,6 @@ updated: 2026-06-23
 ## [2026-07-11 16:40:02] lint | 1 dir_perm_fixed, 152 file_perm_fixed | 218 missing_fields | 3 invalid_type | 33 orphans | 1 broken_links
 ## [2026-07-11 16:40:58] lint | 218 missing_fields | 33 orphans | 1 broken_links
 ## [2026-07-11 16:54:29] lint | 0 dir_perm_fixed, 20 file_perm_fixed | 239 missing_fields | 36 orphans | 1 broken_links
+## [2026-07-11 16:55:08] lint | 0 dir_perm_fixed, 12 file_perm_fixed | 239 missing_fields | 36 orphans | 1 broken_links
+## [2026-07-11 16:55:14] lint | 239 missing_fields | 36 orphans | 1 broken_links
+## [2026-07-11 16:57:17] lint | 238 missing_fields | 36 orphans

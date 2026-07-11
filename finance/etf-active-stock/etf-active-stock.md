@@ -123,4 +123,4 @@ trade_date: 2026/07/09
 ## 相關節點
 - [[finance-index]]
 - [[taiwan-stock-top10-market-cap-20260709]]
-- [[quant-trading]]（選股系統，ETF 排除邏輯參見其 SKILL.md）
+- quant-trading（Hermes 選股系統 skill，ETF 排除邏輯參見其 SKILL.md，非 vault 頁面）
