@@ -101,7 +101,7 @@ Manus 是一個通用型 AI 智能代理（Agent）平台，能夠自主執行�
 ---
 
 ## 相關頁面
-- [[manus-finance-cases|Manus 金融案例與應用]] — 8 個 Finance 分類案例 + 三項行動方案 + 現有功能對照
+- Manus 金融案例與應用 — 8 個 Finance 分類案例 + 三項行動方案 + 現有功能對照
 - [[skills/skills-index|Skills 目錄]]
 
 ## Superpowers Install

@@ -10,7 +10,7 @@ tags: [deploy]
 ---
 
 ## 相關頁面
-- [[concepts/financial-preferences|金融偏好]]
+- 金融偏好
 - [[concepts/hermes-configuration|Hermes 配置]]
 
 
@@ -82,9 +82,9 @@ tags: [deploy]
 3. **動態變數** → 使用情景規劃與壓力測試 (Scenario Planning)。
 4. **交付標準** → 模仿頂尖投行 (IB) 的報告格式與時間粒度。
 
-相關頁面：[[environment-keys|Environment Keys]]
+相關頁面：[[ivan-notes/hermes/environment-keys|Environment Keys]]
 
-相關頁面：[[news-push-log]]
+相關頁面：news-push-log
 
 
 ## 相關節點
@@ -145,7 +145,7 @@ tags: [source, tw-stock, deploy]
 
 ---
 ## 相關節點
-- [[stock-data-sources]]
+- stock-data-sources
 - [[quant-python-ai-agent]]
 
 ## Unified Stock Schema
@@ -167,7 +167,7 @@ type: concept
 ---
 
 ## 相關頁面
-- [[concepts/sp500-components|S&P 500 成分]]
+- S&P 500 成分
 
 
 # 美國聯準會總體經濟資料庫 (FRED)

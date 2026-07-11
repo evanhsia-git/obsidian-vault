@@ -42,7 +42,7 @@ updated: 2026-06-12
 ---
 ## 相關節點
 - [[keystonejs]]
-- [[private-website-access]]
+- private-website-access
 
 ## Website Deployment
 ---
@@ -96,7 +96,7 @@ Quartz 是目前 Obsidian 社群中最成熟的數位花園工具，完美支援
 - [Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/)
 
 ---
-相關頁面：[[concepts/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
+相關頁面：Obsidian Wiki 使用規範
 
 ## VPS Blog Deployment
 ---
@@ -164,8 +164,8 @@ Agent 完成檢查後，執行同步腳本：
 
 ---
 **相關連結：**
-- [[obsidian-web-editing-solutions|在網路上編輯 Obsidian 筆記]]
-- [[vps-obsidian-blog-deployment|部署方案概覽]]
+- 在網路上編輯 Obsidian 筆記
+- 部署方案概覽
 - [[hermes-agent-strategy|Hermes Agent 執行策略]]
 
 ## Website Deployment
@@ -206,7 +206,7 @@ Quartz 是目前 Obsidian 社群中最成熟的數位花園工具，完美支援
 - [Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/)
 
 ---
-相關頁面：[[concepts/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
+相關頁面：Obsidian Wiki 使用規範
 ## VPS Blog Deployment
 
 ## 🎯 設計目標
@@ -259,6 +259,6 @@ Agent 完成檢查後，執行同步腳本：
 
 ---
 **相關連結：**
-- [[obsidian-web-editing-solutions|在網路上編輯 Obsidian 筆記]]
-- [[vps-obsidian-blog-deployment|部署方案概覽]]
+- 在網路上編輯 Obsidian 筆記
+- 部署方案概覽
 - [[hermes-agent-strategy|Hermes Agent 執行策略]]

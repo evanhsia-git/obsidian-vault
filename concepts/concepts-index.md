@@ -13,7 +13,7 @@ updated: 2026-06-28
 
 ## 架構與策略
 
-- [[cron-architecture-roles|Cron 架構角色分工]] — Skills、Python、no_agent
+- Cron 架構角色分工 — Skills、Python、no_agent
 - [[skill-script-architecture|技能腳本架構管理]] — Skill Script Architecture
 - [[api-rate-limiting-strategies|API 流量限制應對策略]]
 
@@ -21,10 +21,10 @@ updated: 2026-06-28
 
 - [[ai-toolkit|AI Toolkit]] — LLM Wiki 比較 + Superpowers 框架 + Next AI Draw.io
 - [[ai-hallucination-suppression|AI 幻覺抑制]] — 全面框架
-- [[arena-leaderboard-top-50|Arena AI 開源模型排行榜]] — Top 50
-- [[python-tool-api|Python Tool API]]
+- Arena AI 開源模型排行榜 — Top 50
+- Python Tool API
 - [[manus-use-cases|Manus 精選案例與實際應用]] — 平台概覽 + 6 類精選案例
-- [[manus-finance-cases|Manus 金融案例分析]] — Finance 案例 + 行動方案
+- Manus 金融案例分析 — Finance 案例 + 行動方案
 - [[awesome-design-md|Awesome DESIGN.md]] — DESIGN.md 設計系統檔案集合
 - [[search-aggregation-logic|搜尋聚合邏輯]]
 
@@ -32,17 +32,17 @@ updated: 2026-06-28
 
 - [[daily-news-technology|每日 AI 及科技新聞]] — 推送標準格式
 - [[daily-news-usstock-fix|美股新聞修復紀錄]] — 格式調試與修復過程
-- [[karpathy-llm-wiki-tag-analysis|Karpathy LLM Wiki 標籤系統分析]]
+- Karpathy LLM Wiki 標籤系統分析
 
 ## Hermes 核心機制
 
-- [[hermes-curator|Curator 技能管理員]] — skill 生命週期自動管理
+- Curator 技能管理員 — skill 生命週期自動管理
 
 ## 部署與系統
 
 - [[cloudflare-pages-decap-cms|Cloudflare Pages 運行 Decap CMS]]
 - [[hermes-system-backup-optimization|Hermes 系統備份優化]]
-- [[hermes-agent-backup|Hermes-Agent 備份系統]]
+- Hermes-Agent 備份系統
 - [[hermes-disaster-recovery|Hermes Agent 災難恢復策略]]
 - [[external-services-integration|External Services Integration]] — Cloudflare + Telegram UI + 科技監測
 

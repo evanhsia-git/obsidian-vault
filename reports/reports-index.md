@@ -12,7 +12,7 @@ updated: 2026-06-21
 # 報告索引
 
 - [[reports/daily-token-usage-2026-06-08|每日 Token 用量 2026-06-08]]
-- [[reports/rss-test-report-2026-06-16|RSS 測試報告 2026-06-16]]
+- RSS 測試報告 2026-06-16
 - [[reports/weekly-health-report|每週健康報告]]
 - [[reports/quartz-migration-20260622|Quartz 遷移記錄 2026-06-22]]
 - [[reports/telegram-dashboard-architecture|Telegram Dashboard 架構分析]]

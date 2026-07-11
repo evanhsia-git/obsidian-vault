@@ -70,7 +70,7 @@ Python 腳本目前放在 `/root/.hermes/scripts/` 底下，但 Hermes 技能目
 ## 相關頁面
 
 - [[daily-news-sources|每日新聞 RSS 來源清單]]
-- [[stock-automation-config|Cron Job 管理]]
+- Cron Job 管理
 
 ---
 
@@ -129,9 +129,9 @@ Python 腳本目前放在 `/root/.hermes/scripts/` 底下，但 Hermes 技能目
 ## Conclusion
 Python provides a balanced approach for Skill implementation in Hermes with better long-term maintainability. While BASH/CRL can work for simple tasks, Python's ecosystem advantages make it superior for complex, repeatable operations like cron jobs and knowledge management workflows.
 
-相關頁面：[[awesome-github-resources]]
+相關頁面：awesome-github-resources
 
-相關頁面：[[model-error-messages]]
+相關頁面：model-error-messages
 
 ## 相關節點
 - [[skills/skills-index|Skills 目錄]]

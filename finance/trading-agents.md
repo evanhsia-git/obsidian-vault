@@ -26,7 +26,7 @@ TradingAgents 是一個多智能體 (Multi-agent) LLM 金融交易框架，模�
 ## 資源連結
 - [TradingAgents 文件](https://www.zdoc.app/zh/TauricResearch/TradingAgents)
 
-- [[cnn-fear-and-greed-analysis]]
+- cnn-fear-and-greed-analysis
 ## 相關概念
 - [[concepts/manus-use-cases|Manus 精選案例與實際應用]]
 
@@ -59,8 +59,8 @@ FinLab 是一個由量化交易與資料工程背景專業團隊組成的金融�
 - [GitHub Repositories](https://github.com/finlab-python?tab=repositories)
 
 ## 相關概念
-- [[concepts/twse-api-mapping|Twse Api Mapping]]
-- [[concepts/stock-automation-config|Stock Automation Config]]
+- Twse Api Mapping
+- Stock Automation Config
 
 ---
 
@@ -97,8 +97,8 @@ Blave Quant Skill 是一個賦予 AI Agent 加密貨幣交易與市場分析能�
 - [Blave Academy](https://blave.org)
 
 ## 相關概念
-- [[entities/finlab|FinLab]]
-- [[skills/cron-architecture-roles|Stock Automation Config]]
+- FinLab
+- Stock Automation Config
 - [[skills/skills-index|Skills 目錄]]
 - 
 ## FinLab
@@ -164,8 +164,8 @@ Blave Quant Skill 是一個賦予 AI Agent 加密貨幣交易與市場分析能�
 
 ---
 ## 相關節點
-- [[all-market-listing-profile-2026-06-02]]
-- [[finlab]]
+- all-market-listing-profile-2026-06-02
+- finlab
 ## Wall Street Portfolio
 
 # 華爾街全鏈路投資研究系統 (Wall Street Institutional Research System v3.0)

@@ -32,7 +32,7 @@ KeystoneJS 是一個功能強大的 Headless CMS 與應用程式框架，專為 
 
 
 - [[obsidian-cms]]
-- [[private-website-access]]
+- private-website-access
 
 ## 相關連結
 
@@ -151,9 +151,9 @@ ByteRover 的技術證明了「以檔案為基礎的結構化知識」確實是�
 *來源：[ByteRover Official Docs](https://www.byterover.dev/), [ArXiv 2604.01599](https://arxiv.org/html/2604.01599v1)*
 
 
-相關頁面：[[hermes-memory-system]]
+相關頁面：hermes-memory-system
 
-相關頁面：[[hermes-hierarchy-architecture]]
+相關頁面：hermes-hierarchy-architecture
 
 
 ## 相關節點
@@ -239,9 +239,9 @@ ByteRover 的技術證明了「以檔案為基礎的結構化知識」確實是�
 *來源：[ByteRover Official Docs](https://www.byterover.dev/), [ArXiv 2604.01599](https://arxiv.org/html/2604.01599v1)*
 
 
-相關頁面：[[hermes-memory-system]]
+相關頁面：hermes-memory-system
 
-相關頁面：[[hermes-hierarchy-architecture]]
+相關頁面：hermes-hierarchy-architecture
 
 
 ## 相關節點

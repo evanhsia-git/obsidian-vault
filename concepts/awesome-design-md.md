@@ -117,17 +117,17 @@ updated: 2026-06-06
 - **[MCP Market](https://mcp.market/)**
   - 精選了高品質的 MCP 整合，例如 Firecrawl (將網站轉為 LLM 易讀格式) 和 Neon (無伺服器 Postgres 資料庫)。
 
-相關頁面：[[model-error-messages]]
+相關頁面：model-error-messages
 
-相關頁面：[[hermes-memory-system]]
+相關頁面：hermes-memory-system
 
-相關頁面：[[python-in-skill-implementation]]
+相關頁面：python-in-skill-implementation
 
-相關頁面：[[hermes-agent-expansion-guide]]
+相關頁面：hermes-agent-expansion-guide
 
-相關頁面：[[hermes-hierarchy-architecture]]
+相關頁面：hermes-hierarchy-architecture
 
-相關頁面：[[corporate-collaboration-model]]
+相關頁面：corporate-collaboration-model
 
 相關頁面：[[vps-config]]
 

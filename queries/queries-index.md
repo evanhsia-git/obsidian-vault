@@ -11,8 +11,8 @@ updated: 2026-06-23
 
 # 查詢記錄索引
 
-- [[stock-portfolio-backtest|投資組合回測]]
+- 投資組合回測
 
 ---
 
-相關連結：[[index|主索引]] | [[schema]] | [[policy]] | [[finance/finance-index|Finance]]
+相關連結：[[index|主索引]] | [[schema]] | [[policy]] | [[finance/finance-index|Finance]] | [[finance/tw-stock-data-enrichment-log-20260603|台股資料補齊日誌]]

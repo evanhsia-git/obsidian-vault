@@ -80,7 +80,7 @@ updated: 2026-06-23
   - 單一頁面最多 10 個 tag
   - 已更新 schema.md + frontmatter-rules.md + obsidian-lint skill 三處
   - 批次替換 132 個頁面的非核心 tag → 35 個核心列表
-- **新增**: [[hermes-curator]]（concepts/）
+- **新增**: hermes-curator（concepts/）
 - **整併**:
   - `daily-news-stock-market` → 合併至 `daily-stock-news`
   - `daily-news-unified` 更新為頂層聚合器
@@ -299,7 +299,7 @@ updated: 2026-06-23
 - **動作**：
   - index.md 更新：移除 comparisons、修正 queries/reports、補上 POLICY
   - 建立 resources/index.md、reports/index.md
-  - log.md 壞連結修復（移除 [[wiki]]）
+  - log.md 壞連結修復（移除 wiki）
   - system/ 子檔案 frontmatter 修正（補 tags/summary）
   - 3 個無 frontmatter 檔案補齊（hermes-agent-rules, user-backup-skill, rss-test-report）
   - 66 個缺 summary 檔案自動批次補齊
@@ -313,8 +313,8 @@ updated: 2026-06-23
 ## [2026-06-21] fix | 壞連結清零
 - **原因**：log.md 和 index.md 中仍有殘留壞連結
 - **動作**：
-  - index.md 移除 [[raw]]（raw.md 不存在）
-  - concepts/safe-file-operations.md 移除 [[skills/safe-file-operations]]（skills 下無此檔案）
+  - index.md 移除 raw（raw.md 不存在）
+  - concepts/safe-file-operations.md 移除 safe-file-operations（skills 下無此檔案）
 - **結果**：壞連結從 3 降至 0
 ## [2026-06-23 14:39:04] lint | 全部通過
 ## [2026-06-23 14:48:41] lint | 1 large_pages
@@ -542,3 +542,30 @@ updated: 2026-06-23
 ## [2026-07-10 16:51:33] lint | 14 invalid_names
 ## [2026-07-10 17:12:40] lint | 14 invalid_names
 ## [2026-07-10 21:00:55] lint | 14 invalid_names
+## [2026-07-11 06:01:48] lint | 1 dir_perm_fixed, 48 file_perm_fixed
+## [2026-07-11 07:17:03] lint | 全部通過
+## [2026-07-11 07:40:03] lint | 全部通過
+## [2026-07-11 07:44:25] lint | 全部通過
+## [2026-07-11 07:45:57] lint | 全部通過
+## [2026-07-11 07:47:01] lint | 全部通過
+## [2026-07-11 07:47:32] lint | 全部通過
+## [2026-07-11 08:00:46] lint | 0 dir_perm_fixed, 10 file_perm_fixed
+## [2026-07-11 08:03:37] lint | 全部通過
+## [2026-07-11 08:15:31] lint | 全部通過
+## [2026-07-11 08:44:03] lint | 171 broken_links
+## [2026-07-11 08:44:09] lint | 171 broken_links
+## [2026-07-11 08:45:08] lint | 177 broken_links
+## [2026-07-11 08:45:08] lint | 177 broken_links
+## [2026-07-11 08:45:57] lint | 177 broken_links
+## [2026-07-11 08:45:57] lint | 177 broken_links
+## [2026-07-11 08:46:54] lint | 177 broken_links
+## [2026-07-11 08:49:05] lint | 2 broken_links | 2 weak_hubs
+## [2026-07-11 08:49:11] lint | 2 broken_links | 2 weak_hubs
+## [2026-07-11 08:49:32] lint | 2 broken_links | 2 weak_hubs
+## [2026-07-11 08:50:44] lint | 2 weak_hubs
+## [2026-07-11 08:53:43] lint | 2 weak_hubs
+## [2026-07-11 09:11:00] lint | 2 weak_hubs
+## [2026-07-11 09:42:44] lint | 2 weak_hubs
+## [2026-07-11 10:15:26] lint | 257 dir_perm_fixed, 0 file_perm_fixed | 2 weak_hubs
+## [2026-07-11 10:16:53] lint | 1 weak_hubs
+## [2026-07-11 10:17:19] lint | 全部通過

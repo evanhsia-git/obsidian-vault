@@ -49,7 +49,7 @@ time.sleep(1.0) # 強制節流
 - 佇列處理成功率
 
 ---
-[[index|回目錄]] | [[concepts/twse-api-mapping|TWSE API 對照表]]
+[[index|回目錄]] | TWSE API 對照表
 
 ## Corporate Collaboration
 

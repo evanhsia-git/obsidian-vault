@@ -225,7 +225,7 @@ related:
   - page-name
 ```
 
-> ⚠️ `related` 禁止使用 `[[wikilinks]]`，改放正文。
+> ⚠️ `related` 禁止使用 `wikilinks`，改放正文。
 
 ---
 # YAML 完整性規則
@@ -282,7 +282,7 @@ importance / owner / reviewer / version / category
 
 # Portfolio 專用欄位（豁免白名單）
 
-`finance/portfolio/hold-*.md` 持倉頁允許以下自訂欄位（不在通用白名單，但為投資組合計算所需，lint 不報錯）：
+`ivan-notes/finance/portfolio/hold-*.md` 持倉頁允許以下自訂欄位（不在通用白名單，但為投資組合計算所需，lint 不報錯）：
 
 ```text
 stock_id      # 股票代號，字串，如 "2330"

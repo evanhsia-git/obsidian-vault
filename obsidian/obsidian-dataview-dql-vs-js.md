@@ -71,4 +71,4 @@ Dataview 提供兩種查詢語法：
 
 - [[obsidian/obsidian-webdav-sync|Obsidian WebDAV Sync]]
 - [[obsidian/obsidian-index|Obsidian 目錄]]
-- [[finance/portfolio/portfolio-dashboard|投資組合儀表板（實際應用範例）]]
+- 投資組合儀表板（實際應用範例）

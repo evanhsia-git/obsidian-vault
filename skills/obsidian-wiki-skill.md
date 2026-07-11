@@ -61,4 +61,4 @@ updated: 2026-06-25
 
 - [[openrouter-free-models]]
 ## 相關頁面
-- [[safe-file-operations|安全檔案操作規範]]
+- 安全檔案操作規範

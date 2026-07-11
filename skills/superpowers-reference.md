@@ -483,7 +483,7 @@ Superpowers 安裝於 `~/.hermes/skills/superpowers/`，可與 Hermes 既有 ski
 ---
 ## 相關頁面
 
-- [[superpowers-install|Superpowers 安裝說明]] — 安裝流程
+- Superpowers 安裝說明 — 安裝流程
 - [[skills/skills-index|Skills 目錄索引]]
 - [[concepts/concepts-index|概念筆記索引]]
 - [[concepts/ai-toolkit|Superpowers 架構參考]] — AI 工具框架章節

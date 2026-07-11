@@ -11,7 +11,7 @@ tags: [ai]
 
 ## 相關頁面
 - [[concepts/nvidia-build-free-models|NVIDIA Build 免費模型]]
-- [[concepts/gemini-api-pricing|Gemini API 定價]]
+- Gemini API 定價
 
 # OpenRouter 免費模型完整列表（Free Models）
 

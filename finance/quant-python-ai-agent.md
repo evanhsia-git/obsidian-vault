@@ -14,8 +14,8 @@ tags: [tw-stock, agent]
 ## 概述
 
 
-- [[stock-data-sources]]
-- [[stock-analysis-workflow-full]]
+- stock-data-sources
+- stock-analysis-workflow-full
 
 「量化投資研究 AI Agent」是一個專為量化投資領域設計的 AI Agent，其核心功能在於自動化地執行多項與金融市場分析相關的任務。
 
@@ -53,7 +53,7 @@ tags: []
 
 ## 相關頁面
 - [[openrouter-free-models]]
-- [[concepts/stock-automation-config|股票自動化配置]]
+- 股票自動化配置
 
 # 金融分析偏好規範 (Financial Preferences)
 
@@ -118,8 +118,8 @@ tags: [ai, performance, linux]
 
 ---
 ## 相關節點
-- [[openrouter-cheapest-models]]
-- [[model-error-messages]]
+- openrouter-cheapest-models
+- model-error-messages
 
 ## Financial Preferences
 
@@ -170,5 +170,5 @@ tags: [ai, performance, linux]
 
 ---
 ## 相關節點
-- [[openrouter-cheapest-models]]
-- [[model-error-messages]]
+- openrouter-cheapest-models
+- model-error-messages

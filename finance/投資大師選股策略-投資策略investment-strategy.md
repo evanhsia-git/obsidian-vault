@@ -59,7 +59,7 @@ updated: 2026-07-10
 
 ## 選股方法論（四大流派實作骨架）
 
-> 詳細 15 種量化條件見 [[15 種常見投資策略完整指南quant-trading-strategies-guide]]；每日推薦實作見 [[每日 15 檔選股推薦系統設計規格daily-stock-picker-spec]]。
+> 詳細 15 種量化條件見 [[15種常見投資策略完整指南quant-trading-strategies-guide|15 種常見投資策略完整指南quant-trading-strategies-guide]]；每日推薦實作見 [[每日15檔選股推薦系統設計規格daily-stock-picker-spec|每日 15 檔選股推薦系統設計規格daily-stock-picker-spec]]。
 
 | 流派 | 進場邏輯 | 出場/停損 | 適用標的 |
 |------|---------|----------|---------|
@@ -121,7 +121,7 @@ updated: 2026-07-10
 ## 相關頁面
 
 - [[finance/finance-index]]
-- [[15 種常見投資策略完整指南quant-trading-strategies-guide|量化策略完整指南]]
-- [[每日 15 檔選股推薦系統設計規格daily-stock-picker-spec|每日選股規格]]
+- [[15種常見投資策略完整指南quant-trading-strategies-guide|量化策略完整指南]]
+- [[每日15檔選股推薦系統設計規格daily-stock-picker-spec|每日選股規格]]
 - [[entities/news-and-market-examples]]
 - [[concepts/ai-toolkit]]

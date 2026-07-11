@@ -11,7 +11,7 @@ updated: 2026-05-31
 
 ## 相關頁面
 - [[concepts/hermes-configuration|Hermes 配置]]
-- [[concepts/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
+- Obsidian Wiki 使用規範
 
 
 # Hermes Agent 效能優化與任務執行策略
@@ -43,9 +43,9 @@ updated: 2026-05-31
 ---
 *註: 此內容為 Agent 對於任務執行邏輯的自我檢視與說明。*
 
-相關頁面：[[environment-keys|Environment Keys]]
+相關頁面：[[ivan-notes/hermes/environment-keys|Environment Keys]]
 
-相關頁面：[[news-push-log]]
+相關頁面：news-push-log
 
 
 ## 相關節點
@@ -89,7 +89,7 @@ Hermes Agent 基於 MCP 與自主代理架構，尋找資源時應優先關注�
 
 ---
 ## 相關資源
-- [[concepts/unified-stock-schema|統一股票資料欄位 Schema]]
+- 統一股票資料欄位 Schema
 - [[投資大師選股策略-投資策略investment-strategy|股市分析系統建置指南]]
 
 ## Expansion Guide
@@ -116,5 +116,5 @@ Hermes Agent 基於 MCP 與自主代理架構，尋找資源時應優先關注�
 
 ---
 ## 相關資源
-- [[concepts/unified-stock-schema|統一股票資料欄位 Schema]]
+- 統一股票資料欄位 Schema
 - [[投資大師選股策略-投資策略investment-strategy|股市分析系統建置指南]]

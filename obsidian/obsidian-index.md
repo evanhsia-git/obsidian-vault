@@ -13,10 +13,10 @@ updated: 2026-06-27
 
 ## 部署與發布
 
-- [[obsidian/obsidian-website-deployment|如何將 Obsidian 發佈為私人入口網站]]
-- [[obsidian/vps-obsidian-blog-deployment|VPS Obsidian 與部落格部署方案]]
-- [[obsidian/vps-obsidian-blog-deployment-v2|VPS Obsidian 與部落格部署方案 v2]]
-- [[obsidian/obsidian-web-editing-solutions|在網路上編輯 Obsidian 筆記的方案]]
+- 如何將 Obsidian 發佈為私人入口網站
+- VPS Obsidian 與部落格部署方案
+- VPS Obsidian 與部落格部署方案 v2
+- 在網路上編輯 Obsidian 筆記的方案
 
 ## 雲端託管
 
@@ -28,7 +28,7 @@ updated: 2026-06-27
 
 ## Wiki 規範
 
-- [[obsidian/obsidian-wiki-conventions|Obsidian Wiki 使用規範]]
+- Obsidian Wiki 使用規範
 - [[obsidian/SCHEMA 3.0|Obsidian SCHEMA 3.0（備份版憲法，現役為根 schema.md）]]
 
 ## plugin

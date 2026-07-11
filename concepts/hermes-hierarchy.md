@@ -30,7 +30,7 @@ my boss,
              Obsidian
             （圖書館／檔案館）
 
-相關頁面：[[otc-company-profile-2026-06-02]]
+相關頁面：otc-company-profile-2026-06-02
 
 
 ## 相關節點
@@ -99,11 +99,11 @@ USER.md   MEMORY.md  SQLite
 3. **一致性**：任何結構性變更 (Wiki 目錄) 需由老闆確認，確保與 Agent 運作脈絡的一致性。
 
 
-相關頁面：[[awesome-github-resources]]
+相關頁面：awesome-github-resources
 
-相關頁面：[[model-error-messages]]
+相關頁面：model-error-messages
 
-相關頁面：[[byterover-summary]]
+相關頁面：byterover-summary
 
 ## 相關節點
 - [[index]]
@@ -157,11 +157,11 @@ USER.md   MEMORY.md  SQLite
 3. **一致性**：任何結構性變更 (Wiki 目錄) 需由老闆確認，確保與 Agent 運作脈絡的一致性。
 
 
-相關頁面：[[awesome-github-resources]]
+相關頁面：awesome-github-resources
 
-相關頁面：[[model-error-messages]]
+相關頁面：model-error-messages
 
-相關頁面：[[byterover-summary]]
+相關頁面：byterover-summary
 
 
 ## 相關節點

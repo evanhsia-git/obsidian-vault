@@ -41,8 +41,8 @@ tags: [auto, source, rag]
 
 ---
 ## 相關節點
-- [[stock-data-sources]]
-- [[unified-stock-schema]]
+- stock-data-sources
+- unified-stock-schema
 
 ## TWSE API Mapping
 
@@ -59,7 +59,7 @@ tags: []
 
 ## 相關頁面
 - [[concepts/stock-database-state|股票資料庫狀態]]
-- [[concepts/stock-automation-config|股票自動化配置]]
+- 股票自動化配置
 
 
 # TWSE API 映射表 (2026-05-28)

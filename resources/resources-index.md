@@ -12,9 +12,9 @@ updated: 2026-06-23
 # 資源鏈結
 
 - [[obsidian-webdav-sync|Obsidian WebDAV Sync 使用指南]] — 遠端同步方案
-- [[sp500-components|S&P 500 成分股]] — 美股指數成分
+- S&P 500 成分股 — 美股指數成分
 - [[fred-guide|FRED 指南]] — 美國聯準會經濟數據
-- [[arena-leaderboard-top-50|Arena AI 排行榜]] — 開源模型 Top 50
+- Arena AI 排行榜 — 開源模型 Top 50
 - [[cloudflare-pages-decap-cms|Cloudflare Pages + Decap CMS]] — 靜態網站部署
 
 ---

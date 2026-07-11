@@ -131,4 +131,4 @@ print("\n報告已成功儲存為 fred_stock_report.csv")
 ---
 ## 相關節點
 - [[us-cpi-analysis]]
-- [[us-gdp-analysis]]
+- us-gdp-analysis

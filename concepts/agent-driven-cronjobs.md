@@ -83,8 +83,8 @@ updated: 2026-06-12
 
 ---
 ## 相關節點
-- [[hermes-workflow]]
-- [[cron-jobs]]
+- hermes-workflow
+- cron-jobs
 
 ---
 
@@ -144,7 +144,7 @@ Skills 只在以下情況被載入：
 
 ## 相關頁面
 
-- [[stock-automation-config|自動化配置設定]]
+- 自動化配置設定
 - [[投資大師選股策略-投資策略investment-strategy|股市分析系統使用說明]]
 - [[skills/skills-index|Skills 目錄]]
 ## Architecture Roles

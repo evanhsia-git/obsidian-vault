@@ -9,7 +9,7 @@ tags: [obsidian, ai]
 ---
 
 ## 相關頁面
-- [[concepts/llm-wiki-concept|LLM Wiki 概念]]
+- LLM Wiki 概念
 - [[SCHEMA|Wiki 規範]]
 
 # LLM Wiki - Andrej Karpathy
@@ -24,7 +24,7 @@ tags: [obsidian, ai]
 
 ## 該模式
 1. 建立一個 Markdown 檔案目錄。
-2. 當您閱讀或寫下有趣的事物時，將其總結為一個或多個 Markdown 檔案存入 Wiki，並在檔案之間建立 `[[wikilinks]]`。
+2. 當您閱讀或寫下有趣的事物時，將其總結為一個或多個 Markdown 檔案存入 Wiki，並在檔案之間建立 `wikilinks`。
 3. 由代理（Agent）維護這個 Wiki——它負責寫入、讀取並保持內容一致性。
 4. 當您提問時，Agent 會閱讀 Wiki 並從編譯好的知識中綜合答案。
 

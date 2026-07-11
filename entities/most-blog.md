@@ -27,9 +27,9 @@ updated: 2026-06-06
 ## 相關連結
 - [[external-services-integration|External Services Integration]] — Cloudflare + Telegram UI + 科技監測
 
-相關頁面：[[2026-06-01-daily-task-summary|2026-06-01 daily task summary]]
+相關頁面：2026-06-01 daily task summary
 
-相關頁面：相關頁面：[[unified-stock-schema]]
+相關頁面：相關頁面：unified-stock-schema
 
 相關頁面：## 相關節點
 - [[index]]
@@ -53,21 +53,21 @@ updated: 2026-06-10
 
 > 您可以直接前往 [[entities/most-blog|MOST]] 查看完整資訊。
 
-相關頁面：[[fred-economic-data]]
+相關頁面：fred-economic-data
 
-相關頁面：[[stock-data-sources]]
+相關頁面：stock-data-sources
 
 相關頁面：[[token-usage-dashboard]]
 
-相關頁面：[[twse-api-mapping]]
+相關頁面：twse-api-mapping
 
-相關頁面：[[stock-automation-config]]
+相關頁面：stock-automation-config
 
-相關頁面：[[sp500-components]]
+相關頁面：sp500-components
 
 相關頁面：[[hermes-hierarchy]]
 
-相關頁面：[[financial-preferences]]
+相關頁面：financial-preferences
 
 相關頁面：[[stock-database-state]]
 
@@ -82,21 +82,21 @@ updated: 2026-06-10
 
 > 您可以直接前往 [[entities/most-blog|MOST]] 查看完整資訊。
 
-相關頁面：[[fred-economic-data]]
+相關頁面：fred-economic-data
 
-相關頁面：[[stock-data-sources]]
+相關頁面：stock-data-sources
 
 相關頁面：[[token-usage-dashboard]]
 
-相關頁面：[[twse-api-mapping]]
+相關頁面：twse-api-mapping
 
-相關頁面：[[stock-automation-config]]
+相關頁面：stock-automation-config
 
-相關頁面：[[sp500-components]]
+相關頁面：sp500-components
 
 相關頁面：[[hermes-hierarchy]]
 
-相關頁面：[[financial-preferences]]
+相關頁面：financial-preferences
 
 相關頁面：[[stock-database-state]]
 

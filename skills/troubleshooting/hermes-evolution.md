@@ -84,7 +84,7 @@ hermes-evolve --target="blogwatcher" --goal="improve_token_efficiency"
 ### 重要說明
 此功能是 **自實驗階段**，尚未正式納入每日自動化流程。如需啟用，請與主管確認並設定適當的觸發條件。
 
-- [[news-format-update]]
+- news-format-update
 ## 相關節點
 - [[index]]
 ## Evolution Log
@@ -134,7 +134,7 @@ hermes-evolve --target="blogwatcher" --goal="improve_token_efficiency"
 已修正：支援 `.jsonl` 逐行解析、`.json` 分支加 `JSONDecodeError`/`isinstance` 容錯、`read_text(errors="ignore")`。修正後從 244 個 session 挖到 842 則訊息。
 
 **daily-news-twstock 演化結果**（sessiondb，5 iters, gpt-4o-mini）：
-- [[architecture-workflow]]
+- architecture-workflow
 - 挖掘：842 訊息 → 篩 148 候選 → LLM 評分留 17 相關範例（train 8 / val 4 / holdout 5）
 - 優化：MIPROv2 最佳分數 30.56 → 31.14
 - **Holdout: 0.312 → 0.319（+0.007, +2.2%）— 首次正向提升**
@@ -200,6 +200,6 @@ hermes-evolve
 框架**沒有「自動回滾」**機制。實際行為是：演化版**通過約束才輸出供審查**（存 `output/<skill>/<timestamp>/`），未通過則存 `evolved_FAILED.md`；**無論如何都不會自動覆蓋現役 SKILL.md**。採納改進需人工 review diff 後手動合併。
 
 
-- [[evolution-log]]
+- evolution-log
 ## 相關節點
 - [[index]]

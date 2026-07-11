@@ -37,8 +37,8 @@ updated: 2026-06-16
 
 ---
 ## 相關節點
-- [[cnn-fear-and-greed-analysis]]
-- [[us-gdp-analysis]]
+- cnn-fear-and-greed-analysis
+- us-gdp-analysis
 
 ## GDP Analysis
 ---
@@ -69,7 +69,7 @@ updated: 2026-06-16
 * **主要貢獻項目**：
 
 - [[us-cpi-analysis]]
-- [[fed-effr-analysis]]
+- fed-effr-analysis
 
     * **政府支出 (Government Spending)**：根據相關報導，政府活動在 2026 年初有所復甦，對 GDP 成長提供了支撐。
 * **潛在拖累因素**：
@@ -128,7 +128,7 @@ updated: 2026-06-16
 ---
 ## 相關節點
 - [[us-cpi-analysis]]
-- [[us-gdp-analysis]]
+- us-gdp-analysis
 
 ## GDP Analysis
 
@@ -145,7 +145,7 @@ updated: 2026-06-16
 * **主要貢獻項目**：
 
 - [[us-cpi-analysis]]
-- [[fed-effr-analysis]]
+- fed-effr-analysis
 
     * **政府支出 (Government Spending)**：根據相關報導，政府活動在 2026 年初有所復甦，對 GDP 成長提供了支撐。
 * **潛在拖累因素**：
@@ -189,7 +189,7 @@ updated: 2026-06-16
 ---
 ## 相關節點
 - [[us-cpi-analysis]]
-- [[us-gdp-analysis]]
+- us-gdp-analysis
 ## CNN Fear & Greed
 
 ---
@@ -222,4 +222,4 @@ updated: 2026-06-16
 ---
 ## 相關節點
 - [[us-cpi-analysis]]
-- [[fed-effr-analysis]]
+- fed-effr-analysis

@@ -87,7 +87,7 @@ updated: 2026-07-09
 - [[news-and-market-examples|每日台股新聞輸出範例]] → 用於輸出格式 / 資料結構
 - [[daily-news-technology|每日科技新聞推送技能]] → 發佈每日科技新聞
 - [[daily-news-usstock-fix|每日美股新聞推送技能]] → 發佈每日美股新聞
-- [[cronjob:e5f0e30a18e08|每日系統維護 (Lint+備份+Quartz)]] → RSS 來源的系統維護記錄
+- 每日系統維護 (Lint+備份+Quartz) → RSS 來源的系統維護記錄
 
 ---
 

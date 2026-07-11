@@ -104,16 +104,10 @@ end of the stream or a document separator is expected (6:1)
   -----^
 ```
 
-**原因**：`- [[openrouter-free-models]]` 在 frontmatter 內無 key，且 `[[` 導致 YAML parse failure。
-
-**影響檔案**（共 4 個）：
-- `concepts/financial-preferences.md`
-- `concepts/fred-economic-data.md`
-- `concepts/nvidia-build-safety-models.md`
-- `concepts/sp500-components.md`
+**原因**：`- [[openrouter-free-models]]` 在 frontmatter 內無 key，且 `sp500-components.md`
 
 **修復方式**：
-1. 將 `- [[openrouter-free-models]]` 從 frontmatter 移至 body 的「相關頁面」區域
+1. 將 `- [[openrouter-free-models` 從 frontmatter 移至 body 的「相關頁面」區域
 2. 重寫 `summary` 為語意描述（原 `summary: Financial-Preferences：相關頁面` 無意義）
 
 **範例**（financial-preferences.md）：
@@ -218,7 +212,7 @@ summary: "2026-06-01 Daily Task Summary - Executed hermes-system-backup skill, c
 
 ### Frontmatter Safety Rules（已寫入 schema.md）
 
-1. **Wikilink 禁止在 frontmatter 內**：所有 `[[wikilink]]` 必須放在 body
+1. **Wikilink 禁止在 frontmatter 內**：所有 `wikilink` 必須放在 body
 2. **Summary 含特殊字元必須 double quote**：`:`, `#`, `[`, `]`, `{`, `}`, `` ` ``, `|`, `>`, `!`, `%`, `@`, `&`, `*`
 3. **Frontmatter 所有項目必須有 key**：不能無 key 直接放 list item
 
@@ -276,7 +270,7 @@ GitHub Pages（https://evanhsia-git.github.io/quartz/）
 
 - [[schema]]
 - [[quartz-rules]]
-- [[system/quartz-v5-deployment]]
+- quartz-v5-deployment
 - [[index|主索引]]
 
 ---

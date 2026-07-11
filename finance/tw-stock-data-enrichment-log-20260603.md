@@ -26,9 +26,9 @@ tags: [tw-stock, deploy, source]
 ## 優化記錄 (Skills)
 - 強化了 `tw-stock-data-enrichment` 的 script 容錯度，增加 CSV BOM 處理。
 
-- [[stock-portfolio-backtest]]
+- stock-portfolio-backtest
 ## 相關知識連結
-- [[concepts/twse-api-mapping|Twse Api Mapping]]
+- Twse Api Mapping
 - [[stock-analysis-3037-ewint|欣興電子 (3037) 快評]]
 
 ## Stock Portfolio Backtest
@@ -59,5 +59,5 @@ tags: [tw-stock, deploy, source]
 - [線上詳細報告](https://www.kimi.com/replay/19b46548-f4d2-80ad-8000-0000db1d5f50)
 
 ## 相關概念
-- [[entities/finlab|FinLab]]
+- FinLab
 - [[entities/trading-agents|TradingAgents]]

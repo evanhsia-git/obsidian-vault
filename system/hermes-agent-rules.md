@@ -48,5 +48,5 @@ updated: 2026-07-10
 ---
 
 ## 相關節點
-- [[hermes-workflow]]
+- hermes-workflow
 - [[agent-driven-cronjobs]]

@@ -208,7 +208,7 @@ skills: daily-news-usstock
 ## 相關連結
 - [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞輸出範例]]
-- [[daily-news-usstock-example|每日美股新聞推送規範（技能）]]
+- 每日美股新聞推送規範（技能）
 
 ## US Stock Example
 
@@ -276,4 +276,4 @@ skills: daily-news-usstock
 ## 相關連結
 - [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞輸出範例]]
-- [[daily-news-usstock-example|每日美股新聞推送規範（技能）]]
+- 每日美股新聞推送規範（技能）

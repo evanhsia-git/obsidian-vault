@@ -66,7 +66,7 @@ tags: [ai, hermes, deploy]
 
 ---
 ## 相關節點
-- [[hermes-workflow]]
+- hermes-workflow
 - [[agent-driven-cronjobs]]
 ---
 status: active
@@ -100,7 +100,7 @@ tags: [ai, hermes, deploy]
 
 ---
 ## 相關節點
-- [[hermes-workflow]]
+- hermes-workflow
 - [[agent-driven-cronjobs]]
 ## Model Error Messages
 
@@ -135,5 +135,5 @@ tags: [ai, hermes, deploy]
 
 ---
 ## 相關節點
-- [[hermes-workflow]]
+- hermes-workflow
 - [[agent-driven-cronjobs]]

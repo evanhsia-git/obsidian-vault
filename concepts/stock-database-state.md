@@ -10,8 +10,8 @@ tags: []
 ---
 
 ## 相關頁面
-- [[concepts/twse-api-mapping|TWSE API 映射]]
-- [[concepts/stock-automation-config|股票自動化配置]]
+- TWSE API 映射
+- 股票自動化配置
 
 
 # 股票量化資料庫狀態 (2026-05-28)
@@ -53,7 +53,7 @@ tags: []
 ---
 
 ## 相關頁面
-- [[concepts/twse-api-mapping|TWSE API 映射]]
+- TWSE API 映射
 - [[concepts/stock-database-state|股票資料庫狀態]]
 
 

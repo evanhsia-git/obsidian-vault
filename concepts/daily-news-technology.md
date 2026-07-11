@@ -159,7 +159,7 @@ skills: daily-news-twstock
 - **RSS 來源**: 純台股（Yahoo 台股、鉅亨網），無 blogwatcher-cli、無美股
 - **超時**: 硬超時 180 秒、軟超時 120 秒
 
-- [[cnn-fear-and-greed-analysis]]
+- cnn-fear-and-greed-analysis
 ## 相關連結
 - [[daily-news-sources|每日新聞 RSS 來源清單]]
 - [[news-and-market-examples|每日台股新聞推送規範]]

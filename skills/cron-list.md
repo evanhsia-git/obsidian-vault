@@ -41,4 +41,4 @@ updated: 2026-07-10
 
 ---
 
-相關連結：[[index|主索引]] | [[system/system-index|System Index]] | [[skills/skills-index|Skills List]] | [[skills/troubleshooting|Skills Troubleshooting]] | [[hermes-agent|Hermes Agent Skill]]
+相關連結：[[index|主索引]] | [[system/system-index|System Index]] | [[skills/skills-index|Skills List]] | Skills Troubleshooting | Hermes Agent Skill

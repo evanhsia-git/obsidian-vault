@@ -21,7 +21,7 @@ tags: [hermes]
 • 任務名稱: Hermes Update Check
 • 排程: every 7200m (≈2 小時)
 • Job ID: ed5d30a18e08
-- [[rss-test-report-2026-06-16]]
+- rss-test-report-2026-06-16
 • 相關技術或腳本: 無
 • 最近一次執行: 2026-06-08T21:38:05.092110+08:00
 • 最後狀態: ok

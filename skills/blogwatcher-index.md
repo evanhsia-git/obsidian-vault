@@ -55,9 +55,8 @@ Blogwatcher 是 Hermes Agent 內建的終端機監控工具 (`blogwatcher-cli`)�
 
 ## 相關節點
 
-- [[news-sources]]
-- [[news-and-market-examples|每日 AI 及科技新聞輸出範例]]
-- [[news-and-market-examples|每日台股新聞輸出範例]]
-- [[get-news-resources|新聞資源標準作業流程]]
-- [[financial-news-gathering|財經新聞資源驗證]]
-- [[web-research-validated-links|已驗證連結研究]]
+- [[news-and-market-examples|每日新聞輸出範例]]
+- [[daily-news-technology|每日 AI 及科技新聞]]
+- [[skills/skills-index|Skills 索引]]
+- [[skills/obsidian-wiki-skill|Obsidian Wiki 技能]]
+- [[skills/skill-script-architecture|技能腳本架構]]

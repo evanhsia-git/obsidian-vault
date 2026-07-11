@@ -74,6 +74,6 @@ updated: 2026-07-09
 ## 相關頁面
 
 - [[finance-index|Finance 知識庫索引]]
-- [[15 種常見投資策略完整指南quant-trading-strategies-guide|Quantitative Trading Strategies]]
+- [[15種常見投資策略完整指南quant-trading-strategies-guide|Quantitative Trading Strategies]]
 - [[量化交易完整建構方案hermes-agent-quant-trading-blueprint|Hermes 量化交易方案]]
 - [[taiwan-stock-index-futures-trend-forecasts-and-ai-tool-applications|台指期貨走勢預測與 AI 工具應用]]

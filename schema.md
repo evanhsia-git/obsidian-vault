@@ -308,14 +308,14 @@ max_retry: 3
 ## 通用原則
 
 - `title` / `description` / `summary` 永遠用 double quote 包裹
-- frontmatter 內禁止 `[[wikilink]]` 及任何 Markdown 語法
+- frontmatter 內禁止 `wikilink` 及任何 Markdown 語法
 - frontmatter 僅允許：string / number / boolean / array / object
 - 所有 list 型欄位（`tags` / `aliases` / `sources` / `related`）必須有明確 key
 - 建立或修改 frontmatter 後必須執行 `yaml.safe_load()` 驗證
 
 完整格式規則、必填項目、禁止欄位、頁面範例與常見錯誤速查，見 [[frontmatter-rules]]（唯一細節來源）。
 
-**Portfolio 持倉頁專用欄位豁免**：`finance/portfolio/hold-*.md` 允許 `stock_id` / `stock_name` / `avg_cost` / `current_price` / `shares` 五個自訂欄位（不在通用白名單，但為投資組合計算所需）。完整定義與計算邏輯見 [[frontmatter-rules]] → Portfolio 專用欄位章節；obsidian-lint 的 `ALLOWED_FM_KEYS` 已同步納入，不會報 unknown key。
+**Portfolio 持倉頁專用欄位豁免**：`ivan-notes/finance/portfolio/hold-*.md` 允許 `stock_id` / `stock_name` / `avg_cost` / `current_price` / `shares` 五個自訂欄位（不在通用白名單，但為投資組合計算所需）。完整定義與計算邏輯見 [[frontmatter-rules]] → Portfolio 專用欄位章節；obsidian-lint 的 `ALLOWED_FM_KEYS` 已同步納入，不會報 unknown key。
 
 ## copilot/ 資料夾專用規則
 
@@ -352,3 +352,25 @@ copilot-command-last-used: 0
 5. 重大變更必須取得使用者核准
 6. 遵循 policy 路由 / skill 詳細規範
 7. 保持知識庫一致性與可維護性
+
+---
+
+# Wikilink 完整性規範（2026-07-11 增訂）
+
+> 目的：確保 Wiki 所有 `wikilink` 指向真實存在的頁面，避免斷鏈（broken link）導致知識島嶼。
+
+## 規則
+
+1. **斷鏈檢查納入 obsidian-lint**：`obsidian-lint.py` 的 `# 5b` 區塊會掃描全庫 `...`，若目標 stem 不存在於 vault，列為 `⚠️ 斷鏈` 並計入 `issues`。每次執行 lint 必須確認「無斷鏈」方可視為通過。
+2. **移動 / 改名檔案必須同步更新連結**：
+   - 優先使用 `obsidian-lint/scripts/safe_rename_with_wikilinks.py --apply` 自動重寫所有 `舊名` → `新名`。
+   - 若手動移動（如 `finance/portfolio/` → `ivan-notes/finance/portfolio/`），須同步修正所有引用該路徑的 wikilink 與 Dataview `FROM` 子句。
+3. **wikilink 格式**：
+   - 完整路徑寫法 `display` 與短連結 `display` 皆合法；Obsidian 依檔名（stem）解析，全庫唯一即可。
+   - 禁止在 frontmatter 欄位（title/description/summary）內嵌入 wikilink（lint `# 8` 會報）。
+4. **新增頁面**：若其他頁面預期連結該主題，建立時即補齊雙向連結，避免產生孤立頁（lint 孤立頁檢查）。
+5. **定期修復**：lint 報告的斷鏈清單，須批次修正或補建缺失頁面；不得長期放任 `broken_links` 累積。
+
+## 責任歸屬
+- Agent 執行任何 vault 結構變更（rename/move/delete）後，必須重跑 `obsidian-lint` 確認零斷鏈。
+- 若變更導致斷鏈且無法立即修復，須在變更報告中明確列出受影響連結，不得靜默略過。
