@@ -13,6 +13,11 @@ tags: [etf, twstock, finance, reference]
 > 主要依據：**台灣證券交易所（TWSE）官方 ETF 證券代號編碼原則**。
 > 輔助參考：[StockFeel 股感 — ETF 英文代碼代表什麼？](https://www.stockfeel.com.tw/%E4%BB%A3%E7%A2%BC-%E5%88%86%E9%A1%9E-etf/)（最近更新 2026-05-19）
 > 本文為整理摘錄，僅供分類參考，非投資建議。
+>
+> **官方數據來源**：
+> - TWSE 臺灣證券交易所 — ETF 證券代號編碼原則（PDF）：<https://www.twse.com.tw/downloads/zh/ETF/ETFcode.pdf>
+> - 證券暨期貨法令判解查詢系統（selaw）：<http://www.selaw.com.tw>
+>   - 相關條文參考：<https://www.selaw.com.tw/Chinese/LawDetail/LawArticleReference?lawDataid=16047088>
 
 ## ETF 怎麼編碼？
 
