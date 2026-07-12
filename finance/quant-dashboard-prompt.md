@@ -475,10 +475,150 @@ export interface DataClient {
 
 ## 八、待決策（重設計後續）
 
-1. **Hermes VPS 現況**：是否有對外 VPS 可跑 FastAPI？還是 Admin 模組暫緩（先只做靜態 12 模組）？
-2. **schema 欄位細節**：7.2 草圖是否需增減欄位（如 Portfolio 的 IRR/XIRR 另立 schema）？
-3. **Screener 雙源語意**：靜態 JSON 是「預跑結果」，API 是「即時篩選」——前端要區分「看歷史篩選」vs「即時篩」嗎？
-4. **Phase 重排**：原 Phase 1~5 是否依新架構調整（如 Admin 模組獨立成 Phase 6）？
+> 以下 4 項已於 2026-07-13 由用戶確認，見第九節。
+
+1. ~~Hermes VPS 現況~~ → 已決：Admin 延後 Phase 6
+2. ~~schema 欄位細節~~ → 已決：Portfolio 完整欄位 + 初始 null
+3. ~~Screener 雙源語意~~ → 已決：前端不區分，Data Service 自動切換
+4. ~~Phase 重排~~ → 已決：Admin 獨立 Phase 6
+
+---
+
+## 九、決策紀錄（用戶確認，2026-07-13）
+
+| # | 項目 | 決策 | 原因 |
+| --- | --- | --- | --- |
+| 1 | Admin 模組 | **延後至 Phase 6** | 先完成可部署 GitHub Pages 的核心功能，再加入需後端的能力 |
+| 2 | Portfolio Schema | **保留完整欄位，初始值 null** | 一次定義完整資料模型，避免未來改 Schema 導致前後端一起調整 |
+| 3 | Screener 雙源 | **前端不區分，Data Service 自動切換** | React 只依賴資料介面不依賴來源，未來切 JSON/API 幾乎不改 UI |
+| 4 | Admin Phase | **獨立為 Phase 6** | 登入/寫入/AI 推理與公開網站解耦，架構更清楚 |
+
+### 決策衍生的 Phase 重排
+- **Phase 1~5**：純靜態可部署（12 展示模組，雙源但先只用 JSON）
+- **Phase 6**：Admin 模組（Chat / Task / Settings）→ Hermes VPS + FastAPI
+
+---
+
+## 十、Data Contract 核心概念（用戶強調，最重要）
+
+> 用戶指出：規劃中不只該有 JSON Schema，更該建立**「資料契約（Data Contract）」**——
+> 這是一套**固定的領域資料模型**，與「資料存在哪」完全無關。
+
+### 10.1 核心思想
+
+```
+無論資料來自：
+  - stock.json (靜態檔)
+  - FastAPI (/api/v1/...)
+  - 未來 PostgreSQL / 其他 DB
+React 永遠使用「同一個 TypeScript 型別 + 同一個資料介面」
+```
+
+**Data Contract ≠ JSON Schema**。JSON Schema 只描述「某個 JSON 檔的格式」；
+Data Contract 是**跨來源的領域模型契約**——前端只認 Contract，不認來源。
+
+### 10.2 固定的領域模型（Contract 實體）
+
+| 實體 | 說明 |
+| --- | --- |
+| `Stock` | 單一股票基本資料 + 行情 |
+| `ETF` | ETF 專屬欄位（持股/配息/費用） |
+| `Portfolio` | 投資組合（含 IRR/XIRR/Sharpe 等，初始 null） |
+| `News` | 新聞條目（情緒/重要度/影響股） |
+| `Strategy` | 策略定義（參數/說明） |
+| `Backtest` | 回測結果（績效/MDD/Sharpe/曲線） |
+| `MarketSummary` | 市場總覽（市值/成交/漲跌/三大法人） |
+
+### 10.3 三層對應（Contract 居中解耦）
+
+```
+┌─ 來源層 (Source) ─────────────┐
+│ stock.json / API / PostgreSQL  │  ← 可替換，互不影響
+└──────────────┬────────────────┘
+               │ 適配器 (Adapter) 轉為 Contract
+               ▼
+┌─ 契約層 (Data Contract) ──────┐
+│ Stock / ETF / Portfolio /     │  ← 固定不變，前後端共用
+│ News / Strategy / Backtest /  │
+│ MarketSummary                 │
+└──────────────┬────────────────┘
+               │ TypeScript 型別 + DataClient 介面
+               ▼
+┌─ 前端層 (React) ─────────────┐
+│ 所有元件只用 Contract 型別    │  ← 來源切換零修改
+└──────────────────────────────┘
+```
+
+### 10.4 TypeScript Contract 介面草圖
+
+```typescript
+// contracts.ts — 全前端唯一依賴的型別
+export interface Stock {
+  symbol: string; name: string; market: 'TWSE' | 'TPEx'
+  date: string; close: number; volume: number; changePct: number
+  sector?: string
+}
+export interface ETF extends Stock {
+  dividendYield?: number | null
+  expenseRatio?: number | null
+  trackingError?: number | null
+  top10Holdings: ETFHolding[]
+  aiSummary?: string | null
+}
+export interface ETFHolding { symbol: string; name: string; weight: number; industry?: string }
+export interface Portfolio {
+  holdings: Holding[]
+  dailyReturn?: number | null; cumReturn?: number | null
+  cost?: number | null; marketValue?: number | null
+  unrealized?: number | null; realized?: number | null
+  dividends?: number | null; irr?: number | null; xirr?: number | null
+  sharpe?: number | null; sortino?: number | null
+  beta?: number | null; alpha?: number | null
+}
+export interface News {
+  source: string; title: string; url: string
+  sentiment: 'pos' | 'neu' | 'neg'; importance: number
+  affectedStocks: string[]; aiSummary: string
+}
+export interface Strategy {
+  id: string; name: string; description: string
+  params: Record<string, unknown>; backtest?: Backtest; aiAnalysis?: string
+}
+export interface Backtest {
+  strategy: string; start: string; end: string; cost: number
+  annualReturn: number; mdd: number; sharpe: number; winRate: number
+  equityCurve: number[]
+}
+export interface MarketSummary {
+  updatedAt: string
+  marketCapRank: Stock[]; volumeRank: Stock[]; valueRank: Stock[]
+  limitUp: Stock[]; limitDown: Stock[]
+  foreignNetBuy: number; trustNetBuy: number; dealerNetBuy: number
+  aiDaily: string
+}
+```
+
+### 10.5 Adapter 模式（來源 → Contract）
+
+```typescript
+// 無論來源，轉出統一 Contract
+function fromJson(raw: any): Stock[] { return raw.stocks }
+function fromApi(raw: any): Stock[] { return raw.data }
+// React 不在乎上面誰呼叫，只認 Stock[]
+```
+
+### 10.6 對架構的影響（關鍵）
+- **JSON Schema（Pydantic）** 仍是 Python 產出時的驗證工具（確保 JSON 合法）
+- **Data Contract（TS 型別）** 是前端唯一依賴——兩者欄位必須 1:1 對應，由 `schemas.py` 與 `contracts.ts` 同步維護
+- 未來換 DB（PostgreSQL）時：只改 Adapter（DB→Contract），**React 零修改**
+- 這解決了「前端依賴特定來源」的根本問題，比單純雙源 JSON/API 更徹底
+
+### 10.7 維護紀律（寫入 skill 時遵守）
+- 新增欄位：先改 Contract（TS）+ Schema（Pydantic）同步，再改來源
+- 禁止：React 直接 `fetch('/data/xxx.json')` 不經 DataClient
+- 禁止：來源層邏輯滲透到 React 元件
+
+---
 
 ## 相關節點
 - [[finance/quant-dashboard|quant-dashboard 專案架構]]
