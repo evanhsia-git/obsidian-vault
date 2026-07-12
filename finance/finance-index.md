@@ -20,6 +20,11 @@ updated: 2026-07-09
 - 平衡型 ETF 持倉頁（尾碼 T）：[[finance/etf-active-stock/stock-t/00980T|00980T 平衡凱基美國TOP]]、[[finance/etf-active-stock/stock-t/00981T|00981T 平衡凱基雙核收息]]、[[finance/etf-active-stock/stock-t/00982T|00982T 平衡兆豐台美動能]]
 - 主動式 ETF 持倉頁（尾碼 A）：[[finance/etf-active-stock/stock-a/00980A|00980A 主動野村臺灣優選]]、[[finance/etf-active-stock/stock-a/00981A|00981A 主動統一台股增長]]、[[finance/etf-active-stock/stock-a/00982A|00982A 主動群益台灣強棒]]（共 28 檔，詳見 etf-active-stock 清單）
 
+## 量化基礎設施
+- [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]] — daily_stock_analysis 分析 + 我們的 Pages 架構圖說
+- [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
+- [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
+
 ## 個股與市場分析
 - [[taiwan-stock-top10-market-cap-20260709|Taiwan Stock Top 10 by Market Cap 2026-07-09]] — 市值前 10 大排名 + 量化分析（含 DB market_cap 異常警示）
 - all-market-listing-profile-2026-06-02 — 全市場上市股票清單（2026-06-02）
