@@ -21,7 +21,8 @@ updated: 2026-07-09
 - 主動式 ETF 持倉頁（尾碼 A）：[[finance/etf-active-stock/stock-a/00980A|00980A 主動野村臺灣優選]]、[[finance/etf-active-stock/stock-a/00981A|00981A 主動統一台股增長]]、[[finance/etf-active-stock/stock-a/00982A|00982A 主動群益台灣強棒]]（共 28 檔，詳見 etf-active-stock 清單）
 
 ## 量化基礎設施
-- [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]] — daily_stock_analysis 分析 + 我們的 Pages 架構圖說
+- [[finance/quant-dashboard|quant-dashboard 專案架構]] — GitHub Actions+Pages 公開儀表板（雙排程/多源備援/ABCD 四功能）
+- [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]] — daily_stock_analysis 分析 + Pages 架構
 - [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
 - [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
 
