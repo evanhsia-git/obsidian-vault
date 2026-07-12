@@ -323,6 +323,163 @@ jobs:
 
 > ⚠️ 本頁僅記錄，不實作。實作待架構全數確認後進 Phase 0。
 
+---
+
+## 七、重設計架構（雙源解耦，2026-07-13 後段）
+
+> 用戶要求遵循七大原則重設計，解決靜態 Pages 無法做動態功能的根本衝突。
+> 關鍵詞：**前端與 Python 完全解耦 / 雙源（JSON+API）可切換 / Admin 模組獨立部署**。
+> 詳細原則見 [[finance/quant-dashboard|quant-dashboard 專案架構]] 第二節。
+
+### 7.1 七大原則（精簡版）
+1. React 不直接碰 SQLite
+2. Python 只做：更新資料 / 執行策略 / AI 分析 / 匯出標準 JSON
+3. React 只讀 JSON 或 REST API，零商業邏輯
+4. 所有展示型模組雙源（靜態 JSON / Hermes API）
+5. Chat / Task / Settings → Admin 模組，部署 Hermes VPS，不進 Pages
+6. 統一 Data Schema（Pydantic / JSON Schema）
+7. 統一 Data Service 層（React 只經 `DataClient` 取數）
+
+### 7.2 Data Schema 草圖（Pydantic Model 範例）
+
+```python
+# schemas.py — 所有 JSON 匯出的契約
+from pydantic import BaseModel, Field
+from typing import List, Optional
+from datetime import date
+
+class StockBase(BaseModel):
+    symbol: str          # "2330"
+    name: str            # "台積電"
+    market: str          # "TWSE" | "TPEx"
+
+class MarketSnapshot(StockBase):
+    date: date
+    close: float
+    volume: int
+    change_pct: float
+    sector: Optional[str]
+
+class MarketSchema(BaseModel):
+    updated_at: date
+    stocks: List[MarketSnapshot]
+
+class FactorScore(BaseModel):
+    factor: str          # "Value"|"Growth"|"Momentum"|"Quality"|"Volatility"|"Liquidity"
+    score: float
+    rank: int
+    percentile: float
+
+class MultiFactorSchema(BaseModel):
+    symbol: str
+    factors: List[FactorScore]
+
+class ETFHolding(BaseModel):
+    symbol: str
+    name: str
+    weight: float        # 占比 %
+    industry: Optional[str]
+
+class ETFSchema(StockBase):
+    dividend_yield: Optional[float]
+    expense_ratio: Optional[float]
+    tracking_error: Optional[float]
+    top10_holdings: List[ETFHolding]
+    ai_summary: Optional[str]
+
+class ScreenerResult(BaseModel):
+    filters: dict        # 條件組合
+    results: List[StockBase]
+
+class BacktestResult(BaseModel):
+    strategy: str
+    start: date
+    end: date
+    cost: float
+    annual_return: float
+    mdd: float
+    sharpe: float
+    win_rate: float
+    equity_curve: List[float]
+
+class NewsItem(BaseModel):
+    source: str
+    title: str
+    url: str
+    sentiment: str       # "pos"|"neu"|"neg"
+    importance: int      # 1-5
+    affected_stocks: List[str]
+    ai_summary: str
+```
+
+### 7.3 Data Service 介面（React 側）
+
+```typescript
+// data/DataClient.ts
+export interface DataClient {
+  mode: 'json' | 'api'
+  getMarket(): Promise<MarketSchema>
+  getMultiFactor(symbol: string): Promise<MultiFactorSchema>
+  getETF(symbol: string): Promise<ETFSchema>
+  getScreener(filters: object): Promise<ScreenerResult>
+  getBacktest(params: object): Promise<BacktestResult>
+  getNews(): Promise<NewsItem[]>
+}
+
+// JsonClient: fetch('/data/market.json') 等
+// ApiClient:   fetch('https://vps.hermes/api/v1/market') 等
+// 切換只改 config.ts 的 mode，元件不變
+```
+
+### 7.4 REST API 路由表（Hermes VPS / FastAPI）
+
+| Method | Path | 說明 | 類型 |
+| --- | --- | --- | --- |
+| GET | `/api/v1/market` | 市場總覽 | 靜態可替 |
+| GET | `/api/v1/multifactor/{symbol}` | 多因子評分 | 靜態可替 |
+| GET | `/api/v1/etf/{symbol}` | ETF 明細 | 靜態可替 |
+| GET | `/api/v1/screener` | 選股結果 | 靜態可替 |
+| GET | `/api/v1/backtest` | 回測績效 | 靜態可替 |
+| GET | `/api/v1/news` | AI 新聞 | 靜態可替 |
+| POST | `/api/v1/chat` | **AI 問股（即時推理）** | **Admin 僅 VPS** |
+| POST | `/api/v1/task` | **任務觸發/查進度** | **Admin 僅 VPS** |
+| POST | `/api/v1/settings` | **API Key 設定** | **Admin 僅 VPS** |
+
+### 7.5 部署拓撲（最終）
+
+```
+┌─ GitHub Repo: ivanhsia/quant-dashboard ─┐
+│  frontend/ (React+TS+Tailwind+shadcn)   │
+│  data/ (*.json, Python 產出)            │
+│  schemas.py (Pydantic 契約)             │
+└──────────────────┬─────────────────────┘
+                     │ Actions 雙排程產 JSON + build
+          ┌──────────┴──────────┐
+          ▼                     ▼
+   GitHub Pages (靜態)      Hermes VPS (FastAPI)
+   /data/*.json             /api/v1/* + /admin/*
+   展示型 12 模組           Admin 3 模組 + 可選 API 源
+          ▲                     ▲
+          └──── React DataClient 切換 ─┘
+                (mode: 'json' | 'api')
+```
+
+### 7.6 對「現有 skills 調整」的影響
+- `quant-trading` 的 `daily_stock_pick.py` / `backtest.py` 需**改為產 JSON（過 Pydantic）**，不再只寫 DB/Markdown
+- 新增 `schemas.py`（契約層），前後端共用
+- 新增 `api_server.py`（FastAPI，Hermes VPS 跑），讀同一份 JSON 或 DB 轉 JSON
+- 前端 `frontend/` 新增 `data/DataClient.ts`，所有元件經此層
+- 舊 `web_server.py:8090` 可退役，由 FastAPI 取代（或保留做本地開發）
+
+---
+
+## 八、待決策（重設計後續）
+
+1. **Hermes VPS 現況**：是否有對外 VPS 可跑 FastAPI？還是 Admin 模組暫緩（先只做靜態 12 模組）？
+2. **schema 欄位細節**：7.2 草圖是否需增減欄位（如 Portfolio 的 IRR/XIRR 另立 schema）？
+3. **Screener 雙源語意**：靜態 JSON 是「預跑結果」，API 是「即時篩選」——前端要區分「看歷史篩選」vs「即時篩」嗎？
+4. **Phase 重排**：原 Phase 1~5 是否依新架構調整（如 Admin 模組獨立成 Phase 6）？
+
 ## 相關節點
 - [[finance/quant-dashboard|quant-dashboard 專案架構]]
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]

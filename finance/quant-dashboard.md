@@ -33,7 +33,89 @@ updated: 2026-07-13
 
 ---
 
-## 二、系統架構圖
+## 二、架構原則 v2（重設計：雙源解耦）
+
+> 2026-07-13 後段，用戶要求重設計，解決「靜態 Pages 無法做動態功能」的根本衝突。
+> 核心思想：**前端與 Python 完全解耦，所有功能雙源（靜態 JSON / REST API）可切換**。
+
+### 2.1 七大原則
+
+1. **React 前端完全與 Python 解耦**：不直接存取 SQLite，不寫 SQL。
+2. **Python 只負責四件事**：① 更新資料 ② 執行策略 ③ AI 分析 ④ 匯出標準化 JSON。
+3. **React 只讀 JSON 或 REST API**：不包含任何商業邏輯（篩選/計算在前端只做「展示層排序」，核心演算在 Python）。
+4. **所有 Dashboard / Screener / ETF / Heatmap / Backtest / News 雙源支援**：
+   - 靜態 JSON（GitHub Pages 部署，`/data/*.json`）
+   - REST API（Hermes/FastAPI 部署，`/api/v1/...`）
+5. **動態功能獨立為 Admin 模組**：AI Chat / Task Center / Settings 需寫入或即時推理 → 部署於 **Hermes VPS**，不放入 GitHub Pages。
+6. **統一 Data Schema**：所有匯出 JSON 用 Pydantic Model / JSON Schema 定義，前後端契約一致。
+7. **統一 Data Service 層**：React 元件不透過特定來源取數，只經 `DataClient` 介面（內部切換 JSON / API）。
+
+### 2.2 三層架構圖
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  Layer 1: Data Source (Python, 不在前端)                                │
+│  ┌────────────────────────────────────────────────────────────────┐  │
+│  │ quant-trading scripts (fetch_tw/fetch_us/pick/backtest/analyze) │  │
+│  │   → 產出標準化 JSON (經 Pydantic 驗證)                          │  │
+│  └────────────────────────────────────────────────────────────────┘  │
+│         │                                          │                   │
+│    (靜態部署)                                 (動態部署)               │
+│         ▼                                          ▼                   │
+│  ┌──────────────────────┐              ┌──────────────────────────┐  │
+│  │ GitHub Pages          │              │ Hermes VPS (FastAPI)      │  │
+│  │ /data/*.json          │              │ /api/v1/market           │  │
+│  │ (只讀, 免伺服器)       │              │ /api/v1/screener         │  │
+│  └──────────────────────┘              │ /api/v1/backtest          │  │
+│                                        │ + Admin: chat/task/setting│  │
+│                                        └──────────────────────────┘  │
+└──────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│  Layer 2: Data Service (React 內部, 統一介面)                           │
+│  ┌────────────────────────────────────────────────────────────────┐  │
+│  │  DataClient {                                                     │  │
+│  │    getMarket(): Promise<MarketSchema>                            │  │
+│  │    getScreener(): Promise<ScreenerSchema>                       │  │
+│  │    // 內部依 config 選 JSON fetch 或 API call                    │  │
+│  │  }                                                               │  │
+│  └────────────────────────────────────────────────────────────────┘  │
+│         │ 所有元件只經此層取數                                        │
+│         ▼                                                           │
+│  Layer 3: React UI (shadcn/ui 元件, 零商業邏輯)                       │
+│  🏠Dashboard 📈Market 🔍Screener 🤖AIAnalysis 📊Portfolio             │
+│  📑Backtest 🧠Strategy 📦ETF 📰News 🔥Heatmap 📅Calendar            │
+│  ── Admin 模組(另部署 Hermes VPS) ──                                  │
+│  🤖Chat 📋Task ⚙️Settings                                           │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### 2.3 雙源切換機制
+
+```typescript
+// DataClient 實作（React 側）
+interface DataClient {
+  mode: 'json' | 'api'
+  getMarket(): Promise<MarketSchema>
+}
+// mode='json' → fetch('/data/market.json')
+// mode='api'  → fetch('https://vps.hermes/api/v1/market')
+// 切換只改 .env / runtime config，元件代碼不變
+```
+
+### 2.4 模組分類（靜態 vs Admin）
+
+| 類型 | 模組 | 部署位置 |
+| --- | --- | --- |
+| **靜態（雙源）** | Dashboard / Market / Screener / AI Analysis / Portfolio / Backtest / Strategy / ETF / News / Heatmap / Calendar / Compare / Report | GitHub Pages + (可選) Hermes API |
+| **Admin（動態）** | Chat / Task Center / Settings | **Hermes VPS 僅**，不進 Pages |
+
+> ⚠️ AI Analysis 的「AI Summary/Score」由 Python 預計算產 JSON（靜態可看），但「即時問股 Chat」屬 Admin。
+
+---
+
+## 三、系統架構圖（v2 雙源版）
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
