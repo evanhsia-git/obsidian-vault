@@ -22,6 +22,7 @@ updated: 2026-07-09
 
 ## 量化基礎設施
 - [[finance/quant-dashboard|quant-dashboard 專案架構]] — GitHub Actions+Pages 公開儀表板（雙排程/多源備援/ABCD 四功能）
+- [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]] — 問答精華+Actions 提示詞範本（未來 skill 化種子）
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]] — daily_stock_analysis 分析 + Pages 架構
 - [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
 - [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
