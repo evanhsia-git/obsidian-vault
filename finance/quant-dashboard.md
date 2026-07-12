@@ -27,6 +27,7 @@ updated: 2026-07-13
 | 運算主力 | **GitHub Actions**（定時跑腳本、生成靜態網頁） |
 | 輔助角色 | **Hermes Agent**（僅開發/維護/備援，不參與日常運行） |
 | 展示層 | **GitHub Pages**（靜態託管，免伺服器） |
+| 前端框架 | **React 或 Vue**（hybrid 模式：Python 產 JSON → 前端讀 JSON 渲染互動儀表板） |
 | 雙源架構 | Actions 主力 + Hermes 備援（任一路可獨立產出） |
 | 資料隱私 | 公開「測試持倉示範資料」；真實持倉留本地，絕不 push |
 
@@ -61,18 +62,21 @@ updated: 2026-07-13
 ║  │  scripts/                                                          │ ║
 ║  │   ├── fetch_tw.py       台股抓取 (TWSE+TPEX 主, 備援 yfinance)    │ ║
 ║  │   ├── fetch_us.py       美股抓取 (yfinance/FinMind/OpenBB)        │ ║
-║  │   ├── daily_stock_pick.py 選股信號                               │ ║
-║  │   ├── backtest.py       回測引擎                                │ ║
-║  │   ├── build_dashboard.py 生成 HTML (Plotly)                     │ ║
-║  │   └── portfolio_sample.py 測試持倉產生器                        │ ║
-║  │  data/    (CSV/SQLite, Actions 運行時生成, gitignore 大檔)      │ ║
-║  │  docs/    (Pages 來源 = 靜態網頁, 以下為產出)                    │ ║
-║  │   ├── index.html        [A] 大盤/ETF 儀表板                     │ ║
-║  │   ├── picks.html         [B] 每日選股                           │ ║
-║  │   ├── backtest.html      [C] 回測績效                           │ ║
-║  │   ├── portfolio.html      [D] 測試持倉示範                      │ ║
-║  │   └── us/index.html      [A-us] 美股儀表板                      │ ║
-║  │  requirements.txt / .gitignore                                   │ ║
+║  │   ├── daily_stock_pick.py 選股信號 (輸出 picks.json)             │ ║
+║  │   ├── backtest.py       回測引擎 (輸出 backtest.json)            │ ║
+║  │   ├── portfolio_sample.py 測試持倉產生器 (輸出 portfolio.json)   │ ║
+║  │   └── export_json.py    彙整所有資料 → data/*.json              │ ║
+║  │  frontend/  (React 或 Vue 源碼)                                  │ ║
+║  │   ├── src/  (元件: 大盤圖/K線/選股表/回測曲線/持倉)              │ ║
+║  │   ├── package.json                                          │ ║
+║  │   └── vite.config.js (build → dist/)                         │ ║
+║  │  data/    (JSON, Actions 運行時生成, gitignore 大檔)            │ ║
+║  │  docs/ 或 dist/  (Pages 來源 = 前端 build 產出靜態檔)          │ ║
+║  │   ├── index.html        [A] 大盤/ETF 儀表板 (前端讀 data)       │ ║
+║  │   ├── picks.html         [B] 每日選股 (前端讀 picks.json)       │ ║
+║  │   ├── backtest.html      [C] 回測績效 (前端讀 backtest.json)    │ ║
+║  │   └── portfolio.html     [D] 測試持倉 (前端讀 portfolio.json)   │ ║
+║  │  requirements.txt / package.json / .gitignore                 │ ║
 ║  └──────────────────────────────────────────────────────────────────────┘ ║
 ║                                  │  git push main                       ║
 ║                                  ▼                                       ║
@@ -81,6 +85,7 @@ updated: 2026-07-13
 ║     │ [A] 台股大盤/ETF 儀表板  [A-us] 美股儀表板       │                 ║
 ║     │ [B] 每日選股推薦         [C] 回測績效展示         │                 ║
 ║     │ [D] 測試持倉示範 (標註非真實部位)                │                 ║
+║     │ 互動: K線縮放/篩選/切換 (React/Vue SPA)          │                 ║
 ║     └────────────────────────────────────────────────┘                 ║
 ╚══════════════════════════════════════════════════════════════════════════╝
         │                                      │
@@ -130,13 +135,15 @@ fetch_tw.py
     ▼
 ┌─── 並行三路 ───────────────────────────────┐
 ▼                  ▼                  ▼
-daily_stock_pick   backtest.py        build_dashboard.py
-[B] 選股信號        [C] 回測績效        [A] 台股大盤/ETF
-picks.html          backtest.html       index.html
-                                          │
-                                          ▼
-                                  portfolio_sample.py
-                                  [D] 測試持倉示範 portfolio.html
+daily_stock_pick   backtest.py        portfolio_sample.py
+[B] 選股信號        [C] 回測績效        [D] 測試持倉
+↓ picks.json        ↓ backtest.json     ↓ portfolio.json
+    ▼
+export_json.py → 彙整 data/*.json
+    ▼
+frontend build (npm install + npm run build → dist/)
+    ▼
+docs/ = dist/ (靜態 SPA, 前端讀 data/*.json 渲染)
     ▼
 git push → deploy-pages.yml → Pages 更新 [A][B][C][D]
 ```
@@ -172,14 +179,18 @@ git push → deploy-pages.yml → Pages 更新 [A][B][C][D]
 
 ## 五、工具與技術棧
 
-### 運算 / 部署工具
+### 運算 / 部署 / 前端工具
 | 工具 | 用途 | 備註 |
 | --- | --- | --- |
 | **GitHub Actions** | 定時運算 + 自動部署 | `schedule` + `deploy-pages` |
 | **GitHub Pages** | 靜態網頁託管 | 公開、免伺服器 |
-| **Python 3.11** | 腳本語言 | Actions `setup-python` |
-| **Plotly** | 圖表生成（烤進 HTML） | 免前端框架，最低複雜度 |
+| **Python 3.11** | 資料抓取/選股/回測（輸出 JSON） | Actions `setup-python` |
+| **React 或 Vue** | 前端 SPA 框架（讀 JSON 渲染互動儀表板） | `setup-node` + `npm run build` |
+| **Vite** | 前端打包工具（源碼→dist/ 靜態檔） | build 產出即 Pages 來源 |
 | **Hermes Agent** | 開發/維護/備援 | 本地，不日常運行 |
+
+> **架構模式（hybrid）**：Python 只負責「產資料 JSON」；React/Vue 負責「讀 JSON 畫互動圖」。兩者經 `data/*.json` 解耦——Python 改邏輯不影響前端，前端改 UI 不影響資料層。
+> ⚠️ 此決策（2026-07-13 後段）**推翻早期「Python+Plotly 直接生成 HTML」的 MVP 假設**。採 React/Vue 因用戶要求互動性與長期擴充性。
 
 ### 資料源（主 + 備援）
 | 市場 | 主源（優先） | 備援（依 vars 切換） |
@@ -208,19 +219,19 @@ git push → deploy-pages.yml → Pages 更新 [A][B][C][D]
 - ✅ 公開 + 測試持倉（非真實）
 - ✅ Python+Plotly（非前端框架，MVP 階段）
 
-### 待確認 → 已決策（2026-07-13 補）
-1. **Push 頻率**：✅ 每日只 push 一次。08:30 抓美股先存 `data/us_market.csv`（不 push）；17:00 抓台股+合併前日美股→整合後**一次 push**（避免互相覆蓋 main）。
-2. **示警雙通道**：✅ Telegram + Email。監控 Pages 內容日期是否停滯（Actions 失敗/API 全掛→告警）。檢查方式：比對 `docs/` 內最新資料日期 vs 交易日曆。
-3. **網頁手填資料**：✅ 採用「repo 內 CSV 編輯」方案——在 `data/portfolio-data.csv` 放持倉範本，使用者直接在 GitHub 網頁點「編輯」手填（代號/股數/成本），**不用程式碼、不用外部軟體**。Actions 讀 CSV 生成 [D] 頁。未來真實資料增減→上 GitHub 改 CSV 即可。
-4. **即時報價**：✅ 不使用。全用前一日完整收盤資料作業（頻寬/隱私考量）。
-5. **匿名**：✅ 網站不出現作者資訊；頁面標註「金融數據僅供參考，測試使用」。
-6. **選股 [B] 標的池 / 數量**：待確認（預設台股 15 檔，沿用 quant-trading）
-7. **回測 [C] 策略來源**：待確認（預設公開版簡易策略，避免暴露私密邏輯）
-8. **持倉 [D] 標的範圍**：待確認（預設 ETF + 個股範例混合）
-9. **頁面語言**：待確認（預設繁體中文）
-10. **Hermes 備援觸發**：待確認（預設手動發指令補跑）
-
-> 決策原則：先以前一日資料跑通 MVP，即時/隱私/策略細節留後續討論。
+### 待確認 → 已決策（2026-07-13 補，含後段變更）
+1. **Push 頻率**：✅ 每日只 push 一次。08:30 抓美股先存 `data/us_market.json`（不 push）；17:00 抓台股+合併前日美股→整合後**一次 push**。
+2. **示警雙通道**：✅ Telegram + Email。監控 Pages 內容日期是否停滯。
+3. **網頁手填資料**：✅ repo 內 `data/portfolio-data.csv` 網頁編輯（A 方案，無程式碼）。
+4. **即時報價**：✅ 不使用，全前一日收盤資料。
+5. **匿名**：✅ 不出現作者；標註「金融數據僅供參考，測試使用」。
+6. **排程時間**：✅ 08:30 台股前一夜美股 / 17:00 台股收盤後（正式採用）。
+7. **技術棧**：✅ **React 或 Vue 為主（hybrid 模式）**——Python 產 `data/*.json`，前端讀 JSON 渲染互動儀表板（K線縮放/篩選/切換）。⚠️ 推翻早期 Python+Plotly 假設。
+8. **選股 [B] 標的池 / 數量**：待確認（預設台股 15 檔）
+9. **回測 [C] 策略來源**：待確認（預設公開版簡易策略）
+10. **持倉 [D] 標的範圍**：待確認（預設 ETF + 個股範例混合）
+11. **頁面語言**：待確認（預設繁體中文）
+12. **Hermes 備援觸發**：待確認（預設手動發指令補跑）
 
 ---
 

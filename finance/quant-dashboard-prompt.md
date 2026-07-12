@@ -57,7 +57,11 @@ updated: 2026-07-13
 **A**：**雙示警 Telegram + Email**。監控 Pages 內容日期是否停滯（Actions 失敗/API 全掛→告警）。
 
 ### Q9: 技術棧（用戶不懂前端框架 vs Python 生成）？
-**A**：**Python 生成靜態 HTML（Plotly）**。解釋：Python 用 Plotly 把圖「烤」進 HTML，瀏覽器不用再算；前端框架（React/Vue）是另一種做法（互動強但需學 TypeScript/build）。MVP 用 Python 最快上線。
+**A**：**最終決策：React 或 Vue 為主（hybrid 模式）**。
+- 早期假設：Python+Plotly 直接生成 HTML（MVP 最低複雜度）
+- 後段變更（2026-07-13）：用戶要求「以 React/Vue 開發為主」→ 改為 Python 產 `data/*.json`，前端讀 JSON 渲染互動儀表板（K線縮放/篩選/切換）
+- 解耦：Python 改邏輯不影響前端；前端改 UI 不影響資料層
+- 架構變複雜（需 setup-node + npm build），但互動性與擴充性強
 
 ---
 
@@ -74,7 +78,8 @@ updated: 2026-07-13
 | 持倉填寫 | repo CSV 網頁編輯（無程式碼） |
 | 隱私 | 匿名 + 測試資料標註 + 真實留本地 |
 | 示警 | Telegram + Email 雙通道 |
-| 技術 | Python + Plotly（非前端框架） |
+| 技術 | Python + Plotly（非前端框架） | **已推翻** |
+| 技術 | **React 或 Vue 為主（hybrid：Python 產 JSON + 前端讀 JSON 渲染）** | 2026-07-13 後段變更 |
 | Repo | `ivanhsia/quant-dashboard`（Public + Pages） |
 | 功能 | ABCD 全做（大盤/ETF、選股、回測、測試持倉） |
 
@@ -112,13 +117,20 @@ jobs:
         run: |
           python scripts/fetch_tw.py
           python scripts/fetch_us.py --use-cache
-      - name: 選股+回測+生成網頁
+      - name: 選股+回測+匯出 JSON
         run: |
           python scripts/daily_stock_pick.py
           python scripts/backtest.py
-          python scripts/build_dashboard.py
-      - name: 一次 push
+          python scripts/portfolio_sample.py
+          python scripts/export_json.py
+      - name: 前端 build (React/Vue)
+        working-directory: frontend
         run: |
+          npm ci
+          npm run build
+      - name: 部署準備
+        run: |
+          rm -rf docs && cp -r frontend/dist docs
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add docs/ data/
