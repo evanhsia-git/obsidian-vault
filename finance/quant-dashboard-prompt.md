@@ -14,7 +14,7 @@ updated: 2026-07-13
 # quant-dashboard 實作紀錄與提示詞
 
 > 用途：記錄本專案的**問答過程、決策邏輯、提示詞範本**，供未來提煉成 Hermes skill 時參考。
-> 關聯架構頁：[[finance/quant-dashboard|quant-dashboard 專案架構]]
+> 關聯架構頁：[[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
 > 研究基礎：[[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
 
 ---
@@ -182,12 +182,6 @@ jobs:
 
 ---
 
-6. ~~Python+Plotly 勝前端框架~~（已推翻：2026-07-13 後段改 React/Vue 為主，詳見 Q9）
-7. **雙示警（Telegram+Email）**：單通道可能漏，雙通道互補
-8. **前端技術棧定型**：React + TypeScript + Tailwind + shadcn/ui（用戶明確指定，見第六節模組規格）
-
----
-
 ## 六、15 模組 Dashboard 設計規格（用戶提供）
 
 > 用戶給出完整 15 模組規格，目標風格參考 Bloomberg Terminal / TradingView / OpenBB / Koyfin。
@@ -303,13 +297,8 @@ jobs:
 
 ## 五、學習點（提煉 skill 時注意）
 
-1. **Actions 與 Pages 是兩個獨立功能**：Actions 算、Pages 秀；串接靠 `deploy-pages.yml` 監聽 push
-2. **每日一次 push 防覆蓋**：雙排程若各 push 會衝突；解法是 08:30 只存 data/、17:00 合併後一次 push
-3. **備援資料源是生產級必要**：主源（TWSE/TPEX）偶爾延遲/維護，備援鏈（yfinance/FinMind/OpenBB）保證不斷
-4. **靜態網頁不能收表單**：手填資料用「repo CSV 網頁編輯」繞過，符合「無程式碼」要求
-5. **匿名公開站**：金融數據敏感，真實持倉絕不 push；用測試示範資料 + 免責聲明
-6. **Python+Plotly 勝前端框架**：MVP 階段最低複雜度，未來要互動再升級
-7. **雙示警（Telegram+Email）**：單通道可能漏，雙通道互補
+1. **雙示警（Telegram+Email）**：單通道可能漏，雙通道互補
+2. **行動優先順序**：先定架構（wiki 為交付物）→ 確認全決策 → 再 Phase 0 實作
 
 ---
 
@@ -329,7 +318,7 @@ jobs:
 
 > 用戶要求遵循七大原則重設計，解決靜態 Pages 無法做動態功能的根本衝突。
 > 關鍵詞：**前端與 Python 完全解耦 / 雙源（JSON+API）可切換 / Admin 模組獨立部署**。
-> 詳細原則見 [[finance/quant-dashboard|quant-dashboard 專案架構]] 第二節。
+> 詳細原則見 [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]] 第二節。
 
 ### 7.1 七大原則（精簡版）
 1. React 不直接碰 SQLite
@@ -621,6 +610,6 @@ function fromApi(raw: any): Stock[] { return raw.data }
 ---
 
 ## 相關節點
-- [[finance/quant-dashboard|quant-dashboard 專案架構]]
+- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
 - [[quant-python-ai-agent|量化 Python AI Agent]]

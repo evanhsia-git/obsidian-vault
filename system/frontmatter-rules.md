@@ -43,7 +43,7 @@ entity | concept | project | resource | report | query | task | index | log | sc
 ```text
 entity      實體 / 實際的人、事、物描述，例如賈伯斯、蘋果公司、IPHONE手機
 concept     概念 / 抽象的想法、理論、概念、名詞解釋、公式
-project     專案 / 一個有明確目標、由多個任務組成的大型計畫
+project     專案 / 一個有明確目標、由多個任務組成的大型計畫（大小上限 700 行，與 obsidian-lint SIZE_LIMITS 同步）
 resource    資源 / 參考資源別人寫的文章、網頁、書籍摘要、法律條文或代碼範例。它是你拿來參考的「別人的東西」
 report      報告 / 自己整合、分析後的階段性正式輸出成果
 query       查詢 / 動態查詢或看板通常裡面沒有自己寫的內容，只有一堆 Dataview 語法，用來自動抓出符合條件的筆記

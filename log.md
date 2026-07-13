@@ -592,3 +592,27 @@ updated: 2026-06-23
 ## [2026-07-12 19:44:13] lint | 0 dir_perm_fixed, 13 file_perm_fixed | 2 large_pages
 ## [2026-07-12 21:00:19] lint | 2 large_pages
 ## [2026-07-13 05:30:55] lint | 0 dir_perm_fixed, 10 file_perm_fixed | 3 large_pages
+## [2026-07-13 07:16:19] lint | 0 dir_perm_fixed, 12 file_perm_fixed
+## [2026-07-13 07:19:15] lint | 1 missing_fields | 1 broken_links
+## [2026-07-13 07:19:33] lint | 1 missing_fields
+## [2026-07-13 07:30:03] lint | 1 missing_fields
+## [2026-07-13 14:23:37] lint | 1 invalid_names | 9 missing_fields | 2 invalid_type | 5 invalid_status | 3 orphans
+## [2026-07-13 14:32:31] lint | 1 invalid_names | 8 missing_fields | 4 invalid_status | 3 orphans
+## [2026-07-13 14:40:35] lint | 1 invalid_names | 8 missing_fields | 4 invalid_status | 3 orphans
+## [2026-07-13 14:44:13] lint | 1 invalid_names | 8 missing_fields
+## [2026-07-13 14:51:03] lint | 1 invalid_names | 8 missing_fields
+## [2026-07-13 14:56:29] lint | 1 invalid_names | 8 missing_fields
+## [2026-07-13 14:57:42] lint | 1 invalid_names | 8 missing_fields
+## [2026-07-13 14:58:58] lint | 8 missing_fields
+## [2026-07-13 15:00:20] lint | 8 missing_fields
+## [2026-07-13 15:06:29] lint | 8 missing_fields
+## [2026-07-13 15:29:32] lint | 8 missing_fields
+## [2026-07-13 16:35:42] lint | 8 missing_fields
+## [2026-07-13 16:37:07] lint | 8 missing_fields
+## [2026-07-13 16:38:41] lint | 8 missing_fields
+## [2026-07-13 16:39:52] lint | 8 missing_fields
+## [2026-07-13 16:46:15] lint | 8 missing_fields
+## [2026-07-13 16:47:38] lint | 8 missing_fields
+## [2026-07-13 16:48:50] lint | 6 missing_fields
+## [2026-07-13 16:50:56] lint | 全部通過
+## [2026-07-13 21:00:59] lint | 全部通過

@@ -15,7 +15,7 @@ updated: 2026-07-13
 
 > 狀態：**審查紀錄，待用戶採納**。本頁為多角色架構審查，非最終決策。
 > 角色視角：Senior Software Architect / React Tech Lead / Python Backend Architect / DevOps Architect / Quant Trading System Architect。
-> 對應：[[finance/quant-dashboard|架構主文]]、[[finance/quant-dashboard-qa-1|Q&A 第一批（23 題選項）]]、[[finance/quant-dashboard-prompt|實作紀錄]]。
+> 對應：[[quant-dashboard-v2-100個功能|架構主文]]、[[finance/quant-dashboard-qa-1|Q&A 第一批（23 題選項）]]、[[finance/quant-dashboard-prompt|實作紀錄]]。
 > 每題給 A/B/C 分析 + 第四方案 D（若有）+ Recommendation（含 GitHub Pages / Hermes / React / 長期維護 評分）。
 
 ---
@@ -456,7 +456,7 @@ updated: 2026-07-13
 **待用戶採納**：Q0~Q22 的 Recommendation（多推 ⭐/D 混合）是否全採；採納後整理「最終決策表」回寫架構主文。
 
 ## 相關節點
-- [[finance/quant-dashboard|quant-dashboard 專案架構]]
+- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
 - [[finance/quant-dashboard-qa-1|quant-dashboard 架構 Q&A（第一批）]]
 - [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]]
 - [[finance/quant-dashboard-resource|quant-dashboard 資源清單]]

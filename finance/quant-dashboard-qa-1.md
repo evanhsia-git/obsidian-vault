@@ -14,7 +14,7 @@ updated: 2026-07-13
 # quant-dashboard 架構 Q&A（第一批）
 
 > 狀態：**待用戶思考後回覆**，本頁僅記錄討論選項，尚無定論。
-> 對應架構主文：[[finance/quant-dashboard|quant-dashboard 專案架構]]、[[finance/quant-dashboard-prompt|實作紀錄與提示詞]]。
+> 對應架構主文：[[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]、[[finance/quant-dashboard-prompt|實作紀錄與提示詞]]。
 > 每題給 3 方案，⭐ 為 Agent 建議方案。
 
 ---
@@ -211,9 +211,9 @@ updated: 2026-07-13
 
 ## 待回覆
 
-用戶思考後回覆每題選項（或全採 ⭐ 建議）。回覆後整理為「最終決策表」寫入 [[finance/quant-dashboard|架構主文]]。
+用戶思考後回覆每題選項（或全採 ⭐ 建議）。回覆後整理為「最終決策表」寫入 [[quant-dashboard-v2-100個功能|架構主文]]。
 
 ## 相關節點
-- [[finance/quant-dashboard|quant-dashboard 專案架構]]
+- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
 - [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]]
 - [[finance/quant-dashboard-resource|quant-dashboard 資源清單]]

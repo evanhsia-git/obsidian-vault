@@ -21,13 +21,20 @@ updated: 2026-07-09
 - 主動式 ETF 持倉頁（尾碼 A）：[[finance/etf-active-stock/stock-a/00980A|00980A 主動野村臺灣優選]]、[[finance/etf-active-stock/stock-a/00981A|00981A 主動統一台股增長]]、[[finance/etf-active-stock/stock-a/00982A|00982A 主動群益台灣強棒]]（共 28 檔，詳見 etf-active-stock 清單）
 
 ## 量化基礎設施
-- [[finance/quant-dashboard|quant-dashboard 專案架構]] — GitHub Actions+Pages 公開儀表板（雙排程/多源備援/ABCD 四功能）
+- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]] — GitHub Actions+Pages 公開儀表板（雙排程/多源備援/ABCD 四功能）
 - [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]] — 問答精華+Actions 提示詞範本（未來 skill 化）
 - [[finance/quant-dashboard-resource|quant-dashboard 資源清單]] — 平台/框架/UI/圖表/資料源參考
 - [[finance/quant-dashboard-qa-1|quant-dashboard 架構 Q&A（第一批）]] — 23 題待決+⭐建議，待用戶回覆
 - [[finance/quant-dashboard-qa-2|quant-dashboard 架構審查（多角色）]] — Q0~Q22 五角色審查+D方案+Q23~36遺漏+ADR+Roadmap
+- [[quant-dashboard-skill|quant-dashboard Skill 藍圖]] — 標準 SKILL.md 規範寫成的未來 skill 藍圖（觸發/鐵律/15模組/Phase）
+- [[finance/quant-dashboard|quant-dashboard 簡化架構 v3.0]] — 現行架構主文（執行效率×系統維護×新手心態，減法版）
 - [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
 - [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
+
+## 歷史備份版本（archived）
+> 以下為量化儀表板專案的歷史版本快照，供回頭查核，非現行討論檔。
+- [[quant-dashboard-v1|quant-dashboard-v1（專案架構初版）]]
+- [[quant-dashboard-v3|quant-dashboard-v3（簡化架構 v3.0 副本）]]
 
 ## 個股與市場分析
 - [[taiwan-stock-top10-market-cap-20260709|Taiwan Stock Top 10 by Market Cap 2026-07-09]] — 市值前 10 大排名 + 量化分析（含 DB market_cap 異常警示）

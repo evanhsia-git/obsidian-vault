@@ -1,337 +1,368 @@
 ---
-title: "quant-dashboard 專案架構"
-description: "ivanhsia/quant-dashboard 股市公開儀表板專案——GitHub Actions + Pages 配合架構、雙排程、多資料源備援、ABCD 四功能規劃"
-summary: "新專案架構文：Actions 為主+Hermes 備援，雙排程(08:30美股/17:00台股)，TWSE+TPEX 主源+FinMind/yfinance/OpenBB 備援，公開 Pages 展示大盤/選股/回測/測試持倉四功能"
+title: "quant-dashboard 簡化架構 v3.0"
+description: "以使用者任務為核心的 Domain 架構：Market/Asset/Portfolio/Research/Learning + 首頁複合視圖，System 不佔導覽。18功能全複用既有JSON。"
 type: project
 status: active
 tags:
   - etf
   - finance
+  - skills
+summary: "公開股市儀表板架構主文 v3.0：以使用者任務為核心的 5 Domain + 首頁複合視圖，含架構憲法與 4 核心 JSON 契約。"
 created: 2026-07-13
 updated: 2026-07-13
 ---
 
-# quant-dashboard 專案架構
+# quant-dashboard 簡化架構 v3.0（架構規劃主文）
 
-> 狀態：**規劃中（尚未實作）**，本頁為架構決策記錄，供逐步討論。
-> Repo：`ivanhsia/quant-dashboard`（GitHub Public + Pages 啟用）
-> 研究基礎：[[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
+> **本頁角色**：架構「規劃與設計依據」——回答「為什麼這樣設計」。所有設計決策、Domain 劃分、Provider 策略、Phase 路線、檔案樹皆在此。
+> **可部署 Skill 正文（執行規範）**：[[quant-dashboard-skill|quant-dashboard 可部署 Skill]]——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
+> 分工：**改設計 → 改本頁；改執行流程 → 改 Skill 頁**。兩頁章節一一對應（見下表）。
 
----
+以**使用者任務**為核心：不問「我有什麼功能」，只問「使用者來做什麼」。架構以 Domain 分類，每 Domain 只回答一個問題。這是對「功能堆疊」思維的減法重構——8 原模組 → 5 Domain + 首頁，核心 JSON 契約砍併為 4 份；目標不是功能最多，而是最容易維護 / Fork / 理解 / 長期發展。
 
-## 一、專案定位
+### 文件對應表（主文 ↔ Skill）
+| 主文章節（設計依據） | Skill 章節（執行規範） | 對應內容 |
+|----------------------|------------------------|----------|
+| §0 三個判準 | 七、執行鐵律 / 八、架構憲法 | 優先序與取捨準則 |
+| §1 Domain 架構 | 六、5 Domain 契約 | 5 Domain + 首頁（任務導向） |
+| §2 降級 View/Tool | 六、契約備註 | Ranking 僅 Asset 等歸屬 |
+| §3 Z100 精選 | 八、新增功能閘門 | 功能取捨依據 |
+| §4 新手心態 | 七、鐵律 #4/#11 | 空狀態引導 / 新鮮度 banner |
+| §5 執行效率與維護 | 九、Phase 路線 | Build-Time 單一 pipeline |
+| §6 Phase Roadmap | 九、Phase 路線 | Phase0/1/2 範圍 |
+| §7 刪除/延後清單 | 八、閘門 | 砍除項目 |
+| §8 架構憲法 | 八、憲法與閘門 | 合規檢查 |
+| §9 架構圖 | 五、Provider Layer / 十、驗證清單 | 資料流與驗證 |
+| §10 預設檔案結構 | 三、執行流程 / 五、Provider | 預設 repo 樹 |
 
-| 項目 | 決策 |
-| --- | --- |
-| 目標 | 公開股市儀表板網站（任何人可訪問），展示台股/美股分析 |
-| 運算主力 | **GitHub Actions**（定時跑腳本、生成靜態網頁） |
-| 輔助角色 | **Hermes Agent**（僅開發/維護/備援，不參與日常運行） |
-| 展示層 | **GitHub Pages**（靜態託管，免伺服器） |
-| 前端框架 | **React 或 Vue**（hybrid 模式：Python 產 JSON → 前端讀 JSON 渲染互動儀表板） |
-| 雙源架構 | Actions 主力 + Hermes 備援（任一路可獨立產出） |
-| 資料隱私 | 公開「測試持倉示範資料」；真實持倉留本地，絕不 push |
+## 0. 三個判準
+| 判準 | 不通過處理 |
+| 執行效率 | 砍除或併入既有 Build 流程 |
+| 系統維護 | 非核心不新增契約/Provider/開關 |
+| 新手心態 | 砍除或預設隱藏+風險提示 |
 
----
+優先順序：新手心態 > 系統維護 > 執行效率
 
-## 二、架構原則 v2（重設計：雙源解耦）
+## 1. Domain 架構（使用者任務）
+首頁為跨域複合視圖，非獨立模組。5 導覽 Domain + System（不佔導覽）。
 
-> 2026-07-13 後段，用戶要求重設計，解決「靜態 Pages 無法做動態功能」的根本衝突。
-> 核心思想：**前端與 Python 完全解耦，所有功能雙源（靜態 JSON / REST API）可切換**。
+| Domain | 只回答一個問題 | 內含（功能折併） | 使用頻率 | 唯一 CTA |
+|--------|--------------|-----------------|---------|---------|
+| **首頁** | 今天市場怎樣？我的持股有無問題？哪些股值得注意？今天有哪些風險？ | Market摘要+Portfolio警示+觀察清單+風險彙整+狀態條 | 每日 | — |
+| **Market 市場** | 今天市場怎麼樣？ | 指數K線+漲跌家數+三大法人；Heatmap/Ranking/News 為 View | 每日 | 看個股 ↓ |
+| **Asset 標的** | 這檔值得研究嗎？我想找股票？ | 個股頁+ETF專區；Screener/Compare 為 Tool；折溢價/財報燈號/風險燈/情緒燈/填權/除息月曆 為 View | 每日/每週 | 加入觀察／加入持股 |
+| **Portfolio 投資組合** | 我的投資現在如何？ | 持倉+績效+集中度警示+定期定額試算 | 每日 | 更新持股 |
+| **Research 研究** | 我的策略有效嗎？ | 策略與回測(簡化)；Report 為 View；Replay 為 Tool(延後) | 低頻→進階模式 | 開始回測 |
+| **Learning 學習** | 我想學習什麼？ | 財報辭典+行事曆+「如果當初買了」試算+風險教育卡 | 每週 | 開始學習 |
+| **System 系統** | 平台狀態／治理 | 部署徽章+資料新鮮度+Issues+Projects+P1-P8體檢 | 背景 | —（不佔導覽） |
 
-### 2.1 七大原則
+導覽順序（PM 頻率排序）：首頁 → Market → Asset → Portfolio → Learning → 〔進階〕Research。System 僅首頁狀態條 + GitHub 原生。
 
-1. **React 前端完全與 Python 解耦**：不直接存取 SQLite，不寫 SQL。
-2. **Python 只負責四件事**：① 更新資料 ② 執行策略 ③ AI 分析 ④ 匯出標準化 JSON。
-3. **React 只讀 JSON 或 REST API**：不包含任何商業邏輯（篩選/計算在前端只做「展示層排序」，核心演算在 Python）。
-4. **所有 Dashboard / Screener / ETF / Heatmap / Backtest / News 雙源支援**：
-   - 靜態 JSON（GitHub Pages 部署，`/data/*.json`）
-   - REST API（Hermes/FastAPI 部署，`/api/v1/...`）
-5. **動態功能獨立為 Admin 模組**：AI Chat / Task Center / Settings 需寫入或即時推理 → 部署於 **Hermes VPS**，不放入 GitHub Pages。
-6. **統一 Data Schema**：所有匯出 JSON 用 Pydantic Model / JSON Schema 定義，前後端契約一致。
-7. **統一 Data Service 層**：React 元件不透過特定來源取數，只經 `DataClient` 介面（內部切換 JSON / API）。
+## 2. 降級為 View / Tool（非一級導覽）
+| 項目 | 性質 | 歸屬 |
+|------|------|------|
+| Heatmap | View | Market |
+| Ranking | View | **僅 Asset**（Market 層級只看好壞，無 Ranking） |
+| News | View（資訊流） | Market / Asset |
+| Calendar | Tool | Learning |
+| Compare | Tool（個股頁內「加入比較」） | Asset |
+| Report | View | Research |
+| Replay | Tool（延後，低頻+運算貴） | Research |
 
-### 2.2 三層架構圖
+## 3. Z100 精選（18 項）
+全複用既有 JSON/計算，無新增 Provider/Workflow。
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│  Layer 1: Data Source (Python, 不在前端)                                │
-│  ┌────────────────────────────────────────────────────────────────┐  │
-│  │ quant-trading scripts (fetch_tw/fetch_us/pick/backtest/analyze) │  │
-│  │   → 產出標準化 JSON (經 Pydantic 驗證)                          │  │
-│  └────────────────────────────────────────────────────────────────┘  │
-│         │                                          │                   │
-│    (靜態部署)                                 (動態部署)               │
-│         ▼                                          ▼                   │
-│  ┌──────────────────────┐              ┌──────────────────────────┐  │
-│  │ GitHub Pages          │              │ Hermes VPS (FastAPI)      │  │
-│  │ /data/*.json          │              │ /api/v1/market           │  │
-│  │ (只讀, 免伺服器)       │              │ /api/v1/screener         │  │
-│  └──────────────────────┘              │ /api/v1/backtest          │  │
-│                                        │ + Admin: chat/task/setting│  │
-│                                        └──────────────────────────┘  │
-└──────────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  Layer 2: Data Service (React 內部, 統一介面)                           │
-│  ┌────────────────────────────────────────────────────────────────┐  │
-│  │  DataClient {                                                     │  │
-│  │    getMarket(): Promise<MarketSchema>                            │  │
-│  │    getScreener(): Promise<ScreenerSchema>                       │  │
-│  │    // 內部依 config 選 JSON fetch 或 API call                    │  │
-│  │  }                                                               │  │
-│  └────────────────────────────────────────────────────────────────┘  │
-│         │ 所有元件只經此層取數                                        │
-│         ▼                                                           │
-│  Layer 3: React UI (shadcn/ui 元件, 零商業邏輯)                       │
-│  🏠Dashboard 📈Market 🔍Screener 🤖AIAnalysis 📊Portfolio             │
-│  📑Backtest 🧠Strategy 📦ETF 📰News 🔥Heatmap 📅Calendar            │
-│  ── Admin 模組(另部署 Hermes VPS) ──                                  │
-│  🤖Chat 📋Task ⚙️Settings                                           │
-└──────────────────────────────────────────────────────────────────────┘
-```
+| 原編號 | 功能 | 歸屬 |
+|--------|------|------|
+| #9 | 資料新鮮度提示條 | 首頁/System |
+| #8 | 部署狀態徽章 | System（首頁狀態條） |
+| #22 | 財報成長趨勢燈號 | Asset(View) |
+| #30 | 個股風險警示燈 | Asset/首頁 |
+| #46 | 持倉集中度警示 | Portfolio |
+| #47 | 定期定額試算器 | Portfolio(Tool) |
+| #77 | 除權息倒數提醒卡 | Learning/Asset |
+| #76 | 日曆訂閱(.ics) | Learning(Tool)【延後進階：低頻】 |
+| #95 | 「如果當初買了」試算器 | Learning(Tool) |
+| #71 | 規則式情緒燈號(非AI) | Asset(View) |
+| #29 | 除權息填權速度 | Asset(View) |
+| #35 | 高股息ETF除息月曆 | Asset【除權息三項#29/#35/#77全歸Asset】 |
+| #31 | ETF折溢價追蹤 | Asset(View) |
+| #36 | ETF費用侵蝕試算 | Asset/Learning |
+| #58 | 回測版本快照 | Research |
+| #81/#83 | Issue Template / Projects看板 | System（GitHub原生，合為治理註腳，移出功能表） |
+| #100 | P1-P8自我體檢報告 | 改 CI 自動機制（移出功能表） |
 
-### 2.3 雙源切換機制
+排除：#14恐慌貪婪、#53 Walk-Forward、#65因子權重優化→降級/刪除
 
-```typescript
-// DataClient 實作（React 側）
-interface DataClient {
-  mode: 'json' | 'api'
-  getMarket(): Promise<MarketSchema>
-}
-// mode='json' → fetch('/data/market.json')
-// mode='api'  → fetch('https://vps.hermes/api/v1/market')
-// 切換只改 .env / runtime config，元件代碼不變
-```
+## 4. 新手心態設計準則
+| 準則 | 規則 |
+|------|------|
+| 首頁不像 Bloomberg/TradingView/券商 | 只答4問，<30s理解 |
+| 不做即時盤中資訊 | 全站前日收盤，首頁標「非即時」 |
+| 排行不強調短期漲跌 | 預設近1年，當日需手動切+提示 |
+| 不做競賽/排行遊戲 | 模擬競賽/貢獻者排行一律不做 |
+| 量化研究預設收合 | Research 進階模式 |
+| AI/合理價不做預設 | 標輔助資訊、預設關閉(設Key才出) |
+| 槓桿/衍生品不進首屏 | 附教育卡、不進預設選單 |
+| 教育優於進階工具 | Learning 排 Research 前 |
+| 每排行附「非建議」提示 | 所有排序頁統一footer |
 
-### 2.4 模組分類（靜態 vs Admin）
+## 5. 執行效率與維護
+- 全站共用單一每日 Actions pipeline 產 `data/*.json`；無新 Workflow
+- 禁止重複抓資料/重複計算；Build Time 固定
+- 學習中心靜態資料，不佔每日排程
+- 排行/Heatmap 複用既有因子價格，只改呈現
+- 回測縮小範圍（不做 Walk-Forward/蒙地卡羅）
+- 8 原模組 → 5 Domain+首頁；**核心 JSON 契約砍併為 4 份（market/asset/portfolio/learning）**
 
-| 類型 | 模組 | 部署位置 |
-| --- | --- | --- |
-| **靜態（雙源）** | Dashboard / Market / Screener / AI Analysis / Portfolio / Backtest / Strategy / ETF / News / Heatmap / Calendar / Compare / Report | GitHub Pages + (可選) Hermes API |
-| **Admin（動態）** | Chat / Task Center / Settings | **Hermes VPS 僅**，不進 Pages |
+## 6. Phase Roadmap
+| Phase | 範圍 |
+|-------|------|
+| 1 核心 | 首頁+Market+Asset+Portfolio+Learning+System狀態條 |
+| 2 進階選配 | Research(回測)+因子中性化/Compare/Replay/AI摘要(設Key) |
 
-> ⚠️ AI Analysis 的「AI Summary/Score」由 Python 預計算產 JSON（靜態可看），但「即時問股 Chat」屬 Admin。
+無Phase 3/4：後端模組與百科系列已砍/併。
 
----
+## 7. 刪除/延後清單
+| 類別 | 項目 | 處置 |
+|------|------|------|
+| 模組 | K Replay/O Snapshot/T Report | 刪除 |
+| 模組 | 6.13-6.15 Chat/Task/Settings | 刪除(違Fork First) |
+| View/Tool | Replay | 延後Phase2 |
+| Z100 | 其餘82項 | 延後/刪除 |
+| 心態 | #91競賽/#85貢獻排行 | 刪除 |
+| 心態 | #14恐慌貪婪/#37槓桿ETF/#17價差 | 延後+風險卡 |
 
-## 三、系統架構圖（v2 雙源版）
+## 8. 架構憲法（Architecture Constitution）
 
-```
-╔══════════════════════════════════════════════════════════════════════════╗
-║              GitHub Repo: ivanhsia/quant-dashboard (Public + Pages)       ║
-╠══════════════════════════════════════════════════════════════════════════╣
-║                                                                          ║
-║  ┌── .github/workflows/ ──────────────────────────────────────────────┐ ║
-║  │                                                                      │ ║
-║  │  (1) us-market.yml  ■ 排程 08:30 (台灣)                              │ ║
-║  │      on: schedule '30 0 * * 1-5'  # UTC 0:30 = 台灣 08:30           │ ║
-║  │      → 抓前一晚美股收盤 → 建美股資料 → 更新 docs/us/                │ ║
-║  │                                                                      │ ║
-║  │  (2) tw-market.yml  ■ 排程 17:00 (台灣)                              │ ║
-║  │      on: schedule '0 9 * * 1-5'   # UTC 9:00 = 台灣 17:00           │ ║
-║  │      → 抓台股收盤 → 選股+回測 → 生成 docs/{index,picks,backtest}    │ ║
-║  │                                                                      │ ║
-║  │  (3) deploy-pages.yml  ■ 監聽 main push 自動部署                    │ ║
-║  │      on: push {branches:[main]}  → actions/deploy-pages@v4          │ ║
-║  │                                                                      │ ║
-║  │  (4) hermes-backup.yml  ■ 手動 workflow_dispatch 僅備援             │ ║
-║  │      (Hermes 本地跑完 push 時觸發，或 Actions 失敗手動補)            │ ║
-║  └──────────────────────────────────────────────────────────────────────┘ ║
-║                                  │                                       ║
-║                                  ▼                                       ║
-║  ┌── Repo 結構 ──────────────────────────────────────────────────────┐ ║
-║  │  scripts/                                                          │ ║
-║  │   ├── fetch_tw.py       台股抓取 (TWSE+TPEX 主, 備援 yfinance)    │ ║
-║  │   ├── fetch_us.py       美股抓取 (yfinance/FinMind/OpenBB)        │ ║
-║  │   ├── daily_stock_pick.py 選股信號 (輸出 picks.json)             │ ║
-║  │   ├── backtest.py       回測引擎 (輸出 backtest.json)            │ ║
-║  │   ├── portfolio_sample.py 測試持倉產生器 (輸出 portfolio.json)   │ ║
-║  │   └── export_json.py    彙整所有資料 → data/*.json              │ ║
-║  │  frontend/  (React 或 Vue 源碼)                                  │ ║
-║  │   ├── src/  (元件: 大盤圖/K線/選股表/回測曲線/持倉)              │ ║
-║  │   ├── package.json                                          │ ║
-║  │   └── vite.config.js (build → dist/)                         │ ║
-║  │  data/    (JSON, Actions 運行時生成, gitignore 大檔)            │ ║
-║  │  docs/ 或 dist/  (Pages 來源 = 前端 build 產出靜態檔)          │ ║
-║  │   ├── index.html        [A] 大盤/ETF 儀表板 (前端讀 data)       │ ║
-║  │   ├── picks.html         [B] 每日選股 (前端讀 picks.json)       │ ║
-║  │   ├── backtest.html      [C] 回測績效 (前端讀 backtest.json)    │ ║
-║  │   └── portfolio.html     [D] 測試持倉 (前端讀 portfolio.json)   │ ║
-║  │  requirements.txt / package.json / .gitignore                 │ ║
-║  └──────────────────────────────────────────────────────────────────────┘ ║
-║                                  │  git push main                       ║
-║                                  ▼                                       ║
-║  ☁ GitHub Pages: https://ivanhsia.github.io/quant-dashboard/             ║
-║     ┌────────────────────────────────────────────────┐                 ║
-║     │ [A] 台股大盤/ETF 儀表板  [A-us] 美股儀表板       │                 ║
-║     │ [B] 每日選股推薦         [C] 回測績效展示         │                 ║
-║     │ [D] 測試持倉示範 (標註非真實部位)                │                 ║
-║     │ 互動: K線縮放/篩選/切換 (React/Vue SPA)          │                 ║
-║     └────────────────────────────────────────────────┘                 ║
-╚══════════════════════════════════════════════════════════════════════════╝
-        │                                      │
-        ▼                                      ▼
-┌──────────────────────────┐      ┌──────────────────────────────────────┐
-│  Hermes Agent (本地)       │      │  未來擴充                              │
-│  ① 開發/維護 scripts+yml  │      │  • Telegram 每日推播 (新聞式)         │
-│  ② 備援：Actions 掛掉時    │      │  • Quartz 知識庫交叉連結             │
-│     手動跑補 push          │      │  • 前端框架升級 (React/Vue) 增強互動 │
-│  ③ 本地先測腳本再推 repo   │      │  • 真實持倉接入 (需隱私評估)         │
-│  ⚠️ 不設每日 cron (避衝突) │      │                                     │
-└──────────────────────────┘      └──────────────────────────────────────┘
+每一次修改 Blueprint，都必須遵守。核心思維：**不問「能不能做」，只問「應不應該做」**。
+
+### 憲法八條
+1. 新增功能之前，先思考：是否可以共用現有功能？而不是新增模組。
+2. 新增模組之前，先思考：是否可以共用現有 Domain？而不是新增 Domain。
+3. 新增 Workflow 之前，先思考：是否可以共用現有 Workflow？
+4. 新增 JSON 之前，先思考：是否可以共用現有 Data Contract？
+5. 新增 Provider 之前，先思考：Tier1 Provider 是否已經足夠？
+6. 若功能只有少數人使用，預設：Optional，而不是 Core。
+7. 若功能增加 Workflow/Provider/Schema/Build Time/維護成本，請重新評估是否值得。
+8. 任何修改都必須遵守：Simple is Better than Complex. Less is More. User First. Fork First. Long-term Maintainability First.
+
+### 新增功能閘門
+任何新增功能先過閘門。全答「是」才進 MVP；**任兩項「否」→ 延後 / Optional / 刪除**。
+
+| # | 閘門 | 否的含意 |
+|---|------|---------|
+| 1 | 是不是 MVP？ | 非核心，延後 |
+| 2 | 是不是每天有人使用？ | 低頻，進階/Optional |
+| 3 | 值得增加維護成本？ | 刪除 |
+| 4 | 值得增加 Build Time？ | 延後/刪除 |
+| 5 | 值得增加 Workflow？ | 延後/刪除 |
+| 6 | 值得增加 JSON？ | 合併既有/刪除 |
+| 7 | 值得增加 Provider？ | 延後/不進核心 |
+| 8 | 值得增加 Schema？ | 合併既有/刪除 |
+
+本專案最大目標**不是功能最多**，而是：最容易維護、最容易 Fork、最容易理解、最容易長期發展。
+
+## 9. 架構圖（Mermaid）
+
+### 圖 1：首頁呈現（4 問）
+```mermaid
+graph TD
+    HOME["首頁 Home"] --> Q1["今天市場怎麼樣？<br/>Market摘要+Heatmap View(無Ranking)"]
+    HOME --> Q2["我的持股有無問題？<br/>Portfolio警示+集中度"]
+    HOME --> Q3["哪些股票值得注意？<br/>觀察清單+Asset View+Ranking(僅Asset)"]
+    HOME --> Q4["今天有哪些風險？<br/>跨域風險彙整"]
+    HOME --> STATUS["狀態條：資料新鮮度+部署徽章(System)"]
+    HOME --> NAV["導覽：Market/Asset/Portfolio/Learning/〔進階〕Research"]
+    HOME --> FOOT["Footer：『本平台僅供參考，非投資建議』"]
 ```
 
----
-
-## 三、雙排程流程圖
-
-### 排程 ①：美股數據建立（08:30 台灣）
-```
-台灣 08:30 ──── Actions 觸發 (us-market.yml)
-    │
-    ├─ 前一晚美股已收盤 (美東 16:00 = 台灣次日 04:00 夏令/05:00 冬令)
-    │   → 08:30 抓資料時美股資料已完整
-    ▼
-fetch_us.py
-    ├─ 主源: yfinance (免 token)
-    ├─ 備援: FinMind API / OpenBB (依 vars 配置)
-    └─ 失敗處理: 主源 timeout → 自動切備援 → 仍失敗則標記「資料缺失」不中斷
-    ▼
-寫入 data/us_market.csv (或 SQLite)
-    ▼
-build_dashboard.py → docs/us/index.html (美股儀表板)
-    ▼
-git push → deploy-pages.yml → Pages 更新 [A-us]
-```
-
-### 排程 ②：台股分析 + 發布（17:00 台灣）
-```
-台灣 17:00 ──── Actions 觸發 (tw-market.yml)
-    │  (台股 13:30 收盤 + 盤後作業，17:00 資料完整)
-    ▼
-fetch_tw.py
-    ├─ 主源: TWSE OpenAPI STOCK_DAY_ALL + TPEX OpenAPI v1
-    ├─ 備援: yfinance / FinMind / OpenBB (依 vars 配置)
-    └─ 驗證: 隨機抽驗 5 檔 yfinance 比對 (沿用 quant-trading 邏輯)
-    ▼
-┌─── 並行三路 ───────────────────────────────┐
-▼                  ▼                  ▼
-daily_stock_pick   backtest.py        portfolio_sample.py
-[B] 選股信號        [C] 回測績效        [D] 測試持倉
-↓ picks.json        ↓ backtest.json     ↓ portfolio.json
-    ▼
-export_json.py → 彙整 data/*.json
-    ▼
-frontend build (npm install + npm run build → dist/)
-    ▼
-docs/ = dist/ (靜態 SPA, 前端讀 data/*.json 渲染)
-    ▼
-git push → deploy-pages.yml → Pages 更新 [A][B][C][D]
+### 圖 2：整體工作架構
+```mermaid
+flowchart LR
+    subgraph SRC[Tier1 資料源 免Key]
+        TWSE[TWSE 上市]
+        TPEX[TPEX 上櫃]
+        YH[Yahoo yfinance]
+        ST[Stooq]
+    end
+    subgraph SRC2[Tier2/3 設Secret才用]
+        FM[FinMind]
+        AV[AlphaVantage]
+        FMP[FMP]
+        FH[Finnhub]
+        PG[Polygon]
+        BB[Bloomberg]
+    end
+    POOL["DataProvider Facade<br/>能力感知路由+Failover+斷路器"]
+    SRC --> POOL
+    SRC2 -.secret.-> POOL
+    ACT["GitHub Actions 單一每日pipeline<br/>08:30美股/17:00台股→一次push"]
+    POOL --> ACT
+    ACT --> CALC["Python計算<br/>factor/screener/backtest(共用同一JSON)"]
+    CALC --> JSON["data/*.json（核心4份：market/asset/portfolio/learning）<br/>Pydantic+schema_version；Research進階才多research.json"]
+    JSON --> BUILD["npm run build → dist/"]
+    BUILD --> PAGES["GitHub Pages 靜態SPA"]
+    PAGES --> D1["首頁(4問)"]
+    PAGES --> D2["Market/Asset/Portfolio/Learning"]
+    PAGES --> D3["Research(進階模式)"]
+    D3 -.預設隱藏.-> PAGES
+    ACT -.每日一次.-> PUSH["git push"]
+    PAGES -.狀態.-> ISSUE["GitHub Issues/Projects(System,不佔導覽)"]
 ```
 
----
+## 10. 預設檔案結構（Default Repo Tree）
 
-## 四、各功能說明 (ABCD)
+依 §三解耦（Python fetch→計算→`data/*.json`→前端 DataClient 讀）、§四 Provider 套件、§五技術棧、§八 Phase0 骨架與雙排程收斂。以下為 Fork 後的預設骨架，**路徑為建議值，可調整**（例如 React 也可放 repo 根而非 `web/`）：
 
-### [A] 大盤 / ETF 每日儀表板
-- **內容**：台股加權指數、ETF 列表（含你關注的主動式/平衡型 T 尾碼）、技術指標（MA/RSI/KD）、漲跌家數
-- **美股版 [A-us]**：S&P500 / Nasdaq / 個股
-- **圖表**：Plotly K 線 + 均線、ETF 比較長條圖
-- **資料**：fetch_tw.py / fetch_us.py
+- `market/`：處理市場相關的一切。
+- `asset/`：處理股票與 ETF 的一切。
+- `portfolio/`：處理投資組合的一切。
+- `research/`：處理策略、因子、回測。
+- `learning/`：處理教學內容。
 
-### [B] 每日選股推薦
-- **內容**：daily_stock_pick.py 產出的多因子評分 Top N（短/中/長期）
-- **展示**：表格（代號/名稱/評分/理由）+ 產業分佈圓餅圖
-- **頻率**：每交易日 17:00 更新
+```text
+quant-dashboard/
+├── .github/
+│   └── workflows/
+│       ├── daily-tw.yml                 # 台股每日更新
+│       ├── daily-us.yml                 # 美股每日更新
+│       └── deploy.yml                   # GitHub Pages 部署
+│
+├── scripts/                             # Build Time（Python 3.11）
+│   ├── shared/                          # 共用核心
+│   │   ├── schema.py                    # Pydantic Data Contract
+│   │   ├── types.py                     # 共用資料型別
+│   │   ├── constants.py                 # 常數
+│   │   ├── utils.py                     # 工具函式
+│   │   └── logger.py                    # Log
+│   │
+│   ├── providers/                       # Data Provider Layer
+│   │   ├── base.py
+│   │   ├── facade.py                    # Provider Router + Failover
+│   │   ├── registry.py
+│   │   ├── exceptions.py
+│   │   │
+│   │   ├── builtin/                     # Tier1（免 API Key）
+│   │   │   ├── twse.py
+│   │   │   ├── tpex.py
+│   │   │   ├── yahoo.py
+│   │   │   └── stooq.py
+│   │   │
+│   │   └── optional/                    # Tier2 / Tier3
+│   │       ├── finmind.py
+│   │       ├── alphavantage.py
+│   │       ├── fmp.py
+│   │       ├── finnhub.py
+│   │       ├── polygon.py
+│   │       └── bloomberg.py
+│   │
+│   ├── market/                          # Market Domain
+│   │   ├── fetch.py
+│   │   ├── calculate.py                 # 含 Breadth 廣度指標（±4% 動能/趨勢窗，參考 stock-screener）
+│   │   └── export.py
+│   │
+│   ├── asset/                           # Asset Domain（Stock + ETF）
+│   │   ├── fetch.py
+│   │   ├── factor.py
+│   │   ├── screener.py                  # 綜合評分模型（Minervini/CANSLIM 通過條件→評分門檻，參考 stock-screener）
+│   │   ├── ranking.py                   # Composite rating：Strong Buy≥80/Buy≥70/Watch≥60/Pass<60
+│   │   ├── compare.py
+│   │   └── export.py
+│   │
+│   ├── portfolio/                       # Portfolio Domain
+│   │   ├── calculate.py
+│   │   ├── rebalance.py
+│   │   └── export.py
+│   │
+│   ├── research/                        # Research Domain（Phase2）
+│   │   ├── strategy.py
+│   │   ├── factor.py
+│   │   ├── backtest.py
+│   │   └── export.py
+│   │
+│   ├── learning/                        # Learning Domain（Phase2）
+│   │   └── export.py
+│   │
+│   └── main.py                          # Build 入口
+│
+├── data/                                # Build Time Output
+│   ├── market.json
+│   ├── asset.json
+│   ├── portfolio.json
+│   ├── learning.json
+│   ├── research.json
+│   ├── user.json                        # Demo Portfolio / Watchlist / Settings
+│   └── schema-version.json
+│
+├── shared/                              # Frontend / Backend 共用
+│   ├── schema.ts
+│   ├── types.ts
+│   ├── constants.ts
+│   └── version.ts
+│
+├── web/                                 # React + Vite
+│   ├── app/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── router.tsx
+│   │
+│   ├── routes/
+│   │   ├── dashboard.tsx                # 首頁 4 問複合視圖
+│   │   ├── market.tsx                   # Heatmap View（無 Ranking）
+│   │   ├── asset.tsx                    # 個股/ETF + Screener/Compare Tool
+│   │   ├── portfolio.tsx                # 持倉/績效/集中度
+│   │   ├── learning.tsx                 # 學習中心（Phase2 進階）
+│   │   └── research.tsx                 # 回測報告（Phase2 進階模式，預設隱藏）
+│   │
+│   ├── components/
+│   │
+│   ├── shared/
+│   │   ├── data-client.ts               # 讀 data/*.json（含 dataState/新鮮度 banner）
+│   │   ├── hooks/
+│   │   └── utils/
+│   │
+│   ├── assets/
+│   │
+│   ├── vite.config.ts
+│   ├── tailwind.config.ts
+│   └── tsconfig.json
+│
+├── tests/
+│   ├── unit/
+│   ├── contract/
+│   ├── integration/
+│   └── e2e/
+│
+├── docs/
+│   ├── blueprint.md
+│   ├── architecture.md
+│   ├── provider.md
+│   ├── data-contract.md
+│   ├── development.md
+│   └── roadmap.md
+│
+├── README.md
+├── Makefile
+├── package.json
+├── pyproject.toml
+└── LICENSE
+```
 
-### [C] 回測績效展示
-- **內容**：backtest.py 跑策略的績效（權益曲線、夏普、最大回撤、勝率）
-- **展示**：權益曲線圖 + 指標卡 + 交易明細表
-- **資料**：本地回測結果 json → HTML
+**約定**
+- `scripts/` 全 Build Time（Python 3.11，免 DB）；`scripts/shared/` 為跨 Domain 共用核心（`schema.py` 即 Pydantic Data Contract 單一真相）；各 Domain 拆 `market/ asset/ portfolio/ research/ learning/` 子目錄，職責單一（fetch→calculate/factor/screener/ranking/compare→export），`main.py` 為 Build 入口。
+- `scripts/providers/` 一次到位（Phase0 即含 `base/facade/registry/exceptions`，非分階），符合 §四 v2 統一設計；`builtin/` 為 Tier1 免 key，`optional/` 為 Tier2/3（僅 secret 存在才實例化）。`facade.py` = Router + Failover + 斷路器 + 超時。
+- `data/*.json` 為單一真相（Data Contract）；`schema-version.json` 記錄 `schema_version`，與 `shared/version.ts` 對齊，CI 斷言。
+- `user.json` 取代舊 `lots.csv`：內建 demo（Portfolio / Watchlist / Settings），Fork 後首頁不空白；使用者個人化改自己 repo，真實持倉不 push（鐵律#7）。
+- `shared/`（根層）= Frontend/Backend 共用型別與版本（`schema.ts`/`types.ts`/`constants.ts`/`version.ts`），對齊 `scripts/shared/`，避免前後端漂移。
+- 前端 Static First：只經 `web/shared/data-client.ts` 讀 `data/*.json`，禁直打 API / import 具體 provider（紅線#1/#10）；`routes/dashboard.tsx` 對應首頁 4 問。
+- **可借鏡參考**：`asset/` 的 screener/ranking 評分模型、`market/` 的 Breadth 指標定義參考自 xang1234/stock-screener（見 resource §十映射表）；其 Static Site「預匯出 JSON→Pages 只讀」模式驗證本架構正確，但後端堆疊/AI/多市場不引入。
+- `tests/` 拆 `unit/contract/integration/e2e`：P1 至少 `unit`+`contract`（pytest 斷言 JSON 符合 contract）；P2 補 `integration`+`e2e`（Vitest + Playwright）。
+- `docs/` 收錄架構文件（blueprint/architecture/provider/data-contract/development/roadmap），對應本主文與 Skill 頁。
+- `research.json`、`web/routes/research.tsx`、`learning.tsx` 屬 Phase2 進階，Fork 零 secret 時仍可跑 3 核心 Domain + 首頁（鐵律#1）。
 
-### [D] 測試持倉示範
-- **內容**：portfolio_sample.py 產生的「示範持倉」
-  - 用你真實持倉的**格式 + 標的**（如 00981A 平衡型 ETF、某台積電部位）
-  - 股數/成本用**範例值**，頁面明確標註「📋 測試示範資料，非真實部位」
-- **計算**：沿用 Dataview 邏輯（市值=價×股數、損益=價−成本）
-- **未來**：你真實資料增減時，改 portfolio_sample.py 的來源陣列即可；真實明細留本地不 push
-
----
-
-## 五、工具與技術棧
-
-### 運算 / 部署 / 前端工具
-| 工具 | 用途 | 備註 |
-| --- | --- | --- |
-| **GitHub Actions** | 定時運算 + 自動部署 | `schedule` + `deploy-pages` |
-| **GitHub Pages** | 靜態網頁託管 | 公開、免伺服器 |
-| **Python 3.11** | 資料抓取/選股/回測（輸出 JSON） | Actions `setup-python` |
-| **React 或 Vue** | 前端 SPA 框架（讀 JSON 渲染互動儀表板） | `setup-node` + `npm run build` |
-| **Vite** | 前端打包工具（源碼→dist/ 靜態檔） | build 產出即 Pages 來源 |
-| **Hermes Agent** | 開發/維護/備援 | 本地，不日常運行 |
-
-> **架構模式（hybrid）**：Python 只負責「產資料 JSON」；React/Vue 負責「讀 JSON 畫互動圖」。兩者經 `data/*.json` 解耦——Python 改邏輯不影響前端，前端改 UI 不影響資料層。
-> ⚠️ 此決策（2026-07-13 後段）**推翻早期「Python+Plotly 直接生成 HTML」的 MVP 假設**。採 React/Vue 因用戶要求互動性與長期擴充性。
-
-### 資料源（主 + 備援）
-| 市場 | 主源（優先） | 備援（依 vars 切換） |
-| --- | --- | --- |
-| 台股 | TWSE OpenAPI `STOCK_DAY_ALL` | yfinance / FinMind / OpenBB |
-| 上櫃 ETF | TPEX OpenAPI v1 | yfinance（過濾 ETF 清單） |
-| 美股 | yfinance（免 token） | FinMind / OpenBB |
-
-> **備援策略**：每個 fetch 函式實作 `try 主源 except 切備援`；主備都失敗 → 標記該市場「資料缺失」並繼續其他市場，不中斷整體流程（沿用 quant-trading 的「異常不寫入」原則）。
-
-### Secrets / Variables（Actions 側）
-- `TWSE` / `TPEX`：免 token（公開 API）
-- `FINMIND_TOKEN` / `OPENBB_TOKEN`：備援用（選配）
-- `YFINANCE`：免 token
-- 股票清單：`environment:` 或 `vars.STOCK_LIST`（隔離配置）
-
----
-
-## 六、待討論的開放問題（持續補充）
-
-> 以下為 Agent 提出、待用戶決策的項目。逐項確認後更新本頁。
-
-### 已決策
-- ✅ 雙排程：08:30 美股 / 17:00 台股
-- ✅ 資料源：TWSE+TPEX 主，FinMind/yfinance/OpenBB 備援
-- ✅ 公開 + 測試持倉（非真實）
-- ✅ Python+Plotly（非前端框架，MVP 階段）
-
-### 待確認 → 已決策（2026-07-13 補，含後段變更）
-1. **Push 頻率**：✅ 每日只 push 一次。08:30 抓美股先存 `data/us_market.json`（不 push）；17:00 抓台股+合併前日美股→整合後**一次 push**。
-2. **示警雙通道**：✅ Telegram + Email。監控 Pages 內容日期是否停滯。
-3. **網頁手填資料**：✅ repo 內 `data/portfolio-data.csv` 網頁編輯（A 方案，無程式碼）。
-4. **即時報價**：✅ 不使用，全前一日收盤資料。
-5. **匿名**：✅ 不出現作者；標註「金融數據僅供參考，測試使用」。
-6. **排程時間**：✅ 08:30 台股前一夜美股 / 17:00 台股收盤後（正式採用）。
-7. **技術棧**：✅ **React 或 Vue 為主（hybrid 模式）**——Python 產 `data/*.json`，前端讀 JSON 渲染互動儀表板（K線縮放/篩選/切換）。⚠️ 推翻早期 Python+Plotly 假設。
-8. **選股 [B] 標的池 / 數量**：待確認（預設台股 15 檔）
-9. **回測 [C] 策略來源**：待確認（預設公開版簡易策略）
-10. **持倉 [D] 標的範圍**：待確認（預設 ETF + 個股範例混合）
-11. **頁面語言**：待確認（預設繁體中文）
-12. **Hermes 備援觸發**：待確認（預設手動發指令補跑）
-
----
-
-## 七、實作階段規劃（待架構定稿後）
-
-| 階段 | 範圍 | 產出 |
-| --- | --- | --- |
-| Phase 0 | 建 repo + 啟用 Pages + 最小 workflow | 空站可訪問 |
-| Phase 1 | [A] 台股儀表板（fetch_tw + build_dashboard） | 每日大盤頁 |
-| Phase 2 | 雙排程 + 美股 [A-us] | 08:30/17:00 雙更新 |
-| Phase 3 | [B] 選股 + [C] 回測 | 完整分析頁 |
-| Phase 4 | [D] 測試持倉示範 | 持倉頁 |
-| Phase 5 | 備援資料源接入 + Hermes 備援流程 | 韌性強化 |
-
-> ⚠️ 本階段只討論架構，不實作。確認無誤後再進 Phase 0。
-
-## 相關節點
-- [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
-- [[quant-python-ai-agent|量化 Python AI Agent]]
-- [[finance/etf-active-stock/etf-active-stock|台灣主動式 ETF 清單]]
-- [[finance/etf-code-classification|ETF 代碼分類與第六碼意義]]
+## 相關資源
+- [[quant-dashboard-skill|可部署 Skill 正文（執行規範）]]
+- [[finance/quant-dashboard-prompt|實作紀錄]]
+- [[finance/quant-dashboard-qa-1|Q&A第一批]]
+- [[finance/quant-dashboard-qa-2|多角色審查]]
