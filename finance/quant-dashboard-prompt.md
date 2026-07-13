@@ -2,7 +2,7 @@
 title: "quant-dashboard 實作紀錄與提示詞"
 description: "quant-dashboard 專案的問答精華、架構決策過程、GitHub Actions/Pages 提示詞範本——供未來寫 skill 時參考"
 summary: "quant-dashboard 的對話決策記錄（雙排程/多源備援/匿名/手填CSV）+ Actions workflow 提示詞範本 + 關鍵學習點，作為未來 skill 化的種子"
-type: resource
+type: project
 status: active
 tags:
   - etf

@@ -2,7 +2,7 @@
 title: "quant-dashboard 架構 Q&A（第一批）"
 description: "quant-dashboard 架構細節的 23 個待決問題，每題 3 方案 + 建議方案（⭐），待用戶思考後回覆"
 summary: "quant-dashboard 架構未決細節：導航矛盾/Q0、資料管線(Q1-4)、AI層(Q5-7)、前端(Q8-12)、模組資料缺口(Q13-17)、運維(Q18-22)，每題 3 選項含⭐建議"
-type: resource
+type: project
 status: active
 tags:
   - etf

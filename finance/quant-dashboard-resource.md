@@ -2,7 +2,7 @@
 title: "quant-dashboard 資源清單"
 description: "股市 Dashboard 開發的參考資源——分析平台/Python 框架/Pages 框架/UI 庫/圖表庫/台股資料源/建議架構/學習順序"
 summary: "quant-dashboard 專案的資源參考頁：OpenBB/TradingView 等平台、Streamlit/Dash/Reflex 等 Python Dashboard 框架、Quartz/Astro 等靜態框架、shadcn/Tremor UI、Plotly/ECharts 圖表、TWSE/TPEX/FinMind/yfinance 資料源"
-type: resource
+type: project
 status: active
 tags:
   - etf

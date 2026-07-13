@@ -2,7 +2,7 @@
 title: "quant-dashboard 專案架構"
 description: "ivanhsia/quant-dashboard 股市公開儀表板專案——GitHub Actions + Pages 配合架構、雙排程、多資料源備援、ABCD 四功能規劃"
 summary: "新專案架構文：Actions 為主+Hermes 備援，雙排程(08:30美股/17:00台股)，TWSE+TPEX 主源+FinMind/yfinance/OpenBB 備援，公開 Pages 展示大盤/選股/回測/測試持倉四功能"
-type: resource
+type: project
 status: active
 tags:
   - etf

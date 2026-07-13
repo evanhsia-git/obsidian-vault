@@ -25,6 +25,7 @@ updated: 2026-07-09
 - [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]] — 問答精華+Actions 提示詞範本（未來 skill 化）
 - [[finance/quant-dashboard-resource|quant-dashboard 資源清單]] — 平台/框架/UI/圖表/資料源參考
 - [[finance/quant-dashboard-qa-1|quant-dashboard 架構 Q&A（第一批）]] — 23 題待決+⭐建議，待用戶回覆
+- [[finance/quant-dashboard-qa-2|quant-dashboard 架構審查（多角色）]] — Q0~Q22 五角色審查+D方案+Q23~36遺漏+ADR+Roadmap
 - [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
 - [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
 
