@@ -1,7 +1,7 @@
 ---
-title: "quant-dashboard 架構 Q&A（第一批）"
-description: "quant-dashboard 架構細節的 23 個待決問題，每題 3 方案 + 建議方案（⭐），待用戶思考後回覆"
-summary: "quant-dashboard 架構未決細節：導航矛盾/Q0、資料管線(Q1-4)、AI層(Q5-7)、前端(Q8-12)、模組資料缺口(Q13-17)、運維(Q18-22)，每題 3 選項含⭐建議"
+title: "mklab-stock 架構 Q&A（第一批）"
+description: "mklab-stock 架構細節的 23 個待決問題，每題 3 方案 + 建議方案（⭐），待用戶思考後回覆"
+summary: "mklab-stock 架構未決細節：導航矛盾/Q0、資料管線(Q1-4)、AI層(Q5-7)、前端(Q8-12)、模組資料缺口(Q13-17)、運維(Q18-22)，每題 3 選項含⭐建議"
 type: project
 status: active
 tags:
@@ -11,10 +11,10 @@ created: 2026-07-13
 updated: 2026-07-13
 ---
 
-# quant-dashboard 架構 Q&A（第一批）
+# mklab-stock 架構 Q&A（第一批）
 
 > 狀態：**待用戶思考後回覆**，本頁僅記錄討論選項，尚無定論。
-> 對應架構主文：[[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]、[[finance/quant-dashboard-prompt|實作紀錄與提示詞]]。
+> 對應架構主文：[[mklab-stock-v2-100個功能|mklab-stock 專案架構]]、[[mklab-stock-prompt|實作紀錄與提示詞]]。
 > 每題給 3 方案，⭐ 為 Agent 建議方案。
 
 ---
@@ -211,9 +211,9 @@ updated: 2026-07-13
 
 ## 待回覆
 
-用戶思考後回覆每題選項（或全採 ⭐ 建議）。回覆後整理為「最終決策表」寫入 [[quant-dashboard-v2-100個功能|架構主文]]。
+用戶思考後回覆每題選項（或全採 ⭐ 建議）。回覆後整理為「最終決策表」寫入 [[mklab-stock-v2-100個功能|架構主文]]。
 
 ## 相關節點
-- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
-- [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]]
-- [[finance/quant-dashboard-resource|quant-dashboard 資源清單]]
+- [[mklab-stock-v2-100個功能|mklab-stock 專案架構]]
+- [[mklab-stock-prompt|mklab-stock 實作紀錄與提示詞]]
+- [[mklab-stock-resource|mklab-stock 資源清單]]

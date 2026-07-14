@@ -1,20 +1,20 @@
 ---
-title: "quant-dashboard 簡化架構 v3.0"
+title: "mklab-stock 簡化架構 v3.0"
 description: "在 v2.0 藍圖基礎上做減法：以執行效率、系統維護、新手投資者心態三個判準，把 15+ 模組砍到 8 個核心模組、100 個創新功能砍到 18 個保留項，其餘明確列為刪除或延後並附理由。"
 type: project
 status: archived
 tags:
   - etf
   - finance
-summary: "quant-dashboard v3.0 備份：減法架構（8→18 精選），archived 不編輯。"
+summary: "mklab-stock v3.0 備份：減法架構（8→18 精選），archived 不編輯。"
 created: 2026-07-13
 updated: 2026-07-13
 ---
 
 
-# quant-dashboard 簡化架構 v3.0 — 執行效率 × 系統維護 × 新手心態
+# mklab-stock 簡化架構 v3.0 — 執行效率 × 系統維護 × 新手心態
 
-> 基礎文件：[[finance/quant-dashboard|架構主文 v2]]、[[quant-dashboard-skill|Skill 藍圖]]、功能藍圖 v2.0（100 個創新功能全量清單）
+> 基礎文件：[[mklab-stock|架構主文 v2]]、[[mklab-stock-skill|Skill 藍圖]]、功能藍圖 v2.0（100 個創新功能全量清單）
 > 本文性質：**減法文件**。不新增功能，只在既有內容上做取捨；每一條刪除/保留都附判準與理由，供之後回頭查核。
 
 ## 目錄
@@ -161,9 +161,9 @@ updated: 2026-07-13
 ---
 
 ## 相關資源
-- [[finance/quant-dashboard|quant-dashboard 專案架構 v2]]
-- [[quant-dashboard-skill|Skill 藍圖（P1-P8 自檢清單）]]
+- [[mklab-stock|mklab-stock 專案架構 v2]]
+- [[mklab-stock-skill|Skill 藍圖（P1-P8 自檢清單）]]
 - 功能藍圖 v2.0（100 項全量清單，本文的刪減依據）
-- [[finance/quant-dashboard-prompt|實作紀錄與提示詞]]
-- [[finance/quant-dashboard-qa-1|架構 Q&A（第一批）]]
-- [[finance/quant-dashboard-qa-2|多角色架構審查]]
+- [[mklab-stock-prompt|實作紀錄與提示詞]]
+- [[mklab-stock-qa-1|架構 Q&A（第一批）]]
+- [[mklab-stock-qa-2|多角色架構審查]]

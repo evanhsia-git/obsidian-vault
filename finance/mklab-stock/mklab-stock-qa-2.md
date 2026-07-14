@@ -1,7 +1,7 @@
 ---
-title: "quant-dashboard 架構審查（多角色）"
-description: "以 Senior Architect / React Lead / Python Backend / DevOps / Quant 五角色視角，審查 quant-dashboard 22 題決策 + 補漏 Q23~Q36 + ADR + Roadmap"
-summary: "quant-dashboard 架構多角色審查：Q0~Q22 每題 A/B/C/D 優缺+Recommendation、Q23~Q36 遺漏（state/TanStack/error/cache/monitor/migration/dark/a11y/seo/export/virtual/worker/security/api-version）、ADR-001~005、Phase0~7 Roadmap"
+title: "mklab-stock 架構審查（多角色）"
+description: "以 Senior Architect / React Lead / Python Backend / DevOps / Quant 五角色視角，審查 mklab-stock 22 題決策 + 補漏 Q23~Q36 + ADR + Roadmap"
+summary: "mklab-stock 架構多角色審查：Q0~Q22 每題 A/B/C/D 優缺+Recommendation、Q23~Q36 遺漏（state/TanStack/error/cache/monitor/migration/dark/a11y/seo/export/virtual/worker/security/api-version）、ADR-001~005、Phase0~7 Roadmap"
 type: project
 status: active
 tags:
@@ -11,11 +11,11 @@ created: 2026-07-13
 updated: 2026-07-13
 ---
 
-# quant-dashboard 架構審查（多角色）
+# mklab-stock 架構審查（多角色）
 
 > 狀態：**審查紀錄，待用戶採納**。本頁為多角色架構審查，非最終決策。
 > 角色視角：Senior Software Architect / React Tech Lead / Python Backend Architect / DevOps Architect / Quant Trading System Architect。
-> 對應：[[quant-dashboard-v2-100個功能|架構主文]]、[[finance/quant-dashboard-qa-1|Q&A 第一批（23 題選項）]]、[[finance/quant-dashboard-prompt|實作紀錄]]。
+> 對應：[[mklab-stock-v2-100個功能|架構主文]]、[[mklab-stock-qa-1|Q&A 第一批（23 題選項）]]、[[mklab-stock-prompt|實作紀錄]]。
 > 每題給 A/B/C 分析 + 第四方案 D（若有）+ Recommendation（含 GitHub Pages / Hermes / React / 長期維護 評分）。
 
 ---
@@ -456,7 +456,7 @@ updated: 2026-07-13
 **待用戶採納**：Q0~Q22 的 Recommendation（多推 ⭐/D 混合）是否全採；採納後整理「最終決策表」回寫架構主文。
 
 ## 相關節點
-- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
-- [[finance/quant-dashboard-qa-1|quant-dashboard 架構 Q&A（第一批）]]
-- [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]]
-- [[finance/quant-dashboard-resource|quant-dashboard 資源清單]]
+- [[mklab-stock-v2-100個功能|mklab-stock 專案架構]]
+- [[mklab-stock-qa-1|mklab-stock 架構 Q&A（第一批）]]
+- [[mklab-stock-prompt|mklab-stock 實作紀錄與提示詞]]
+- [[mklab-stock-resource|mklab-stock 資源清單]]

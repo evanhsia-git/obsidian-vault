@@ -1,7 +1,7 @@
 ---
-title: "quant-dashboard 資源清單"
-description: "股市 Dashboard 開發的參考資源——分析平台/Python 框架/Pages 框架/UI 庫/圖表庫/資料源/學習順序；並標註與 quant-dashboard-skill 的採用狀態。"
-summary: "quant-dashboard 參考資源頁：OpenBB/TradingView 等平台、Streamlit/Dash 等 Python 框架、Quartz/Astro 等靜態框架、shadcn/Tremor UI、Plotly/ECharts 圖表、10 家 Provider 資料源；每項標註「我們狀態：採用/參考/備援/未採用」以對齊 skill。"
+title: "mklab-stock 資源清單"
+description: "股市 Dashboard 開發的參考資源——分析平台/Python 框架/Pages 框架/UI 庫/圖表庫/資料源/學習順序；並標註與 mklab-stock-skill 的採用狀態。"
+summary: "mklab-stock 參考資源頁：OpenBB/TradingView 等平台、Streamlit/Dash 等 Python 框架、Quartz/Astro 等靜態框架、shadcn/Tremor UI、Plotly/ECharts 圖表、10 家 Provider 資料源；每項標註「我們狀態：採用/參考/備援/未採用」以對齊 skill。"
 type: project
 status: active
 tags:
@@ -11,11 +11,11 @@ created: 2026-07-13
 updated: 2026-07-14
 ---
 
-# quant-dashboard 資源清單
+# mklab-stock 資源清單
 
-> 參考資源彙整，供 [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]] 與 [[finance/quant-dashboard-prompt|實作紀錄]] 選型使用。
+> 參考資源彙整，供 [[mklab-stock-v2-100個功能|mklab-stock 專案架構]] 與 [[mklab-stock-prompt|實作紀錄]] 選型使用。
 > 來源：用戶提供《Python 股票分析 Dashboard 開發指南（Hermes Edition）》。
-> **對齊依據**：本頁每項標註「我們狀態」以對照可部署 Skill 正文 [[quant-dashboard-skill|quant-dashboard 可部署 Skill]] 與架構主文 [[finance/quant-dashboard|quant-dashboard 架構主文 v3.0]]。
+> **對齊依據**：本頁每項標註「我們狀態」以對照可部署 Skill 正文 [[mklab-stock-skill|mklab-stock 可部署 Skill]] 與架構主文 [[mklab-stock|mklab-stock 架構主文 v3.0]]。
 
 **我們狀態圖例**：`採用` = skill/主文已納入正式技術棧；`參考` = UI/UX 或實作借鏡但不直接依賴；`備援` = Tier2/3 設 secret 才啟用；`未採用` = 替代路線，當前架構不選。
 
@@ -77,7 +77,7 @@ updated: 2026-07-14
 | VitePress | https://vitepress.dev | 未採用 |
 | Nextra | https://nextra.site | 未採用 |
 
-> 我們的 quant-dashboard 用 **React (Vite) 直接 build → Pages**（見 skill §二 / 主文 §10 樹），不走上述文件框架（那些是文件/部落格型，非 Dashboard 型）。Quartz 僅用於本 vault 文件站，與 dashboard 部署無關。
+> 我們的 mklab-stock 用 **React (Vite) 直接 build → Pages**（見 skill §二 / 主文 §10 樹），不走上述文件框架（那些是文件/部落格型，非 Dashboard 型）。Quartz 僅用於本 vault 文件站，與 dashboard 部署無關。
 
 ---
 
@@ -96,12 +96,13 @@ updated: 2026-07-14
 ## 五、圖表庫
 | 庫 | 網址 | 我們狀態 |
 | --- | --- | --- |
-| Plotly | https://plotly.com | 參考（React 側可用 `plotly.js` 畫 K線/權益曲線；非主選） |
-| Apache ECharts | https://echarts.apache.org | **採用**（skill §二；React 側用 `echarts-for-react`） |
-| Chart.js | https://www.chartjs.org | 未採用（原指南曾標採用，已與 skill 對齊改為 ECharts） |
+| KLineChart | https://klinecharts.com | **採用（K線專用頁）**：自託管 dist 進 repo，零依賴、內建 MACD/KDJ/畫圖工具；Market 版塊2 與 Research 個股 K線使用 |
+| Apache ECharts | https://echarts.apache.org | **備選（複雜儀表板）**：當需要地理圖/統計圖時；非 K線首選（K線需手刻 MACD/KD/畫圖，違反效率第一） |
+| Chart.js | https://www.chartjs.org | **備選（一般小圖）**：體積比 ECharts 輕，必要時取代 ECharts 畫非 K線圖 |
+| Plotly | https://plotly.com | 參考（體積大，不採用） |
 | Highcharts | https://www.highcharts.com | 未採用（商用授權） |
 
-> React 側主圖表為 **ECharts**（`echarts-for-react`），K線/雷達圖/權益曲線皆可用；Plotly 僅作備選參考。
+> 分層策略（2026-07-14 依執行效率第一修訂）：**K線頁 = KLineChart（自託管，內建 MACD+KD+畫圖）**；**其餘小圖 = 內聯 SVG sparkline（0KB）或 Chart.js**；ECharts 降為「複雜儀表板備選」，不再作統一圖表庫。原 `網頁設計0714-1.md` 與 skill §二「統一 ECharts」已廢止，改採本分層。
 
 ---
 
@@ -161,19 +162,21 @@ GitHub Actions → Python → FinMind/yfinance → 策略分析 → Plotly
 ---
 
 ## 十、圖表庫與實作參考（用戶提供連結，2026-07-14 收錄）
-評估基準：我們採 **React + Vite + Static First**，圖表主庫為 **ECharts**（skill §二）；運算全 Build-Time、零常駐後端。
+評估基準：我們採 **React + Vite + Static First**，運算全 Build-Time、零常駐後端；圖表採**分層策略**（見 §五）：K線專用頁 = KLineChart（自託管），其餘小圖 = 內聯 SVG/Chart.js，ECharts 降為複雜儀表板備選。
 
 | 項目 | 網址 | 功能 | 我們狀態 / 能否用於 Pages |
 |------|------|------|---------------------------|
-| Lightweight Charts 文件 | https://tradingview.github.io/lightweight-charts/docs | TradingView 輕量金融圖表庫（canvas，K線/面積/基線/柱狀） | **可選補強**：K線效能勝 ECharts，但授權須標註 TradingView（NOTICE+連結）。違反單一圖表庫簡單原則（P8），僅當 Asset 個股 K線效能瓶頸時引入，否則維持 ECharts |
+| KLineChart 官網 | https://klinecharts.com | 輕量 K線圖（canvas，零依賴，內建 MACD/KDJ/畫圖工具，支援手機） | **採用（K線專用頁）**：自託管 dist 進 repo/vendor，無 CDN、無外部依賴；Market 版塊2 與 Research 個股 K線實作；Apache-2.0 |
+| KLineChart 倉庫 | https://github.com/klinecharts/KLineChart | 同上原始碼；零依賴、可高度自訂 | **採用**：本地 `npm pack klinecharts` 取 umd 自託管，符合 Static-First |
+| Lightweight Charts 文件 | https://tradingview.github.io/lightweight-charts/docs | TradingView 輕量金融圖表庫（canvas，K線/面積/基線/柱狀） | **備選（未採用）**：雖快，但 MACD/KD/畫圖需手刻，且授權須標註 TradingView；KLineChart 已滿足需求故不引入 |
 | Lightweight Charts 倉庫 | https://github.com/tradingview/lightweight-charts | 同上原始碼；含 AI coding skill（v5 API） | 同上；Apache-2.0，須 attribution |
-| ECharts 範例庫 | https://echarts.apache.org/examples/ | 官方範例（K線/雷達/權益曲線模板） | **採用（參考）**：我們圖表主庫，此站為配置抄寫來源，不引入新依賴 |
-| Chart.js 倉庫 | https://github.com/chartjs/Chart.js | 通用圖表庫（非金融專精） | **未採用**：金融 K線需外掛；我們選 ECharts |
+| ECharts 範例庫 | https://echarts.apache.org/examples/ | 官方範例（K線/雷達/權益曲線模板） | **備選（複雜儀表板）**：僅當需要地理圖/統計圖時參考，非 K線首選 |
+| Chart.js 倉庫 | https://github.com/chartjs/Chart.js | 通用圖表庫（非金融專精） | **備選（一般小圖）**：體積比 ECharts 輕，必要時取代 ECharts 畫非 K線圖 |
 | D3 Gallery | https://observablehq.com/@d3/gallery | D3 資料視覺化範例（自定義/force/tree/geo） | **僅參考**：學習曲線高、React 整合重；Heatmap/自定圖可借鏡，不直接依賴（P8 簡單優先） |
 | github_watch | https://github.com/RohanAdwankar/github_watch | 靜態 treemap 範例：Actions 每日產 `heatmap.json` → Pages，無 DB/無伺服器 | **架構級參考（推薦）**：其「Actions 算→寫 JSON→Pages 渲染」模式 = 我們 §三/§10 骨架；可作 Market Heatmap View（漲跌家數/市值 treemap）實作參考 |
 | stock-screener 線上版 | https://xang1234.github.io/stock-screener/ | 多市場選股器靜態 Demo（80+ 篩選/廣度/RRG） | **概念參考**：其 Screener/Ranking/Breadth = 我們 Asset Domain Screener/Ranking + Market 廣度；靜態版功能受限 |
 | stock-screener 倉庫 | https://github.com/xang1234/stock-screener | 同上原始碼（Docker+Postgres 重棧；含靜態版） | **概念參考（不引入後端）**：借其篩選邏輯/UI 概念；資料走我們 Tier1 + Build-Time，不引入其 Docker/Postgres |
-
+|
 **stock-screener 可應用功能映射（對照我們 Domain）**
 
 | 它的功能 | 我們對應 Domain | 應用方式 |
@@ -187,7 +190,7 @@ GitHub Actions → Python → FinMind/yfinance → 策略分析 → Plotly
 | Validation 回測 | Research（Phase2） | 其「確定性可重現」設計值得學；設 Key/運算貴→Phase2 |
 | Themes AI / Assistant AI | P4 Optional Backend | 僅設 secret 才啟用，不進核心 |
 
-> 不抄：Live App 後端堆疊（FastAPI/Postgres/Redis/Celery）、Operations 頁（我們用 GitHub Issues/Projects）、Material-UI/Recharts（我們用 shadcn/ui+ECharts）、12 市場擴張（我們聚焦 TW+US）。
+> 不抄：Live App 後端堆疊（FastAPI/Postgres/Redis/Celery）、Operations 頁（我們用 GitHub Issues/Projects）、Material-UI/Recharts（我們用 shadcn/ui+ECharts）、12 市場擴張（我們採 **TW + US + China(A股滬深/港股)**，見主文 §11；China 經 Yahoo/Stooq 符號零 secret 達成，非 stock-screener 的 12 市場 Docker 模式）。
 > 其 Static Site 模式（預匯出 JSON→Pages 只讀）**驗證我們架構選擇正確**。
 
 **收錄結論**
@@ -198,9 +201,102 @@ GitHub Actions → Python → FinMind/yfinance → 策略分析 → Plotly
 
 ---
 
+## 十一、對 stock-screener 功能覆蓋率 + 5 Domain 功能說明（2026-07-14）
+
+### 11.1 我們的 Domain 主題
+嚴格 **5 個功能 Domain + 首頁複合視圖**（架構 v3.0）；System 不佔導覽。
+
+| # | Domain | 階段 | 只回答的問題 | 對應 stock-screener |
+|---|--------|------|--------------|---------------------|
+| 0 | **首頁** | 1 | 今天市場？持股有無問題？哪些值得注意/有風險？ | Daily 首頁 |
+| 1 | **Market** | 1 | 今天市場怎麼樣？ | Market Health + Breadth + Groups(部分) |
+| 2 | **Asset** | 1 | 這檔值得研究嗎？我想找股票？ | Scan + Stock Detail + Groups |
+| 3 | **Portfolio** | 1 | 我的投資現在如何？ | Watchlists + Themes(持倉) |
+| 4 | **Research** | 2 進階 | 我的策略有效嗎？ | Validation(回測) |
+| 5 | **Learning** | 2 進階 | 我想學習什麼？ | —（stock-screener 無對應） |
+
+### 11.2 各 Domain 功能說明
+| Domain | 功能說明 | 資料契約 |
+|--------|----------|----------|
+| **首頁** | 複合視圖：市場狀態 banner + 持倉異常提示 + 值得注意/風險清單 | `market.json`(meta+狀態+新鮮度) + `portfolio.json`(含 watchlist) |
+| **Market** | 市場層級好壞（Heatmap 漲跌家數/市值色塊）；Breadth 廣度指標（±4% 動能/趨勢窗）；不做事個股 Ranking | `market.json` |
+| **Asset** | 個股/ETF 同構；Screener（Minervini/CANSLIM 綜合評分）、Ranking、Compare、News；個股頁含評分面板 + K線 | `asset.json` |
+| **Portfolio** | 持倉績效（user.json 驅動，含 watchlist）；demo 內建、真實不 push | `portfolio.json` |
+| **Research** | 策略回測（Phase2 進階）；Report 為 View | `research.json` |
+| **Learning** | 學習中心（Phase2 進階，低頻）；calendar 為 Tool | `learning.json` |
+
+### 11.3 覆蓋率估算（約束：不用外部工具、Actions+Pages 直接跑、零 secret）
+| 類別 | 覆蓋率 | 說明 |
+|------|--------|------|
+| **核心功能**（首頁/Market/Asset/Portfolio + Health/Breadth/Screener/Detail） | **≈90–95%** | Phase1 即達；呈現方式與 stock-screener 靜態版幾乎同構 |
+| **含 Phase2 進階**（Research 回測 / RRG / Learning） | **≈75–80%** | RRG/回測需 Phase2，基礎類股排名可做 |
+| **含 AI / Live 後端** | **0%** | 刻意排除（違 Static-First）；AI 留 Optional（設 secret） |
+| **市場範圍** | **TW+US+China** | stock-screener 含 12 市場；我們聚焦 3 區，China 經 Tier1 達成 |
+
+> 結論：在「不用外部工具」約束下，我們能做到 stock-screener **靜態站呈現的約 90% 核心功能**；剩餘 10% 為 AI 主題發現與多市場擴張（定為未來開發性）。呈現形式非常接近。
+
+### 11.4 China 市場擴充（對應主文 §11）
+- 範圍：A股滬深（`.SS`/`.SZ`）+ 港股（`.HK`），經 Yahoo/Stooq 符號。
+- 實作：不新增 Provider 契約/secret；`china.py` 做符號對應，路由走既有 yahoo/stooq；`daily-cn.yml` 19:00 排程；資料併入 `market.json`/`asset.json` 加 `market:"cn"` 欄位。
+- 閘門：8 項全「是/低影響」→ 直接進核心，無違憲法（主文 §11.3 留存評估表）。
+
+### 11.5 歷史深度與容量約束（對應主文 §12）
+- **基線：3 年每日收盤**（約 750 交易日）；可選 5 年。對照 stock-screener 方法論最少需 1 年，我們已超。
+- **容量關鍵**：差異在「存什麼」非「存多久」。原始日線全量 JSON（反例）3 年台股 127.5 MB 會爆 repo；**只存衍生結果**（Screener/Ranking 評分+指標，不含 OHLCV）3 年全市場（TW+US+China 精選 ~3000 檔）僅 **~0.9 MB**。
+- **GitHub 約束（用戶明定）**：單 repo <**100MB**、**預留 30%** → 可用 70MB；我們實際 ~1MB，佔 1.2%。
+- **設計鐵律**：① 禁原始日線進 repo（留 VPS DB）② `data/*.json` 合計 <70MB ③ 每日增量覆寫非重寫 ④ 回溯不 push 原始 ⑤ CI 防護 `data/>70MB` 則 fail。
+
+## 12. 策略與回測功能清單（對應主文 §13）
+
+> 基於 Tier1 資料（TW/US/China OHLCV+財務，3 年基線）+ stock-screener 方法論。全部可用免 key 資料實作，不需 FinMind 等付費源。
+
+### 12.1 可應用策略
+| 策略 | 來源 | 說明 | 階段 |
+|------|------|------|------|
+| **Minervini 選股** | stock-screener 借鏡 | Stage-2 強勢股：52週新高附近、價 >200DMA、RS 領先、季營收成長 | Phase1（Asset Screener） |
+| **CANSLIM** | 同上 | O'Neil 法：當季 EPS 成長 + 產業龍頭 + 價量突破 | Phase1 |
+| **綜合評分 Ranking** | 同上 | Composite：Strong Buy≥80 / Buy≥70 / Watch≥60 / Pass<60 | Phase1 |
+| **IPO 基部構型** | stock-screener 提及 | 上市不久、形成基部後突破 | Phase1（可擴充） |
+| **RS 相對強度** | 方法論 | 3mo/6mo/9mo/12mo 加權評分，找市場相對強勢股 | Phase1 |
+| **Market Breadth 廣度** | 已定義 Market Domain | ±4% 動能、34日趨勢窗、A/D 線 | Phase1 |
+| **Market Health 量尺** | 首頁風險燈 | 0–100 曝險量尺，決定倉位大小 | Phase1 |
+| **類股輪動 RRG** | stock-screener Groups | RS-Ratio vs RS-Momentum 四象循環（Leading→Weakening→Lagging→Improving） | Phase2 進階 |
+| **Volume Breakthrough** | stock-screener 提及 | 爆量突破基部 | Phase1（可擴充） |
+| **均線多空排列** | 技術 | MA20/50/200 黃金/死亡交叉、多頭排列選股 | Phase1 |
+
+### 12.2 因子層（Research Domain，Phase2）
+- 因子計算：動能、價值（PE/PB）、規模、股利殖利率（DB 已有 `pe_ratio`/`pb_ratio`/`dividend_yield`）
+- 因子中性化：控制市值/產業後的純因子收益
+
+### 12.3 回測功能（Research Domain，Phase2）
+| 功能 | 說明 | 狀態 |
+|------|------|------|
+| **策略回測** | 3 年資料跑歷史表現 | 已定義 |
+| **Validation 驗證** | 30/90/180 日 follow-through 追蹤 | 已定義 |
+| **回測版本快照** | 比較策略演化 | 已定義 |
+| **Report 為 View** | 回測報告頁（隱藏） | 已定義 |
+| **Replay 工具** | 延後（低頻+運算貴） | 延後 |
+| **因子中性化 / Compare** | Phase2 進階 | 已定義 |
+
+### 12.4 刻意排除（架構憲法刪除）
+| 功能 | 原因 |
+|------|------|
+| Walk-Forward 最佳化 | 過擬合風險 + 運算貴 |
+| 蒙地卡羅模擬 | 回測縮小範圍刪除 |
+| 因子權重優化 | 避免過擬合 |
+| 恐慌貪婪指數 | 非 Tier1 可穩定取得 |
+
+### 12.5 回測技術要點
+- **資料**：3 年每日收盤，TW+US+China
+- **避免未來函數**：`trade_date` 嚴格時序
+- **樣本外驗證**：跨多空狀態
+- **績效指標**：年化報酬、最大回撤、Sharpe、勝率
+
+---
+
 ## 相關節點
-- [[quant-dashboard-skill|quant-dashboard 可部署 Skill 正文（執行規範）]]
-- [[finance/quant-dashboard|quant-dashboard 架構主文 v3.0（設計依據）]]
-- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
-- [[finance/quant-dashboard-prompt|quant-dashboard 實作紀錄與提示詞]]
+- [[mklab-stock-skill|mklab-stock 可部署 Skill 正文（執行規範）]]
+- [[mklab-stock|mklab-stock 架構主文 v3.0（設計依據）]]
+- [[mklab-stock-v2-100個功能|mklab-stock 專案架構]]
+- [[mklab-stock-prompt|mklab-stock 實作紀錄與提示詞]]
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]

@@ -1,6 +1,6 @@
 ---
-title: "quant-dashboard 可部署 Skill 正文（SKILL.md 規範）"
-description: "ivanhsia/quant-dashboard 公開股市儀表板——Fork-First/GitHub-Native/Static-First。觸發：建股市儀表板/部署quant-dashboard/這功能違反哪條原則。內含P1-P8/雙排程/Provider Layer v2(統一Registry+能力感知路由)/5 Domain(3核心+2進階)/2 Phase/紅線/新手友善補強。本頁為可上線 skill 正文，架構細節見主文。"
+title: "mklab-stock 可部署 Skill 正文（SKILL.md 規範）"
+description: "ivanhsia/mklab-stock 公開股市儀表板——Fork-First/GitHub-Native/Static-First。觸發：建股市儀表板/部署mklab-stock/這功能違反哪條原則。內含P1-P8/雙排程/Provider Layer v2(統一Registry+能力感知路由)/5 Domain(3核心+2進階)/2 Phase/紅線/新手友善補強。本頁為可上線 skill 正文，架構細節見主文。"
 summary: "Hermes skill 正文（隨時可註冊上線）。觸發即引導建站/部署/架構合規檢查，依據架構主文 v3.0 執行，不重複設計細節。"
 type: project
 status: active
@@ -12,29 +12,29 @@ created: 2026-07-13
 updated: 2026-07-14
 ---
 
-# quant-dashboard — 可部署 Skill 正文
+# mklab-stock — 可部署 Skill 正文
 
-> **本頁即 Hermes skill 正文**，隨時可複製至 `~/.hermes/skills/quant-dashboard-skill/SKILL.md` 註冊上線（註冊時將本頁 Obsidian 前置元改為 Hermes 前置元 `name`/`description` 即可，正文不變）。
-> **架構規劃主文（設計依據，含完整理由與檔案樹）**：[[finance/quant-dashboard|quant-dashboard 架構主文 v3.0]]
+> **本頁即 Hermes skill 正文**，隨時可複製至 `~/.hermes/skills/mklab-stock-skill/SKILL.md` 註冊上線（註冊時將本頁 Obsidian 前置元改為 Hermes 前置元 `name`/`description` 即可，正文不變）。
+> **架構規劃主文（設計依據，含完整理由與檔案樹）**：[[mklab-stock|mklab-stock 架構主文 v3.0]]
 > 兩者分工：**本頁 = 觸發後「做什麼 / 怎麼做」的可執行規範；主文 = 「為什麼這樣設計」的架構規劃**。修改設計先看主文，修改執行流程改本頁。
 
 ## 一、觸發條件
 | 用戶說 | 動作 |
 |--------|------|
-| 建股市儀表板 / 部署 quant-dashboard | 初始化 repo + Phase0 契約（依主文 §8 / §10 樹） |
-| 更新公開分析站 / 跑每日更新 | 觸發 Actions 雙排程（08:30 美股 / 17:00 台股） |
+| 建股市儀表板 / 部署 mklab-stock | 初始化 repo + Phase0 契約（依主文 §8 / §10 樹） |
+| 更新公開分析站 / 跑每日更新 | 觸發 Actions 三排程（08:30 美股 / 17:00 台股 / 19:00 中國市場 A股滬深+港股） |
 | 這功能違反哪條原則 / 合規檢查 | 對照 P1-P8 與架構憲法閘門（第八節） |
 
 ## 二、技能目標
 
-將「匿名公開台股/美股儀表板」從零建起或持續維護。
+將「匿名公開台股/美股/中國市場(A股滬深+港股)儀表板」從零建起或持續維護。
 
 | 維度 | 設定 |
 |------|------|
-| 定位 | 匿名公開台股/美股儀表板 |
+| 定位 | 匿名公開台股/美股/中國市場(A股滬深+港股)儀表板 |
 | 運算模式 | 全 Build-Time（Actions 運算 → Pages 展示 → React SPA） |
 | 後端 | 無常駐後端 |
-| 零 secret | 可跑滿 3 核心 Domain（Market / Asset / Portfolio）+ 首頁 |
+| 零 secret | 可跑滿 3 核心 Domain（Market / Asset / Portfolio）+ 首頁；China 經 Yahoo/Stooq 符號零新增契約 |
 | 維護範圍 | 從零建起 / 持續維護 |
 
 **技術棧**（細節見主文 §5）
@@ -50,7 +50,7 @@ updated: 2026-07-14
 
 ## 三、執行流程（觸發後步驟）
 1. **辨識意圖**：建站 / 部署 / 架構合規檢查（見第一節）。
-2. **讀取設計依據**：先讀 [[finance/quant-dashboard|架構主文 v3.0]] 對應章節（Domain / Provider / Phase / 檔案樹），不在本頁重複設計。
+2. **讀取設計依據**：先讀 [[mklab-stock|架構主文 v3.0]] 對應章節（Domain / Provider / Phase / 檔案樹），不在本頁重複設計。
 3. **套用憲法閘門**：任何新增功能先過第八節 8 項閘門；任兩項「否」→ 延後 / Optional / 刪除。
 4. **依 Phase 範圍產出**：Phase0 骨架 → Phase1 核心 → Phase2 進階（見第九節），不跨 Phase 預先做。
 5. **遵守紅線**：第七節 12 條鐵律 + 第五節 Provider 紅線，逐條核對。
@@ -87,7 +87,7 @@ updated: 2026-07-14
 - **Registry**：`build_registry()` — Tier1 永進池；Tier2/3 僅 secret 存在才實例化。Fork 即只用 Tier1。
 - **Facade**：路由（market 解析）+ 斷路器（連敗≥3→冷卻 300s）+ 超時（20s）+ 同 run 快取。全失敗 → `DataUnavailable(tried=[...])`，標記缺失不中斷。
 - **紅線**：① Strategy 只依賴 DataProvider facade ② Tier1 永不依賴 secret；Tier2/3 無 key 不進池 ③ Failover 透明 ④ 能力感知路由：不對不支援市場/方法發請求 ⑤ 斷路器+超時防卡死 ⑥ Reproducible：每次 run 重抓重算。
-- **檔案結構**：`scripts/providers/{base,facade,registry,exceptions}.py` + `builtin/{twse,tpex,yahoo,stooq}.py` + `optional/{finmind,alphavantage,fmp,finnhub,polygon,bloomberg}.py`
+- **檔案結構**：`scripts/providers/{base,facade,registry,exceptions}.py` + `builtin/{twse,tpex,yahoo,stooq,china}.py`（china.py：A股滬深 `.SS`/`.SZ` + 港股 `.HK` 符號對應，路由走 Yahoo/Stooq，零新增契約） + `optional/{finmind,alphavantage,fmp,finnhub,polygon,bloomberg}.py`
 - 詳細型別與方法、各 Domain 子目錄（market/asset/portfolio/research/learning）、`shared/`、`data/user.json`、`schema-version.json`、`docs/` 見主文 §10 樹。
 
 ## 六、5 Domain 契約（速查，3 核心 + 2 進階）
@@ -145,7 +145,7 @@ news/status/etf_meta/watch 已併入上述 4 份，不獨立成契約。
 ## 九、Phase 路線（範圍）
 | Phase | 範圍 |
 |-------|------|
-| 0 骨架 | repo+Pages+shared/(schema.ts/types.ts/version.ts)+scripts/shared/schema.py(schema_version)+data/schema-version.json+雙排程骨架+providers/套件+README Quickstart+demo user.json+`make deploy` |
+| 0 骨架 | repo+Pages+shared/(schema.ts/types.ts/version.ts)+scripts/shared/schema.py(schema_version)+data/schema-version.json+**三排程骨架(daily-tw/daily-us/daily-cn)**+providers/套件+README Quickstart+demo user.json+`make deploy` |
 | 1 核心 | fetch_tw/fetch_us→JSON（Tier1 寫死順序）；calc_factor/screener/heatmap；首頁+Market+Asset+Portfolio+System 狀態條（4 核心 JSON，含 dataState/新鮮度）；pytest+CI contract 斷言；build→Pages |
 | 2 進階選配 | Research(回測)+Learning 學習中心(research.json)；因子中性化/Compare/Replay；AI 摘要設 Key 才啟用；Vitest+Playwright |
 
@@ -161,8 +161,8 @@ news/status/etf_meta/watch 已併入上述 4 份，不獨立成契約。
 - [ ] **新增功能過閘門**：第八節 8 項全「是」或僅 ≤1 項「否」才進 MVP
 
 ## 相關資源
-- [[finance/quant-dashboard|架構規劃主文 v3.0（設計依據）]]
-- [[finance/quant-dashboard-prompt|實作紀錄]]
-- [[finance/quant-dashboard-qa-1|Q&A 第一批]]
-- [[finance/quant-dashboard-qa-2|多角色審查]]
-- [[finance/quant-dashboard-resource|資源清單]]
+- [[mklab-stock|架構規劃主文 v3.0（設計依據）]]
+- [[mklab-stock-prompt|實作紀錄]]
+- [[mklab-stock-qa-1|Q&A 第一批]]
+- [[mklab-stock-qa-2|多角色審查]]
+- [[mklab-stock-resource|資源清單]]

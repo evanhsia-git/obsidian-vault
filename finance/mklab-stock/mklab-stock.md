@@ -1,5 +1,5 @@
 ---
-title: "quant-dashboard 簡化架構 v3.0"
+title: "mklab 簡化架構 v3.0"
 description: "以使用者任務為核心的 Domain 架構：Market/Asset/Portfolio/Research/Learning + 首頁複合視圖，System 不佔導覽。18功能全複用既有JSON。"
 type: project
 status: active
@@ -12,10 +12,10 @@ created: 2026-07-13
 updated: 2026-07-13
 ---
 
-# quant-dashboard 簡化架構 v3.0（架構規劃主文）
+# mklab 簡化架構 v3.0（架構規劃主文）
 
 > **本頁角色**：架構「規劃與設計依據」——回答「為什麼這樣設計」。所有設計決策、Domain 劃分、Provider 策略、Phase 路線、檔案樹皆在此。
-> **可部署 Skill 正文（執行規範）**：[[quant-dashboard-skill|quant-dashboard 可部署 Skill]]——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
+> **可部署 Skill 正文（執行規範）**：[[mklab-skill|mklab 可部署 Skill]]——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
 > 分工：**改設計 → 改本頁；改執行流程 → 改 Skill 頁**。兩頁章節一一對應（見下表）。
 
 以**使用者任務**為核心：不問「我有什麼功能」，只問「使用者來做什麼」。架構以 Domain 分類，每 Domain 只回答一個問題。這是對「功能堆疊」思維的減法重構——8 原模組 → 5 Domain + 首頁，核心 JSON 契約砍併為 4 份；目標不是功能最多，而是最容易維護 / Fork / 理解 / 長期發展。
@@ -118,8 +118,10 @@ updated: 2026-07-13
 ## 6. Phase Roadmap
 | Phase | 範圍 |
 |-------|------|
-| 1 核心 | 首頁+Market+Asset+Portfolio+Learning+System狀態條 |
+| 1 核心 | 首頁+Market+Asset+Portfolio+Learning+System狀態條（**市場：TW + US + China(A股滬深/港股)**） |
 | 2 進階選配 | Research(回測)+因子中性化/Compare/Replay/AI摘要(設Key) |
+
+排程：08:30 美股 / 17:00 台股 / **19:00 中國市場（A股滬深收盤後 + 港股）**，每日一次 push。China 資料經 Yahoo/Stooq 符號（`.SS`/`.SZ`/`.HK`），零新增 Provider 契約、零 secret。
 
 無Phase 3/4：後端模組與百科系列已砍/併。
 
@@ -185,6 +187,7 @@ flowchart LR
         TPEX[TPEX 上櫃]
         YH[Yahoo yfinance]
         ST[Stooq]
+        CN["A股滬深(.SS/.SZ) / 港股(.HK)<br/>經 Yahoo/Stooq 符號"]
     end
     subgraph SRC2[Tier2/3 設Secret才用]
         FM[FinMind]
@@ -222,12 +225,13 @@ flowchart LR
 - `learning/`：處理教學內容。
 
 ```text
-quant-dashboard/
-├── .github/
-│   └── workflows/
-│       ├── daily-tw.yml                 # 台股每日更新
-│       ├── daily-us.yml                 # 美股每日更新
-│       └── deploy.yml                   # GitHub Pages 部署
+mklab/
+│   ├── .github/
+│   │   └── workflows/
+│   │       ├── daily-tw.yml                 # 台股每日更新
+│   │       ├── daily-us.yml                 # 美股每日更新
+│   │       ├── daily-cn.yml                 # 中國市場每日更新（A股滬深 + 港股，經 Yahoo/Stooq）
+│   │       └── deploy.yml                   # GitHub Pages 部署
 │
 ├── scripts/                             # Build Time（Python 3.11）
 │   ├── shared/                          # 共用核心
@@ -247,7 +251,8 @@ quant-dashboard/
 │   │   │   ├── twse.py
 │   │   │   ├── tpex.py
 │   │   │   ├── yahoo.py
-│   │   │   └── stooq.py
+│   │   │   ├── stooq.py
+│   │   │   └── china.py                # A股滬深(.SS/.SZ) + 港股(.HK)，經 Yahoo/Stooq 符號，零新增 Provider 契約
 │   │   │
 │   │   └── optional/                    # Tier2 / Tier3
 │   │       ├── finmind.py
@@ -360,9 +365,133 @@ quant-dashboard/
 - `tests/` 拆 `unit/contract/integration/e2e`：P1 至少 `unit`+`contract`（pytest 斷言 JSON 符合 contract）；P2 補 `integration`+`e2e`（Vitest + Playwright）。
 - `docs/` 收錄架構文件（blueprint/architecture/provider/data-contract/development/roadmap），對應本主文與 Skill 頁。
 - `research.json`、`web/routes/research.tsx`、`learning.tsx` 屬 Phase2 進階，Fork 零 secret 時仍可跑 3 核心 Domain + 首頁（鐵律#1）。
+- **市場範圍**：TW（TWSE/TPEX）+ US（Yahoo/Stooq）+ **China（A股滬深 `.SS`/`.SZ` + 港股 `.HK`，亦經 Yahoo/Stooq 符號）**。China 不新增 Provider 契約、不新增 secret，僅擴充 `china.py` 符號對應（見 §11）。
 
-## 相關資源
-- [[quant-dashboard-skill|可部署 Skill 正文（執行規範）]]
-- [[finance/quant-dashboard-prompt|實作紀錄]]
-- [[finance/quant-dashboard-qa-1|Q&A第一批]]
-- [[finance/quant-dashboard-qa-2|多角色審查]]
+## 11. 市場範圍擴充：China（A股滬深 + 港股）
+
+> 2026-07-14 用戶決議：加入中國市場（A股滬深 + 港股），**直接擴充接受**，不經閘門延後。
+
+### 11.1 範圍
+| 市場 | 符號格式 | 資料源 | secret |
+|------|----------|--------|--------|
+| A股 滬市 | `600519.SS` | Yahoo / Stooq | 無 |
+| A股 深市 | `000001.SZ` | Yahoo / Stooq | 無 |
+| 港股 | `0700.HK` | Yahoo / Stooq | 無 |
+
+### 11.2 實作原則（守住憲法）
+- **零新增 Provider 契約**：China 不另建 provider class，由 `china.py` 做「中文名/代號 → Yahoo/Stooq 符號」對應，路由仍走既有 `yahoo`/`stooq` builtin。→ 閘門 #5「Tier1 已足夠」仍成立（未新增 Tier）。
+- **零 secret**：純 Tier1，Fork 即跑。
+- **排程獨立**：`daily-cn.yml` 19:00 跑（A股 15:00 收盤 + 港股 16:00 收盤後），與 TW/US 三條 pipeline 並行、各一次 push。
+- **共用 JSON 契約**：China 資料併入既有 `market.json` / `asset.json`（加 `market: "cn"` 欄位），不新增 JSON（閘門 #4/#6 成立）。
+- **Build Time 增量可控**：China 僅擴充 fetch 標的清單，不新增計算流程；若標的過多致 Build 超時，以「精選指數成分 + 觀察清單」為界（閘門 #4 防暴走）。
+
+### 11.3 閘門評估（留檔備查，本次決議：直接接受）
+| # | 閘門 | 評估 |
+|---|------|------|
+| 1 | MVP？ | 是（用戶明確要） |
+| 2 | 每天用？ | 是（與 TW/US 同頻） |
+| 3 | 維護成本？ | 低（符號對應 + 既有 pipeline） |
+| 4 | Build Time？ | 可控（擴充標的清單，設上限） |
+| 5 | Provider？ | 否（走 Yahoo/Stooq，未新增 Tier） |
+| 6 | JSON？ | 否（併入既有） |
+| 7 | Workflow？ | 微（新增 daily-cn.yml，屬既有模式複製） |
+| 8 | Schema？ | 否（加 market 欄位，合併既有） |
+| **結論** | — | **8 項全「是/低影響」→ 直接進核心，無違憲法** |
+
+## 12. 歷史資料深度基線與容量約束（設計決策，2026-07-14）
+
+> 事前規劃：上線前確認資料深度與 repo 容量，避免回測樣本偏少、GitHub 單檔/單 repo 暴脹。
+
+### 12.1 各用途最少 / 建議深度
+| 用途 | 最少 | 建議基線 | 原因 |
+|------|------|----------|------|
+| 基本技術指標（MA20/50/200、RS、Breadth） | 1 年（252 交易日） | 2~3 年 | 200DMA 需 1 年；3 年涵蓋多空小循環 |
+| Minervini / CANSLIM 選股 | 1 年 | 2~3 年 | Stage-2 需 52 週高低 + 季財報軌跡 |
+| 基本回測（30/90/180 日 follow-through） | 半年 | 1~2 年 | 驗證訊號勝率需跨多市場狀態 |
+| 穩健回測（含多空週期驗證） | 2 年 | 5 年 | 5 年含至少一個完整多頭+空頭，結論不偏 |
+
+### 12.2 本專案決議
+- **基線：3 年每日收盤（約 750 交易日）**；可選拉到 5 年（健全基線）。
+- **對照 stock-screener**：其資料深度取決 yfinance 回溯（美股/港股/A股可數年~數十年），方法論最少需 1 年（RS 12mo、Minervini 52週、200DMA）。我們 3 年基線已超其最低要求。
+- **市場別現狀與補抓**：
+  - 台股（quant-trading DB）：現有 **1 年**（2025-07~2026-07），**不足 3 年基線** → 上線前須回溯補抓 2 年（TWSE/TPEX 有歷史 API，可行）。
+  - 美股 / China：Yahoo/Stooq 可一次 `period="3y"` 或 `"5y"`，Build-Time 增加但一次到位。
+- **回測（Phase2）**：Research 用 3 年資料跑；Validation 頁對掃描標的做 30/90/180 日追蹤。
+
+### 12.3 上線前檢查點
+- [ ] 台股歷史補抓至 3 年
+- [ ] 美股 / China 經 Yahoo/Stooq 取 3 年
+- [ ] 回測樣本跨多空狀態（非僅多頭）
+
+### 12.4 容量預估與 GitHub 約束（基於實際 DB 結構推算）
+容量差異取決於「**存什麼**」，不是「存多久」。
+
+| 儲存方式 | 1 年 | 3 年 | 說明 |
+|----------|------|------|------|
+| **A. 原始日線全量 JSON（反例，不採）** | 台股 42.5 MB | 台股 127.5 MB | 每檔每日 OHLCV+財務 66 bytes/筆 × 數百萬筆；US+CN 各 800 檔再各 +216 MB → 爆 repo |
+| **B. 只存衍生結果（採用設計）** | 台股 0.2 MB | 台股 0.5 MB | TW+US+CN 精選各 800 檔 3 年僅 **~0.9 MB** |
+
+- **為何差這麼多**：場景 A 每檔每日存原始 OHLCV（體積隨筆數線性爆炸）；場景 B 每天只產**一份** `asset.json`（Screener/Ranking 評分+指標，不含原始 OHLCV），每檔約 0.5KB，絕對量極小。
+- **GitHub 約束（用戶明定）**：
+  - 單 repo 建議 <**100 MB**；**預留 30%** → 可用 **70 MB**。
+  - 場景 B 3 年全市場（TW+US+China 精選 ~3000 檔）僅 ~1 MB → 佔可用額度 **1.2%**，綽綽有餘。
+- **設計鐵律（守則）**：
+  1. **禁止原始日線進 repo**：`data/` 只放衍生 JSON（market/asset/portfolio/learning/research/user），原始 OHLCV 留 VPS DB / 外部。
+  2. **單 repo <100MB、預留 30%**：`data/*.json` 合計建議 <70MB（實際 ~1MB，遠低）。
+  3. **增量覆寫**：每日 Actions 只 append 當日計算、覆寫 `asset.json`，不重寫歷史 → 體積穩定。
+  4. **回溯不進 repo**：上線前補台股到 3 年，在 VPS 算好因子再產 JSON，歷史原始資料不 push。
+  5. **CI 防護**：加一步「若 `data/` 合計 >70MB 則 fail」，防未來誤塞原始資料。
+
+
+
+## 13. 策略與回測功能清單（設計決策，2026-07-14）
+
+> 基於 Tier1 資料（TW/US/China OHLCV+財務，3 年基線）+ stock-screener 方法論。全部可用免 key 資料實作，不需 FinMind 等付費源。
+
+### 13.1 可應用策略
+| 策略 | 來源 | 說明 | 階段 |
+|------|------|------|------|
+| **Minervini 選股** | stock-screener 借鏡 | Stage-2 強勢股：52週新高附近、價 >200DMA、RS 領先、季營收成長 | Phase1（Asset Screener） |
+| **CANSLIM** | 同上 | O'Neil 法：當季 EPS 成長 + 產業龍頭 + 價量突破 | Phase1 |
+| **綜合評分 Ranking** | 同上 | Composite：Strong Buy≥80 / Buy≥70 / Watch≥60 / Pass<60 | Phase1 |
+| **IPO 基部構型** | stock-screener 提及 | 上市不久、形成基部後突破 | Phase1（可擴充） |
+| **RS 相對強度** | 方法論 | 3mo/6mo/9mo/12mo 加權評分，找市場相對強勢股 | Phase1 |
+| **Market Breadth 廣度** | 已定義 Market Domain | ±4% 動能、34日趨勢窗、A/D 線 | Phase1 |
+| **Market Health 量尺** | 已定義首頁風險燈 | 0–100 曝險量尺，決定倉位大小 | Phase1 |
+| **類股輪動 RRG** | stock-screener Groups | RS-Ratio vs RS-Momentum 四象循環（Leading→Weakening→Lagging→Improving） | Phase2 進階 |
+| **Volume Breakthrough** | stock-screener 提及 | 爆量突破基部 | Phase1（可擴充） |
+| **均線多空排列** | 技術 | MA20/50/200 黃金/死亡交叉、多頭排列選股 | Phase1 |
+
+### 13.2 因子層（Research Domain，Phase2）
+- 因子計算：動能、價值（PE/PB）、規模、股利殖利率（DB 已有 `pe_ratio`/`pb_ratio`/`dividend_yield`）
+- 因子中性化：控制市值/產業後的純因子收益（架構已提「因子中性化」）
+
+### 13.3 回測功能（Research Domain，Phase2）
+| 功能 | 說明 | 狀態 |
+|------|------|------|
+| **策略回測** | 用 3 年資料跑歷史表現 | 已定義（主文 §1/§6、skill §六/§九） |
+| **Validation 驗證** | 對已發布掃描標的做 30/90/180 日 follow-through 追蹤（確定性、可重現） | 已定義（resource §十映射） |
+| **回測版本快照** | 回測結果存快照，便於比較策略演化 | 已定義（Z100 #58） |
+| **Report 為 View** | 回測報告頁（Phase2 預設隱藏） | 已定義 |
+| **Replay 工具** | 延後（低頻+運算貴），非核心 | 已定義（延後） |
+| **因子中性化 / Compare** | Phase2 進階 | 已定義（skill §九） |
+
+### 13.4 刻意排除的回測（架構憲法刪除）
+| 功能 | 原因 |
+|------|------|
+| Walk-Forward 最佳化 | 主文 §7 明刪（過擬合風險 + 運算貴） |
+| 蒙地卡羅模擬 | 主文 §5 回測縮小範圍明刪 |
+| 因子權重優化 (#65) | 主文 §7 降級/刪除（避免過擬合） |
+| 恐慌貪婪指數 (#14) | 主文 §7 刪除（非 Tier1 可穩定取得） |
+
+### 13.5 回測技術實作要點
+- **資料**：3 年每日收盤（§12 基線），TW+US+China
+- **避免未來函數**：用 `trade_date` 嚴格時序，回測點只用當時可得資料
+- **樣本外驗證**：§12.3 要求「回測樣本跨多空狀態」，不能只在多頭期驗證
+- **績效指標**（建議補入 `research.json` schema）：年化報酬、最大回撤、Sharpe、勝率
+
+
+- [[mklab-skill|可部署 Skill 正文（執行規範）]]
+- [[finance/mklab-prompt|實作紀錄]]
+- [[finance/mklab-qa-1|Q&A第一批]]
+- [[finance/mklab-qa-2|多角色審查]]

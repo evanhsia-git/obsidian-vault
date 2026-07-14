@@ -1,6 +1,6 @@
 ---
-title: "quant-dashboard 專案架構"
-description: "ivanhsia/quant-dashboard 股市公開儀表板——Fork-First / GitHub-Native / Static-First 架構。任何人 Fork 即跑，零 VPS/零 DB/零 AI Key，12 核心模組 100% Build-Time 完成，AI/Chat/Task/Settings 為 Optional 加值（無則自動隱藏）"
+title: "mklab-stock 專案架構"
+description: "ivanhsia/mklab-stock 股市公開儀表板——Fork-First / GitHub-Native / Static-First 架構。任何人 Fork 即跑，零 VPS/零 DB/零 AI Key，12 核心模組 100% Build-Time 完成，AI/Chat/Task/Settings 為 Optional 加值（無則自動隱藏）"
 summary: "新專案架構 v2：Fork 即可用、優先 GitHub Native、Static First、Offline Friendly、Progressive Enhancement、OSS Friendly、Reproducible、Optional Backend。15 模組中 12 個純 Actions+Pages 完成，3 個 Optional 後端模組 Graceful Degradation"
 type: project
 status: archived
@@ -13,12 +13,12 @@ updated: 2026-07-13
 
 
 
-# quant-dashboard 專案架構
+# mklab-stock 專案架構
 
 > 狀態：**規劃中（尚未實作）**，本頁為架構決策記錄 v2。
-> Repo：`ivanhsia/quant-dashboard`（GitHub Public + Pages 啟用）
+> Repo：`ivanhsia/mklab-stock`（GitHub Public + Pages 啟用）
 > 研究基礎：[[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
-> Skill 藍圖（精簡版，含相同 P1-P8 + 自檢清單）：[[quant-dashboard-skill|quant-dashboard Skill 藍圖]]
+> Skill 藍圖（精簡版，含相同 P1-P8 + 自檢清單）：[[mklab-stock-skill|mklab-stock Skill 藍圖]]
 
 ## 目錄
 一、[最高設計原則 P1-P8](#一最高設計原則architecture-principles-v2) ‧ 二、[P1~P8 落實對照](#二p1p8-逐條對應落實) ‧ 三、[15 模組星級表](#三15-模組星級表6-維評分) ‧ 四、[Build vs Run Time](#四build-time-vs-run-time-重分類) ‧ 五、[Fork Friendly Architecture](#五fork-friendly-architecture) ‧ 六、[GitHub Native Architecture](#六github-native-architecture) ‧ 七、[技術棧](#七技術棧v2-修正) ‧ 八、[資料源](#八資料源v2公開優先) ‧ 八之二、[Data Provider Layer v2](#八之二data-provider-layer-v2能力感知路由-透明-failover) ‧ 九、[15 模組規格](#九15-模組規格對照-v2-原則) ‧ 十、[雙排程](#十雙排程保留符合-p3p7) ‧ 十一、[執行鐵律](#十一執行鐵律red-linesv2) ‧ 十二、[實作階段規劃](#十二實作階段規劃v2)
@@ -137,7 +137,7 @@ npm run build      → React → dist/
 ## 五、Fork Friendly Architecture
 
 ```
-任何人 Fork ivanhsia/quant-dashboard
+任何人 Fork ivanhsia/mklab-stock
         │
         ├─ 啟用 GitHub Actions（預設 workflow，ZERO secrets）
         │     │  抓 TWSE / TPEX / Yahoo（全公開、免 key）
@@ -158,7 +158,7 @@ npm run build      → React → dist/
 ## 六、GitHub Native Architecture
 
 ```
-┌─ GitHub Repo: ivanhsia/quant-dashboard ──────────────┐
+┌─ GitHub Repo: ivanhsia/mklab-stock ──────────────┐
 │  frontend/   (React SPA，只 render)                   │
 │  data/       (*.json，Actions 產出，進版控)            │
 │  scripts/    (fetch_*.py / calc_*.py / export_json)   │
@@ -601,12 +601,12 @@ Actions(tw-market.yml)
 
 ## 相關節點
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
-- [[finance/quant-dashboard-prompt|實作紀錄與提示詞]]
-- [[finance/quant-dashboard-qa-1|架構 Q&A（第一批）]]
-- [[finance/quant-dashboard-qa-2|多角色架構審查]]
-- [[finance/quant-dashboard-resource|資源清單]]
-- [[quant-dashboard-skill|Skill 藍圖（標準 SKILL.md 規範，含 P1-P8 自檢清單）]]
+- [[mklab-stock-prompt|實作紀錄與提示詞]]
+- [[mklab-stock-qa-1|架構 Q&A（第一批）]]
+- [[mklab-stock-qa-2|多角色架構審查]]
+- [[mklab-stock-resource|資源清單]]
+- [[mklab-stock-skill|Skill 藍圖（標準 SKILL.md 規範，含 P1-P8 自檢清單）]]
 - [[finance/etf-active-stock/etf-active-stock|台灣主動式 ETF 清單]]
 - [[finance/etf-code-classification|ETF 代碼分類與第六碼意義]]
-- `quant-trading`（既存 Hermes skill，提供 DB/選股/回測；與本專案整合對照表見 [[finance/quant-dashboard-prompt|實作紀錄]] 第六節）
+- `quant-trading`（既存 Hermes skill，提供 DB/選股/回測；與本專案整合對照表見 [[mklab-stock-prompt|實作紀錄]] 第六節）
 

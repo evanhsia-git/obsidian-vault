@@ -616,3 +616,14 @@ updated: 2026-06-23
 ## [2026-07-13 16:48:50] lint | 6 missing_fields
 ## [2026-07-13 16:50:56] lint | 全部通過
 ## [2026-07-13 21:00:59] lint | 全部通過
+## [2026-07-14 02:00:23] lint | 0 dir_perm_fixed, 19 file_perm_fixed
+## [2026-07-14 02:07:09] lint | 全部通過
+## [2026-07-14 02:11:28] lint | 全部通過
+## [2026-07-14 02:29:39] lint | 全部通過
+## [2026-07-14 02:44:07] lint | 全部通過
+## [2026-07-14 03:19:20] lint | 全部通過
+## [2026-07-14 05:15:03] lint | 全部通過
+## [2026-07-14 11:26:54] lint | 1 dir_perm_fixed, 7 file_perm_fixed | 3 missing_fields | 1 invalid_type | 2 orphans
+## [2026-07-14 11:27:16] lint | 2 missing_fields | 1 invalid_type | 2 orphans
+## [2026-07-14 11:28:01] lint | 全部通過
+## [2026-07-14 21:00:20] lint | 1 dir_perm_fixed, 2 file_perm_fixed | 5 broken_links

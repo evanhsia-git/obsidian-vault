@@ -1,19 +1,19 @@
 ---
-title: "quant-dashboard-v2(100個功能)"
-description: "ivanhsia/quant-dashboard 全平台藍圖 v2.0——八位 Principal 角色重新檢視 Fork-First/GitHub-Native/Static-First 理念後，依 A-Z 分類整理全部功能構想，含 100 個創新功能表與必做/建議做/可選做/創新四級分類。"
+title: "mklab-stock-v2(100個功能)"
+description: "ivanhsia/mklab-stock 全平台藍圖 v2.0——八位 Principal 角色重新檢視 Fork-First/GitHub-Native/Static-First 理念後，依 A-Z 分類整理全部功能構想，含 100 個創新功能表與必做/建議做/可選做/創新四級分類。"
 type: project
 status: archived
 tags:
   - etf
   - finance
-summary: "quant-dashboard v2.0 百功能藍圖備份（A-Z 100 功能），archived 不編輯。"
+summary: "mklab-stock v2.0 百功能藍圖備份（A-Z 100 功能），archived 不編輯。"
 created: 2026-07-13
 updated: 2026-07-13
 ---
 
 # GitHub Native Stock Analysis Platform Blueprint v2.0
 
-> 本文定位：**功能藍圖**（What to build），架構落地細節以 Skill 藍圖 [[quant-dashboard-skill|Skill 藍圖]] 為準（How to build）。
+> 本文定位：**功能藍圖**（What to build），架構落地細節以 Skill 藍圖 [[mklab-stock-skill|Skill 藍圖]] 為準（How to build）。
 > 狀態：規劃中，本文為 A-Z 全量腦力激盪 + 分級，不代表全部立即實作。
 
 ## 目錄
@@ -100,7 +100,7 @@ updated: 2026-07-13
 | Backend（Optional） | Hermes Agent + Python + FastAPI + SQLite | 不變，全 Optional |
 | CI/CD | GitHub Actions + GitHub Pages | 不變 |
 
-> **待辦**：架構主文（quant-dashboard.md）第七節「技術棧」目前仍寫 React Router，需在下次同步時改為 TanStack Router，並註記變更日期，避免兩份文件路由選型不一致。
+> **待辦**：架構主文（mklab-stock.md）第七節「技術棧」目前仍寫 React Router，需在下次同步時改為 TanStack Router，並註記變更日期，避免兩份文件路由選型不一致。
 
 ---
 
@@ -316,7 +316,7 @@ updated: 2026-07-13
 | 項目 | 問題 | 建議 |
 |------|------|------|
 | 路由選型不一致 | 架構主文寫 React Router，本次確認為 TanStack Router | 立即同步文件（見第 3 節待辦） |
-| P1-P8 版本分裂 | v1（quant-dashboard.md）與 v2.0（本文）條文用字不同 | 本文已完成合併對照（見第 1 節），下次應把 v1 文件的第一節直接替換為 v2.0 版本，避免兩份「最高原則」並存造成解讀分歧 |
+| P1-P8 版本分裂 | v1（mklab-stock.md）與 v2.0（本文）條文用字不同 | 本文已完成合併對照（見第 1 節），下次應把 v1 文件的第一節直接替換為 v2.0 版本，避免兩份「最高原則」並存造成解讀分歧 |
 | Watchlist/自選股的持久化方案未定 | 個人化功能（A/E/T）預設會想用 localStorage，但 Artifact 規範明確禁止瀏覽器儲存於此類靜態站情境類推、且匿名公開站也不該假設單一裝置 | 明確定案：**Fork 使用者的個人化一律走「自己的 repo CSV/JSON + 自己 commit」**，不引入任何形式的雲端帳號系統，維持 P1 Fork First 純度 |
 | Provider Tier2/3 商業條款未盤點 | Alpha Vantage/FMP/Finnhub/Polygon/Bloomberg 的免費額度/授權條款會隨時間改變 | 建立 `providers/LICENSE_NOTES.md`，每季度人工複查一次 |
 
@@ -502,8 +502,8 @@ updated: 2026-07-13
 ---
 
 ## 相關資源
-- [[quant-dashboard-skill|Skill 藍圖（含 P1-P8 自檢清單）]]
-- [[finance/quant-dashboard-prompt|實作紀錄與提示詞]]
-- [[finance/quant-dashboard-qa-1|架構 Q&A（第一批）]]
-- [[finance/quant-dashboard-qa-2|多角色架構審查]]
-- [[finance/quant-dashboard-resource|資源清單]]
+- [[mklab-stock-skill|Skill 藍圖（含 P1-P8 自檢清單）]]
+- [[mklab-stock-prompt|實作紀錄與提示詞]]
+- [[mklab-stock-qa-1|架構 Q&A（第一批）]]
+- [[mklab-stock-qa-2|多角色架構審查]]
+- [[mklab-stock-resource|資源清單]]

@@ -1,7 +1,7 @@
 ---
-title: "quant-dashboard 實作紀錄與提示詞"
-description: "quant-dashboard 專案的問答精華、架構決策過程、GitHub Actions/Pages 提示詞範本——供未來寫 skill 時參考"
-summary: "quant-dashboard 的對話決策記錄（雙排程/多源備援/匿名/手填CSV）+ Actions workflow 提示詞範本 + 關鍵學習點，作為未來 skill 化的種子"
+title: "mklab-stock 實作紀錄與提示詞"
+description: "mklab-stock 專案的問答精華、架構決策過程、GitHub Actions/Pages 提示詞範本——供未來寫 skill 時參考"
+summary: "mklab-stock 的對話決策記錄（雙排程/多源備援/匿名/手填CSV）+ Actions workflow 提示詞範本 + 關鍵學習點，作為未來 skill 化的種子"
 type: project
 status: active
 tags:
@@ -11,10 +11,10 @@ created: 2026-07-13
 updated: 2026-07-13
 ---
 
-# quant-dashboard 實作紀錄與提示詞
+# mklab-stock 實作紀錄與提示詞
 
 > 用途：記錄本專案的**問答過程、決策邏輯、提示詞範本**，供未來提煉成 Hermes skill 時參考。
-> 關聯架構頁：[[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
+> 關聯架構頁：[[mklab-stock-v2-100個功能|mklab-stock 專案架構]]
 > 研究基礎：[[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
 
 ---
@@ -80,7 +80,7 @@ updated: 2026-07-13
 | 示警 | Telegram + Email 雙通道 |
 | 技術 | Python + Plotly（非前端框架） | **已推翻** |
 | 技術 | **React 或 Vue 為主（hybrid：Python 產 JSON + 前端讀 JSON 渲染）** | 2026-07-13 後段變更 |
-| Repo | `ivanhsia/quant-dashboard`（Public + Pages） |
+| Repo | `ivanhsia/mklab-stock`（Public + Pages） |
 | 功能 | ABCD 全做（大盤/ETF、選股、回測、測試持倉） |
 
 ---
@@ -95,7 +95,7 @@ on:
     - cron: '0 9 * * 1-5'   # UTC 9:00 = 台灣 17:00
   workflow_dispatch:
 concurrency:
-  group: quant-dashboard
+  group: mklab-stock
   cancel-in-progress: false
 timeout-minutes: 30
 jobs:
@@ -304,8 +304,8 @@ jobs:
 
 ## 六、未來 skill 化建議
 
-當實作完成（Phase 0~5），可提煉為 Hermes skill `github-quant-dashboard`：
-- **觸發**：用戶說「建股市儀表板」「部署 quant-dashboard」「更新公開分析站」
+當實作完成（Phase 0~5），可提煉為 Hermes skill `github-mklab-stock`：
+- **觸發**：用戶說「建股市儀表板」「部署 mklab-stock」「更新公開分析站」
 - **scripts/**：fetch_tw.py / fetch_us.py / build_dashboard.py / check_stale.py
 - **references/**：本頁（問答精華）+ daily_stock_analysis 分析
 - **SKILL.md**：雙排程架構 + 雙源備援 + 匿名原則 + CSV 手填流程
@@ -318,7 +318,7 @@ jobs:
 
 > 用戶要求遵循七大原則重設計，解決靜態 Pages 無法做動態功能的根本衝突。
 > 關鍵詞：**前端與 Python 完全解耦 / 雙源（JSON+API）可切換 / Admin 模組獨立部署**。
-> 詳細原則見 [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]] 第二節。
+> 詳細原則見 [[mklab-stock-v2-100個功能|mklab-stock 專案架構]] 第二節。
 
 ### 7.1 七大原則（精簡版）
 1. React 不直接碰 SQLite
@@ -437,7 +437,7 @@ export interface DataClient {
 ### 7.5 部署拓撲（最終）
 
 ```
-┌─ GitHub Repo: ivanhsia/quant-dashboard ─┐
+┌─ GitHub Repo: ivanhsia/mklab-stock ─┐
 │  frontend/ (React+TS+Tailwind+shadcn)   │
 │  data/ (*.json, Python 產出)            │
 │  schemas.py (Pydantic 契約)             │
@@ -610,6 +610,6 @@ function fromApi(raw: any): Stock[] { return raw.data }
 ---
 
 ## 相關節點
-- [[quant-dashboard-v2-100個功能|quant-dashboard 專案架構]]
+- [[mklab-stock-v2-100個功能|mklab-stock 專案架構]]
 - [[finance/github-actions-pages-stock-analysis|GitHub Actions/Pages 股市應用研究]]
 - [[quant-python-ai-agent|量化 Python AI Agent]]
