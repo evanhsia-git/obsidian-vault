@@ -628,3 +628,6 @@ updated: 2026-06-23
 ## [2026-07-14 11:28:01] lint | 全部通過
 ## [2026-07-14 21:00:20] lint | 1 dir_perm_fixed, 2 file_perm_fixed | 5 broken_links
 ## [2026-07-15 21:00:58] lint | 0 dir_perm_fixed, 30 file_perm_fixed | 5 missing_fields | 1 invalid_type | 2 orphans | 5 broken_links
+## [2026-07-16 12:33:37] lint | 0 dir_perm_fixed, 11 file_perm_fixed | 4 missing_fields | 1 invalid_type | 1 invalid_status | 2 orphans | 5 broken_links
+## [2026-07-16 12:40:15] lint | 全部通過
+## [2026-07-16 21:00:24] lint | 全部通過

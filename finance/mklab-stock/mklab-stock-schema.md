@@ -1,7 +1,10 @@
 ---
 status: active
 title: "mklab-stock 規範與架構手冊 (mklab-stock-schema)"
+type: schema
+summary: "mklab-stock 權威規範手冊：資料管線、JSON Schema、元件契約、故障排除、維護協議"
 created: 2026-07-15
+updated: 2026-07-15
 tags: [mklab-stock, schema, 規範, 運維, 文檔]
 ---
 
@@ -321,11 +324,33 @@ MKLAB.DataTable(tableId, {
 
 ⚠️ **gh token 限制**：當前 fine-grained PAT 缺 `Administration`（不能建 repo/開 Pages）與 `actions:write`（不能手動觸發 workflow）。如需此類操作請用戶手動在 GitHub UI 做，或 `gh auth refresh -s repo,workflow`。
 
+### ⚠️ GitHub Pages 子路徑部署必讀：相對路徑 + `<base href>`
+
+**問題**：GitHub Pages 部署在 `https://<user>.github.io/<repo>/` 子路徑，若 HTML 使用絕對路徑 `/data/`、`/assets/`、`/vendor/`，瀏覽器會請求到 `https://<user>.github.io/data/`（根域名），導致 **404、資料載入失敗、圖表空白**。
+
+**解決（所有頁面 `<head>` 頂部必加）**：
+```html
+<base href="/mklab-stock/">
+<!-- 之後所有資源用相對路徑 -->
+<script src="vendor/lightweight-charts.min.js"></script>
+<script src="data/twii_kdata.js"></script>
+<script src="assets/mklab-core.js"></script>
+<script src="assets/data-client.js"></script>
+<script src="assets/mklab-wc.js"></script>
+```
+
+**檢查清單（部署前必查）**：
+- [ ] 所有 HTML `<head>` 第一行是 `<base href="/mklab-stock/">`
+- [ ] 所有 `<script src>`、`<link href>` 使用相對路徑（無開頭 `/`）
+- [ ] 本地測試：本地 `python -m http.server 8765` 測試時，需加 `--directory .` 並在瀏覽器訪問 `http://localhost:8765/mklab-stock/`（或手動在網址加子路徑），確認無 404
+
+> 2026-07-16 實測踩坑：`index.html`、`prototypes/*.html` 使用 `/data/`、`/assets/` 絕對路徑，導致 GitHub Pages 上資源 404、K線圖空白、資料載入失敗。改為相對路徑 + `<base href>` 後解決。
+
+---
+
 ---
 
 ## 6. 文件對應表（防止漂移）
-
-| 文檔 | 職責 | 修改時機 |
 |------|------|----------|
 | `docs/design.md` | 架構規劃/設計依據（為什麼這樣設計） | 改設計決策時 |
 | `docs/resource.md` | 資源清單/外部依賴 | 加依賴時 |

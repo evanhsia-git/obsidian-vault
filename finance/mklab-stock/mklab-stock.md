@@ -15,7 +15,11 @@ updated: 2026-07-13
 # mklab 簡化架構 v3.0（架構規劃主文）
 
 > **本頁角色**：架構「規劃與設計依據」——回答「為什麼這樣設計」。所有設計決策、Domain 劃分、Provider 策略、Phase 路線、檔案樹皆在此。
-> **可部署 Skill 正文（執行規範）**：[[mklab-skill|mklab 可部署 Skill]]——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
+<mark class="conflict ours">
+> **可部署 Skill 正文（執行規範）**：mklab-skill 可部署 Skill——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
+</mark><mark class="conflict theirs">
+> **可部署 Skill 正文（執行規範）**：mklab 可部署 Skill——回答「觸發後做什麼 / 怎麼做」，隨時可註冊上線。
+</mark>
 > 分工：**改設計 → 改本頁；改執行流程 → 改 Skill 頁**。兩頁章節一一對應（見下表）。
 
 以**使用者任務**為核心：不問「我有什麼功能」，只問「使用者來做什麼」。架構以 Domain 分類，每 Domain 只回答一個問題。這是對「功能堆疊」思維的減法重構——8 原模組 → 5 Domain + 首頁，核心 JSON 契約砍併為 4 份；目標不是功能最多，而是最容易維護 / Fork / 理解 / 長期發展。
@@ -72,25 +76,25 @@ updated: 2026-07-13
 ## 3. Z100 精選（18 項）
 全複用既有 JSON/計算，無新增 Provider/Workflow。
 
-| 原編號 | 功能 | 歸屬 |
-|--------|------|------|
-| #9 | 資料新鮮度提示條 | 首頁/System |
-| #8 | 部署狀態徽章 | System（首頁狀態條） |
-| #22 | 財報成長趨勢燈號 | Asset(View) |
-| #30 | 個股風險警示燈 | Asset/首頁 |
-| #46 | 持倉集中度警示 | Portfolio |
-| #47 | 定期定額試算器 | Portfolio(Tool) |
-| #77 | 除權息倒數提醒卡 | Learning/Asset |
-| #76 | 日曆訂閱(.ics) | Learning(Tool)【延後進階：低頻】 |
-| #95 | 「如果當初買了」試算器 | Learning(Tool) |
-| #71 | 規則式情緒燈號(非AI) | Asset(View) |
-| #29 | 除權息填權速度 | Asset(View) |
-| #35 | 高股息ETF除息月曆 | Asset【除權息三項#29/#35/#77全歸Asset】 |
-| #31 | ETF折溢價追蹤 | Asset(View) |
-| #36 | ETF費用侵蝕試算 | Asset/Learning |
-| #58 | 回測版本快照 | Research |
-| #81/#83 | Issue Template / Projects看板 | System（GitHub原生，合為治理註腳，移出功能表） |
-| #100 | P1-P8自我體檢報告 | 改 CI 自動機制（移出功能表） |
+| 原編號     | 功能                          | 歸屬                             |
+| ------- | --------------------------- | ------------------------------ |
+| #9      | 資料新鮮度提示條                    | 首頁/System                      |
+| #8      | 部署狀態徽章                      | System（首頁狀態條）                  |
+| #22     | 財報成長趨勢燈號                    | Asset(View)                    |
+| #30     | 個股風險警示燈                     | Asset/首頁                       |
+| #46     | 持倉集中度警示                     | Portfolio                      |
+| #47     | 定期定額試算器                     | Portfolio(Tool)                |
+| #77     | 除權息倒數提醒卡                    | Learning/Asset                 |
+| #76     | 日曆訂閱(.ics)                  | Learning(Tool)【延後進階：低頻】        |
+| #95     | 「如果當初買了」試算器                 | Learning(Tool)                 |
+| #71     | 規則式情緒燈號(非AI)                | Asset(View)                    |
+| #29     | 除權息填權速度                     | Asset(View)                    |
+| #35     | 高股息ETF除息月曆                  | Asset【除權息三項#29/#35/#77全歸Asset】 |
+| #31     | ETF折溢價追蹤                    | Asset(View)                    |
+| #36     | ETF費用侵蝕試算                   | Asset/Learning                 |
+| #58     | 回測版本快照                      | Research                       |
+| #81/#83 | Issue Template / Projects看板 | System（GitHub原生，合為治理註腳，移出功能表）  |
+| #100    | P1-P8自我體檢報告                 | 改 CI 自動機制（移出功能表）               |
 
 排除：#14恐慌貪婪、#53 Walk-Forward、#65因子權重優化→降級/刪除
 
@@ -491,7 +495,7 @@ mklab/
 - **績效指標**（建議補入 `research.json` schema）：年化報酬、最大回撤、Sharpe、勝率
 
 
-- [[mklab-skill|可部署 Skill 正文（執行規範）]]
-- [[finance/mklab-prompt|實作紀錄]]
-- [[finance/mklab-qa-1|Q&A第一批]]
-- [[finance/mklab-qa-2|多角色審查]]
+- 可部署 Skill 正文（執行規範）
+- 實作紀錄
+- Q&A第一批
+- 多角色審查

@@ -34,16 +34,16 @@ updated: 2026-07-13
 
 > 依指示，先確認理解，再談功能。以下是八個角色對本專案本質的共識，任何功能提案都要能通過這八句話的檢驗。
 
-| 角色 | 對本專案本質的理解 |
-|------|---------------------|
+| 角色                           | 對本專案本質的理解                                                                                                   |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | Principal Software Architect | 這不是三層式應用，是「GitHub Actions = 後端運算、GitHub Pages = 前端展示」的 Static-First 系統。任何功能第一個問題永遠是：**能不能在 Build Time 做完？** |
-| Principal React Architect | React 被刻意限縮為 **Render 層**，禁止商業邏輯。導覽改用 **TanStack Router**（非舊版 React Router），config-driven + code splitting。 |
-| Principal Python Architect | Python 是唯一計算引擎，跑在 Actions runner（無常駐伺服器），腳本間需保持 idempotent，同一 run 內可快取但不可跨 run 留狀態（Reproducible）。 |
-| GitHub Actions Expert | 平台心臟是排程與 workflow；Public repo Actions 分鐘數無限，但仍要顧 job 時長、concurrency、artifact 保存期限（90 天預設）。 |
-| GitHub Pages Expert | 展示層是純靜態檔案託管，零伺服器邏輯；一切互動皆為前端 fetch 靜態 JSON，沒有「查詢」只有「篩選已產出的資料」。 |
-| DevOps Architect | 部署鏈是 Actions → Artifact → Pages，必須 idempotent + reproducible + fail-safe（單一 Provider 掛掉不可擴散成整站掛）。 |
-| Quant Trading Architect | 策略/回測/因子邏輯必須與資料源完全解耦（Provider Pattern），策略程式碼不可 import 任何具體 API。 |
-| Open Source Maintainer | 任何新功能的第一個檢查點：**這是否讓 Fork 使用者的門檻變高？** 門檻變高就必須降級為 Optional，並在無該條件時優雅隱藏。 |
+| Principal React Architect    | React 被刻意限縮為 **Render 層**，禁止商業邏輯。導覽改用 **TanStack Router**（非舊版 React Router），config-driven + code splitting。 |
+| Principal Python Architect   | Python 是唯一計算引擎，跑在 Actions runner（無常駐伺服器），腳本間需保持 idempotent，同一 run 內可快取但不可跨 run 留狀態（Reproducible）。           |
+| GitHub Actions Expert        | 平台心臟是排程與 workflow；Public repo Actions 分鐘數無限，但仍要顧 job 時長、concurrency、artifact 保存期限（90 天預設）。                  |
+| GitHub Pages Expert          | 展示層是純靜態檔案託管，零伺服器邏輯；一切互動皆為前端 fetch 靜態 JSON，沒有「查詢」只有「篩選已產出的資料」。                                               |
+| DevOps Architect             | 部署鏈是 Actions → Artifact → Pages，必須 idempotent + reproducible + fail-safe（單一 Provider 掛掉不可擴散成整站掛）。           |
+| Quant Trading Architect      | 策略/回測/因子邏輯必須與資料源完全解耦（Provider Pattern），策略程式碼不可 import 任何具體 API。                                             |
+| Open Source Maintainer       | 任何新功能的第一個檢查點：**這是否讓 Fork 使用者的門檻變高？** 門檻變高就必須降級為 Optional，並在無該條件時優雅隱藏。                                       |
 
 **共識結論**：本專案的競爭力不在「功能多」，而在「Fork 之後零門檻就能用的功能多」。功能規劃順序永遠是 **Build Time 優先 → 零 Key 優先 → 選配加值最後**。
 

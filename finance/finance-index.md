@@ -29,6 +29,8 @@ updated: 2026-07-09
 - [[mklab-stock-skill|mklab-stock Skill 藍圖]] — 標準 SKILL.md 規範寫成的未來 skill 藍圖（觸發/鐵律/15模組/Phase）
 - [[mklab-stock|mklab-stock 簡化架構 v3.0]] — 現行架構主文（執行效率×系統維護×新手心態，減法版）
 - [[mklab-stock-design|mklab-stock 設計憲法]] — UI/UX 設計規範 v1（五大主題 IA、Header、Table/Card/Chart、Coding 原則）
+- [[mklab-stock-schema|mklab-stock 規範與架構手冊]] — 權威規範：資料管線、JSON Schema、元件契約、故障排除、維護協議
+- [[mklab-stock-dev|mklab-stock Dev（Web Components 路線）]] — 開發紀錄：放棄 React、全站 WC 遷移完成上線
 - [[Prototypes/量化儀表板原型索引|mklab-stock 原型索引]] — 五頁 v11 HTML 原型（Market/Screener/Research/Strategy/Watchlist）
 - [[quant-python-ai-agent|量化 Python AI Agent]] — quant-trading 系統概覽
 - [[dynamic-web-based-financial-analysis-system|動態網頁金融分析系統]]
