@@ -49,15 +49,29 @@ updated: 2026-07-10
 │   ├── market-reports/
 │   └── reports/
 ├── reports/           # Layer 2 報告產出
-│   └── drafts/
-├── resources/         # Layer 2 資源鏈結
+ │   └── drafts/
+ ├── resources/         # Layer 2 資源鏈結
+├── project/           # Layer 2 專案管理
+│   ├── mklab-stock.md
+│   ├── mklab-stock-design.md
+│   ├── mklab-stock-dev.md
+│   ├── mklab-stock-prompt.md
+│   ├── mklab-stock-qa-1.md
+│   ├── mklab-stock-qa-2.md
+│   ├── mklab-stock-resource.md
+│   ├── mklab-stock-schema.md
+│   ├── mklab-stock-skill.md
+│   ├── mklab-stock-v1.md
+│   ├── mklab-stock-v2-100個功能.md
+│   ├── mklab-stock-v3.md
+│   └── project-index.md
 ├── skills/            # Agent 技能定義
-│   ├── architecture-references/
-│   ├── blogwatcher/
-│   ├── daily-news-stock-market/
-│   ├── evolution/
-│   └── troubleshooting/
-├── system/            # 系統架構、規則、部署（含本檔與 frontmatter-rules 等）
+ │   ├── architecture-references/
+ │   ├── blogwatcher/
+ │   ├── daily-news-stock-market/
+ │   ├── evolution/
+ │   └── troubleshooting/
+ ├── system/            # 系統架構、規則、部署（含本檔與 frontmatter-rules 等）
 ├── config/            # [空] 配置暫存區（目前無內容）
 │
 ├── assets/            # 全站靜態資源（圖片、附件等）
@@ -81,7 +95,7 @@ updated: 2026-07-10
     ├── dayi/
     ├── hermes/
     ├── linux/
-    └── templates/
+    └── templates()
 ```
 
 ### 已移除的過時項目（舊 folder-rules 記載但實際不存在）

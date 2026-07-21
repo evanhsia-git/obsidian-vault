@@ -640,3 +640,6 @@ updated: 2026-06-23
 ## [2026-07-19 21:00:56] lint | 0 dir_perm_fixed, 6 file_perm_fixed
 ## [2026-07-20 12:20:02] lint | 0 dir_perm_fixed, 6 file_perm_fixed
 ## [2026-07-20 21:00:13] lint | 全部通過
+## [2026-07-21 15:11:30] lint | 1 dir_perm_fixed, 7 file_perm_fixed | 1 missing_fields | 1 broken_links
+## [2026-07-21 15:13:11] lint | 1 missing_fields | 1 broken_links
+## [2026-07-21 21:00:25] lint | 1 missing_fields | 1 broken_links
