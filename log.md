@@ -648,3 +648,8 @@ updated: 2026-06-23
 ## [2026-07-24 21:00:06] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 1 missing_fields | 1 broken_links
 ## [2026-07-25 21:00:20] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 1 missing_fields | 1 broken_links
 ## [2026-07-26 21:00:31] lint | 0 dir_perm_fixed, 7 file_perm_fixed | 1 invalid_names | 2 missing_fields | 1 orphans | 1 broken_links
+## [2026-07-26 23:57:58] lint | 0 dir_perm_fixed, 8 file_perm_fixed | 1 invalid_names | 2 missing_fields | 1 orphans | 1 broken_links
+## [2026-07-27 00:01:27] lint | 1 missing_fields | 1 orphans | 3 broken_links
+## [2026-07-27 00:04:10] lint | 1 missing_fields | 1 orphans | 1 broken_links
+## [2026-07-27 00:04:57] lint | 1 orphans | 1 broken_links
+## [2026-07-27 21:00:53] lint | 1 orphans | 1 broken_links

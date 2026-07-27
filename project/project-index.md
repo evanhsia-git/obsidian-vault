@@ -5,7 +5,8 @@ type: index
 status: active
 tags: [project]
 created: 2026-07-21
-updated: 2026-07-21
+updated: 2026-07-26
+summary: "索引所有專案相關筆記與資源，提供快速導航。"
 ---
 # 專案索引
 
@@ -15,16 +16,16 @@ updated: 2026-07-21
 （待建立）
 
 ## 相關筆記
-- [[mklab-stock-canvas-quest-1.canvas]]
-- [[mklab-stock-design]]
-- [[mklab-stock-dev]]
-- [[mklab-stock]]
-- [[mklab-stock-prompt]]
-- [[mklab-stock-qa-1]]
-- [[mklab-stock-qa-2]]
-- [[mklab-stock-resource]]
-- [[mklab-stock-schema]]
-- [[mklab-stock-skill]]
-- [[mklab-stock-v1]]
-- [[mklab-stock-v2-100個功能]]
-- [[mklab-stock-v3]]
+- [[project/mklab-stock/mklab-stock-canvas-quest-1.canvas]]
+- [[project/mklab-stock/mklab-stock-design]]
+- [[project/mklab-stock/mklab-stock-dev]]
+- [[project/mklab-stock/mklab-stock]]
+- [[project/mklab-stock/mklab-stock-prompt]]
+- [[project/mklab-stock/mklab-stock-qa-1]]
+- [[project/mklab-stock/mklab-stock-qa-2]]
+- [[project/mklab-stock/mklab-stock-resource]]
+- [[project/mklab-stock/mklab-stock-schema]]
+- [[project/mklab-stock/mklab-stock-skill]]
+- [[project/mklab-stock/mklab-stock-v1]]
+- [[project/mklab-stock/mklab-stock-v2-100個功能]]
+- [[project/mklab-stock/mklab-stock-v3]]
