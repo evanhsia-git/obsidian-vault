@@ -653,3 +653,4 @@ updated: 2026-06-23
 ## [2026-07-27 00:04:10] lint | 1 missing_fields | 1 orphans | 1 broken_links
 ## [2026-07-27 00:04:57] lint | 1 orphans | 1 broken_links
 ## [2026-07-27 21:00:53] lint | 1 orphans | 1 broken_links
+## [2026-07-28 21:00:06] lint | 0 dir_perm_fixed, 10 file_perm_fixed | 1 orphans | 1 broken_links
