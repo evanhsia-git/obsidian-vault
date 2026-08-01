@@ -15,6 +15,7 @@ updated: 2026-06-23
 - S&P 500 成分股 — 美股指數成分
 - [[fred-guide|FRED 指南]] — 美國聯準會經濟數據
 - Arena AI 排行榜 — 開源模型 Top 50
+- [[shared-stock-table]] — 共用股票表
 - [[cloudflare-pages-decap-cms|Cloudflare Pages + Decap CMS]] — 靜態網站部署
 
 ---

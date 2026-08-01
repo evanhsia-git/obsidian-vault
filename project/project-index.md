@@ -16,7 +16,7 @@ summary: "索引所有專案相關筆記與資源，提供快速導航。"
 （待建立）
 
 ## 相關筆記
-- [[project/mklab-stock/mklab-stock-canvas-quest-1.canvas]]
+- project/mklab-stock/mklab-stock-canvas-quest-1.canvas (斷鏈，僅保留顯示文字)
 - [[project/mklab-stock/mklab-stock-design]]
 - [[project/mklab-stock/mklab-stock-dev]]
 - [[project/mklab-stock/mklab-stock]]
