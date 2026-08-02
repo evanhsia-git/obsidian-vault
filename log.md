@@ -662,3 +662,4 @@ updated: 2026-06-23
 ## [2026-08-01 10:37:29] lint | 1 orphans | 1 broken_links
 ## [2026-08-01 10:56:11] lint | 全部通過
 ## [2026-08-01 21:00:21] lint | 全部通過
+## [2026-08-02 21:00:33] lint | 1 dir_perm_fixed, 10 file_perm_fixed | 1 large_pages
