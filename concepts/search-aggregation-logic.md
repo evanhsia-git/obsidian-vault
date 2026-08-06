@@ -5,7 +5,7 @@ description: "搜尋聚合邏輯實作"
 summary: "搜尋引擎聚合邏輯說明：1. 定義" 
 created: 2026-06-03 
 updated: 2026-06-03 
-type: concept 
+type: project 
 tags: [auto, source, rag] 
 --- 
 
@@ -54,7 +54,7 @@ title: "Twse-Api-Mapping"
 summary: "Twse-Api-Mapping：相關頁面"
 created: 2026-05-31
 updated: 2026-05-31
-type: concept
+type: project
 tags: []
 ---
 ## 相關頁面
