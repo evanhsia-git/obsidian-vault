@@ -52,4 +52,5 @@ updated: 2026-06-28
 
 ---
 
+- [[mklab-stock-safe-deletion-guide|mklab-stock 安全刪除指南]]
 相關連結：[[index|主索引]] | [[schema]] | [[policy]]
