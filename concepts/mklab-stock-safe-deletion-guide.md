@@ -101,9 +101,9 @@ find .github/workflows -type f -name "*.backup" -o -name "*.bak*" -o -name "*.or
 > **執行前建議**：先執行 `git status` 或 `git diff --check` 確認沒有誤刪到真正需要的檔案；亦可先 `git stash` 備份目前的工作狀態。
 
 ## 🔗 相關知識
-- [[mklab-stock 倉庫結構]]
-- [[Obsidian Vault 維護指南]]
-- [[GitHub Actions 自動化工作流程]]
+- [[project/mklab-stock/mklab-stock|mklab-stock 倉庫結構]]
+- [[log.md|Obsidian Vault 維護指南]]
+- [[finance/github-actions-pages-stock-analysis|GitHub Actions 自動化工作流程]]
 
 ---
 
