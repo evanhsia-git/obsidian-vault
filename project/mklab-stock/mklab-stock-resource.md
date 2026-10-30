@@ -126,6 +126,29 @@ updated: 2026-07-14
 
 ---
 
+## 六之二、mklab-stock 實際使用的 TWSE OpenAPI 端點（2026-10-30）
+
+> 本節列出 mklab-stock 現行依賴的 TWSE OpenAPI 端點，以及對應的本地資料檔。
+
+| 資料類別 | TWSE OpenAPI 端點 | 本地資料檔 | 內容 |
+|----------|-------------------|------------|------|
+| **股票基本資料** | — | `data/stocks.json` | 股票代碼、基本資訊 |
+| **ETF 資料** | — | `data/etf-categories.json`、`data/etf-classified.json` | ETF 類別、分類 |
+| **財報（損益表）** | `t187ap06_L_ci` | `data/stocks.json`（已有） | 營業收入、營業成本、毛利、淨利、EPS |
+| **財報（資產負債表）** | `t187ap07_L_ci` | `data/stocks.json`（已有） | 資產總計、負債總計、權益、每股淨值 |
+| **日成交** | `STOCK_DAY_ALL` | — | 收盤價、成交量、漲跌幅 |
+| **估值指標** | `BWIBBU_ALL` | — | PE、PB、殖利率 |
+| **大盤指數** | `MI_INDEX` | — | 加權股價指數 |
+| **台灣50指數** | `TAI50I` | — | 台灣50指數 |
+| **基金（上市）** | `OpenData_BRK01` | — | 上市基金基本資料 |
+| **基金（上櫃）** | `OpenData_BRK02` | — | 上櫃基金基本資料 |
+
+> 來源：TWSE OpenAPI（`https://openapi.twse.com.tw/v1`），免 API Key。
+> 財報端點另可從 MOPS CSV 下載（`https://mopsfin.twse.com.tw/opendata/`），編碼為 `utf-8-sig`。
+> 詳細映射表見 [[concepts/search-aggregation-logic|TWSE API 映射表]]。
+
+---
+
 ## 七、建議架構（原指南版，供對照）
 ```
 GitHub Actions → Python → FinMind/yfinance → 策略分析 → Plotly

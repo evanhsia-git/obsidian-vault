@@ -347,6 +347,12 @@ updated: 2026-06-23
 - `quartz-v5-deployment` 合併至 `quartz-rules`（部署經驗保留，重複的刪除）
 - 更新 `system/system-index.md`、`skills/skills-index.md` 索引
 
+## [2026-10-30 03:35] wiki 更新 — mklab-stock TWSE OpenAPI 資料源表寫入
+- **原因**：用戶要求將 mklab-stock 現有依賴的 TWSE OpenAPI 端點與對應資料檔寫入 wiki
+- **動作**：在 `project/mklab-stock/mklab-stock-resource.md` 新增「六之二、mklab-stock 實際使用的 TWSE OpenAPI 端點」章節，含 9 類資料（股票基本/ETF/財報損益表 t187ap06_L/財報資產負債表 t187ap07_L/日成交 STOCK_DAY_ALL/估值 BWIBBU_ALL/指數 MI_INDEX+TAI50I/基金 OpenData_BRK01+BRK02）與對應本地檔案
+- **驗證**：已確認 `mklab-stock-resource.md` 新增 20 行，表格 9 列完整匹配；`concepts/search-aggregation-logic.md` 既有 TWSE API 映射表（BWIBBU_ALL/BWIBBU_d/STOCK_DAY_AVG_ALL/t187ap06_L/t187ap07_L/t187ap47_L）同步存在，無衝突
+- **結果**：wiki 已有完整 TWSE OpenAPI 端點說明（mklab-stock-resource.md 新增 + search-aggregation-logic.md 既有），可直接參考
+
 ## [2026-06-26 12:00] finance 目錄新增
 - wiki 新增 `finance/` 目錄（Layer 2）
 - 遷移 20 篇筆記（concepts 11 + entities 6 + queries 3 + skills 1）
@@ -766,3 +772,5 @@ updated: 2026-06-23
 ## [2026-10-27 21:00:56] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
 ## [2026-10-28 21:00:15] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
 ## [2026-10-29 21:00:26] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
+## [2026-10-30 03:48:43] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
+## [2026-10-30 21:00:37] lint | 134 stale_pages
