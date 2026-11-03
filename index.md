@@ -24,7 +24,7 @@ updated: 2026-07-10
 - [[obsidian/obsidian-index|obsidian 主題知識]] — 5 篇
 - [[concepts/concepts-index|concepts 概念筆記]] — 24 篇（含 system-index）
 - [[entities/entities-index|entities 實體資料]] — 3 篇
-- [[resources/resources-index|resources 資源鏈結]] — 0 篇（僅 index）
+- [[resources/resources-index|resources 資源鏈結]] — 3 篇（含 TWSE OpenAPI 完整清單與市場資料來源總表）
 - [[reports/reports-index|reports 報告]] — 4 篇
 - [[queries/queries-index|queries 查詢記錄]] — 0 篇（僅 index）
 - [[skills/skills-index|skills 技能管理]] — 11 篇

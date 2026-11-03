@@ -777,3 +777,34 @@ updated: 2026-06-23
 ## [2026-10-31 21:00:57] lint | 0 dir_perm_fixed, 9 file_perm_fixed | 134 stale_pages
 ## [2026-11-01 21:00:05] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
 ## [2026-11-02 21:00:05] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 134 stale_pages
+
+## [2026-11-03 09:45] wiki | 新增 TWSE OpenAPI 端點總覽頁面
+- 新增 `resources/twse-openapi-endpoints.md`（type: resource，215 行）— 證交所 OpenAPI 全部 143 個端點，依官方 7 分類整理，每端點含完整網址與欄位數
+- 規格來源：`https://openapi.twse.com.tw/v1/swagger.json`（OpenAPI 2.0，內含每個端點的欄位定義，全庫共 2,015 欄）
+- 實測註記：`t187ap03_L`／`t187ap45_L`／`t187ap47_L`／`t187ap06_L_*`／`t187ap07_L_*` 可用；無後綴 `t187ap06_L`／`t187ap07_L` 回傳 HTML 已失效
+- 關鍵發現：財報端點按產業拆檔（ci 一般業／basi／bd 銀行／fh 金控／ins 保險／mim），只抓 ci 會讓金融保險類 31 檔永遠沒有官方財報
+- 相關程式修正已推送 GitHub：mklab-stock `f6e1e20`（官方財報改抓 6 個產業檔＋與既有快照 upsert 合併＋年化係數逐列計算）
+- 同步更新 `resources/resources-index.md`；WebDAV 權限已修正（檔案 root:www-data 664、目錄 775），並以 `sudo -u www-data touch` 驗證 OK
+
+## [2026-11-03 16:10] wiki | 新增 TWSE OpenAPI 完整清單頁與市場資料來源總表
+- 新增 `resources/twse-openapi-full.md`（type: resource，823 行／77KB）— `twse-openapi-full.md` 的完整文字記錄（143 端點、7 分類、2,015 欄位）；前置說明含分類統計表、mklab-stock 實際使用端點對照、7 個實測陷阱（無後綴財報端點失效、財報按產業拆檔、產業檔只有當期已申報公司需 upsert、混季年化、空殼列、WAF、TWSE 與 TPEx 發布時差）
+- 新增 `resources/market-data-sources.md`（type: resource）— 市場資料來源總表：台股（TWSE OpenAPI／MOPS 產業拆檔／TPEx）、國際（yfinance）、四大指數替代 ETF 持股來源鏈（VOO／DIA／QQQ／SOXX）、共同備援 TickerInside（含 issuer 與 sec_nport 新鮮度差異、標註條款）、SEC EDGAR 端點與 CIK 說明（實測自訂 UA 缺 email 一律 403 → 尚未接入）
+- 同步更新 `resources/resources-index.md`；檔案權限沿用 root:www-data 664
+- 對應程式變更（GitHub mklab-stock `d37143f`）：新增 `parse_tickerinside`／`source_attribution`、四檔 ETF 都加入 TickerInside 共同備援、SOXX 改為完整 30 檔、逐來源驗證門檻、來源登記 `data/etf-source-urls.json`、README 新增來源鏈一節
+- 實測產出：VOO 501 檔 98.71%／DIA 30 檔 99.95%／QQQ 101 檔 99.84%（基準日當日）／SOXX 30 檔 99.85%
+- 附帶修正 `index.md` 的 resources 目錄計數（原為 0 篇，實際 3 篇：twse-openapi-endpoints、twse-openapi-full、market-data-sources）
+
+## [2026-11-03 16:40] wiki | 補記 SOXX 來源障礙的實測證據與人工上傳通道
+- 實測結論：iShares／BlackRock 全部端點（latest-holdings.csv、舊式 .ajax CSV、產品頁、BlackRock 鏡像）皆 403 Access Denied；阻擋依據是**來源 IP 屬資料中心**（Akamai），非 UA／標頭 —— 帶完整瀏覽器標頭無效，連本機真實瀏覽器（headless Chrome）也被擋（`Reference #18.4752cd17…`，本機 IP 172.104.105.71 Linode）
+- 官方 CSV 內容完整（代號／名稱／產業／市值／權重／股數），缺的只是可通過 Akamai 的存取方式；GitHub Actions runner 同為資料中心 IP → CI 無法繞過
+- 已實作替代通道：`data/raw/official/SOXX_holdings.csv` 人工上傳（`max_age_days=45`，過期自動讓位給自動來源；不存在僅跳過）→ 更新於 `resources/market-data-sources.md` 第三節
+- 對應程式變更（GitHub mklab-stock `8f76493`）：`manual_source_stale()` 新鮮度守門、SOXX 來源順序調整、新增 3 項測試（78 項全過）
+
+## [2026-11-03 17:30] wiki | SOXX 官方檔案納入自動流程、SEC 存取規範、來源驗證原則
+- SOXX 改用官方 iShares 下載檔（Ivan 手動下載提供，放入 repo `data/raw/official/SOXX_holdings.xls`）：解析 30 檔、權重 99.83%、基準日 2026-11-02；`max_age_days=45`（過期自動讓位給 TickerInside 自動來源）
+- 官方檔案格式陷阱（實測）：檔名 `.xls` 實為 **Excel 2003 XML（SpreadsheetML）** —— `pandas.read_html` 讀不到、`read_excel` 回 format cannot be determined，且檔內含**未轉義的 &**（官方連結屬性）會讓 XML 解析器 ParseError；解法 `parse_spreadsheetml()`（xml.etree + 修 & + 支援 ss:Index），並以 `filter_equity_only()` 濾掉 USD CASH／XTSLA／WFFUT／IXTZ6 等 4 列非股票部位
+- 新增「HTTP 200 不等於成功」驗證：`check_content_type()`＋`_preview()`，來源宣告 CSV 卻回 HTML／JSON 時直接報錯並附開頭 100 字元（Invesco action=download 的 415KB 網頁即此類）
+- SEC EDGAR 存取規範寫入：不需 API key；UA 必須為「程式名稱＋版本＋可聯絡 Email」（例 `MKLAB Stock evan.hsia@gmail.com`，不接受編造信箱）；速率上限每秒 10 次、本專案控制在 2～3 次
+- 新增附錄「來源驗證原則（通用）」6 條：200≠成功、副檔名不可信、403 分標頭／IP 型、人工檔要設期限、來源基準日必記、完整度逐來源驗證
+- 對應程式變更（GitHub mklab-stock `6d979b6`）：82 項測試全過、QA Gate ALLOW DEPLOY
+## [2026-11-03 21:00:05] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 1 large_pages | 133 stale_pages
