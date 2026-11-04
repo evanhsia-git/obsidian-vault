@@ -4,7 +4,7 @@ description: "每日新聞 RSS 來源管理清單 — 包含台股、美股、�
 summary: "每日新聞 RSS 來源清單"
 type: resource
 status: active
-tags: [rss, source, technology, market, daily-news]
+tags: [news, data, finance]
 created: 2026-07-09
 updated: 2026-07-09
 ---

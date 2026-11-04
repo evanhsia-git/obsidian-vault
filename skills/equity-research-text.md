@@ -5,7 +5,7 @@ summary: "專為 Telegram 優化的高密度文字個股分析報告"
 type: project
 status: active
 tags:
-  - skills
+  - hermes
   - finance
 created: 2026-06-28
 updated: 2026-06-28

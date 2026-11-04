@@ -4,7 +4,7 @@ description: "Frontmatter 規範（schema.md 的唯一細節來源）"
 summary: "Obsidian Frontmatter 規範 — Hermes Agent 執行版"
 type: schema
 status: permanent
-tags: [knowledge, workflow, config]
+tags: [pkm, workflow, config]
 created: 2026-06-21
 updated: 2026-07-10
 ---
@@ -57,7 +57,7 @@ schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣
 ## tags
 
 規則：
-- 全 Vault 限 **48 個核心 tag**（禁止新增，與 schema.md 一致）
+- 全 Vault 限 **47 個核心 tag**（禁止新增，與 schema.md 一致；上限 50）
 - 單頁最多 10 個
 - 每 tag 標註 4 項：**Tag、類別、用途、關鍵詞/涵蓋內容**
 
@@ -172,15 +172,15 @@ schema      規範 / 筆記結構規範、規則是什麼或是範本Template樣
 |------|------|
 | AI | 10 |
 | PKM | 6 |
-| 投資 | 2 |
+| 投資 | 3 |
 | 開發 | 9 |
 | 維運 | 6 |
 | 管理 | 6 |
 | 維護 | 4 |
-| 購物 | 1 |
-| 比較 | 1 |
-| 特殊 | 1 |
-| **總計** | **48 個** |
+| 其他（shopping／compare／ivan） | 3 |
+| **總計** | **47 個**（上限 50） |
+
+> 2026-11-04 校正：本表原列「投資 2、購物 1、比較 1、特殊 1、總計 48」，與上方 tags 章節的實際清單不符（實際 47 個）；已對齊。`clippings/` 資料夾的頁面另允許 `clippings` tag（資料夾專用，不計入核心 47），由 `obsidian-lint.py` 的 `TAG_FOLDER_EXCEPTIONS` 處理。
 
 > 本 tags 體系整合自 `obsidian/obsidian-tags-optimization-recommendations.md`（2026-07-10 併入本檔為單一來源）。
 

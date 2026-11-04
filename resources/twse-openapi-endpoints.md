@@ -4,9 +4,9 @@ description: "臺灣證券交易所 OpenAPI 143 個端點的資料內容與網�
 summary: "TWSE OpenAPI 143 端點清單：7 大分類、資料欄位數與實測可用性"
 type: resource
 status: active
-tags: [api, source, tw-stock, data]
+tags: [api, data, stock]
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 # TWSE OpenAPI 端點總覽

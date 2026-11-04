@@ -4,7 +4,7 @@ description: "台股市值前 10 大分析（2026-07-09）— 依真實市值 cl
 summary: "台股市值前 10 大排名與量化分析，含 DB market_cap 欄位異常警示"
 type: report
 status: active
-tags: [tw-stock, finance, report]
+tags: [stock, finance, report]
 created: 2026-07-09
 updated: 2026-07-09
 ---

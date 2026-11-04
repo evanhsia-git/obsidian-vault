@@ -4,7 +4,7 @@ description: "ta-lib 技術指標列表、分類、用途與 Python 範例。涵
 summary: "ta-lib 200+ 技術指標完整分類：均線、動量、成交量、波動率、週期、形態識別、統計"
 type: resource
 status: active
-tags: [ta-lib, finance, stock-analysis, python, technical-analysis]
+tags: [python, finance, stock]
 created: 2026-06-29
 updated: 2026-06-29
 ---

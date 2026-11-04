@@ -4,7 +4,7 @@ description: "Obsidian Vault 每週健康報告"
 type: report
 status: active
 summary: "Obsidian Vault 健康檢查報告 2026-06-21（最終）"
-tags: [lint, deploy]
+tags: [troubleshoot, deploy]
 created: 2026-06-21
 updated: 2026-06-21
 ---

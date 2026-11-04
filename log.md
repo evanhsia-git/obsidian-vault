@@ -808,3 +808,19 @@ updated: 2026-06-23
 - 新增附錄「來源驗證原則（通用）」6 條：200≠成功、副檔名不可信、403 分標頭／IP 型、人工檔要設期限、來源基準日必記、完整度逐來源驗證
 - 對應程式變更（GitHub mklab-stock `6d979b6`）：82 項測試全過、QA Gate ALLOW DEPLOY
 ## [2026-11-03 21:00:05] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 1 large_pages | 133 stale_pages
+## [2026-11-04 00:19:06] lint | 0 dir_perm_fixed, 12 file_perm_fixed | 1 large_pages | 133 stale_pages
+## [2026-11-04 00:26:46] lint | 133 stale_pages
+## [2026-11-04 00:44:43] lint | 133 stale_pages | 37 bad_tags
+## [2026-11-04 00:45:32] lint | 133 stale_pages | 37 bad_tags
+## [2026-11-04 01:01:43] lint | 133 stale_pages | 1 bad_tags
+## [2026-11-04 01:02:49] lint | 133 stale_pages | 1 bad_tags
+## [2026-11-04 01:06:30] lint | 133 stale_pages
+
+## [2026-11-04 01:10] wiki | Tag 白名單檢查上線 + 全庫 tag 遷移（36 檔）
+- `obsidian-lint.py` 新增第 7b 節：`CORE_TAGS`（47 個核心 tag，唯一來源 `system/frontmatter-rules.md`）+ 單頁上限 10 + `MERGED_TAGS`（官方「已淘汰並合併」對照 → 報告直接給建議）+ `TAG_FOLDER_EXCEPTIONS`（`clippings/` 專用 tag）+ readonly 區跳過；`REFERENCE_DOCS["schema-skill-sync-protocol.md"]` 補第 4 條同步規範
+- 全庫遷移 36 檔（使用者選 B）：`source→data`(7)、`tw-stock→stock`(6)、`auto→automation`(3)、`knowledge→pkm`(3)、`integration→api`(2)、`lint→troubleshoot`(2)，以及 29 種無對照 tag 依建議清單遷移（`mklab-stock→dashboard`、`skills→hermes`、`quant／trading／strategy／market／technical-analysis→finance`、`ui／ux／design／dev／web-components／prototype→web`、`規範→schema`、`運維→deploy`、`文檔→pkm`、`零依賴→architecture`、`rss／technology／daily-news→news`、`cleanup／maintenance→troubleshoot`、`flow→workflow`、`ta-lib→python`、`skill-design→hermes`、`project→pkm`、`clippings→report` 等）
+- 驗證：遷移後 36 檔的**內文（frontmatter 之後）完全未變**、YAML 有效、tag 全在白名單；lint 從「36 檔違規」→「✅ Tag 全部在白名單內」；一次性腳本放 `/tmp` 已刪除，遷移前備份於 `/root/backups/vault-tag-migration-20261104/`
+- 附帶修正：`concepts/search-aggregation-logic.md` frontmatter 起始線有尾隨空白（`--- `）導致舊掃描漏抓 → 已正規化為 `---`；該檔與 `concepts/shared-stock-table.md` 的 owner 由 `root:root` 修正為 `root:www-data`
+- 文件一致性：`system/frontmatter-rules.md` 分類統計（原列 48，實際 47）與 SKILL.md「48 個」均已校正為 47，並註明 `clippings/` 為資料夾專用例外
+## [2026-11-04 01:11:12] lint | 133 stale_pages
+## [2026-11-04 21:00:05] lint | 133 stale_pages

@@ -6,7 +6,7 @@ summary: "NVIDIA Build 100+ 免費 AI 模型：LLM、視覺、嵌入、語音、
 created: 2026-06-01
 updated: 2026-06-27
 type: concept
-tags: [ai, integration]
+tags: [ai, api]
 ---
 
 # NVIDIA Build 免費模型列表（NIM API）

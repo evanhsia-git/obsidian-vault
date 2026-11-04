@@ -3,7 +3,7 @@ title: "專案索引"
 description: "專案相關筆記與資源索引"
 type: index
 status: active
-tags: [project]
+tags: [pkm]
 created: 2026-07-21
 updated: 2026-07-26
 summary: "索引所有專案相關筆記與資源，提供快速導航。"

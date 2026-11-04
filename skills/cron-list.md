@@ -4,7 +4,7 @@ description: "系統所有排程任務（Cron Job）的狀態、類型、執行�
 summary: "10 個排程任務：股票更新、新聞、Token 報告、系統維護、市值更新"
 type: index
 status: active
-tags: [hermes, agent, auto]
+tags: [hermes, agent, automation]
 created: 2026-06-27
 updated: 2026-07-10
 ---

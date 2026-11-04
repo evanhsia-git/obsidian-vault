@@ -4,7 +4,7 @@ description: "Obsidian WebDAV Sync 插件設定與同步機制摘要"
 summary: "WebDAV 雙向同步插件，支援加密、衝突處理、增量同步"
 type: resource
 status: active
-tags: [linux, sync, integration]
+tags: [linux, sync, api]
 created: 2026-06-21
 updated: 2026-06-21
 ---

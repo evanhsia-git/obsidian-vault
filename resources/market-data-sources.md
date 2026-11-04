@@ -4,9 +4,9 @@ description: "mklab-stock 使用的全部市場資料來源：台股（TWSE／MO
 summary: "市場資料來源總表：TWSE／MOPS／TPEx／yfinance／ETF 持股來源鏈／TickerInside／SEC EDGAR，附實測可用性與自動化現況"
 type: resource
 status: active
-tags: [api, source, data, etf, sec, tw-stock]
+tags: [api, data, etf, finance]
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/"]
 related: ["resources/twse-openapi-full.md", "resources/twse-openapi-endpoints.md"]
 ---

@@ -5,10 +5,9 @@ type: resource
 status: active
 summary: "Web Components 路線開發紀錄：放棄 React、全站 WC 遷移完成上線"
 tags:
-  - mklab-stock
-  - web-components
-  - dev
-  - 零依賴
+  - dashboard
+  - web
+  - architecture
 created: 2026-07-15
 updated: 2026-07-17
 ---

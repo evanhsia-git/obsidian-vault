@@ -4,7 +4,7 @@ description: "Skill 設計規格：從前 300 大市值股票，以多因子評�
 summary: "Daily Stock Picker Skill Spec — 評分模型、DB 擴充、FastAPI 路線"
 type: concept
 status: active
-tags: [quant, trading, strategy, skill-design]
+tags: [finance, hermes]
 created: 2026-06-29
 updated: 2026-06-29
 ---

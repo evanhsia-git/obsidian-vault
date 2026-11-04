@@ -3,7 +3,7 @@ title: "mklab-stock 安全刪除指南"
 description: "列出 mklab-stock 倉庫中可安全刪除的備份/測試檔案，不影響網站運作"
 summary: "提供 mklab-stock 倉庫清理指南，識別哪些檔案屬於備份、測試或開發副本，可放心刪除以保持倉庫乾淨"
 type: concept
-tags: [mklab-stock, cleanup, maintenance, obsidian]
+tags: [dashboard, troubleshoot, obsidian]
 status: active
 created: 2026-09-11
 updated: 2026-09-11

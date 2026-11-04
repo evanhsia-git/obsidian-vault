@@ -6,7 +6,7 @@ updated: 2026-06-27
 type: index
 description: "Claude 對話紀錄：Hermes Agent 建構台股/美股量化交易平台"
 tags:
-  - clippings
+  - report
   - finance
 summary: "Hermes Agent 量化交易 — 從零搭建交易系統的 5 Phase 步驟"
 ---

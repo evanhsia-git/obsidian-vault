@@ -6,7 +6,7 @@ type: report
 status: active
 tags:
   - obsidian
-  - knowledge
+  - pkm
 created: 2026-07-10
 updated: 2026-07-10
 ---

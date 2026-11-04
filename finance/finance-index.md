@@ -4,7 +4,7 @@ description: "finance/ 目錄索引 — 所有金融、股票、投資相關筆�
 summary: "finance/ 索引 — 投資知識與市場數據資源"
 type: index
 status: active
-tags: [tw-stock, finance, agent]
+tags: [stock, finance, agent]
 created: 2026-06-27
 updated: 2026-07-09
 ---

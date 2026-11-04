@@ -6,7 +6,7 @@ created: 2026-06-24
 updated: 2026-06-24
 type: index
 status: active
-tags: [lint, performance, agent]
+tags: [troubleshoot, performance, agent]
 ---
 
 # 程式碼品質分析

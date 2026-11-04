@@ -4,7 +4,7 @@ description: "所有已安裝 Skills 清單（原廠內建 + 使用者自建）"
 summary: "skills-list — 原廠內建 + 使用者自建 Skills 完整目錄"
 type: index
 status: active
-tags: [agent, hermes, knowledge]
+tags: [agent, hermes, pkm]
 created: 2026-06-08
 updated: 2026-07-11
 ---

@@ -6,7 +6,6 @@ type: schema
 status: active
 tags:
   - hermes
-  - skills
 created: 2026-06-28
 updated: 2026-06-28
 ---

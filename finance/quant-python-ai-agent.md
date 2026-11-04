@@ -6,7 +6,7 @@ summary: "量化投資研究 AI Agent (Quant Python AI Agent)：概述"
 created: 2026-06-02
 updated: 2026-06-02
 type: concept
-tags: [tw-stock, agent]
+tags: [stock, agent]
 ---
 
 # 量化投資研究 AI Agent (Quant Python AI Agent)

@@ -4,10 +4,8 @@ description: "Quant Dashboard 首頁 UI/UX 設計憲法 v1（UI/UX Architect 角
 type: schema
 status: active
 tags:
-  - mklab-stock
-  - ui
-  - ux
-  - design
+  - dashboard
+  - web
 summary: "Quant Dashboard 設計憲法 v1：五大主題 IA、Header 三列規範、抽屜設定、Table/Card/Chart 規範、UI 原則與 Coding 原則，全以表格呈現便於掃讀。"
 created: 2026-07-14
 updated: 2026-07-14

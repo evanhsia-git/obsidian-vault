@@ -4,7 +4,7 @@ title: "Folder Structure Rules"
 summary: "Folder Structure Rules - 目錄結構與讀寫權限規範（2026-07-10 實際結構重寫）"
 description: "目錄結構、讀寫權限與資料夾操作規範；依實際 vault 結構重寫，權限模型以 schema.md 為準"
 type: concept
-tags: [architecture, flow, security]
+tags: [architecture, workflow, security]
 created: 2026-06-21
 updated: 2026-07-10
 ---

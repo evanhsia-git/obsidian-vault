@@ -1,4 +1,4 @@
---- 
+---
 status: active 
 title: "搜尋引擎聚合邏輯說明" 
 description: "搜尋聚合邏輯實作" 
@@ -6,7 +6,7 @@ summary: "搜尋引擎聚合邏輯說明：1. 定義"
 created: 2026-06-03 
 updated: 2026-06-03 
 type: project 
-tags: [auto, source, rag] 
+tags: [automation, data, rag]
 --- 
 
 # 搜尋引擎聚合邏輯 (Search Engine Aggregation Logic)

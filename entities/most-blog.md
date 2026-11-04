@@ -4,7 +4,7 @@ description: "AI 科技部落格資訊來源 - MOST — 實體資料頁面"
 summary: "AI 科技部落格資訊來源 - MOST"
 type: entity
 status: active
-tags: [ai, source]
+tags: [ai, data]
 created: 2026-06-06
 updated: 2026-06-06
 ---

@@ -5,7 +5,7 @@ type: schema
 summary: "mklab-stock 權威規範手冊：資料管線、JSON Schema、元件契約、故障排除、維護協議"
 created: 2026-07-15
 updated: 2026-07-15
-tags: [mklab-stock, schema, 規範, 運維, 文檔]
+tags: [dashboard, schema, deploy, pkm]
 ---
 
 # mklab-stock 規範與架構手冊

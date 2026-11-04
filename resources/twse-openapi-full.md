@@ -2,11 +2,11 @@
 title: "TWSE OpenAPI 端點完整清單（143 端點／2,015 欄位）"
 description: "證交所 OpenAPI 全部 143 個端點的完整欄位清單（7 分類、2,015 欄）、實測可用性、使用說明與已知陷阱"
 summary: "TWSE OpenAPI 143 端點完整欄位清單＋實測可用性＋mklab-stock 使用對照＋7 個已知陷阱"
-type: resource
+type: schema
 status: active
-tags: [api, source, tw-stock, data]
+tags: [api, schema, data, stock]
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 sources: ["https://openapi.twse.com.tw/v1/swagger.json"]
 related: ["resources/twse-openapi-endpoints.md", "resources/market-data-sources.md"]
 ---

@@ -6,7 +6,7 @@ status: active
 tags:
   - etf
   - finance
-  - skills
+  - hermes
 summary: "公開股市儀表板架構主文 v3.0：以使用者任務為核心的 5 Domain + 首頁複合視圖，含架構憲法與 4 核心 JSON 契約。"
 created: 2026-07-13
 updated: 2026-07-13

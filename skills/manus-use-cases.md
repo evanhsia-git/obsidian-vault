@@ -4,7 +4,7 @@ description: "Manus AI Agent 平台精選案例，涵蓋研究分析、數據視
 summary: "Manus 精選案例與實際應用：平台概覽 + 6 類精選案例"
 type: concept
 status: active
-tags: [agent, workflow, auto]
+tags: [agent, workflow, automation]
 created: 2026-06-02
 updated: 2026-06-25
 ---

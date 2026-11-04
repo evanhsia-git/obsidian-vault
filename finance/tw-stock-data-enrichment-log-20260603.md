@@ -6,7 +6,7 @@ summary: "台股資料補齊執行記錄 (2026-06-03)：執行概況"
 created: 2026-06-03
 updated: 2026-06-03
 type: query
-tags: [tw-stock, deploy, source]
+tags: [stock, deploy, data]
 ---
 
 # 台股資料補齊執行記錄 (2026-06-03)

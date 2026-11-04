@@ -6,7 +6,7 @@ summary: "API 流量限制應對策略：核心原則"
 created: 2026-06-03
 updated: 2026-06-03
 type: concept
-tags: [source, performance, deploy, workflow]
+tags: [data, performance, deploy, workflow]
 ---
 
 # API 流量限制應對策略

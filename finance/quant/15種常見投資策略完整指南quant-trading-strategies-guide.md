@@ -5,11 +5,8 @@ summary: "15 種量化策略完整分類 + 前 300 大市值選股推薦方案"
 type: index
 status: active
 tags:
-  - quant
-  - trading
-  - strategy
-  - tw-stock
-  - stock-analysis
+  - finance
+  - stock
 created: 2026-06-29
 updated: 2026-07-10
 ---

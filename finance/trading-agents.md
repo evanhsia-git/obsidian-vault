@@ -6,7 +6,7 @@ summary: "TradingAgents：核心功能"
 created: 2026-06-03
 updated: 2026-06-03
 type: entity
-tags: [ai, agent, tw-stock]
+tags: [ai, agent, stock]
 ---
 
 # TradingAgents

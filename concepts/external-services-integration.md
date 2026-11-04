@@ -4,7 +4,7 @@ description: "外部服務整合知識：Cloudflare 防護、Telegram UI 互動�
 summary: "Cloudflare + Telegram UI + 科技監測 — 外部服務整合方案"
 type: concept
 status: active
-tags: [deploy, ai, source, telegram]
+tags: [deploy, ai, data, telegram]
 created: 2026-06-28
 updated: 2026-06-28
 ---

@@ -4,7 +4,7 @@ description: "每日新聞與股市指標的輸出格式範本（Agent 開發與
 summary: "新聞格式 + 股市指標輸出範例 — 自動推送參考；RSS 來源請見 daily-news-sources"
 type: entity
 status: active
-tags: [news, source, stock, finance]
+tags: [news, data, stock, finance]
 created: 2026-06-28
 updated: 2026-07-09
 ---
