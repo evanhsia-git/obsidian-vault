@@ -824,3 +824,4 @@ updated: 2026-06-23
 - 文件一致性：`system/frontmatter-rules.md` 分類統計（原列 48，實際 47）與 SKILL.md「48 個」均已校正為 47，並註明 `clippings/` 為資料夾專用例外
 ## [2026-11-04 01:11:12] lint | 133 stale_pages
 ## [2026-11-04 21:00:05] lint | 133 stale_pages
+## [2026-11-05 21:00:06] lint | 0 dir_perm_fixed, 59 file_perm_fixed | 133 stale_pages
