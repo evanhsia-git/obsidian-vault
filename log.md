@@ -836,3 +836,26 @@ updated: 2026-06-23
 ## [2026-11-11 21:00:40] lint | 133 stale_pages
 ## [2026-11-12 21:00:17] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 133 stale_pages
 ## [2026-11-13 21:00:17] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 133 stale_pages
+
+## [2026-11-14 11:45] TwSE OpenAPI 全端點盤點 | 143 端點實測 + 月營收路徑驗證
+
+- **實測**：對 `https://openapi.twse.com.tw/v1` 全部 143 端點逐一發 GET → **143/143 皆 HTTP 200 且可解析 JSON**。
+- **發現**：mklab-stock 管線只用 **19 個**；其餘 124 個中 **36 個是可直接導入的候選**（依效益排序：月營收 `t187ap05_L`、
+  官方 EPS `t187ap14_L`、營益分析 `t187ap17_L`、融資融券 `MI_MARGN`、開休市日 `holidaySchedule`、暫停交易 `TWTAWU`…）。
+- **驗證使用者指定的 MOPS 月營收路徑**：`mopsov.twse.com.tw/nas/t21/{sii|otc}/t21sc03_115_9_0.html`
+  → **仍可存取且為當期**（HTTP 200，456 KB／397 KB，出表日期 115/11/14，資料年月民國 115 年 9 月）；
+  編碼為 **Big5（CP950）**，回傳是 HTML 表格。建議優先用 OpenAPI `t187ap05_L`（JSON、一檔即全市場 1,077 筆）。
+- **實測限制**：`t187ap06_L_fh` 只回 1 筆全空；`t187ap14_L`／`t187ap17_L` 亦**不含金控／銀行／保險**（救不了金融股 EPS 缺口）；
+  `t187ap06_L_basi` 只 9 家；`twtazu_od` 出表日期停在 1150605。
+
+**寫入檔案**
+
+| 位置 | 內容 |
+|---|---|
+| `resources/twse-openapi-usage-map.md`（新頁） | 完整 143 端點對照（已用／候選／範圍外＋實測筆數＋限制） |
+| `resources/twse-openapi-endpoints.md` | 新增「2026-11-14 全量複測」段（含 ★ 候選表） |
+| `resources/market-data-sources.md` | 新增 MOPS nas 月營收實測與 `t187ap05_L` 建議 |
+| `resources/resources-index.md`、`index.md` | 連結與計數（resources 3 → 4 篇） |
+| repo `data/raw/twse-openapi-usage-map.md` | 機器可讀對照（與本頁同步） |
+| repo `mklab-stock-sources.html` | 第 8 節填實測結果、第 3 節加使用狀態、**新增第 12 節實測盤點** |
+## [2026-11-14 21:00:17] lint | 0 dir_perm_fixed, 6 file_perm_fixed | 133 stale_pages

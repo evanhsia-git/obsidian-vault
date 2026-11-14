@@ -6,8 +6,8 @@ type: resource
 status: active
 tags: [api, data, etf, finance]
 created: 2026-11-03
-updated: 2026-11-04
-sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/"]
+updated: 2026-11-14
+sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/"]
 related: ["resources/twse-openapi-full.md", "resources/twse-openapi-endpoints.md"]
 ---
 
@@ -34,6 +34,18 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
 - **TWSE OpenAPI**：`https://openapi.twse.com.tw/v1/opendata/<端點>`，143 個端點、2,015 個欄位，詳見 [[resources/twse-openapi-full|TWSE OpenAPI 端點完整清單]]。
 - **MOPS opendata**：`https://mopsfin.twse.com.tw/opendata/<檔名>.csv`，財報按產業拆檔（`ci` 一般業、`basi`、`bd` 銀行、`fh` 金控、`ins` 保險、`mim`），UTF-8 含 BOM（用 `utf-8-sig` 讀）。
 - **TPEx OpenAPI**：上櫃資料（含標準 ETF 收盤行情），發布時差與 TWSE 不同：TPEx 為 T-0、TWSE 為 T-1／T-2 → 不可標成同一日期（已改為每筆自帶 `price_asof`）。
+- **MOPS nas 月營收 HTML**：`https://mopsov.twse.com.tw/nas/t21/{sii|otc}/t21sc03_{民國年}_{月}_0.html`
+  （民國 115 年 9 月 → `t21sc03_115_9_0.html`）。**2026-11-14 實測：仍可存取且為當期資料**——
+  sii／otc 皆 HTTP 200（456 KB／397 KB）、出表日期 `115/11/14`、資料年月民國 115 年 9 月。
+  **編碼是 Big5（CP950）**（用 UTF-8 解析會整段亂碼），回傳是 HTML 表格（含產業分組與合計列），需自行解析。
+  適用時機：**回溯歷史月份**、或需要**含上櫃公司**時。
+- **月營收建議走 OpenAPI（比 HTML 好抓）**：`t187ap05_L`「上市公司每月營業收入彙總表」——
+  JSON、免解析 HTML、**一檔請求即全市場 1,077 筆**，欄位含當月／上月／去年同月營收、月增率、年增率、累計營收。
+  **目前尚未導入**（實測有資料、列為候選）。
+- **尚未導入但可用的候選**：`t187ap14_L`（各產業 EPS，1,014 筆）、`t187ap17_L`（營益分析：官方毛利率／營益率，1,000 筆）、
+  `MI_MARGN`（融資融券，1,309 筆）、`holidaySchedule`（開休市日，29 筆）、`TWTAWU`（暫停交易證券）等共 36 個。
+  完整對照見 [[resources/twse-openapi-endpoints|TWSE OpenAPI 端點總覽]] 的「2026-11-14 全量複測」，
+  以及 repo `data/raw/twse-openapi-usage-map.md`、網頁 `mklab-stock-sources.html` 第 12 節。
 
 ## 三、四大指數替代 ETF 持股（`index-holdings` job）
 
