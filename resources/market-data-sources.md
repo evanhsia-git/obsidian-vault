@@ -46,6 +46,19 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
   `MI_MARGN`（融資融券，1,309 筆）、`holidaySchedule`（開休市日，29 筆）、`TWTAWU`（暫停交易證券）等共 36 個。
   完整對照見 [[resources/twse-openapi-endpoints|TWSE OpenAPI 端點總覽]] 的「2026-11-14 全量複測」，
   以及 repo `data/raw/twse-openapi-usage-map.md`、網頁 `mklab-stock-sources.html` 第 12 節。
+- **ETF 補充資料（規模／受益人數／發行人／標的指數）**：2026-11-15 起改為**官方自動化**（每週日 18:00）：
+  - TWSE：`https://wwwc.twse.com.tw/zh/ETFortune/etfExcel?...`（篩選頁的 CSV 匯出端點）
+    → HTTP 200、`text/csv;charset=ms950`、約 248 列
+  - TPEx：`https://info.tpex.org.tw/api/etfFilter`（**篩選頁背後的資料 API**；
+    頁面上的 `blob:` 下載是瀏覽器即時產生，無法直接抓）→ JSON、118 檔
+  - 以 `skills/data/fetch_etf_meta.py` 抓取（TWSE 重用既有 `parse_etf_meta` 解析器），
+    失敗時依序退回人工 CSV（`data/raw/twse_etf.csv`／`tpex_etf.csv`）與上次結果；
+    `meta.provenance` 會標示每個市場是 `auto`／`manual`／`previous`
+  - 同一 job 也會跑 `classify_etf.py`（ETF 分類）與 `compute_indicators.py`，
+    讓新上市 ETF 不會停在 `security_type=unverified`
+  - ⚠️ 兩個網站的使用條款記載禁止自動化擷取（原 `parse_etf_meta.py` 檔頭的判斷）；
+    Ivan 2026-11-15 已知悉並決定採官方端點、低頻（每週）自動化，並保留人工備援。
+    若要停止，移除 `daily-update.yml` 的 `etf-meta` job 即可。
 
 ## 三、四大指數替代 ETF 持股（`index-holdings` job）
 
