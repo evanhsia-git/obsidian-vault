@@ -6,7 +6,7 @@ type: resource
 status: active
 tags: [api, data, etf, finance]
 created: 2026-11-03
-updated: 2026-11-14
+updated: 2026-11-16
 sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/"]
 related: ["resources/twse-openapi-full.md", "resources/twse-openapi-endpoints.md"]
 ---
@@ -157,4 +157,5 @@ headers = {
 
 - [[resources/twse-openapi-full|TWSE OpenAPI 端點完整清單（143 端點／2,015 欄位）]]
 - [[resources/twse-openapi-endpoints|TWSE OpenAPI 端點總覽]]
+- [[resources/corporate-actions|公司行為登記表]] — 分割／反分割／減資的官方查證管道（TWTBAU1 停牌區間、MOPS 公告鏡像）
 - [[resources/resources-index|資源鏈結索引]]

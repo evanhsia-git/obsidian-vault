@@ -1064,3 +1064,5 @@ Ivan 問「撰寫 WIKI 時經常出現權限與缺欄位問題，未來能不能
 `system/vault-write-rules.md`（type: schema），並加入 `system/system-index.md` 索引。
 ## [2026-11-16 02:55:39] lint | 0 dir_perm_fixed, 11 file_perm_fixed, 0 group_fixed | 1 orphans | 133 stale_pages
 ## [2026-11-16 02:55:39] lint | 1 orphans | 133 stale_pages
+## [2026-11-16 03:44:57] lint | 0 dir_perm_fixed, 5 file_perm_fixed, 0 group_fixed | 1 orphans | 133 stale_pages
+## [2026-11-16 08:38:43] lint | 133 stale_pages
