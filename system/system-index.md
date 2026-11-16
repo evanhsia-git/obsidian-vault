@@ -14,6 +14,7 @@ updated: 2026-06-21
 **規則（POLICY 路由）**
 
 - [[system/frontmatter-rules]]：Frontmatter 規範
+- [[system/vault-write-rules]]：頁面寫入規範（必用 vault_new_page.py、權限 664/2775）
 - [[folder-rules]]：目錄結構與權限
 - [[system/database-rules]]：資料庫操作
 - [[system/user-backup-rules]]：備份與還原

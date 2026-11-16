@@ -1,3 +1,14 @@
+---
+title: "ETF 股票分割史（2020─2026）"
+summary: "2020 年起台灣 ETF 股票分割與反分割案例：官方倍數、停牌期間、本站 K 線驗證與死值列處理"
+type: resource
+status: active
+tags: [etf, stock, finance]
+created: 2026-11-15
+updated: 2026-11-16
+sources: [https://inews.setn.com/news/1721404, https://money.udn.com/money/story/5618/9124433]
+---
+
 # ETF 股票分割史（2020─2026）
 _本頁記錄 2020 年起台灣市場上櫃/上市 ETF 中，**已完成或正計畫**的股票分割案例，資料來源包含官方公告、使用者提供新聞與本站 K 線驗證（如有）。所有倍數以**官方公告**為準；本站驗證係為了技術指標還原與異常偵測，若有出入以官方為主。
 

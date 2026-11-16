@@ -1,3 +1,14 @@
+---
+title: "公司行為登記表（corporate-actions）"
+summary: "公司行為登記表（分割／反分割／減資）的規則、ratio 語意、現金減資還原公式與官方查證管道"
+type: resource
+status: active
+tags: [etf, stock, finance, schema]
+created: 2026-11-15
+updated: 2026-11-16
+sources: [https://openapi.twse.com.tw/v1/exchangeReport/TWTBAU1, https://finance.biggo.com.tw/news/twse_major_6176_1150721_170553]
+---
+
 # 公司行為登記表（corporate-actions）
 
 `mklab-stock/data/corporate-actions.json` 是三種事件的**唯一來源**（30 筆，每筆皆有來源）：
