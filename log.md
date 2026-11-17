@@ -1085,3 +1085,6 @@ Ivan 問「撰寫 WIKI 時經常出現權限與缺欄位問題，未來能不能
 - 備份：`/root/backups/hermes-update-20261116_1217/`（config.yaml + .env）
 - 註：更新未動到自訂 skill（obsidian-lint／obsidian-wiki／vault_new_page.py 三處修改均在）。
 ## [2026-11-16 21:00:17] lint | 0 dir_perm_fixed, 9 file_perm_fixed, 0 group_fixed | 133 stale_pages
+## [2026-11-17 03:34:00] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
+## [2026-11-17 03:34:05] lint | 133 stale_pages
+## [2026-11-17 21:00:10] lint | 133 stale_pages
