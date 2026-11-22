@@ -1,19 +1,19 @@
 ---
 title: "市場資料來源總表"
-description: "mklab-stock 使用的全部市場資料來源：台股（TWSE／MOPS／TPEx）、國際（yfinance）、ETF 持股（發行人 API／TickerInside）、美國財報（SEC EDGAR），含自動獲取方式與實測狀態"
-summary: "市場資料來源總表：TWSE／MOPS／TPEx／yfinance／ETF 持股來源鏈／TickerInside／SEC EDGAR，附實測可用性與自動化現況"
+description: "mklab-stock 使用的全部市場資料來源：台股（TWSE／MOPS／TPEx）、期權（TAIFEX）、集保股務（TDCC）、國際（yfinance）、ETF 持股（發行人 API／TickerInside）、美國財報（SEC EDGAR），含自動獲取方式與實測狀態"
+summary: "市場資料來源總表：TWSE／MOPS／TPEx／TAIFEX／TDCC／yfinance／ETF 持股來源鏈／TickerInside／SEC EDGAR，附實測可用性與自動化現況"
 type: resource
 status: active
 tags: [api, data, etf, finance]
 created: 2026-11-03
-updated: 2026-11-16
-sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/"]
+updated: 2026-11-22
+sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/", "https://openapi.taifex.com.tw/swagger.json", "https://openapi-t.tdcc.com.tw/swagger-ui/index.html"]
 related: ["resources/twse-openapi-full.md", "resources/twse-openapi-endpoints.md"]
 ---
 
 # 市場資料來源總表
 
-mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自動獲取方式。所有「實測」欄位皆為 2026-11-03 的真實請求結果。
+mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自動獲取方式。「實測」欄位皆為真實請求結果並標註實測日期（首次全面實測 2026-11-03，其後新增來源見各節標註）。
 
 ## 一、總覽
 
@@ -27,6 +27,11 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
 | ROE／ROA 補充（無官方財報者） | yfinance | 第三方 | 自動（`weekly-roe` job，週六） |
 | 全球指數／ETF／總經、美股前 30 大 | yfinance | 第三方 | 自動（`indices`、`us-market`、`global-history`） |
 | 四大指數替代 ETF 持股與權重 | 發行人 API ＋ TickerInside ＋ stockanalysis | 混合 | 自動（`index-holdings` job，每月 2 日） |
+| 全市場 ETF 每日淨值／收盤／折溢價 | TWSE MIS 反向 API `mis.twse.com.tw/stock/data/all_etf.txt` | 官方、免 key | **已實測，導入中**（見第二節末） |
+| 台股 ETF 發行人官方持股（國泰系） | 國泰 `cwapi.cathaysite.com.tw` Excel API | 官方、免 key | **已實測，已導入**（見第二節末） |
+| 期貨／選擇權行情與籌碼（三大法人期權、P/C 比、大額交易人、保證金） | 期交所 OpenAPI `openapi.taifex.com.tw`（135 端點） | 官方、免 key | **規格已解析；資料端點待驗證**（見第二節末） |
+| 集保股務與籌碼（股權分散表、董監分戶、ETF 月分析） | 集保 OpenAPI `openapi.tdcc.com.tw`（134 端點） | 官方、免 key | **已實測，未導入**（見第二節末） |
+| 主動式 ETF（A 尾）官方持股（13 家投信直出，含股數＋受益人數） | 各投信官網 API／PCF（破解地圖見 skill `taiwan-etf-holdings/references/issuer-sources.md` 附錄 A，知識來源 nctuwanglin/active-etf） | 官方、免 key | **已實測並導入**（每日工作流＋歷史累積；`fetch_etf_holdings_active.py`） |
 | 美國財報（營收／淨利／EPS／資產負債／現金流／10-K／10-Q） | SEC EDGAR XBRL API | 官方、免 key | **尚未接入**（見第六節） |
 
 ## 二、台股來源
@@ -59,6 +64,45 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
   - ⚠️ 兩個網站的使用條款記載禁止自動化擷取（原 `parse_etf_meta.py` 檔頭的判斷）；
     Ivan 2026-11-15 已知悉並決定採官方端點、低頻（每週）自動化，並保留人工備援。
     若要停止，移除 `daily-update.yml` 的 `etf-meta` job 即可。
+
+### ETF 淨值／折溢價與成份股（2026-11-22 實測，解析 dj8111/taiwan-etf-holdings 後驗證）
+
+- **TWSE MIS 反向 API（全市場 ETF 淨值／折溢價）**：`https://mis.twse.com.tw/stock/data/all_etf.txt`
+  - 單一請求回全市場 ETF 最新一筆：代號 `a`、名稱 `b`、資料日期 `i`（YYYYMMDD）、每單位淨值 `f`、
+    收盤市價 `e`、折溢價% `g`、前日淨值 `h`。免 key，需帶 `Referer: https://mis.twse.com.tw/stock/etf_nav.jsp`。
+  - **實測 2026-11-22 ✅**：一個請求回 359 檔；0050 NAV=84.68、市價=84.45、折溢價=−0.27%、日期 20261120。
+  - ⚠️ 內容是「最新一筆」而非歷史下載 → 歷史要靠每日盤後排程累積，以 `etf_code + record_date` 去重
+    （非交易日重跑只會拿到同一 record_date，不會重複計入）。
+  - 狀態：已實測，導入中（每日工作流新步驟 + `data/etf-nav*.json`；畫面加「折溢價」欄）。
+- **國泰投信官方持股 Excel API**：`https://cwapi.cathaysite.com.tw/api/ETF/DownloadETFWeightExcel?FundCode={內部碼}&SearchDate={YYYY/MM/DD}`
+  - 官方直出**完整持股**（代號／名稱／股數／權重）＋基金淨資產價值、在外流通單位數、**每單位淨值**。
+  - 需內部 FundCode 對照表：`00878=CN` 已驗證；其餘國泰 ETF 的內部碼可從官網 Angular bundle 的
+    `api/ETF/GetETFList` 端點（cwapi.cathaysite.com.tw）建立對照。
+  - **實測 2026-11-22 ✅**：00878（CN）回 56 列 xlsx，含 2026/11/20 持股權重、每單位淨值 NT$27.98。
+  - 狀態：已實測，待整合進 etf-holdings 來源鏈（富邦／元大官方之後加國泰官方）。
+- **MoneyDJ 持股明細頁（Basic0007a）已失效**：2026-11-22 實測該頁為 JS 空殼
+  （「持股／股票名稱／資料日期」關鍵字 0 命中），純 HTTP 解析拿不到，需瀏覽器渲染。
+  同站 **Basic0004 費用頁仍是 SSR** 可解析（兩頁實作不同，勿以一頁狀態推論另一頁）。
+- 參考實作：GitHub `dj8111/taiwan-etf-holdings`（record_date 歷史累積、換股 diff、跨 ETF 個股追蹤的設計值得學；
+  其 SQLite 36MB 直接 commit 進 git 的做法不採納，與本 repo 單檔預算原則衝突）。
+
+### 期貨／選擇權與集保股務（2026-11-22 實測）
+
+- **集保結算所 OpenAPI（TDCC）**：`https://openapi.tdcc.com.tw/v1/opendata/<編號>`（正式）；`openapi-t.tdcc.com.tw` 為測試環境，**同路徑同資料皆開放**。
+  - 規格：UI `https://openapi.tdcc.com.tw/swagger-ui/index.html`、JSON 規格 `/tdcc-opendata-api-docs`（66 KB OpenAPI 3.0.1）。
+    **134 個端點**八大類：股務資訊（1-x）、權益證券統計（2-x）、TAIBIR（2-14~2-21）、固定收益（2-x）、境外基金（3-x）、境外結構型商品（4-x）、期信基金（5-x）、股東e票通（6-x）。
+  - 亮點端點（籌碼／ETF 相關）：
+    - `1-5` **集保戶股權分散表**：全市場逐檔、16 級持股分級（1 張以下→1000 張以上）之人數／股數／占集保庫存比例（T-1）——散戶/大戶輪動的經典籌碼來源。
+    - `1-4` 發行人董監分戶保管（董監持股）；`1-1` 證券基本資料（含股務單位、市場別、證券狀態——**單表 49.5 MB**，ETL 需 stream 篩選）。
+    - `2-41` 集中保管 ETF 月分析表：逐檔 ETF 集保戶數、本／前月底保管數、月增減（受益人結構月度趨勢，資料年月 202610）。
+    - `2-22`~`2-29` 個別股票異動月分析／上市櫃保管有價證券週餘額表。
+  - ⚠️ 陷阱（實測）：回應 JSON **欄位名是中文**，且首欄名帶 **U+FEFF BOM 前綴**（如 `"\ufeff證券代號"`），取欄位要 strip；`1-1` 單表 49 MB 大小差異大，勿假設每端點都很小。
+  - 狀態：**已實測（1-5、2-41 皆 200 + 正常 JSON），未導入**。免 key。
+- **期貨交易所 OpenAPI（TAIFEX）**：`https://openapi.taifex.com.tw`
+  - 規格：UI 即根路徑（Swagger UI），JSON 規格 `https://openapi.taifex.com.tw/swagger.json`（160 KB，OAS 1.0.0）。
+    **135 個端點**，亮點：`DailyMarketReportFut`／`Opt`（期貨／選擇權每日行情）、三大法人系列（依日期／週別 × 總表／期貨選擇權分計／各契約／買賣權分計）、`PutCallRatio`（臺指選擇權 P/C 比）、大額交易人未沖銷部位、保證金一覽表（含股票類／**ETF 類**）、`FinalSettlementPrice` 最後結算價、可抵繳標的（含股票含 ETF）。
+  - ⚠️ **實測 2026-11-22：spec 取得成功，但資料端點（`/PutCallRatio`、`/DailyMarketReportFut` 及大小寫／尾斜線變體）一律回 Swagger UI 殼（200 + text/html 1777B）**——疑似限台灣 IP 或非服務時段（本 VPS 為境外資料中心 IP；集保同 IP 卻可通，故非普遍封鎖）。待台灣網路環境再驗；spec 本身可信、端點清單已解析。
+  - 狀態：**規格已解析，資料存取待驗證**。
 
 ## 三、四大指數替代 ETF 持股（`index-holdings` job）
 

@@ -1092,3 +1092,14 @@ Ivan 問「撰寫 WIKI 時經常出現權限與缺欄位問題，未來能不能
 ## [2026-11-19 21:00:33] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
 ## [2026-11-20 21:00:32] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
 ## [2026-11-21 21:00:32] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
+
+## [2026-11-22 22:45] market-data-sources 更新 | 解析 GitHub dj8111/taiwan-etf-holdings 後實測並登錄兩個新來源：
+  ① TWSE MIS 反向 API `mis.twse.com.tw/stock/data/all_etf.txt`（單請求全市場 359 檔淨值/收盤/折溢價/前日淨值，
+  實測 ✅ 0050 NAV=84.68、折溢價 −0.27%，需 Referer；歷史須每日盤後累積）
+  ② 國泰投信官方持股 Excel API `cwapi.cathaysite.com.tw/api/ETF/DownloadETFWeightExcel`
+  （00878=CN 已驗證，56 列完整持股＋官方每單位淨值 NT$27.98）。
+  另記錄 MoneyDJ 持股頁 Basic0007a 已失效（JS 空殼；同站 Basic0004 費用頁仍 SSR 可用）。
+  與 repo `mklab-stock-sources.html` 第 6 節同步（同日 commit）。
+
+- **2026-11-22** 市場資料來源總表：新增集保 TDCC OpenAPI（134 端點；1-5 股權分散表、2-41 ETF 月分析表實測通，中文欄名 BOM 陷阱）與期交所 TAIFEX OpenAPI（135 端點 spec 解析完成；資料端點自 VPS 回 UI 殼、疑似限台灣 IP 待驗）；同步寫入 repo `mklab-stock-sources.html`（第 5/6 卡）；國泰持股列狀態更新為已導入。
+## [2026-11-22 21:00:32] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
