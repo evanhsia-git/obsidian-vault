@@ -6,7 +6,7 @@ type: resource
 status: active
 tags: [api, data, etf, finance]
 created: 2026-11-03
-updated: 2026-11-22
+updated: 2026-11-23
 sources: ["https://openapi.twse.com.tw/v1/swagger.json", "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces", "https://tickerinside.com/", "https://openapi.taifex.com.tw/swagger.json", "https://openapi-t.tdcc.com.tw/swagger-ui/index.html"]
 related: ["resources/twse-openapi-full.md", "resources/twse-openapi-endpoints.md"]
 ---
@@ -31,7 +31,7 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
 | 台股 ETF 發行人官方持股（國泰系） | 國泰 `cwapi.cathaysite.com.tw` Excel API | 官方、免 key | **已實測，已導入**（見第二節末） |
 | 期貨／選擇權行情與籌碼（三大法人期權、P/C 比、大額交易人、保證金） | 期交所 OpenAPI `openapi.taifex.com.tw`（135 端點） | 官方、免 key | **規格已解析；資料端點待驗證**（見第二節末） |
 | 集保股務與籌碼（股權分散表、董監分戶、ETF 月分析） | 集保 OpenAPI `openapi.tdcc.com.tw`（134 端點） | 官方、免 key | **已實測，未導入**（見第二節末） |
-| 主動式 ETF（A 尾）官方持股（13 家投信直出，含股數＋受益人數） | 各投信官網 API／PCF（破解地圖見 skill `taiwan-etf-holdings/references/issuer-sources.md` 附錄 A，知識來源 nctuwanglin/active-etf） | 官方、免 key | **已實測並導入**（每日工作流＋歷史累積；`fetch_etf_holdings_active.py`） |
+| ETF 發行商官方持股（14 家投信直出，含股數＋受益人數；131/361 檔官方持股） | 各投信官網 API／PCF（端點速查表見下方「主動式 ETF 13 家投信官方端點」＋可獲取性總表；全文見 skill `taiwan-etf-holdings/references/issuer-sources.md` 附錄 A） | 官方、免 key | **已實測並導入**（每日工作流＋歷史累積；`fetch_etf_holdings_active.py`） |
 | 美國財報（營收／淨利／EPS／資產負債／現金流／10-K／10-Q） | SEC EDGAR XBRL API | 官方、免 key | **尚未接入**（見第六節） |
 
 ## 二、台股來源
@@ -103,6 +103,75 @@ mklab-stock（GitHub-Native 股市儀表板）使用的全部資料來源與自�
     **135 個端點**，亮點：`DailyMarketReportFut`／`Opt`（期貨／選擇權每日行情）、三大法人系列（依日期／週別 × 總表／期貨選擇權分計／各契約／買賣權分計）、`PutCallRatio`（臺指選擇權 P/C 比）、大額交易人未沖銷部位、保證金一覽表（含股票類／**ETF 類**）、`FinalSettlementPrice` 最後結算價、可抵繳標的（含股票含 ETF）。
   - ⚠️ **實測 2026-11-22：spec 取得成功，但資料端點（`/PutCallRatio`、`/DailyMarketReportFut` 及大小寫／尾斜線變體）一律回 Swagger UI 殼（200 + text/html 1777B）**——疑似限台灣 IP 或非服務時段（本 VPS 為境外資料中心 IP；集保同 IP 卻可通，故非普遍封鎖）。待台灣網路環境再驗；spec 本身可信、端點清單已解析。
   - 狀態：**規格已解析，資料存取待驗證**。
+
+### 主動式 ETF（A 尾）13 家投信官方端點速查（2026-11-22 實測導入）
+
+每日 `fetch_etf_holdings_active.py` 採集，37 檔中 34 檔官方直出完整持股＋股數＋受益人數（其餘 CMoney 備援標 stale）。
+破解地圖全文（含通用驗證規則）見 skill `taiwan-etf-holdings/references/issuer-sources.md` 附錄 A；知識來源 nctuwanglin/active-etf。
+「基準日 vs 公告日」欄位取錯會把不同持股日併成同日——每家的正確欄位如下：
+
+| 投信 | 端點 | 基準日欄位（用這個） | 關鍵坑 |
+|---|---|---|---|
+| 統一 | `ezmoney.com.tw/ETF/Transaction/PCF`（session）→ `POST GetPCF` {fundCode, date:民國未來日} | `pcf[0].TranDate`（.NET 日期 +8 解） | DataFundList 是 html-escaped JSON |
+| 群益 | `POST capitalfund.com.tw/CFWeb/api/etf/items` → `POST etf/buyback` | `pcf.date2`（date1=公告日） | Incapsula，JSON POST 可通 |
+| 安聯 | `etf.allianzgi.com.tw/list-trade`→AntiForgery→`GetFundTradeInfo` | `CNavDt` | header 必為 X-XSRF-TOKEN（其他名回 400） |
+| 中信 | `POST ctbcinvestments.com.tw/API/etf/ETFHoldingWeight`（token querystring） | `FundAssets[0].資料日期` | 回應雙層 JSON 字串要 parse 兩次 |
+| 野村 | `POST nomurafunds.com.tw/API/ETFAPI/api/Fund/GetFundTradeInfo`（FundNo=ETF 代號） | `CNavDtStr`（CPcfdate=公告日） | 全站以 HTTP 200 回驗證圖（magic bytes 偵測） |
+| 台新 | `GET tsit.com.tw/ETF/Home/ETFSeriesDetail/{代號}` | `NAV_DATE`（PUB_DATE=公告日） | 只掃「股數」表頭之後；「2330 TT」剝台股後綴 |
+| 玉山 | `POST esunam.com/ETFAPI/GetETFFundSelectList` {TypeID:5542}→GetFundTradeInfo | `CNavDt`（CPcfdate=公告日） | 清單無代號以簡稱對照；受益人數 1900 日期=未揭露 |
+| 復華 | `GET fhtrust.com.tw/api/fundList?ec001=3`→`api/assets?fundID=&qDate=` | `result[0].dDate` | 非交易日回空，逐日往回 8 天 |
+| 凱基 | `GET kgifund.com.tw/Fund/RedemptionList`→`Fund/Detail?fundID=` | 頁面「持股比重 (日期)」 | 兩份相同表只取第一份；欄位要 strip（漏了掉近半持股） |
+| 永豐 | `GET sitc.sinopac.com/SinopacEtfs/Etfs/SinglePcf/{代號}` | 頁面「資料日期：」 | 36 個空表格模板，只掃第一、二表頭之間 |
+| 聯博 | `GET webapi.alliancebernstein.com/v2/funds/tw/zh-tw/investor/{ISIN}/basket`→`/holdings?date=` | basket `asOfDate` | ISIN=TW000+代號+Luhn；只取 equity 分段 |
+| 第一金 | `POST fsitc.com.tw/WebAPI.aspx/Get_hd` {"pStrFundID","pStrDate":""} | `sdate` | {"d":"<JSON>"} 雙層 parse 兩次；無清單端點→掃 FundDetail（快取 `data/raw/firstsec-fundids.json`） |
+| 摩根 | `GET am.jpmorgan.com/FundsMarketingHandler/excel?type=holding_pcf&cusip={ISIN}&…&date=` | sheet 標題日期 | locale/date 必填；2026-11-22 起資料中心 IP 404（每日重試中） |
+| 兆豐 | `POST megafunds.com.tw/MEGA/etf/trade_pcf.aspx`（hidden 整包帶回） | 查詢日期後第一個日期 | 對資料中心 IP 403（保留 stale） |
+
+通用驗證（已實作於 fetcher＋test_known_errors）：權重合計 50~105、重複代號擋下、bot 圖片 magic bytes、.NET 日期 +8 時區、缺股數不假造。
+
+### 各投信 ETF 可獲取性總表（2026-11-23 實測，361 檔）
+
+官方直出＝純官方 PCF；混合＝官方持股＋CMoney 補充（元大/富邦）；CMoney 前 10 大＝備援樣本。搭配：保管費 359/361（MoneyDJ 實抓 `integrate_etf_extras.py`）、官方持股總數僅標 73 檔（CMoney 樣本數不冒充總數）。
+
+| 發行商 | 發行 | 官方直出 | 混合 | CMoney | 無資料 | 狀態 |
+|---|---|---|---|---|---|---|
+| 國泰 | 44 | 31 | — | 13 | — | ✅（付費版 B 尾 13 檔無 PCF 報表） |
+| 富邦 | 51 | 11 | 13 | 27 | — | ✅ 破解 |
+| 元大 | 50 | — | 37 | 13 | — | ✅ 破解（混合） |
+| 群益 | 29 | 4 | — | 25 | — | ✅（A 尾） |
+| 復華 | 22 | 4 | — | 18 | — | ✅（A 尾） |
+| 台新 | 22 | 3 | — | 19 | — | ✅（A 尾） |
+| 中信 | 35 | 3 | — | 32 | — | ✅（A 尾） |
+| 統一 | 11 | 4 | — | 7 | — | ✅（A 尾） |
+| 野村 | 11 | 3 | — | 8 | — | ✅（A 尾） |
+| 安聯 | 4 | 4 | — | — | — | ✅ 100% |
+| 第一金 | 6 | 2 | — | 4 | — | ✅（A 尾；無清單端點→ID 掃描） |
+| 凱基 | 18 | 1 | — | 17 | — | ✅（A 尾） |
+| 永豐 | 13 | 1 | — | 12 | — | ✅（A 尾） |
+| 聯博 | 3 | 1 | — | 2 | — | ✅（A 尾） |
+| 玉山 | 5 | 1 | — | 4 | — | ✅（A 尾） |
+| 摩根 | 2 | — | — | 2 | — | 🧪 已實作，11-22 起端點 404（每日重試） |
+| 兆豐 | 10 | — | — | 10 | — | 🧪 已實作，資料中心 IP 403 |
+| 聯邦 | 2 | **2** | — | — | — | ✅ **已整合**（USITC PCF，2026-11-24 上線，含期貨分離） |
+| 大華銀 | 6 | **6** | — | — | — | ✅ **已整合**（UOBAM PCF，2026-11-23 上線，自訂 CA bundle 全憑證驗證） |
+| 富蘭克林華美 | 6 | — | — | 6 | — | 🟡 API 框架已明（持股檔案端點待定位；官方月報 top10 可作降級層） |
+| 貝萊德 | 4 | — | — | 4 | — | 🔴 403 Akamai（二次確認，依紅線不繞過） |
+| 華南永昌 | 3 | — | — | 3 | — | 🔴 SysLogin 授權門檻（不逆向，維持 CMoney） |
+| 街口 | 2 | — | — | 2 | — | 🟡 官網 jkoam.com 已尋獲（檔案端點待解；00715L 期貨槓反語意） |
+| **合計** | **361** | **81** | **50** | **228** | **2** | **131 檔官方持股（36%）** |
+
+### 非主動式 6 家投信爬蟲方法與結果（2026-11-23/24 實測；全文見 skill 附錄 B）
+
+| 投信 | 端點／方法 | 陷阱與狀態 |
+|---|---|---|
+| 聯邦 ✅ | POST `usitc.com.tw/CustCenter/BuyBackList` form `{FundNo=ETF代號, sDate=YYYYMMDD}`（往回試 4 日，免登入） | 4 張表：申贖公告（淨值/受益單位）→期貨表→成分股（代號/名稱/股數/權重）。期貨**不混入持股**（語意分離）；海外代號「CHYM US」剝國別後綴（同台新）。腳本 `fetch_etf_holdings_usitc.py`、src=USITC、測試 13 項 |
+| 大華銀 🟡 | GET `uobam.com.tw/api/WebSite/pcfexcel/{基金ID}/{YYYYMMDD}`→XLSX。React 頁面下拉需 **native setter** 觸發（直接改 .value 不觸發 state）。基金ID：00918=88329556、009815=00648622、009829=00719554、00959B=00515073、00983B=00580860、00984B=00580854 | ⚠️ server 只送 leaf 缺中繼（verify error num=20/21），issuer=Chunghwa Telecom GCC R46 OV TLS CA 2025——**禁止 verify=False 進正式流程**，需自訂 CA bundle（AIA 檔伺服器 520 拒資料中心 IP、crt.sh 限流）。涵蓋率實測 98.0~99.8%（債券型 73/40/66 筆）。`fetch_etf_holdings_uobam.py` 就緒，缺 bundle 即明確退出 |
+| 富蘭克林華美 🟡 | GET `ftft.com.tw/official/api/newetf/Fund/GetFundId?FtftId={商品頁id}`→fundId（00899=1、00905=2、00961=3、00982B=5、00986B=7、009831=8）；Fund0=基本資料（含費用三欄）、Fund1=申贖、Fund4/5=指數、Fund6=檔案（說明書＋**基金月報 PDF**） | Nuxt 3 全客戶端渲染（SSR payload 空）。「匯出Excel」下載鏈路已通（實得成分股調整表 XLSX）；**月報＝官方前十大**（Upload/BasicInformation/68130-68162.pdf）可作降級層取代 CMoney top10。Fund3/List（持股權重）需 .NET PageManager 參數，body 未定位（fetch 閉包快取攔不到）→ 整合時 headless 攔 |
+| 華南永昌 🔴 | API base `/WEB_API/HN_OW_PROD`（Nuxt config 直出），需先 `Auth/SysLogin` 換 token | client id 未公開（"Wrong client id!"）——**不逆向**（誠信紅線）；瀏覽器渲染頁含完整持股＋期貨＋現金，但 requests 直連 401。新線索 newweb-pro.hnitc.com.tw **DNS 不可達**未證實。維持 CMoney |
+| 貝萊德 🔴 | `blackrock.com/tw` → 403 Akamai | 二次確認（Windows 完整 UA 同擋）——資料中心 IP 全封，依紅線不繞過。維持 CMoney 或直接向投信索取 |
+| 街口 🟡 | 官網 **jkoam.com**（Ivan 2026-11-23 提供；sfund.com.tw 已 NXDOMAIN 作廢）。Angular SPA，同源 `/webapi/api/Fund/*`（GetFundDetailPage 等）；00992B→`etf-info/62`、00715L→`etf-info/39` | 檔案端點 GetFundFileLink 回 500（body 結構待解）。00715L 為**期貨槓反 ETF**：完整性標準＝期貨契約/名目曝險/保證金/現金，非股票持股數 |
+
+**資料誠信紅線（2026-11-23 Ivan 指示，永久）**：① 禁止 verify=False 進正式流程——憑證鏈不完整時補中繼組自訂 CA bundle（大華銀已照此落地：secure.globalsign.net 鏡像取 R46 中繼，bundle 存 repo skills/data/certs/uobam-bundle.pem） ② 不繞過 WAF 403／授權 401（不逆向 client id）——維持 CMoney 或直接向投信索取 ③ PCF＝申贖組合非完整持股，一律標 PCF＋涵蓋率 ④ 正式數字需獨立核對（投信公告或 TWSE 申贖檔）才標 official（TWSE ETFPCF 端點參數待探，列待辦）⑤ 域名/端點無法確認時請用戶提供，不以猜測替代
 
 ## 三、四大指數替代 ETF 持股（`index-holdings` job）
 

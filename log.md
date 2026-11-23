@@ -1103,3 +1103,8 @@ Ivan 問「撰寫 WIKI 時經常出現權限與缺欄位問題，未來能不能
 
 - **2026-11-22** 市場資料來源總表：新增集保 TDCC OpenAPI（134 端點；1-5 股權分散表、2-41 ETF 月分析表實測通，中文欄名 BOM 陷阱）與期交所 TAIFEX OpenAPI（135 端點 spec 解析完成；資料端點自 VPS 回 UI 殼、疑似限台灣 IP 待驗）；同步寫入 repo `mklab-stock-sources.html`（第 5/6 卡）；國泰持股列狀態更新為已導入。
 ## [2026-11-22 21:00:32] lint | 0 dir_perm_fixed, 6 file_perm_fixed, 0 group_fixed | 133 stale_pages
+
+- **2026-11-23** 市場資料來源總表：新增「主動式 ETF 13 家投信官方端點速查」（統一/群益/安聯/中信/野村/台新/玉山/復華/凱基/永豐/聯博/第一金/摩根/兆豐，含基準日欄位對照與各家陷阱；與 repo mklab-stock-sources.html 第 13 卡同步）；fetch_etf_holdings_active.py 每日採集已導入，37 檔中 34 檔官方直出。
+
+- **2026-11-23** 市場資料來源總表：卡 13 改名「ETF 發行商官方持股端點」＋新增各投信可獲取性總表（361 檔：官方直出 73＋混合 50＝123 檔官方持股、CMoney 備援 236、無資料 2；14 家投信破解）；保管費 359/361 補齊（integrate_etf_extras.py）；與 repo sources.html 第 13 卡同步。
+## [2026-11-23 21:00:32] lint | 0 dir_perm_fixed, 8 file_perm_fixed, 0 group_fixed | 133 stale_pages
