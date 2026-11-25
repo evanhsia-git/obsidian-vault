@@ -1109,3 +1109,4 @@ Ivan 問「撰寫 WIKI 時經常出現權限與缺欄位問題，未來能不能
 - **2026-11-23** 市場資料來源總表：卡 13 改名「ETF 發行商官方持股端點」＋新增各投信可獲取性總表（361 檔：官方直出 73＋混合 50＝123 檔官方持股、CMoney 備援 236、無資料 2；14 家投信破解）；保管費 359/361 補齊（integrate_etf_extras.py）；與 repo sources.html 第 13 卡同步。
 ## [2026-11-23 21:00:32] lint | 0 dir_perm_fixed, 8 file_perm_fixed, 0 group_fixed | 133 stale_pages
 ## [2026-11-24 21:00:32] lint | 0 dir_perm_fixed, 8 file_perm_fixed, 0 group_fixed | 133 stale_pages
+## [2026-11-25 21:00:33] lint | 0 dir_perm_fixed, 8 file_perm_fixed, 0 group_fixed | 133 stale_pages
